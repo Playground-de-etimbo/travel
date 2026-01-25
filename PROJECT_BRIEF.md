@@ -44,6 +44,7 @@
 - Budget planner for wishlist (trip length, total estimate).
 - Next holiday countdown with a “Planned trips” list.
 - Export map art for printing (visited countries).
+- AI destination bot to suggest where to go next and auto-update the planned destination list, with usage limits of X suggestions per logged-in user and one suggestion per anonymous user.
 
 **Out of scope (for now)**
 - Bookings, payments, itinerary management.
