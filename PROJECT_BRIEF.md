@@ -73,6 +73,8 @@
 - Must allow full use without logging in (no login wall).
 - Must support optional Google and Apple sign-in for saving/syncing.
 - Must persist lists and states in NoSQL storage when signed in.
+- Must support Google and Apple sign-in.
+- Must persist lists and states in NoSQL storage.
 
 **Monetization**
 - Must include a “Buy Me a Coffee” button (non-blocking).
