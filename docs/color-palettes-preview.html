@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel Motivation Planner – Color Palette Preview</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 32px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 12px;
+    }
+
+    p {
+      margin: 0 0 24px;
+      color: #475569;
+    }
+
+    .palette {
+      margin-bottom: 32px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .palette h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .rows {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .mode {
+      border-radius: 12px;
+      padding: 16px;
+      background: #f1f5f9;
+    }
+
+    .mode h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+    }
+
+    .color {
+      height: 56px;
+    }
+
+    .label {
+      padding: 8px 10px;
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #1f2937;
+    }
+
+    .dark-mode {
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .dark-mode .label {
+      background: rgba(15, 23, 42, 0.85);
+      color: #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Travel Motivation Planner – Palette Preview</h1>
+  <p>Chosen palette: Midnight Map (Premium + focused).</p>
+
+  <section class="palette">
+    <h2>Midnight Map (Premium + focused)</h2>
+    <div class="rows">
+      <div class="mode">
+        <h3>Light</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="color" style="background:hsl(225 40% 98%)"></div><div class="label">background · 225 40% 98%</div></div>
+          <div class="swatch"><div class="color" style="background:hsl(230 27% 13%)"></div><div class="label">foreground · 230 27% 13%</div></div>
+          <div class="swatch"><div class="color" style="background:hsl(230 68% 50%)"></div><div class="label">primary · 230 68% 50%</div></div>
+          <div class="swatch"><div class="color" style="background:hsl(160 62% 45%)"></div><div class="label">accent · 160 62% 45%</div></div>
+        </div>
+      </div>
+      <div class="mode dark-mode">
+        <h3>Dark</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="color" style="background:hsl(230 28% 7%)"></div><div class="label">background · 230 28% 7%</div></div>
+          <div class="swatch"><div class="color" style="background:hsl(225 40% 96%)"></div><div class="label">foreground · 225 40% 96%</div></div>
+          <div class="swatch"><div class="color" style="background:hsl(230 68% 56%)"></div><div class="label">primary · 230 68% 56%</div></div>
+          <div class="swatch"><div class="color" style="background:hsl(160 62% 45%)"></div><div class="label">accent · 160 62% 45%</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
