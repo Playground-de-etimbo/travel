@@ -34,6 +34,8 @@ A simple, beautiful web app that lets you:
 | [SETUP.md](SETUP.md) | Detailed local setup instructions |
 | [DEVELOPMENT.md](DEVELOPMENT.md) | Development workflow and conventions |
 | [TESTING.md](TESTING.md) | Testing strategy and Vitest guide 🧪 |
+| [STORAGE_STRATEGY.md](STORAGE_STRATEGY.md) | localStorage → Firebase migration plan 💾 |
+| [CHANGELOG.md](CHANGELOG.md) | Project changes and updates 📝 |
 
 ---
 
@@ -55,22 +57,26 @@ See [TECH_STACK.md](TECH_STACK.md) for full rationale.
 ## Features
 
 ### MVP (v1.0) - In Progress
-- [x] Country directory with search
-- [ ] "Been to" and "Want to go" toggles
-- [ ] Dedicated list views
+- [ ] **World map hero** - Interactive map with visited country highlighting
+- [ ] **Multi-select flow** - Bulk country selection modal
+- [ ] **Regional stats** - Completion tracking by continent
+- [ ] **Click-to-toggle map** - Mark countries directly on map
+- [ ] Country directory with search
+- [ ] "Been to" and "Want to go" lists
 - [ ] Placeholder travel costs per country
-- [ ] Google authentication
-- [ ] Firestore persistence
-- [ ] Guest mode (localStorage)
+- [ ] localStorage persistence (Firebase-ready abstraction)
+- [ ] "Midnight Map" color theme
 - [ ] Mobile-first responsive design
 
 See [FEATURES.md](FEATURES.md) for complete list and status.
 
 ### Post-MVP
-- Interactive map view (v1.1)
+- **Firebase Authentication** - Google/Apple OAuth (v1.1)
+- **Firestore sync** - Cross-device data sync (v1.1)
+- **Social sharing** - Map card image generation (v1.1)
 - Visit dates and notes (v1.2)
 - Budget calculator (v2.0)
-- Apple authentication (v1.2)
+- AI destination suggestions (v2.0+)
 
 See [ROADMAP.md](ROADMAP.md) for full roadmap.
 

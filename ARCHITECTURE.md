@@ -10,9 +10,10 @@ This document explains how the codebase is organized, the patterns we use, and w
 ```
 travel/
 ├── public/                      # Static assets
-│   ├── vite.svg                # Default Vite icon (replace)
+│   ├── vite.svg                # Default Vite icon (replace with logo)
 │   └── data/                   # Static data files
-│       └── countries.json      # All country data
+│       ├── countries.json      # Country metadata (name, flag, costs, etc.)
+│       └── countries.geo.json  # GeoJSON country boundaries for map
 │
 ├── src/                        # Source code
 │   ├── main.tsx               # App entry point
@@ -24,27 +25,46 @@ travel/
 │   │   │   ├── button.tsx
 │   │   │   ├── card.tsx
 │   │   │   ├── input.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── checkbox.tsx
+│   │   │   ├── progress.tsx
 │   │   │   └── ...
 │   │   │
 │   │   ├── layout/           # Layout components
 │   │   │   ├── Header.tsx
 │   │   │   ├── Navigation.tsx
+│   │   │   ├── CounterBadge.tsx
 │   │   │   └── Footer.tsx
+│   │   │
+│   │   ├── map/              # Map-related components
+│   │   │   ├── WorldMap.tsx           # Main map component
+│   │   │   ├── MapControls.tsx        # Zoom, pan controls
+│   │   │   ├── CountryLayer.tsx       # GeoJSON country boundaries
+│   │   │   ├── FlagOverlay.tsx        # Flag markers on map
+│   │   │   └── MapLegend.tsx          # Legend (visited/wishlist)
 │   │   │
 │   │   ├── country/          # Country-related components
 │   │   │   ├── CountryCard.tsx
 │   │   │   ├── CountryGrid.tsx
 │   │   │   ├── CountrySearch.tsx
-│   │   │   └── CountryBadge.tsx
+│   │   │   ├── CountryBadge.tsx
+│   │   │   └── MultiSelectModal.tsx   # Bulk country selection
 │   │   │
-│   │   └── auth/             # Auth components
+│   │   ├── stats/            # Statistics components
+│   │   │   ├── RegionalStats.tsx      # Region breakdown
+│   │   │   ├── StatsCard.tsx          # Individual stat display
+│   │   │   ├── ProgressBar.tsx        # Visual progress
+│   │   │   └── GlobalStats.tsx        # Total completion
+│   │   │
+│   │   └── auth/             # Auth components (post-MVP)
 │   │       ├── SignInButton.tsx
 │   │       └── ProtectedRoute.tsx
 │   │
 │   ├── pages/                # Page components (views)
-│   │   ├── DirectoryPage.tsx     # Main country grid
+│   │   ├── HomePage.tsx          # Map hero + directory
 │   │   ├── BeenToPage.tsx        # Been To list
 │   │   ├── WantToGoPage.tsx      # Want To Go list
+│   │   ├── StatsPage.tsx         # Detailed regional stats
 │   │   └── NotFoundPage.tsx      # 404
 │   │
 │   ├── hooks/                # Custom React hooks
@@ -58,8 +78,16 @@ travel/
 │   │   └── UserStateContext.tsx  # User's country selections
 │   │
 │   ├── lib/                  # Utilities and config
-│   │   ├── firebase.ts           # Firebase initialization
-│   │   ├── firestore.ts          # Firestore helpers
+│   │   ├── storage/              # Storage abstraction
+│   │   │   ├── interface.ts      # StorageAdapter interface
+│   │   │   ├── localStorage.ts   # localStorage implementation (MVP)
+│   │   │   ├── firestore.ts      # Firestore implementation (post-MVP)
+│   │   │   └── index.ts          # Export active adapter
+│   │   ├── map/                  # Map utilities
+│   │   │   ├── geojson.ts        # GeoJSON data loader
+│   │   │   ├── styles.ts         # Map styling
+│   │   │   └── utils.ts          # Map helper functions
+│   │   ├── firebase.ts           # Firebase initialization (post-MVP)
 │   │   └── utils.ts              # General utilities
 │   │
 │   ├── types/                # TypeScript type definitions

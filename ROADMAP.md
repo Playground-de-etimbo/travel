@@ -34,59 +34,96 @@ A web app that motivates travel by helping users track where they've been and wh
 ### Must-Have
 ✅ These features are required for launch.
 
-#### Country Directory
-- [x] ~200 countries in static JSON
-- [x] Card grid layout with flag emoji
-- [x] Search by country name
-- [x] Region filtering (optional but nice)
-- [x] Mobile-responsive design
+#### World Map Hero
+- [ ] Interactive world map at top of page
+- [ ] Visited country highlighting with fill color
+- [ ] Flag emoji overlays on visited countries
+- [ ] Click country on map to toggle visited
+- [ ] "Add country" button (opens multi-select)
+- [ ] Mobile-responsive map with touch controls
 
-#### User State
-- [x] "Been to" toggle
-- [x] "Want to go" toggle
-- [x] Visual badges on cards
-- [x] Counter in header (Been To: X | Want To Go: Y)
-- [x] Guest mode (localStorage)
+#### Multi-Select Flow
+- [ ] Modal dialog for bulk country selection
+- [ ] Searchable country list in modal
+- [ ] Multi-select checkboxes
+- [ ] Running count ("X countries selected")
+- [ ] Region filter within modal
+- [ ] Save selections and update map
+- [ ] Cancel without saving
 
-#### Lists
-- [x] Dedicated "Been To" page
-- [x] Dedicated "Want To Go" page
-- [x] Remove from list (toggle off)
-- [x] Empty states
+#### Regional Stats
+- [ ] Calculate visited per region/continent
+- [ ] Summary stats on directory page ("Europe: 12/44")
+- [ ] Detailed stats page with breakdowns
+- [ ] Progress bars or visual indicators
+- [ ] Percentage completion display
+- [ ] Global total ("45/195 countries visited")
 
-#### Costs
-- [x] Placeholder baseline cost per country
-- [x] Placeholder nightly cost per country
-- [x] Display local currency
+#### Country Data
+- [ ] ~200 countries in static JSON
+- [ ] GeoJSON data for map boundaries
+- [ ] Country cards with flag, name, region, costs
+- [ ] Search and filter functionality
+- [ ] Mobile-responsive layout
 
-#### Authentication
-- [x] Google sign-in
-- [x] Sync localStorage to Firestore
-- [x] Persistent sessions
+#### User State (localStorage)
+- [ ] Storage abstraction layer (Firebase-ready)
+- [ ] "Been to" list persistence
+- [ ] "Want to go" list persistence
+- [ ] Auto-save on changes (debounced)
+- [ ] Export/import functionality
 
-#### Data Persistence
-- [x] Firestore storage for authenticated users
-- [x] Real-time sync
-- [x] Basic error handling
+#### List Views
+- [ ] Dedicated "Been To" page
+- [ ] Dedicated "Want To Go" page
+- [ ] Dedicated "Stats" page
+- [ ] Navigation between views
+- [ ] Empty states
+- [ ] Remove from list functionality
+
+#### Costs & Currency
+- [ ] Placeholder baseline cost per country
+- [ ] Placeholder nightly cost per country
+- [ ] Display local currency
+
+#### Theme & Design
+- [ ] "Midnight Map" color palette
+- [ ] Light and dark mode support
+- [ ] Tailwind + shadcn/ui integration
+- [ ] Mobile-first responsive design
 
 #### Deployment
-- [x] Firebase Hosting
-- [x] Custom domain (optional)
-- [x] Buy Me a Coffee button
+- [ ] Firebase Hosting
+- [ ] Custom domain (optional)
+- [ ] Buy Me a Coffee button
 
 ---
 
 ## Post-MVP Features
 
-### v1.1 - Visual Enhancements (High Priority)
+### v1.1 - Authentication & Sync (High Priority)
 
-#### Interactive Map View
-**Effort:** Medium | **Impact:** High | **Timeline:** 2 weeks
-- Map showing visited countries (filled/colored)
-- Wishlist countries (outlined/different color)
-- Click country on map to toggle state
-- Zoom and pan
-- **Tech:** MapLibre GL + GeoJSON country boundaries
+#### Firebase Authentication
+**Effort:** Small | **Impact:** High | **Timeline:** 1 week
+- Google OAuth integration
+- Firebase Auth setup
+- Sign in / Sign out flows
+- User profile page (basic)
+- Protected routes (optional)
+
+#### Data Migration
+**Effort:** Medium | **Impact:** High | **Timeline:** 1 week
+- Migrate localStorage to Firestore on first sign-in
+- Real-time sync across devices
+- Merge conflict resolution (if needed)
+- Keep localStorage as fallback for offline
+
+#### Social Sharing
+**Effort:** Medium | **Impact:** Medium | **Timeline:** 1 week
+- Generate map card image (visited countries)
+- "Save to Photos" button
+- Share to social media (Twitter, Instagram)
+- Custom share text ("I've visited X countries!")
 
 #### Better Filtering
 **Effort:** Small | **Impact:** Medium | **Timeline:** 3 days

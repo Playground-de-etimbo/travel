@@ -17,9 +17,14 @@ This document outlines the technical decisions for the Travel Motivation Planner
 - **Mobile-first:** All components built with mobile responsiveness as priority.
 
 ### Styling & UI Components
-**Tailwind CSS + shadcn/ui**
+**Tailwind CSS + shadcn/ui + "Midnight Map" Theme**
 - **Why Tailwind:** Utility-first CSS that's fast to write, small bundle size, highly customizable.
 - **Why shadcn/ui:** Copy-paste component approach (not a dependency). High-quality, accessible components built on Radix UI. Professional look without the bulk of Material-UI.
+- **Color Theme:** "Midnight Map" - Premium blue palette with dark mode support
+  - Primary: Deep blue (#3b5fc7 / hsl(230, 68%, 50%))
+  - Accent: Teal (#2b9d7f / hsl(160, 62%, 45%))
+  - Background: Light slate / Dark navy
+  - See `docs/color-palettes.md` for full HSL values
 - **Cost:** Free and open source.
 
 ### State Management
@@ -31,38 +36,68 @@ This document outlines the technical decisions for the Travel Motivation Planner
 **React Router v6**
 - **Why:** Industry standard, simple to use, supports protected routes.
 
+### Map Library
+**MapLibre GL JS**
+- **Why:** Free, open-source fork of Mapbox GL
+- **Features:** Interactive maps, GeoJSON support, mobile-friendly
+- **Cost:** Free (no API keys needed)
+- **Alternative:** Mapbox GL (requires API key after free tier)
+
 ---
 
 ## Backend & Infrastructure
 
-### Backend-as-a-Service
-**Firebase**
+### Data Persistence (MVP)
 
-#### Firebase Authentication
-- **Providers:** Google OAuth (MVP), Apple OAuth (post-MVP)
-- **Why:** Zero backend code needed, industry-standard security, free tier covers MVP needs.
-- **Guest mode:** localStorage for unauthenticated users, sync to Firebase on sign-in.
+#### localStorage with Abstraction Layer
+- **MVP Approach:** Browser localStorage for all data
+- **Why:** Simple, works offline, no auth needed, instant setup
+- **Abstraction:** Storage interface that makes Firebase migration trivial
+- **Limitations:** Per-device only (no cross-device sync until auth added)
 
-#### Firestore (Database)
+#### Storage Abstraction Pattern
+```typescript
+interface StorageAdapter {
+  save(key: string, data: any): Promise<void>;
+  load(key: string): Promise<any>;
+  clear(): Promise<void>;
+}
+
+// localStorage implementation for MVP
+class LocalStorageAdapter implements StorageAdapter { ... }
+
+// Firestore implementation for post-MVP
+class FirestoreAdapter implements StorageAdapter { ... }
+```
+
+### Backend-as-a-Service (Post-MVP)
+
+#### Firebase Authentication (v1.1+)
+- **Providers:** Google OAuth (v1.1), Apple OAuth (v1.2+)
+- **Why:** Zero backend code needed, industry-standard security, free tier
+- **Migration:** One-time sync of localStorage to Firestore on first sign-in
+
+#### Firestore (Database - v1.1+)
 - **Type:** NoSQL document database
+- **When:** Added in v1.1 with authentication
 - **Why:**
-  - Real-time sync capabilities
+  - Real-time sync across devices
   - Generous free tier (50K reads/day, 20K writes/day)
   - Automatic scaling
   - Offline support built-in
-  - Excellent Firebase integration
 - **Data model:**
   ```
   users/{userId}
     - beenTo: string[]
     - wantToGo: string[]
     - lastUpdated: timestamp
-    - metadata: {...}
+    - metadata: { ... }
   ```
 
-#### Firebase Hosting
-- **Why:** One-command deployment, global CDN, free SSL, integrates with Firebase Auth.
-- **Cost:** Free tier: 10GB/month bandwidth, 1GB storage.
+#### Firebase Hosting (MVP)
+- **Why:** One-command deployment, global CDN, free SSL
+- **Cost:** Free tier: 10GB/month bandwidth, 1GB storage
+- **Note:** Used from MVP, but only for static hosting (no auth/database initially)
 
 ---
 
