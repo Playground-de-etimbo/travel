@@ -49,6 +49,8 @@
 - Budget planner for wishlist (trip length, total estimate).
 - Next holiday countdown with a “Planned trips” list.
 - Export map art for printing (visited countries).
+- Income allocation calculator with sliders (expenses, travel, savings, splurges) and estimated travel days per year.
+- Travel-style cost bands per country (budget → mid → fancy → rich kid) with examples (dining habits, hotel stars).
 - AI destination bot to suggest where to go next and auto-update the planned destination list, with usage limits of X suggestions per logged-in user and one suggestion per anonymous user.
 
 **Out of scope (for now)**
@@ -59,6 +61,7 @@
 **Country directory**
 - Must display all countries with search and/or region filter.
 - Must support fast selection (no full page reloads).
+- Must support grouping and summary views by region (counts/percentages).
 
 **Country states**
 - Must allow a country to be in exactly one state: neutral, “Been to,” or “Want to go.”
@@ -73,6 +76,10 @@
 - Must show the local currency for each country.
 
 **Auth + storage**
+- Must allow full use without logging in (no login wall).
+- Must support optional Google and Apple sign-in for saving/syncing.
+- Must persist lists and states in NoSQL storage when signed in.
+- Must support Google and Apple sign-in.
 - Must persist lists and states in NoSQL storage.
 
 **Monetization**
