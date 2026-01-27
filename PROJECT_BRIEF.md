@@ -1,13 +1,13 @@
 # Project Briefing: Travel Motivation Planner
 
 ## 1) Product Overview (PM Brief for AI Engineers)
-**Vision:** A web app that motivates travel by letting users track where they’ve been and where they want to go, with simple cost placeholders to make future trips feel tangible.
+**Vision:** A web app that motivates travel by letting users track where they've been and where they want to go, with simple cost placeholders to make future trips feel tangible.
 
 **Why it matters:** People forget why they work. A visual, personal travel tracker makes progress feel real and keeps motivation high.
 
 **Primary users:** Travelers who love traveling and have visited or want to visit many places.
 
-**Current status:** Idea stage.
+**Current status:** In development - MVP phase.
 
 ## 2) Objectives & Success Metrics
 **Objectives**
@@ -93,31 +93,54 @@
 - **Privacy:** Only store what is needed to save user lists.
 
 ## 8) UX + Content Guidance
-- Tone: engaging and clear.
-- Emphasize inspiration, progress, and positive reinforcement.
-- Keep the “marking” flow simple and fast.
 
-## 9) Tech Stack Options (React + Node.js backend preferred)
-**Option A (Fast MVP — recommended)**
-- Frontend: React + Vite + TypeScript
-- Backend: Node.js + Express or Fastify
-- Auth: **Firebase Authentication** (Google/Apple)
-- Database: **Firestore** (NoSQL)
-- Map (future): **MapLibre GL + OpenStreetMap tiles** (free, supports fills/animations)
+### Design Decisions (MVP)
+- **Layout:** Searchable card grid (mobile-first, responsive)
+- **Country cards:** Flag emoji, name, region, costs, toggle buttons
+- **Feedback:** Visual badges on cards + counter in header (Been To: X | Want To Go: Y)
+- **Navigation:** Simple top nav - Directory / Been To / Want To Go
+- **Default view:** Full country directory (all countries immediately visible)
+- **Guest mode:** App works without sign-in, prompts to sign in to sync across devices
 
-**Option B (Unified full-stack)**
-- Frontend: React (Next.js)
-- Backend: Next.js API routes or Node.js server
-- Auth: NextAuth with Google/Apple
-- Database: MongoDB Atlas
-- Map (future): Mapbox GL
+### UX Principles
+- **Tone:** Engaging and clear, inspire wanderlust
+- **Speed:** Interactions should feel instant (sub-200ms)
+- **Simplicity:** Minimal clicks to mark a country
+- **Progress:** Make accomplishments visible (counter, lists)
+- **Mobile-first:** Perfect experience on phone, enhanced on desktop
 
-**Option C (Scalable services)**
-- Frontend: React + TypeScript
-- Backend: Node.js (NestJS)
-- Auth: Auth0
-- Database: MongoDB Atlas
-- Map (future): Mapbox or Google Maps
+### Future UX Enhancements (Post-MVP)
+- Visit dates and notes (v1.2)
+- Interactive map view (v1.1)
+- Onboarding wizard for first-time users (v1.1)
+
+## 9) Tech Stack (Final Decision)
+**Selected: Option A - Fast MVP with Firebase**
+
+### Frontend
+- **React 18+** with **Vite** for fast development
+- **TypeScript** for type safety
+- **Tailwind CSS** + **shadcn/ui** for styling and components
+- **React Router v6** for routing
+- **Mobile-first** responsive design (priority)
+
+### Backend & Infrastructure
+- **Firebase Authentication** (Google OAuth for MVP)
+- **Firestore** for NoSQL database
+- **Firebase Hosting** for deployment
+- **Guest mode** with localStorage (sync to Firestore on sign-in)
+
+### Data
+- **Static JSON** file for country data (~200 countries)
+- Placeholder costs: Rough estimates based on country income levels
+- Fields: countryCode, countryName, region, currencyCode, currencyName, flagEmoji, baselineCost, nightlyCost
+
+### Future Integrations
+- Map (v1.1): **MapLibre GL + OpenStreetMap** (free, open source)
+- Apple OAuth (v1.2)
+- Real cost data via Numbeo API (v2.0)
+
+**Rationale:** Optimized for rapid prototyping, minimal cost, ease of learning, and automatic scaling.
 
 ## 10) Potential Integrations (Future)
 - **Country & currency data:** Rest Countries API, ISO datasets, Open Exchange Rates.
@@ -135,5 +158,19 @@
 - Each country detail shows placeholder baseline + nightly costs and the local currency.
 - A country can be unmarked and removed from the lists.
 
-## 12) Open Decisions
-- Default display currency for totals (e.g., USD)?
+## 12) Decisions Made
+- ✅ Tech stack: React + Vite + Firebase (see section 9)
+- ✅ UI framework: Tailwind CSS + shadcn/ui
+- ✅ Country data: Static JSON with placeholder costs
+- ✅ Auth: Google OAuth only for MVP (Apple post-MVP)
+- ✅ Guest mode: Yes, with localStorage
+- ✅ UX pattern: Searchable card grid
+- ✅ Feedback: Visual badges + header counter
+- ✅ Mobile-first: Priority for responsive design
+- ✅ Notes/dates: Post-MVP feature (v1.2)
+
+## 13) Open Questions (To Resolve Later)
+- Default display currency for cost totals (USD? User's local currency?)
+- Budget calculator: Trip planning features (v2.0)
+- Map customization options (v1.1)
+- Social features: Public profiles vs private only (v3.0)
