@@ -25,20 +25,25 @@
 2) **As a traveler,** I can mark countries as “Been to” and “Want to go.”
 3) **As a traveler,** I can view my “Been to” list and “Want to go” list separately.
 4) **As a traveler,** I can see placeholder baseline + nightly costs and the local currency for each country.
-5) **As a traveler,** I can sign in via Google or Apple so my lists are saved and synced.
+5) **As a traveler,** I can see a world map with my visited countries surfaced at the top of the page.
+6) **As a traveler,** I can bulk-add multiple countries from a searchable, multi-select list with a running total.
+7) **As a traveler,** I can track regional completion stats for visited vs unvisited countries.
 
 ## 4) Scope
 **In scope (MVP)**
+- World map hero at the top of the page with visited-country flags overlaid and an adjacent “Add country” button.
 - Country directory with search/filter.
+- Multi-select “Add country” flow that supports rapid selection, searching, and shows total country counts.
 - “Been to” and “Want to go” toggles.
 - Dedicated list views for each state.
+- Regional completion tracker showing visited vs unvisited counts.
 - Placeholder baseline + nightly costs per country.
 - Display local currency per country.
-- Google/Apple authentication.
 - NoSQL storage for user data.
 
 **Should-have (post-MVP)**
-- Interactive map view (visited vs wishlist).
+- Google/Apple authentication (move to later phase).
+- Social sharing and “Save to Photos” card for a small image of visited countries.
 
 **Could-have (future)**
 - Budget planner for wishlist (trip length, total estimate).
@@ -67,7 +72,6 @@
 - Must show the local currency for each country.
 
 **Auth + storage**
-- Must support Google and Apple sign-in.
 - Must persist lists and states in NoSQL storage.
 
 **Monetization**
@@ -153,8 +157,10 @@
 - **E-ink display:** Simple API feed for next-trip countdown and highlights.
 
 ## 11) Acceptance Criteria (MVP)
-- A user can sign in with Google or Apple and return to the same lists later.
+- A user sees a world map hero at the top of the page with visited flags and an “Add country” control.
+- A user can open the multi-select, search, and quickly select multiple countries while seeing total counts.
 - A user can search a country, mark it “Been to” or “Want to go,” and see it in the correct list.
+- A user can view regional completion stats for visited vs unvisited countries.
 - Each country detail shows placeholder baseline + nightly costs and the local currency.
 - A country can be unmarked and removed from the lists.
 
