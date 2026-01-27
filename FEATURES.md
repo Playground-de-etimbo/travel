@@ -43,15 +43,15 @@
 ### 3. Country Data & Display
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Static country JSON file | ⚪ | ~200 countries with metadata |
-| Country interface (TypeScript) | ⚪ | Type definitions |
+| Static country JSON file | 🟢 | 20 countries for MVP testing |
+| Country interface (TypeScript) | 🟢 | Type definitions complete |
 | Country card component | ⚪ | Flag, name, region, costs |
 | Searchable country grid | ⚪ | Search by name, filter by region |
 | Mobile-responsive layout | ⚪ | Mobile-first design |
 | Display placeholder costs | ⚪ | Baseline + nightly cost |
 | Display local currency | ⚪ | Currency code and name |
 
-**Ready to start:** Feature 1 - Create country data structure
+**Ready to start:** Now - data structure complete
 
 ---
 
@@ -72,14 +72,14 @@
 ### 5. User State Management (localStorage)
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Storage abstraction layer | ⚪ | Easy Firebase migration later |
+| Storage abstraction layer | 🟢 | localStorage + Firestore stub complete |
 | Save "Been to" list | ⚪ | Persist to localStorage |
 | Save "Want to go" list | ⚪ | Persist to localStorage |
 | Load state on app start | ⚪ | Restore from storage |
 | Automatic save on changes | ⚪ | Debounced updates |
-| Export/import functionality | ⚪ | JSON export for backup |
+| Export/import functionality | 🟢 | JSON export/import implemented |
 
-**Dependencies:** None - start early
+**Dependencies:** None - ready for integration
 
 ---
 
@@ -100,41 +100,41 @@
 ### 7. Map Integration
 | Feature | Status | Notes |
 |---------|--------|-------|
-| MapLibre GL setup | ⚪ | Free, open-source map library |
-| Country GeoJSON data | ⚪ | Polygons for all countries |
+| MapLibre GL setup | 🟢 | v5.16.0 installed |
+| Country GeoJSON data | 🟢 | Natural Earth 10m data (13MB) |
 | Map styling | ⚪ | "Midnight Map" theme colors |
 | Zoom and pan controls | ⚪ | Touch and mouse support |
-| Country boundaries | ⚪ | Clear borders |
+| Country boundaries | 🟢 | GeoJSON boundaries loaded |
 | Hover effects | ⚪ | Highlight on hover |
 
-**Dependencies:** MapLibre GL installed, GeoJSON data
+**Dependencies:** Ready to implement map component
 
 ---
 
 ### 8. Color Theme
 | Feature | Status | Notes |
 |---------|--------|-------|
-| "Midnight Map" palette | ⚪ | Premium blue theme |
-| Light mode colors | ⚪ | Apply HSL CSS variables |
-| Dark mode colors | ⚪ | Dark theme support |
-| Tailwind config | ⚪ | Integrate with Tailwind |
-| shadcn/ui theming | ⚪ | Apply to components |
+| "Midnight Map" palette | 🟢 | Premium blue theme implemented |
+| Light mode colors | 🟢 | HSL CSS variables configured |
+| Dark mode colors | 🟢 | Dark theme support via @media |
+| Tailwind config | 🟢 | Tailwind v4 @theme directive |
+| shadcn/ui theming | 🟢 | Components use theme colors |
 
-**Dependencies:** Tailwind setup complete
+**Dependencies:** Complete - theme fully integrated
 
 ---
 
 ### 9. Core UI Components
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Header with navigation | ⚪ | Logo, nav links, counter |
+| Header with navigation | 🟢 | Basic header with nav links |
 | Counter badge | ⚪ | "Been To: X \| Want To Go: Y" |
 | Search bar component | ⚪ | Reusable search input |
-| Modal component | ⚪ | For multi-select flow |
-| Button variants | ⚪ | Primary, secondary, ghost |
-| Badge component | ⚪ | For "Been To" / "Want To Go" |
+| Modal component | 🟢 | shadcn/ui dialog installed |
+| Button variants | 🟢 | shadcn/ui button installed |
+| Badge component | 🟢 | shadcn/ui badge installed |
 
-**Dependencies:** shadcn/ui setup
+**Dependencies:** shadcn/ui setup complete
 
 ---
 
@@ -201,12 +201,12 @@
 
 ## Feature Development Order (Revised)
 
-### Phase 1: Foundation (Week 1)
-1. Project setup (Vite + React + TypeScript + Tailwind)
-2. Color theme implementation ("Midnight Map")
-3. **Storage abstraction layer** (critical for data model)
-4. Country data JSON file with GeoJSON
-5. Country TypeScript interfaces
+### Phase 1: Foundation (Week 1) ✅ COMPLETED
+1. ✅ Project setup (Vite + React + TypeScript + Tailwind)
+2. ✅ Color theme implementation ("Midnight Map")
+3. ✅ **Storage abstraction layer** (critical for data model)
+4. ✅ Country data JSON file with GeoJSON
+5. ✅ Country TypeScript interfaces
 
 ### Phase 2: Core Data & Display (Week 1-2)
 6. Country card component
@@ -260,13 +260,22 @@
 
 ## Current Focus
 
-**Next up:** Feature 1 - Storage abstraction layer + Country data structure
+**Next up:** Phase 2 - Country card component and grid layout
 
-**Blocked by:** None - ready to start
+**Completed:** ✅ Phase 1 Foundation - All setup complete
 
-**Questions:**
-- GeoJSON source for country boundaries? (Natural Earth, OpenStreetMap)
-- Map tile provider? (OpenStreetMap, Mapbox free tier)
+**Ready to build:**
+- Country card component
+- Grid layout with search
+- User state hooks (useCountries, useUserData)
+- Basic list views
+
+**Technical Decisions Made:**
+- ✅ GeoJSON source: Natural Earth 10m resolution (13MB)
+- ✅ Map tile provider: OpenStreetMap (free, no API keys)
+- ✅ Map library: MapLibre GL JS v5.16.0
+- ✅ Package manager: pnpm
+- ✅ Tailwind CSS: v4 with @theme directive
 
 ---
 

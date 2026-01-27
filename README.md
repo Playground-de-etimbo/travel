@@ -2,7 +2,7 @@
 
 > A web app that motivates travel by helping you track where you've been and where you want to go.
 
-**Status:** 🏗️ MVP in development
+**Status:** 🏗️ MVP in development | ✅ Phase 1 Foundation Complete
 
 ---
 
@@ -41,12 +41,14 @@ A simple, beautiful web app that lets you:
 
 ## Tech Stack
 
-- **Frontend:** React 18 + Vite + TypeScript
-- **Styling:** Tailwind CSS + shadcn/ui
-- **Auth:** Firebase Authentication (Google)
-- **Database:** Firestore (NoSQL)
+- **Frontend:** React 18.3.1 + Vite 6.4.1 + TypeScript 5.6.3 ✅
+- **Styling:** Tailwind CSS v4 + shadcn/ui ✅
+- **Maps:** MapLibre GL JS 5.16.0 ✅
+- **Storage:** localStorage → Firestore abstraction ✅
+- **Auth:** Firebase Authentication (v1.1+)
+- **Database:** Firestore (v1.1+)
 - **Hosting:** Firebase Hosting
-- **Data:** Static JSON (~200 countries)
+- **Data:** Country JSON + GeoJSON boundaries (Natural Earth 10m) ✅
 
 **Why this stack?** Optimized for rapid prototyping, minimal cost, ease of learning, and automatic scaling.
 
@@ -64,9 +66,11 @@ See [TECH_STACK.md](TECH_STACK.md) for full rationale.
 - [ ] Country directory with search
 - [ ] "Been to" and "Want to go" lists
 - [ ] Placeholder travel costs per country
-- [ ] localStorage persistence (Firebase-ready abstraction)
-- [ ] "Midnight Map" color theme
-- [ ] Mobile-first responsive design
+- [x] **localStorage persistence** - Firebase-ready abstraction ✅
+- [x] **"Midnight Map" color theme** - Tailwind v4 implementation ✅
+- [x] **Mobile-first responsive design** - Foundation ready ✅
+- [x] **Country data structure** - TypeScript interfaces + sample data ✅
+- [x] **GeoJSON boundaries** - Natural Earth 10m resolution ✅
 
 See [FEATURES.md](FEATURES.md) for complete list and status.
 
@@ -123,25 +127,16 @@ cd travel
 # 2. Install pnpm (if not installed)
 npm install -g pnpm
 
-# 3. Initialize Vite + React
-pnpm create vite@latest . -- --template react-ts
+# 3. Install dependencies (project already initialized!)
 pnpm install
 
-# 4. Install dependencies
-pnpm install react-router-dom firebase
-pnpm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-npx shadcn-ui@latest init
-
-# 5. Set up Firebase (see GETTING_STARTED.md for details)
-# - Create Firebase project
-# - Enable Google auth
-# - Create Firestore database
-# - Copy config to .env.local
-
-# 6. Start development
+# 4. Start development
 pnpm dev
+
+# Access at http://localhost:5173
 ```
+
+**Note:** The project is now fully initialized! All dependencies, configuration, and foundation code are in place.
 
 See [SETUP.md](SETUP.md) for detailed setup instructions.
 
@@ -165,9 +160,11 @@ pnpm preview   # Preview production build
 ```
 
 ### Current Focus
-**Next feature:** Country data structure and card component
+**Phase 1 Complete:** ✅ Foundation (Vite, React, TypeScript, Tailwind v4, Storage Layer, Data Structure)
 
-See [FEATURES.md](FEATURES.md) for what's being worked on.
+**Next up:** Phase 2 - Country card component and grid layout
+
+See [FEATURES.md](FEATURES.md) for detailed status.
 
 ### Workflow
 1. Pick a feature from [FEATURES.md](FEATURES.md)

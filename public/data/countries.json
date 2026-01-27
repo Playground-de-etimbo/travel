@@ -1,0 +1,202 @@
+[
+  {
+    "countryCode": "US",
+    "countryName": "United States",
+    "region": "North America",
+    "currencyCode": "USD",
+    "currencyName": "US Dollar",
+    "flagEmoji": "🇺🇸",
+    "baselineCost": 100,
+    "nightlyCost": 150
+  },
+  {
+    "countryCode": "CA",
+    "countryName": "Canada",
+    "region": "North America",
+    "currencyCode": "CAD",
+    "currencyName": "Canadian Dollar",
+    "flagEmoji": "🇨🇦",
+    "baselineCost": 90,
+    "nightlyCost": 130
+  },
+  {
+    "countryCode": "MX",
+    "countryName": "Mexico",
+    "region": "North America",
+    "currencyCode": "MXN",
+    "currencyName": "Mexican Peso",
+    "flagEmoji": "🇲🇽",
+    "baselineCost": 50,
+    "nightlyCost": 70
+  },
+  {
+    "countryCode": "GB",
+    "countryName": "United Kingdom",
+    "region": "Europe",
+    "currencyCode": "GBP",
+    "currencyName": "British Pound",
+    "flagEmoji": "🇬🇧",
+    "baselineCost": 120,
+    "nightlyCost": 180
+  },
+  {
+    "countryCode": "FR",
+    "countryName": "France",
+    "region": "Europe",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flagEmoji": "🇫🇷",
+    "baselineCost": 110,
+    "nightlyCost": 160
+  },
+  {
+    "countryCode": "DE",
+    "countryName": "Germany",
+    "region": "Europe",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flagEmoji": "🇩🇪",
+    "baselineCost": 100,
+    "nightlyCost": 140
+  },
+  {
+    "countryCode": "IT",
+    "countryName": "Italy",
+    "region": "Europe",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flagEmoji": "🇮🇹",
+    "baselineCost": 95,
+    "nightlyCost": 135
+  },
+  {
+    "countryCode": "ES",
+    "countryName": "Spain",
+    "region": "Europe",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flagEmoji": "🇪🇸",
+    "baselineCost": 85,
+    "nightlyCost": 120
+  },
+  {
+    "countryCode": "JP",
+    "countryName": "Japan",
+    "region": "Asia",
+    "currencyCode": "JPY",
+    "currencyName": "Japanese Yen",
+    "flagEmoji": "🇯🇵",
+    "baselineCost": 110,
+    "nightlyCost": 150
+  },
+  {
+    "countryCode": "CN",
+    "countryName": "China",
+    "region": "Asia",
+    "currencyCode": "CNY",
+    "currencyName": "Chinese Yuan",
+    "flagEmoji": "🇨🇳",
+    "baselineCost": 70,
+    "nightlyCost": 100
+  },
+  {
+    "countryCode": "IN",
+    "countryName": "India",
+    "region": "Asia",
+    "currencyCode": "INR",
+    "currencyName": "Indian Rupee",
+    "flagEmoji": "🇮🇳",
+    "baselineCost": 40,
+    "nightlyCost": 60
+  },
+  {
+    "countryCode": "TH",
+    "countryName": "Thailand",
+    "region": "Asia",
+    "currencyCode": "THB",
+    "currencyName": "Thai Baht",
+    "flagEmoji": "🇹🇭",
+    "baselineCost": 50,
+    "nightlyCost": 70
+  },
+  {
+    "countryCode": "AU",
+    "countryName": "Australia",
+    "region": "Oceania",
+    "currencyCode": "AUD",
+    "currencyName": "Australian Dollar",
+    "flagEmoji": "🇦🇺",
+    "baselineCost": 120,
+    "nightlyCost": 170
+  },
+  {
+    "countryCode": "NZ",
+    "countryName": "New Zealand",
+    "region": "Oceania",
+    "currencyCode": "NZD",
+    "currencyName": "New Zealand Dollar",
+    "flagEmoji": "🇳🇿",
+    "baselineCost": 110,
+    "nightlyCost": 155
+  },
+  {
+    "countryCode": "BR",
+    "countryName": "Brazil",
+    "region": "South America",
+    "currencyCode": "BRL",
+    "currencyName": "Brazilian Real",
+    "flagEmoji": "🇧🇷",
+    "baselineCost": 60,
+    "nightlyCost": 85
+  },
+  {
+    "countryCode": "AR",
+    "countryName": "Argentina",
+    "region": "South America",
+    "currencyCode": "ARS",
+    "currencyName": "Argentine Peso",
+    "flagEmoji": "🇦🇷",
+    "baselineCost": 50,
+    "nightlyCost": 70
+  },
+  {
+    "countryCode": "ZA",
+    "countryName": "South Africa",
+    "region": "Africa",
+    "currencyCode": "ZAR",
+    "currencyName": "South African Rand",
+    "flagEmoji": "🇿🇦",
+    "baselineCost": 55,
+    "nightlyCost": 80
+  },
+  {
+    "countryCode": "EG",
+    "countryName": "Egypt",
+    "region": "Africa",
+    "currencyCode": "EGP",
+    "currencyName": "Egyptian Pound",
+    "flagEmoji": "🇪🇬",
+    "baselineCost": 40,
+    "nightlyCost": 60
+  },
+  {
+    "countryCode": "KE",
+    "countryName": "Kenya",
+    "region": "Africa",
+    "currencyCode": "KES",
+    "currencyName": "Kenyan Shilling",
+    "flagEmoji": "🇰🇪",
+    "baselineCost": 50,
+    "nightlyCost": 75
+  },
+  {
+    "countryCode": "MA",
+    "countryName": "Morocco",
+    "region": "Africa",
+    "currencyCode": "MAD",
+    "currencyName": "Moroccan Dirham",
+    "flagEmoji": "🇲🇦",
+    "baselineCost": 45,
+    "nightlyCost": 65
+  }
+]
