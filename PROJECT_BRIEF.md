@@ -22,21 +22,24 @@
 
 ## 3) Core User Stories (MVP)
 1) **As a traveler,** I can browse or search all countries so I can quickly find any place.
-2) **As a traveler,** I can mark countries as “Been to” and “Want to go.”
-3) **As a traveler,** I can view my “Been to” list and “Want to go” list separately.
+2) **As a traveler,** I can mark countries as "Been to" and "Want to go."
+3) **As a traveler,** I can view my "Been to" list and "Want to go" list on the same page (single-page layout).
 4) **As a traveler,** I can see placeholder baseline + nightly costs and the local currency for each country.
-5) **As a traveler,** I can see a world map with my visited countries surfaced at the top of the page.
+5) **As a traveler,** I can see a world map with my visited countries at the top of the page.
 6) **As a traveler,** I can bulk-add multiple countries from a searchable, multi-select list with a running total.
 7) **As a traveler,** I can track regional completion stats for visited vs unvisited countries.
+8) **As a traveler,** I can see how my travel experience compares to global averages (e.g., "Most people visit 10 countries in their lifetime - you've visited 5x that!") to understand my travel habits and stay motivated.
 
 ## 4) Scope
 **In scope (MVP)**
-- World map hero at the top of the page with visited-country flags overlaid and an adjacent “Add country” button.
+- **Single-page layout:** All content on one scrollable page (no separate routes).
+- World map hero at the top of the page with visited-country flags overlaid and an adjacent "Add country" button.
 - Country directory with search/filter.
-- Multi-select “Add country” flow that supports rapid selection, searching, and shows total country counts.
-- “Been to” and “Want to go” toggles.
-- Dedicated list views for each state.
+- Multi-select "Add country" flow that supports rapid selection, searching, and shows total country counts.
+- "Been to" and "Want to go" toggles.
+- List sections for "Been to" and "Want to go" on the same page.
 - Regional completion tracker showing visited vs unvisited counts.
+- **Comparative travel stats:** Show how user's travel compares to global averages (e.g., "You've traveled more than 95% of people").
 - Placeholder baseline + nightly costs per country.
 - Display local currency per country.
 - NoSQL storage for user data.
@@ -107,11 +110,12 @@
 ## 8) UX + Content Guidance
 
 ### Design Decisions (MVP)
-- **Layout:** Searchable card grid (mobile-first, responsive)
+- **Layout:** Single-page scrollable design with all sections on one page (mobile-first, responsive)
+- **Page structure:** Map hero → Stats comparison → Country directory → Been To list → Want To Go list → Regional stats
 - **Country cards:** Flag emoji, name, region, costs, toggle buttons
 - **Feedback:** Visual badges on cards + counter in header (Been To: X | Want To Go: Y)
-- **Navigation:** Simple top nav - Directory / Been To / Want To Go
-- **Default view:** Full country directory (all countries immediately visible)
+- **Navigation:** Anchor links in header to scroll to sections (Map / Directory / Been To / Want To Go / Stats)
+- **Default view:** Lands at top with map hero, can scroll down to see all sections
 - **Guest mode:** App works without sign-in, prompts to sign in to sync across devices
 
 ### UX Principles
@@ -165,10 +169,13 @@
 - **E-ink display:** Simple API feed for next-trip countdown and highlights.
 
 ## 11) Acceptance Criteria (MVP)
-- A user sees a world map hero at the top of the page with visited flags and an “Add country” control.
+- The entire app is on one scrollable page with all sections visible.
+- A user sees a world map hero at the top of the page with visited flags and an "Add country" control.
+- A user can scroll or click anchor links to navigate between sections (Map, Directory, Been To, Want To Go, Stats).
 - A user can open the multi-select, search, and quickly select multiple countries while seeing total counts.
-- A user can search a country, mark it “Been to” or “Want to go,” and see it in the correct list.
+- A user can search a country, mark it "Been to" or "Want to go," and see it in the corresponding section.
 - A user can view regional completion stats for visited vs unvisited countries.
+- A user can see comparative stats showing how their travel compares to global averages (e.g., "Most people visit 10 countries - you've visited 25!").
 - Each country detail shows placeholder baseline + nightly costs and the local currency.
 - A country can be unmarked and removed from the lists.
 

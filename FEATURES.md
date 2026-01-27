@@ -60,12 +60,29 @@
 |---------|--------|-------|
 | Calculate visited per region | ⚪ | Group countries by continent |
 | Summary stats on directory | ⚪ | "Europe: 12/44" above grid |
-| Detailed stats page | ⚪ | Full breakdown with progress bars |
+| Detailed stats section | ⚪ | Full breakdown on single page |
 | Visual progress indicators | ⚪ | Progress bars or donuts |
 | Percentage completion | ⚪ | "27% of Europe visited" |
 | Total global completion | ⚪ | "45/195 countries" |
+| **Comparative travel stats** | ⚪ | "You've traveled more than 95% of people" |
+| **Global average comparison** | ⚪ | "Most people visit 10 countries - you've visited 5x that!" |
+| **Percentile ranking** | ⚪ | Show user's travel percentile |
+| **Motivational insights** | ⚪ | Context-aware messages about travel habits |
 
-**Dependencies:** Country data with region field, user state
+**Dependencies:** Country data with region field, user state, global travel statistics data
+
+**Data Sources for Comparative Stats:**
+- UN World Tourism Organization (UNWTO) - average countries visited per lifetime (~10)
+- World Bank travel data - international trips per capita
+- Pew Research Center - travel pattern studies
+- Academic research on global travel behavior
+
+**Metrics to Display:**
+- Lifetime average: "Most people visit 10 countries in their lifetime"
+- Multiplier: "You've visited 5x more than average!"
+- Percentile: "You've traveled more than 95% of people"
+- Continent diversity: "You've visited 5/7 continents"
+- Rarity achievements: "Only 2% of people have visited all 7 continents"
 
 ---
 
@@ -83,17 +100,18 @@
 
 ---
 
-### 6. List Views
+### 6. List Views (Single-Page Sections)
 | Feature | Status | Notes |
 |---------|--------|-------|
-| "Been to" list page | ⚪ | Grid of visited countries |
-| "Want to go" list page | ⚪ | Grid of wishlist countries |
-| Navigation between views | ⚪ | Directory / Been To / Want To Go / Stats |
+| "Been to" section | ⚪ | Grid of visited countries on main page |
+| "Want to go" section | ⚪ | Grid of wishlist countries on main page |
+| Anchor link navigation | ⚪ | Smooth scroll to Map / Directory / Been To / Want To Go / Stats |
+| Single-page layout | ⚪ | All sections on one scrollable page |
 | Empty states | ⚪ | Nice messages when lists empty |
 | Remove from list action | ⚪ | Toggle off countries |
 | Sort options | ⚪ | Alphabetical, recently added |
 
-**Dependencies:** Country cards, user state
+**Dependencies:** Country cards, user state, anchor link navigation
 
 ---
 
@@ -127,14 +145,17 @@
 ### 9. Core UI Components
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Header with navigation | 🟢 | Basic header with nav links |
+| Header with anchor links | 🔵 | Convert to smooth scroll navigation |
 | Counter badge | ⚪ | "Been To: X \| Want To Go: Y" |
 | Search bar component | ⚪ | Reusable search input |
 | Modal component | 🟢 | shadcn/ui dialog installed |
 | Button variants | 🟢 | shadcn/ui button installed |
 | Badge component | 🟢 | shadcn/ui badge installed |
+| Section dividers | ⚪ | Visual separators between page sections |
 
 **Dependencies:** shadcn/ui setup complete
+
+**Note:** Navigation changed from React Router pages to single-page with anchor links
 
 ---
 
@@ -209,10 +230,12 @@
 5. ✅ Country TypeScript interfaces
 
 ### Phase 2: Core Data & Display (Week 1-2)
-6. Country card component
-7. Grid layout with search
-8. User state management (localStorage with abstraction)
-9. Basic list views (Been To / Want To Go)
+6. Single-page layout structure with sections
+7. Convert navigation to anchor links (smooth scroll)
+8. Country card component
+9. Grid layout with search
+10. User state management (localStorage with abstraction)
+11. Basic list sections (Been To / Want To Go on same page)
 
 ### Phase 3: Map Integration (Week 2)
 10. MapLibre GL setup
@@ -225,15 +248,18 @@
 15. Modal component
 16. Multi-select country flow
 17. Regional completion calculations
-18. Stats summary on directory
-19. Detailed stats page
+18. Stats summary on page
+19. **Comparative travel stats** (global averages, percentile ranking)
+20. Motivational insights ("You've visited 5x more than average!")
+21. Detailed stats section with all breakdowns
 
 ### Phase 5: Polish & Deploy (Week 3)
-20. Navigation and routing
-21. Loading states and UX polish
-22. Buy Me a Coffee integration
-23. Firebase Hosting deployment
-24. Testing and bug fixes
+22. Smooth scroll navigation polish
+23. Section transitions and visual separators
+24. Loading states and UX polish
+25. Buy Me a Coffee integration
+26. Firebase Hosting deployment
+27. Testing and bug fixes
 
 ---
 
@@ -260,15 +286,22 @@
 
 ## Current Focus
 
-**Next up:** Phase 2 - Country card component and grid layout
+**Next up:** Phase 2 - Single-page layout and country card component
 
 **Completed:** ✅ Phase 1 Foundation - All setup complete
 
 **Ready to build:**
+- Single-page layout structure with sections
+- Convert React Router to anchor link navigation
 - Country card component
 - Grid layout with search
 - User state hooks (useCountries, useUserData)
-- Basic list views
+- Section-based list views (all on one page)
+
+**Major Architecture Change:**
+- 🔄 **Single-page design:** Changed from multi-page routes to one scrollable page with anchor links
+- All content sections (Map, Directory, Been To, Want To Go, Stats) on same page
+- Navigation uses smooth scroll instead of route changes
 
 **Technical Decisions Made:**
 - ✅ GeoJSON source: Natural Earth 10m resolution (13MB)
@@ -276,6 +309,7 @@
 - ✅ Map library: MapLibre GL JS v5.16.0
 - ✅ Package manager: pnpm
 - ✅ Tailwind CSS: v4 with @theme directive
+- ✅ Layout: Single-page with anchor link navigation
 
 ---
 

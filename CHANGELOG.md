@@ -5,12 +5,13 @@
 ### Major Scope Changes
 
 #### Added to MVP (v1.0)
+- **Single-Page Layout** - All content on one scrollable page with anchor link navigation (major architectural change)
+- **Comparative Travel Stats** - Show how user's travel compares to global averages (e.g., "You've visited 5x more countries than average!")
 - **World Map Hero** - Interactive map at top of page with visited country highlighting
 - **Multi-Select Flow** - Modal dialog for bulk country selection with search
 - **Regional Stats** - Completion tracking by continent/region
 - **Click-to-Toggle Map** - Click countries directly on map to mark as visited
 - **Flag Overlays** - Show flag emojis on visited countries on map
-- **Stats Page** - Dedicated page for detailed regional breakdown
 - **"Midnight Map" Color Theme** - Premium blue color palette with dark mode
 
 #### Moved to Post-MVP (v1.1+)
@@ -32,18 +33,26 @@
 - GeoJSON data for country boundaries
 
 #### Architecture Changes
-- New components: `WorldMap`, `MultiSelectModal`, `RegionalStats`
+- **Single-page design:** Changed from multi-page routes to one scrollable page with sections
+- **Navigation:** React Router replaced with anchor links and smooth scroll
+- **Page structure:** Map hero → Stats comparison → Directory → Been To → Want To Go → Regional stats
+- New components: `WorldMap`, `MultiSelectModal`, `RegionalStats`, `ComparativeStats`
 - New folder: `src/lib/storage/` for storage abstraction
 - New folder: `src/lib/map/` for map utilities
 - New folder: `src/components/map/` for map components
 - New folder: `src/components/stats/` for statistics components
-- New page: `StatsPage.tsx` for detailed stats
-- Renamed: `DirectoryPage.tsx` → `HomePage.tsx` (map hero + directory)
+- Single page component: All sections in one scrollable `HomePage.tsx`
 
 #### Data Model Updates
 - localStorage-first approach with Firebase migration path
 - Export/import functionality for data portability
 - GeoJSON country boundaries in `public/data/countries.geo.json`
+- Global travel statistics for comparative insights:
+  - Average countries visited per lifetime (~10)
+  - Percentile rankings (top 1%, 5%, 10%, etc.)
+  - Continent diversity metrics
+  - Age-adjusted comparisons (future)
+- Data sources: UNWTO, World Bank, Pew Research, academic studies
 
 ---
 

@@ -8,13 +8,16 @@
 
 ## What is This?
 
-A simple, beautiful web app that lets you:
+A simple, beautiful **single-page** web app that lets you:
 - Mark countries you've been to
 - Create a wishlist of places you want to go
 - See placeholder travel costs to make trips feel tangible
+- **Compare your travel to global averages** (e.g., "You've traveled more than 95% of people!")
 - Track your travel progress and stay motivated
 
-**Core idea:** People forget why they work. Visualizing your travel goals makes progress feel real and keeps motivation high.
+**Core idea:** People forget why they work. Visualizing your travel goals and seeing how you compare to others makes progress feel real and keeps motivation high.
+
+**Design:** Everything on one scrollable page with smooth anchor link navigation.
 
 ---
 
@@ -59,12 +62,15 @@ See [TECH_STACK.md](TECH_STACK.md) for full rationale.
 ## Features
 
 ### MVP (v1.0) - In Progress
+- [x] **Single-page layout** - All content on one scrollable page ✅
+- [x] **Anchor link navigation** - Smooth scroll between sections ✅ (to implement)
 - [ ] **World map hero** - Interactive map with visited country highlighting
 - [ ] **Multi-select flow** - Bulk country selection modal
 - [ ] **Regional stats** - Completion tracking by continent
+- [ ] **Comparative travel stats** - "You've traveled more than 95% of people!"
 - [ ] **Click-to-toggle map** - Mark countries directly on map
 - [ ] Country directory with search
-- [ ] "Been to" and "Want to go" lists
+- [ ] "Been to" and "Want to go" sections (on same page)
 - [ ] Placeholder travel costs per country
 - [x] **localStorage persistence** - Firebase-ready abstraction ✅
 - [x] **"Midnight Map" color theme** - Tailwind v4 implementation ✅
@@ -162,7 +168,9 @@ pnpm preview   # Preview production build
 ### Current Focus
 **Phase 1 Complete:** ✅ Foundation (Vite, React, TypeScript, Tailwind v4, Storage Layer, Data Structure)
 
-**Next up:** Phase 2 - Country card component and grid layout
+**Next up:** Phase 2 - Single-page layout conversion and country card component
+
+**Major Change:** Converting from multi-page routes to single-page with anchor link navigation. All sections (Map, Directory, Been To, Want To Go, Stats) will be on one scrollable page.
 
 See [FEATURES.md](FEATURES.md) for detailed status.
 
