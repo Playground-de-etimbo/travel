@@ -6,6 +6,7 @@ import { CountryTooltip } from './CountryTooltip';
 import { SelectedCountriesBar } from './SelectedCountriesBar';
 import { getCountryFill, getCountryStroke, MAP_COLORS } from '@/lib/map/colors';
 import { MAP_CONFIG } from '@/lib/map/config';
+import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import type { Country } from '@/types';
 import { useMemo, useState } from 'react';
@@ -138,7 +139,7 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
         <ComposableMap
           projection="geoEquirectangular"
           projectionConfig={{
-            scale: 200,
+            scale: MAP_STYLE.PROJECTION.SCALE,
           }}
           className="w-full h-full"
         >
@@ -147,9 +148,9 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
             center={position.coordinates}
             onMoveStart={handleMoveStart}
             onMoveEnd={handleMoveEnd}
-            minZoom={1}
-            maxZoom={4}
-            translateExtent={[[-300, -200], [900, 600]]}
+            minZoom={MAP_STYLE.ZOOM.MIN}
+            maxZoom={MAP_STYLE.ZOOM.MAX}
+            translateExtent={[MAP_STYLE.PROJECTION.TRANSLATE_EXTENT.MIN, MAP_STYLE.PROJECTION.TRANSLATE_EXTENT.MAX]}
           >
             {/* First pass: white coastline borders */}
             <Geographies geography={geoUrl}>
@@ -163,8 +164,8 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
                       key={`${geo.rsmKey}-white`}
                       geography={geo}
                       fill={fill}
-                      stroke="#FFFFFF"
-                      strokeWidth={4.0}
+                      stroke={MAP_COLORS.COASTLINE}
+                      strokeWidth={MAP_STYLE.BORDER.COASTLINE}
                       style={{
                         default: { outline: 'none', pointerEvents: 'none' },
                         hover: { outline: 'none', pointerEvents: 'none' },
@@ -189,15 +190,21 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
                 return sortedGeos.map((geo: any) => {
                   const countryCode = geo.properties.ISO_A2;
                   const fill = getCountryFill(countryCode, beenTo);
+                  const stroke = getCountryStroke(countryCode, beenTo);
                   const isHovered = geo.rsmKey === hoveredGeo;
+                  const isVisited = beenTo.includes(countryCode);
+
+                  // Use red hover color for visited countries (indicates removal)
+                  const hoverFill = isVisited ? MAP_COLORS.HOVER_REMOVE : MAP_COLORS.HOVER;
+                  const hoverStroke = isVisited ? MAP_COLORS.HOVER_REMOVE_BORDER : MAP_COLORS.HOVER_BORDER;
 
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={isHovered ? MAP_COLORS.HOVER : fill}
-                      stroke={MAP_COLORS.HOVER_BORDER}
-                      strokeWidth={isHovered ? 1.0 : 0.6}
+                      fill={isHovered ? hoverFill : fill}
+                      stroke={isHovered ? hoverStroke : stroke}
+                      strokeWidth={isHovered ? MAP_STYLE.BORDER.HOVER : MAP_STYLE.BORDER.DEFAULT}
                       onMouseEnter={(event) => handleMouseEnter(geo, event)}
                       onMouseLeave={handleMouseLeave}
                       onClick={(event) => handleClick(geo, event)}
@@ -219,6 +226,35 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
                 });
               }}
             </Geographies>
+
+            {/* Third pass: visited country borders on top */}
+            <Geographies geography={geoUrl}>
+              {({ geographies }) => {
+                return geographies.map((geo: any) => {
+                  const countryCode = geo.properties.ISO_A2;
+                  const isVisited = beenTo.includes(countryCode);
+                  const isHovered = geo.rsmKey === hoveredGeo;
+
+                  // Only render visited countries (unless hovered)
+                  if (!isVisited || isHovered) return null;
+
+                  return (
+                    <Geography
+                      key={`${geo.rsmKey}-visited-border`}
+                      geography={geo}
+                      fill="none"
+                      stroke={MAP_COLORS.BEEN_TO_BORDER}
+                      strokeWidth={MAP_STYLE.BORDER.DEFAULT}
+                      style={{
+                        default: { outline: 'none', pointerEvents: 'none' },
+                        hover: { outline: 'none', pointerEvents: 'none' },
+                        pressed: { outline: 'none', pointerEvents: 'none' },
+                      }}
+                    />
+                  );
+                });
+              }}
+            </Geographies>
           </ZoomableGroup>
         </ComposableMap>
       </div>
@@ -227,6 +263,7 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
         country={tooltip.country}
         position={tooltip.position}
         visible={tooltip.visible}
+        isVisited={tooltip.country ? beenTo.includes(tooltip.country.countryCode) : false}
       />
 
       <SelectedCountriesBar

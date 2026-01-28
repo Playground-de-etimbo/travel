@@ -5,20 +5,31 @@ export const MAP_COLORS = {
   OCEAN: '#4A9FD8',
 
   // Unvisited countries
-  UNVISITED: '#F6FCFE',
-  UNVISITED_BORDER: '#E6EFF6',
+  UNVISITED: '#F8FAF8',
+  UNVISITED_BORDER: '#CCCFD5',
 
   // Been To countries (light sage)
-  BEEN_TO: '#D5E5D5',
-  BEEN_TO_BORDER: '#A8C9A8',
+  BEEN_TO: '#6FBFB2',
+  BEEN_TO_BORDER: '#1F7A6B',
 
   // Hover state (grey)
   HOVER: '#E5E7EB',
   HOVER_BORDER: '#9CA3AF',
 
-  // Tooltip
-  TOOLTIP_BG: 'rgba(90, 122, 90, 0.95)',
-  TOOLTIP_TEXT: '#FFFFFF',
+  // Hover state for visited countries (red - indicates removal)
+  HOVER_REMOVE: '#EF4444',
+  HOVER_REMOVE_BORDER: '#991B1B',
+
+  // Coastline border (white outline for visual separation)
+  COASTLINE: '#FFFFFF',
+
+  // Tooltip - Add state (uses visited border color)
+  TOOLTIP_ADD_BG: '#1F7A6B',
+  TOOLTIP_ADD_TEXT: '#FFFFFF',
+
+  // Tooltip - Remove state (white background)
+  TOOLTIP_REMOVE_BG: '#FFFFFF',
+  TOOLTIP_REMOVE_TEXT: '#1F2937',
 } as const;
 
 export function getCountryFill(countryCode: string, beenTo: string[]): string {
