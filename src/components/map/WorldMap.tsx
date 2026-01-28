@@ -11,7 +11,7 @@ import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import { getGeoCountryCode } from '@/lib/map/geoCountryCode';
 import type { Country } from '@/types';
-import { useMemo, useState, useEffect, useRef } from 'react';
+import { useMemo, useState } from 'react';
 
 // GeoJSON URL configured via src/lib/map/config.ts
 // Override with: VITE_MAP_GEOJSON_URL=/data/countries-simple.geo.json pnpm dev
@@ -33,9 +33,6 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     open: boolean;
     country: Country | null;
   }>({ open: false, country: null });
-
-  // Store geographies for fallback country creation in global click handler
-  const geographiesRef = useRef<any[]>([]);
 
   // Create a map of country codes to country objects for fast lookup
   const countryMap = useMemo(() => {
@@ -152,51 +149,6 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     hide(); // Hide tooltip
   };
 
-  // Use a global click listener to intercept map clicks before ZoomableGroup
-  useEffect(() => {
-    const handleGlobalClick = (event: MouseEvent) => {
-      if (isDragging) return;
-
-      const target = event.target as HTMLElement;
-
-      // Check if a path element (country) was clicked
-      if (target.tagName.toLowerCase() === 'path') {
-        // Get the country code from the data attribute
-        const countryCode = target.getAttribute('data-country-code');
-
-        if (countryCode) {
-          let country = countryMap.get(countryCode);
-
-          // If country not in metadata, create fallback from GeoJSON
-          if (!country) {
-            const geo = geographiesRef.current.find(g => getGeoCountryCode(g.properties) === countryCode);
-            if (geo) {
-              country = createFallbackCountry(geo.properties);
-            }
-          }
-
-          const isVisited = beenTo.includes(countryCode);
-
-          if (isVisited && country) {
-            // Now shows dialog for ALL countries (full metadata OR fallback)
-            setRemoveDialog({ open: true, country });
-          } else if (!isVisited) {
-            onAddCountry(countryCode);
-          }
-
-          hide();
-        }
-      }
-    };
-
-    // Add listener with capture phase to intercept before ZoomableGroup
-    document.addEventListener('click', handleGlobalClick, true);
-
-    return () => {
-      document.removeEventListener('click', handleGlobalClick, true);
-    };
-  }, [isDragging, countryMap, beenTo, onAddCountry, hide]);
-
   const handleRemoveConfirm = () => {
     if (removeDialog.country) {
       onRemoveCountry(removeDialog.country.countryCode);
@@ -291,11 +243,6 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
             {/* Second pass: grey country borders and interaction */}
             <Geographies geography={geoUrl}>
               {({ geographies }) => {
-                // Store geographies for access in global click handler
-                if (geographiesRef.current.length === 0) {
-                  geographiesRef.current = geographies;
-                }
-
                 // Sort geographies so hovered one renders last (on top)
                 const sortedGeos = [...geographies].sort((a, b) => {
                   if (a.rsmKey === hoveredGeo) return 1;
