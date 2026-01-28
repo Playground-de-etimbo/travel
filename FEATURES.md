@@ -14,14 +14,14 @@
 ### 1. World Map Hero
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Interactive world map component | ⚪ | MapLibre GL integration |
-| Visited country highlighting | ⚪ | Fill/color visited countries |
+| Interactive world map component | 🟢 | react-simple-maps with pan/zoom |
+| Visited country highlighting | 🟢 | Teal fill for visited countries |
 | Flag overlay on visited countries | ⚪ | Show flag emojis on map |
-| Click country to toggle visited | ⚪ | Direct map interaction |
-| "Add country" button | ⚪ | Opens multi-select modal |
-| Mobile-responsive map | ⚪ | Touch-friendly, proper zoom |
+| Click country to toggle visited | 🟢 | Single click to add, confirmation dialog to remove |
+| "Add country" button | 🟢 | Opens modal with search/browse |
+| Mobile-responsive map | 🟢 | Touch-friendly, proper zoom |
 
-**Ready to start:** After data model is created
+**Status:** Core map interactions complete. Click-to-toggle bypasses ZoomableGroup with global click handler.
 
 ---
 

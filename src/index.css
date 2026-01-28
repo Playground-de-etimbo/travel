@@ -50,3 +50,29 @@
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
+
+/* Allow clicks to pass through ZoomableGroup's overlay rect to Geography elements */
+svg g > g > rect[fill="transparent"] {
+  pointer-events: none !important;
+}
+
+/* Country add animation */
+@keyframes country-add-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.country-adding {
+  animation: country-add-pulse 600ms ease-out;
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(111, 191, 178, 0.6));
+}

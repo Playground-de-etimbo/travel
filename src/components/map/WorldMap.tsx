@@ -4,12 +4,13 @@ import { useCountryTooltip } from '@/hooks/useCountryTooltip';
 import { useMapZoom } from '@/hooks/useMapZoom';
 import { CountryTooltip } from './CountryTooltip';
 import { SelectedCountriesBar } from './SelectedCountriesBar';
+import { RemoveCountryDialog } from './RemoveCountryDialog';
 import { getCountryFill, getCountryStroke, MAP_COLORS } from '@/lib/map/colors';
 import { MAP_CONFIG } from '@/lib/map/config';
 import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import type { Country } from '@/types';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 // GeoJSON URL configured via src/lib/map/config.ts
 // Override with: VITE_MAP_GEOJSON_URL=/data/countries-simple.geo.json pnpm dev
@@ -17,15 +18,21 @@ const geoUrl = MAP_CONFIG.geoJsonUrl;
 
 interface WorldMapProps {
   beenTo: string[];
-  onCountrySelect: (code: string) => void;
-  onAddClick: () => void;
+  onAddCountry: (code: string) => void;
+  onRemoveCountry: (code: string) => void;
+  onCountryBrowse: () => void;
 }
 
-export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps) {
+export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrowse }: WorldMapProps) {
   const { countries, loading: countriesLoading } = useCountries();
   const { tooltip, show, hide, update } = useCountryTooltip();
   const { position, handleMoveStart, handleMoveEnd, isDragging } = useMapZoom();
   const [hoveredGeo, setHoveredGeo] = useState<string | null>(null);
+  const [removeDialog, setRemoveDialog] = useState<{
+    open: boolean;
+    country: Country | null;
+  }>({ open: false, country: null });
+  const [animatingCountry, setAnimatingCountry] = useState<string | null>(null);
 
   // Create a map of country codes to country objects for fast lookup
   const countryMap = useMemo(() => {
@@ -74,28 +81,90 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
   };
 
   const handleClick = (geo: any, event?: React.MouseEvent) => {
-    // Don't open modal if user was dragging the map
+    // Stop propagation to prevent ZoomableGroup from zooming
+    if (event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+    // Don't perform action if user was dragging the map
     if (isDragging) return;
 
     const countryCode = geo.properties.ISO_A2;
     const country = countryMap.get(countryCode);
 
-    if (country) {
-      // On touch devices, show tooltip first, then open modal on second tap
-      if (event && 'ontouchstart' in window) {
-        if (tooltip.visible && tooltip.country?.countryCode === countryCode) {
-          // Second tap - open modal
-          onCountrySelect(countryCode);
-          hide();
-        } else {
-          // First tap - show tooltip
-          show(country, event.clientX, event.clientY);
-        }
-      } else {
-        // Desktop - directly open modal
-        onCountrySelect(countryCode);
-      }
+    if (!country) return;
+
+    const isVisited = beenTo.includes(countryCode);
+
+    if (isVisited) {
+      // Show removal confirmation dialog
+      setRemoveDialog({ open: true, country });
+    } else {
+      // Instant add with animation
+      onAddCountry(countryCode);
+      setAnimatingCountry(countryCode);
+      setTimeout(() => setAnimatingCountry(null), 600);
     }
+
+    hide(); // Hide tooltip
+  };
+
+  // Use a global click listener to intercept map clicks before ZoomableGroup
+  useEffect(() => {
+    const handleGlobalClick = (event: MouseEvent) => {
+      if (isDragging) return;
+
+      const target = event.target as HTMLElement;
+
+      // Check if a path element (country) was clicked
+      if (target.tagName.toLowerCase() === 'path') {
+        // Get the country code from the data attribute
+        const countryCode = target.getAttribute('data-country-code');
+
+        if (countryCode) {
+          let country = countryMap.get(countryCode);
+
+          // If country not found in main data, it's still a valid country in GeoJSON
+          // Just proceed with the country code - useUserData will handle it
+          if (!country) {
+            console.warn(`Country ${countryCode} not found in countries data, but proceeding with add`);
+          }
+
+          const isVisited = beenTo.includes(countryCode);
+
+          if (isVisited && country) {
+            // Only show dialog if we have full country data
+            setRemoveDialog({ open: true, country });
+          } else if (!isVisited) {
+            // Add country even if we don't have full metadata
+            onAddCountry(countryCode);
+            setAnimatingCountry(countryCode);
+            setTimeout(() => setAnimatingCountry(null), 600);
+          }
+
+          hide();
+        }
+      }
+    };
+
+    // Add listener with capture phase to intercept before ZoomableGroup
+    document.addEventListener('click', handleGlobalClick, true);
+
+    return () => {
+      document.removeEventListener('click', handleGlobalClick, true);
+    };
+  }, [isDragging, countryMap, beenTo, onAddCountry, hide, setRemoveDialog, setAnimatingCountry]);
+
+  const handleRemoveConfirm = () => {
+    if (removeDialog.country) {
+      onRemoveCountry(removeDialog.country.countryCode);
+    }
+    setRemoveDialog({ open: false, country: null });
+  };
+
+  const handleRemoveCancel = () => {
+    setRemoveDialog({ open: false, country: null });
   };
 
   if (countriesLoading) {
@@ -193,6 +262,7 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
                   const stroke = getCountryStroke(countryCode, beenTo);
                   const isHovered = geo.rsmKey === hoveredGeo;
                   const isVisited = beenTo.includes(countryCode);
+                  const isAnimating = countryCode === animatingCountry;
 
                   // Use red hover color for visited countries (indicates removal)
                   const hoverFill = isVisited ? MAP_COLORS.HOVER_REMOVE : MAP_COLORS.HOVER;
@@ -208,6 +278,8 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
                       onMouseEnter={(event) => handleMouseEnter(geo, event)}
                       onMouseLeave={handleMouseLeave}
                       onClick={(event) => handleClick(geo, event)}
+                      data-country-code={countryCode}
+                      className={isAnimating ? 'country-adding' : undefined}
                       style={{
                         default: {
                           outline: 'none',
@@ -266,9 +338,16 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
         isVisited={tooltip.country ? beenTo.includes(tooltip.country.countryCode) : false}
       />
 
+      <RemoveCountryDialog
+        open={removeDialog.open}
+        country={removeDialog.country}
+        onConfirm={handleRemoveConfirm}
+        onCancel={handleRemoveCancel}
+      />
+
       <SelectedCountriesBar
         countries={selectedCountries}
-        onAddClick={onAddClick}
+        onAddClick={onCountryBrowse}
       />
     </div>
   );

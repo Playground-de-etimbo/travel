@@ -133,7 +133,40 @@ The project uses `react-simple-maps` for the interactive world map:
 - GeoJSON data: `public/data/countries.geo.json` (Natural Earth 10m resolution)
 - Country metadata: `public/data/countries.json`
 - Map colors: Defined in `src/lib/map/colors.ts` using "Midnight Map" theme
-- Click-to-toggle: Countries are clickable to mark as visited
+
+### Click-to-Toggle Implementation
+
+**Challenge:** `react-simple-maps`' `ZoomableGroup` component uses a transparent rect overlay for pan/zoom gestures, which captures clicks before they reach Geography elements. Additionally, `ZoomableGroup` implements click-to-zoom functionality that conflicts with country selection.
+
+**Solution:** Global click listener with capture phase
+
+```typescript
+// src/components/map/WorldMap.tsx
+useEffect(() => {
+  const handleGlobalClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (target.tagName.toLowerCase() === 'path') {
+      const countryCode = target.getAttribute('data-country-code');
+      // Handle country click logic
+    }
+  };
+
+  // Capture phase intercepts clicks before ZoomableGroup
+  document.addEventListener('click', handleGlobalClick, true);
+  return () => document.removeEventListener('click', handleGlobalClick, true);
+}, [dependencies]);
+```
+
+**Key techniques:**
+1. **Capture phase listener:** `addEventListener(..., true)` fires before ZoomableGroup's handlers
+2. **Data attributes:** Each Geography has `data-country-code` attribute for identification
+3. **Smart drag detection:** `useMapZoom` hook only sets `isDragging=true` if map position actually changed (prevents clicks from being flagged as drags)
+4. **Animation:** CSS keyframes in `src/index.css` provide scale/glow effect on add
+
+**User flows:**
+- Click unvisited country → Instant add with animation (600ms pulse)
+- Click visited country → `RemoveCountryDialog` confirms removal
+- "+ Add Country" button → Modal for search/browse (alternative to map clicking)
 
 ## Key Patterns and Conventions
 

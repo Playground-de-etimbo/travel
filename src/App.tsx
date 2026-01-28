@@ -9,7 +9,7 @@ import { useUserData } from '@/hooks/useUserData';
 
 function App() {
   const { countries } = useCountries();
-  const { beenTo, addCountry } = useUserData();
+  const { beenTo, addCountry, removeCountry } = useUserData();
   const [modalOpen, setModalOpen] = useState(false);
   const [preSelectedCountry, setPreSelectedCountry] = useState<string | undefined>();
 
@@ -44,8 +44,9 @@ function App() {
               <section id="map-hero" className="relative">
                 <WorldMap
                   beenTo={beenTo}
-                  onCountrySelect={handleCountrySelect}
-                  onAddClick={handleAddClick}
+                  onAddCountry={addCountry}
+                  onRemoveCountry={removeCountry}
+                  onCountryBrowse={handleAddClick}
                 />
               </section>
 

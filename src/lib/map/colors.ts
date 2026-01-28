@@ -5,7 +5,7 @@ export const MAP_COLORS = {
   OCEAN: '#4A9FD8',
 
   // Unvisited countries
-  UNVISITED: '#F8FAF8',
+  UNVISITED: '#FAFCFA',
   UNVISITED_BORDER: '#CCCFD5',
 
   // Been To countries (light sage)
