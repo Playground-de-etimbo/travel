@@ -135,10 +135,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     // Don't perform action if user was dragging the map
     if (isDragging) return;
 
-    const countryCode = getGeoCountryCode(geo.properties);
-    const { code: resolvedCode, country } = resolveCountryFromGeo(geo.properties);
-
-    const countryCode = resolvedCode;
+    const { code: countryCode, country } = resolveCountryFromGeo(geo.properties);
 
     if (!country || !countryCode) return;
 
