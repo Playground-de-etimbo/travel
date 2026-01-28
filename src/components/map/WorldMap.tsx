@@ -6,6 +6,7 @@ import { CountryTooltip } from './CountryTooltip';
 import { SelectedCountriesBar } from './SelectedCountriesBar';
 import { getCountryFill, getCountryStroke, MAP_COLORS } from '@/lib/map/colors';
 import { MAP_CONFIG } from '@/lib/map/config';
+import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import type { Country } from '@/types';
 import { useMemo, useState } from 'react';
 
@@ -43,10 +44,18 @@ export function WorldMap({ beenTo, onCountrySelect, onAddClick }: WorldMapProps)
 
   const handleMouseEnter = (geo: any, event: React.MouseEvent) => {
     const countryCode = geo.properties.ISO_A2;
-    const country = countryMap.get(countryCode);
 
     setHoveredGeo(geo.rsmKey);
 
+    // Try to get full country data from countryMap
+    let country = countryMap.get(countryCode);
+
+    // If not found, create fallback from GeoJSON properties
+    if (!country) {
+      country = createFallbackCountry(geo.properties);
+    }
+
+    // Show tooltip if we have any country data (full or fallback)
     if (country) {
       show(country, event.clientX, event.clientY);
     }
