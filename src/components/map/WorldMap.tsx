@@ -11,7 +11,7 @@ import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import { getGeoCountryCode } from '@/lib/map/geoCountryCode';
 import type { Country } from '@/types';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 // GeoJSON URL configured via src/lib/map/config.ts
 // Override with: VITE_MAP_GEOJSON_URL=/data/countries-simple.geo.json pnpm dev
@@ -29,10 +29,17 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
   const { tooltip, show, hide, update } = useCountryTooltip();
   const { position, handleMoveStart, handleMoveEnd, isDragging } = useMapZoom();
   const [hoveredGeo, setHoveredGeo] = useState<string | null>(null);
+  const [addFlashCode, setAddFlashCode] = useState<string | null>(null);
+  const [toasts, setToasts] = useState<
+    Array<{ id: string; x: number; y: number; label: string }>
+  >([]);
   const [removeDialog, setRemoveDialog] = useState<{
     open: boolean;
     country: Country | null;
   }>({ open: false, country: null });
+  const addFlashTimeoutRef = useRef<number | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
 
   // Create a map of country codes to country objects for fast lookup
   const countryMap = useMemo(() => {
@@ -122,6 +129,79 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     hide();
   };
 
+  const playSound = (type: 'add' | 'remove') => {
+    const AudioContextClass =
+      window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+
+    if (!AudioContextClass) return;
+
+    if (!audioContextRef.current) {
+      audioContextRef.current = new AudioContextClass();
+    }
+
+    const context = audioContextRef.current;
+    if (context.state === 'suspended') {
+      void context.resume();
+    }
+
+    const now = context.currentTime;
+    const osc = context.createOscillator();
+    const gain = context.createGain();
+
+    if (type === 'add') {
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.2, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
+      osc.start(now);
+      osc.stop(now + 0.2);
+    } else {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(380, now);
+      osc.frequency.exponentialRampToValueAtTime(200, now + 0.35);
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.2, now + 0.06);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+      osc.start(now);
+      osc.stop(now + 0.55);
+    }
+
+    osc.connect(gain);
+    gain.connect(context.destination);
+  };
+
+  const triggerAddFeedback = (country: Country, event?: React.MouseEvent) => {
+    if (addFlashTimeoutRef.current) {
+      window.clearTimeout(addFlashTimeoutRef.current);
+    }
+
+    setAddFlashCode(country.countryCode);
+    addFlashTimeoutRef.current = window.setTimeout(() => {
+      setAddFlashCode(null);
+    }, 2200);
+
+    if (event && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const id = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      const label = `Added: ${country.countryName}`;
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      setToasts(prev => [...prev, { id, x, y, label }]);
+      window.setTimeout(() => {
+        setToasts(prev => prev.filter(toast => toast.id !== id));
+      }, 1500);
+    }
+
+    if (navigator.vibrate) {
+      navigator.vibrate(25);
+    }
+
+    playSound('add');
+  };
+
   const handleClick = (geo: any, event?: React.MouseEvent) => {
     // Stop propagation to prevent ZoomableGroup from zooming
     if (event) {
@@ -143,6 +223,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
       setRemoveDialog({ open: true, country });
     } else {
       // Instant add
+      triggerAddFeedback(country, event);
       onAddCountry(countryCode);
     }
 
@@ -151,6 +232,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
 
   const handleRemoveConfirm = () => {
     if (removeDialog.country) {
+      playSound('remove');
       onRemoveCountry(removeDialog.country.countryCode);
     }
     setRemoveDialog({ open: false, country: null });
@@ -183,6 +265,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
 
   return (
     <div
+      ref={containerRef}
       className="relative h-screen overflow-hidden"
       style={{
         background: `url('/patterns/ocean-waves.jpg')`,
@@ -257,18 +340,27 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
                   const stroke = getCountryStroke(safeCountryCode, beenTo);
                   const isHovered = geo.rsmKey === hoveredGeo;
                   const isVisited = countryCode ? beenTo.includes(countryCode) : false;
+                  const isAddFlash = countryCode ? addFlashCode === countryCode : false;
 
                   // Use red hover color for visited countries (indicates removal)
                   const hoverFill = isVisited ? MAP_COLORS.HOVER_REMOVE : MAP_COLORS.HOVER;
                   const hoverStroke = isVisited ? MAP_COLORS.HOVER_REMOVE_BORDER : MAP_COLORS.HOVER_BORDER;
+                  const displayFill = isAddFlash ? MAP_COLORS.ADD_FLASH : isHovered ? hoverFill : fill;
+                  const displayStroke = isAddFlash ? MAP_COLORS.ADD_FLASH_BORDER : isHovered ? hoverStroke : stroke;
+                  const displayStrokeWidth = isAddFlash
+                    ? MAP_STYLE.BORDER.HOVER
+                    : isHovered
+                      ? MAP_STYLE.BORDER.HOVER
+                      : MAP_STYLE.BORDER.DEFAULT;
 
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={isHovered ? hoverFill : fill}
-                      stroke={isHovered ? hoverStroke : stroke}
-                      strokeWidth={isHovered ? MAP_STYLE.BORDER.HOVER : MAP_STYLE.BORDER.DEFAULT}
+                      fill={displayFill}
+                      stroke={displayStroke}
+                      strokeWidth={displayStrokeWidth}
+                      className={isAddFlash ? 'map-add-pulse' : undefined}
                       onMouseEnter={(event) => handleMouseEnter(geo, event)}
                       onMouseLeave={handleMouseLeave}
                       onClick={(event) => handleClick(geo, event)}
@@ -323,6 +415,16 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
           </ZoomableGroup>
         </ComposableMap>
       </div>
+
+      {toasts.map(toast => (
+        <div
+          key={toast.id}
+          className="map-add-toast"
+          style={{ left: toast.x, top: toast.y }}
+        >
+          {toast.label}
+        </div>
+      ))}
 
       <CountryTooltip
         country={tooltip.country}

@@ -14,8 +14,8 @@ export const MAP_STYLE = {
     COASTLINE: 4.0,
 
     // Country borders (inner layer)
-    DEFAULT: 1.0,
-    HOVER: 1.0,
+    DEFAULT: 0.6,
+    HOVER: 0.6,
   },
 
   /**
