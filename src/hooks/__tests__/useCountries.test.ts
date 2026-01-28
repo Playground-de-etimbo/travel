@@ -17,8 +17,8 @@ describe('useCountries Hook - Data Validation', () => {
     expect(Array.isArray(countries)).toBe(true)
   })
 
-  it('should return array of 20 countries', () => {
-    expect(countries).toHaveLength(20)
+  it('should return a full ISO-style list of countries/territories', () => {
+    expect(countries.length).toBeGreaterThanOrEqual(240)
   })
 
   it('should have required properties on each country', () => {
@@ -47,5 +47,15 @@ describe('useCountries Hook - Data Validation', () => {
       // ISO country codes are 2 uppercase letters
       expect(country.countryCode).toMatch(/^[A-Z]{2}$/)
     })
+  })
+
+  it('should include a variety of countries and territories', () => {
+    const byCode = new Map(countries.map((c) => [c.countryCode, c]))
+
+    ;['US', 'JP', 'DE', 'BR', 'ZA', 'NZ', 'AQ', 'GF', 'PR', 'XK'].forEach((code) => {
+      expect(byCode.has(code)).toBe(true)
+    })
+
+    expect(byCode.get('AQ')?.countryName).toBe('Antarctica')
   })
 })

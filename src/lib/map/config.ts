@@ -9,8 +9,8 @@
  * Available GeoJSON files in public/data/:
  *
  * Recommended options:
- * - countries-natural-earth-50m.geo.json (2.9MB) - Natural Earth medium detail, SMOOTH borders [DEFAULT]
- * - countries-natural-earth-110m.geo.json (819KB) - Natural Earth low detail, jagged borders (lighter weight)
+ * - countries-natural-earth-50m.geo.json (~4.0MB) - Natural Earth 50m admin_0_map_units (includes territories) [DEFAULT]
+ * - countries-natural-earth-110m.geo.json (~0.6MB) - Natural Earth 110m admin_0_map_units (includes territories, lighter weight)
  *
  * Not recommended (broken or unsuitable):
  * - countries-minimalist.geo.json (636KB) - BROKEN: Only renders one country
@@ -28,7 +28,7 @@ export const MAP_CONFIG = {
   /**
    * GeoJSON URL for map rendering
    *
-   * Default: countries-natural-earth-50m.geo.json (2.9MB, medium detail, smooth borders)
+   * Default: countries-natural-earth-50m.geo.json (~4.0MB, medium detail, includes territories)
    * Override via environment variable: VITE_MAP_GEOJSON_URL
    *
    * Example: VITE_MAP_GEOJSON_URL=/data/countries-natural-earth-110m.geo.json pnpm dev

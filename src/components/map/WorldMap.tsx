@@ -9,8 +9,9 @@ import { getCountryFill, getCountryStroke, MAP_COLORS } from '@/lib/map/colors';
 import { MAP_CONFIG } from '@/lib/map/config';
 import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
+import { getGeoCountryCode } from '@/lib/map/geoCountryCode';
 import type { Country } from '@/types';
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 
 // GeoJSON URL configured via src/lib/map/config.ts
 // Override with: VITE_MAP_GEOJSON_URL=/data/countries-simple.geo.json pnpm dev
@@ -32,7 +33,9 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     open: boolean;
     country: Country | null;
   }>({ open: false, country: null });
-  const [animatingCountry, setAnimatingCountry] = useState<string | null>(null);
+
+  // Store geographies for fallback country creation in global click handler
+  const geographiesRef = useRef<any[]>([]);
 
   // Create a map of country codes to country objects for fast lookup
   const countryMap = useMemo(() => {
@@ -43,6 +46,48 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     return map;
   }, [countries]);
 
+  const normalizeCountryName = (name: string | undefined | null) => {
+    if (!name) return '';
+    return name
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9\s]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
+
+  const countryNameMap = useMemo(() => {
+    const map = new Map<string, Country>();
+    countries.forEach(country => {
+      map.set(normalizeCountryName(country.countryName), country);
+    });
+    return map;
+  }, [countries]);
+
+  const resolveCountryFromGeo = (geoProperties: any) => {
+    const isoCode = getGeoCountryCode(geoProperties);
+    if (isoCode) {
+      return { code: isoCode, country: countryMap.get(isoCode) };
+    }
+
+    const sovereignName =
+      geoProperties?.admin ??
+      geoProperties?.ADMIN ??
+      geoProperties?.sovereignt ??
+      geoProperties?.SOVEREIGNT;
+
+    if (sovereignName) {
+      const normalized = normalizeCountryName(sovereignName);
+      const sovereignCountry = countryNameMap.get(normalized);
+      if (sovereignCountry) {
+        return { code: sovereignCountry.countryCode, country: sovereignCountry };
+      }
+    }
+
+    return { code: null, country: undefined };
+  };
+
   // Get selected countries for the bar
   const selectedCountries = useMemo(() => {
     return beenTo
@@ -51,12 +96,12 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
   }, [beenTo, countryMap]);
 
   const handleMouseEnter = (geo: any, event: React.MouseEvent) => {
-    const countryCode = geo.properties.ISO_A2;
+    const { code: countryCode, country: resolvedCountry } = resolveCountryFromGeo(geo.properties);
 
     setHoveredGeo(geo.rsmKey);
 
     // Try to get full country data from countryMap
-    let country = countryMap.get(countryCode);
+    let country = resolvedCountry;
 
     // If not found, create fallback from GeoJSON properties
     if (!country) {
@@ -90,10 +135,12 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     // Don't perform action if user was dragging the map
     if (isDragging) return;
 
-    const countryCode = geo.properties.ISO_A2;
-    const country = countryMap.get(countryCode);
+    const countryCode = getGeoCountryCode(geo.properties);
+    const { code: resolvedCode, country } = resolveCountryFromGeo(geo.properties);
 
-    if (!country) return;
+    const countryCode = resolvedCode;
+
+    if (!country || !countryCode) return;
 
     const isVisited = beenTo.includes(countryCode);
 
@@ -101,10 +148,8 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
       // Show removal confirmation dialog
       setRemoveDialog({ open: true, country });
     } else {
-      // Instant add with animation
+      // Instant add
       onAddCountry(countryCode);
-      setAnimatingCountry(countryCode);
-      setTimeout(() => setAnimatingCountry(null), 600);
     }
 
     hide(); // Hide tooltip
@@ -125,22 +170,21 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
         if (countryCode) {
           let country = countryMap.get(countryCode);
 
-          // If country not found in main data, it's still a valid country in GeoJSON
-          // Just proceed with the country code - useUserData will handle it
+          // If country not in metadata, create fallback from GeoJSON
           if (!country) {
-            console.warn(`Country ${countryCode} not found in countries data, but proceeding with add`);
+            const geo = geographiesRef.current.find(g => getGeoCountryCode(g.properties) === countryCode);
+            if (geo) {
+              country = createFallbackCountry(geo.properties);
+            }
           }
 
           const isVisited = beenTo.includes(countryCode);
 
           if (isVisited && country) {
-            // Only show dialog if we have full country data
+            // Now shows dialog for ALL countries (full metadata OR fallback)
             setRemoveDialog({ open: true, country });
           } else if (!isVisited) {
-            // Add country even if we don't have full metadata
             onAddCountry(countryCode);
-            setAnimatingCountry(countryCode);
-            setTimeout(() => setAnimatingCountry(null), 600);
           }
 
           hide();
@@ -154,7 +198,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     return () => {
       document.removeEventListener('click', handleGlobalClick, true);
     };
-  }, [isDragging, countryMap, beenTo, onAddCountry, hide, setRemoveDialog, setAnimatingCountry]);
+  }, [isDragging, countryMap, beenTo, onAddCountry, hide]);
 
   const handleRemoveConfirm = () => {
     if (removeDialog.country) {
@@ -225,8 +269,9 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
             <Geographies geography={geoUrl}>
               {({ geographies }) => {
                 return geographies.map((geo: any) => {
-                  const countryCode = geo.properties.ISO_A2;
-                  const fill = getCountryFill(countryCode, beenTo);
+                  const { code } = resolveCountryFromGeo(geo.properties);
+                  const safeCountryCode = code ?? '';
+                  const fill = getCountryFill(safeCountryCode, beenTo);
 
                   return (
                     <Geography
@@ -249,6 +294,11 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
             {/* Second pass: grey country borders and interaction */}
             <Geographies geography={geoUrl}>
               {({ geographies }) => {
+                // Store geographies for access in global click handler
+                if (geographiesRef.current.length === 0) {
+                  geographiesRef.current = geographies;
+                }
+
                 // Sort geographies so hovered one renders last (on top)
                 const sortedGeos = [...geographies].sort((a, b) => {
                   if (a.rsmKey === hoveredGeo) return 1;
@@ -257,12 +307,12 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
                 });
 
                 return sortedGeos.map((geo: any) => {
-                  const countryCode = geo.properties.ISO_A2;
-                  const fill = getCountryFill(countryCode, beenTo);
-                  const stroke = getCountryStroke(countryCode, beenTo);
+                  const { code: countryCode } = resolveCountryFromGeo(geo.properties);
+                  const safeCountryCode = countryCode ?? '';
+                  const fill = getCountryFill(safeCountryCode, beenTo);
+                  const stroke = getCountryStroke(safeCountryCode, beenTo);
                   const isHovered = geo.rsmKey === hoveredGeo;
-                  const isVisited = beenTo.includes(countryCode);
-                  const isAnimating = countryCode === animatingCountry;
+                  const isVisited = countryCode ? beenTo.includes(countryCode) : false;
 
                   // Use red hover color for visited countries (indicates removal)
                   const hoverFill = isVisited ? MAP_COLORS.HOVER_REMOVE : MAP_COLORS.HOVER;
@@ -278,8 +328,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
                       onMouseEnter={(event) => handleMouseEnter(geo, event)}
                       onMouseLeave={handleMouseLeave}
                       onClick={(event) => handleClick(geo, event)}
-                      data-country-code={countryCode}
-                      className={isAnimating ? 'country-adding' : undefined}
+                      data-country-code={countryCode ?? undefined}
                       style={{
                         default: {
                           outline: 'none',
@@ -303,8 +352,8 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
             <Geographies geography={geoUrl}>
               {({ geographies }) => {
                 return geographies.map((geo: any) => {
-                  const countryCode = geo.properties.ISO_A2;
-                  const isVisited = beenTo.includes(countryCode);
+                  const { code: countryCode } = resolveCountryFromGeo(geo.properties);
+                  const isVisited = countryCode ? beenTo.includes(countryCode) : false;
                   const isHovered = geo.rsmKey === hoveredGeo;
 
                   // Only render visited countries (unless hovered)

@@ -6,7 +6,10 @@ import path from 'path'
 interface CountryFeature {
   type: 'Feature'
   properties: {
-    ISO_A2: string
+    ISO_A2?: string
+    iso_a2?: string
+    NAME?: string
+    name?: string
     [key: string]: unknown
   }
   geometry: Geometry
@@ -40,8 +43,11 @@ describe('GeoJSON Validation', () => {
   })
 
   it('should have ISO_A2 property on all features', () => {
+    const getIsoCode = (feature: CountryFeature) =>
+      feature.properties?.ISO_A2 ?? feature.properties?.iso_a2
+
     const missingIsoA2 = data.features.filter(
-      (feature) => !feature.properties?.ISO_A2
+      (feature) => !getIsoCode(feature as CountryFeature)
     )
 
     expect(missingIsoA2).toHaveLength(0)
@@ -56,12 +62,18 @@ describe('GeoJSON Validation', () => {
 
     const invalidCodes: string[] = []
     data.features.forEach((feature) => {
-      const isoCode = feature.properties.ISO_A2
+      const isoCode =
+        (feature as CountryFeature).properties?.ISO_A2 ??
+        (feature as CountryFeature).properties?.iso_a2
       expect(typeof isoCode).toBe('string')
 
       // Collect codes that are completely invalid (null, undefined, empty)
       if (!isoCode || isoCode.trim().length === 0) {
-        invalidCodes.push(`Empty code for: ${feature.properties.NAME}`)
+        const name =
+          (feature as CountryFeature).properties?.NAME ??
+          (feature as CountryFeature).properties?.name ??
+          'Unknown'
+        invalidCodes.push(`Empty code for: ${name}`)
       }
     })
 
@@ -93,10 +105,62 @@ describe('GeoJSON Validation', () => {
     if (invalidFeatures.length > 0) {
       console.error('Features with invalid geometry:')
       invalidFeatures.forEach((feature) => {
-        console.error(`- ${feature.properties?.ISO_A2}: ${feature.properties?.NAME}`)
+        const isoCode =
+          (feature as CountryFeature).properties?.ISO_A2 ??
+          (feature as CountryFeature).properties?.iso_a2
+        const name =
+          (feature as CountryFeature).properties?.NAME ??
+          (feature as CountryFeature).properties?.name
+        console.error(`- ${isoCode}: ${name}`)
       })
     }
 
     expect(invalidFeatures).toHaveLength(0)
+  })
+
+  it('should include French Guiana as a separate feature', () => {
+    const frenchGuiana = data.features.find(
+      (feature) =>
+        feature.properties?.ISO_A2 === 'GF' ||
+        feature.properties?.iso_a2 === 'GF' ||
+        feature.properties?.NAME === 'French Guiana' ||
+        feature.properties?.name === 'French Guiana'
+    )
+    expect(frenchGuiana).toBeDefined()
+
+    const france = data.features.find(
+      (feature) =>
+        feature.properties?.NAME === 'France' ||
+        feature.properties?.name === 'France'
+    )
+    expect(france).toBeDefined()
+
+    const geometry = france?.geometry
+    if (!geometry) {
+      throw new Error('France feature is missing geometry')
+    }
+
+    const polygons =
+      geometry.type === 'MultiPolygon' ? geometry.coordinates : [geometry.coordinates]
+
+    const hasFrenchGuiana = polygons.some((poly) => {
+      let minX = Infinity
+      let minY = Infinity
+      let maxX = -Infinity
+      let maxY = -Infinity
+
+      poly.forEach((ring) => {
+        ring.forEach(([x, y]) => {
+          minX = Math.min(minX, x)
+          minY = Math.min(minY, y)
+          maxX = Math.max(maxX, x)
+          maxY = Math.max(maxY, y)
+        })
+      })
+
+      return minX < -50 && maxX < -50 && minY > 0 && maxY < 8
+    })
+
+    expect(hasFrenchGuiana).toBe(false)
   })
 })

@@ -21,6 +21,7 @@ const REGIONS = [
   'North America',
   'South America',
   'Oceania',
+  'Antarctica',
 ];
 
 export function SearchableCountryList({
