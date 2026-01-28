@@ -1,29 +1,20 @@
-import { Link } from 'react-router-dom';
-
 export const Header = () => {
   return (
-    <header className="border-b border-border bg-card">
-      <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-bold text-primary">
-            Travel Planner
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link to="/" className="text-sm hover:text-primary transition-colors">
-              Directory
-            </Link>
-            <Link to="/been-to" className="text-sm hover:text-primary transition-colors">
-              Been To
-            </Link>
-            <Link to="/want-to-go" className="text-sm hover:text-primary transition-colors">
-              Want To Go
-            </Link>
-            <Link to="/stats" className="text-sm hover:text-primary transition-colors">
-              Stats
-            </Link>
-          </div>
-        </nav>
+    <header className="absolute top-6 left-0 right-0 z-10 px-8 flex items-start justify-between">
+      <div className="flex flex-col items-center flex-1">
+        <h1 className="text-5xl font-bold text-gray-800 mb-1" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          Country Crush
+        </h1>
+        <p className="text-base text-gray-600" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          Where have you been? Where will you go?
+        </p>
       </div>
+      <a
+        href="#"
+        className="text-xs text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center gap-1.5 whitespace-nowrap mt-2 absolute right-8"
+      >
+        ☕ <span>Buy me a coffee</span>
+      </a>
     </header>
   );
 };

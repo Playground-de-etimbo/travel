@@ -5,5 +5,6 @@ import type { StorageAdapter } from './interface';
 // In v1.1+, switch based on auth state
 export const storage: StorageAdapter = new LocalStorageAdapter();
 
-// Re-export types
+// Re-export types and classes
 export type { StorageAdapter } from './interface';
+export { LocalStorageAdapter };

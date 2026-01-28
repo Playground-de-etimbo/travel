@@ -43,3 +43,10 @@
     --color-ring: 230 68% 56%;
   }
 }
+
+/* Map and animation transitions */
+* {
+  transition-property: fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
