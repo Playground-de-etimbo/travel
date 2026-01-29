@@ -1,37 +1,14 @@
-import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { WorldMap } from '@/components/map/WorldMap';
-import { AddCountryModal } from '@/components/country/AddCountryModal';
+import { SearchPanel } from '@/components/search/SearchPanel';
 import { useCountries } from '@/hooks/useCountries';
 import { useUserData } from '@/hooks/useUserData';
 
 function App() {
   const { countries } = useCountries();
   const { beenTo, addCountry, removeCountry } = useUserData();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [preSelectedCountry, setPreSelectedCountry] = useState<string | undefined>();
-
-  const handleCountrySelect = (code: string) => {
-    setPreSelectedCountry(code);
-    setModalOpen(true);
-  };
-
-  const handleAddClick = () => {
-    setPreSelectedCountry(undefined);
-    setModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setModalOpen(false);
-    setPreSelectedCountry(undefined);
-  };
-
-  const handleAddCountry = async (code: string) => {
-    await addCountry(code);
-    // Keep modal open for rapid-fire additions
-  };
 
   return (
     <BrowserRouter>
@@ -46,9 +23,16 @@ function App() {
                   beenTo={beenTo}
                   onAddCountry={addCountry}
                   onRemoveCountry={removeCountry}
-                  onCountryBrowse={handleAddClick}
                 />
               </section>
+
+              {/* Search Panel - Sticky panel overlapping map */}
+              <SearchPanel
+                beenTo={beenTo}
+                countries={countries}
+                onAddCountry={addCountry}
+                onRemoveCountry={removeCountry}
+              />
 
               {/* Directory Section */}
               <section id="directory" className="py-16 border-t border-border">
@@ -117,16 +101,6 @@ function App() {
                   </Card>
                 </div>
               </section>
-
-              {/* Add Country Modal */}
-              <AddCountryModal
-                open={modalOpen}
-                onClose={handleModalClose}
-                countries={countries}
-                beenTo={beenTo}
-                onAddCountry={handleAddCountry}
-                preSelectedCountry={preSelectedCountry}
-              />
             </main>
           } />
         </Routes>

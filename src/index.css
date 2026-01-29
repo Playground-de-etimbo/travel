@@ -21,6 +21,19 @@
   --radius-lg: 0.5rem;
   --radius-md: calc(0.5rem - 2px);
   --radius-sm: calc(0.5rem - 4px);
+
+  /* Search Panel specific */
+  --color-panel-border: 160 62% 50%;
+  --color-panel-shadow: 160 62% 50%;
+  --panel-border-width: 5px;
+  --panel-shadow-blur: 16px;
+
+  /* Stats bar */
+  --color-stats-text: 230 10% 40%;
+
+  /* Autocomplete */
+  --autocomplete-max-height: 400px;
+  --autocomplete-item-height: 56px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,6 +54,11 @@
     --color-border: 230 20% 20%;
     --color-input: 230 20% 20%;
     --color-ring: 230 68% 56%;
+
+    /* Search Panel specific */
+    --color-panel-border: 160 62% 55%;
+    --color-panel-shadow: 160 62% 55%;
+    --color-stats-text: 230 10% 60%;
   }
 }
 
@@ -105,4 +123,38 @@
 /* Allow clicks to pass through ZoomableGroup's overlay rect to Geography elements */
 svg g > g > rect[fill="transparent"] {
   pointer-events: none !important;
+}
+
+/* Autocomplete animations */
+@keyframes autocompleteSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes countryChipEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(6px);
+  }
+  60% {
+    transform: scale(1.03) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.autocomplete-open {
+  animation: autocompleteSlideUp 150ms ease-out;
+}
+
+.country-chip-enter {
+  animation: countryChipEnter 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }

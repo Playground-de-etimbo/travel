@@ -3,7 +3,6 @@ import { useCountries } from '@/hooks/useCountries';
 import { useCountryTooltip } from '@/hooks/useCountryTooltip';
 import { useMapZoom } from '@/hooks/useMapZoom';
 import { CountryTooltip } from './CountryTooltip';
-import { SelectedCountriesBar } from './SelectedCountriesBar';
 import { RemoveCountryDialog } from './RemoveCountryDialog';
 import { getCountryFill, getCountryStroke, MAP_COLORS } from '@/lib/map/colors';
 import { MAP_CONFIG } from '@/lib/map/config';
@@ -21,10 +20,9 @@ interface WorldMapProps {
   beenTo: string[];
   onAddCountry: (code: string) => void;
   onRemoveCountry: (code: string) => void;
-  onCountryBrowse: () => void;
 }
 
-export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrowse }: WorldMapProps) {
+export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProps) {
   const { countries, loading: countriesLoading } = useCountries();
   const { tooltip, show, hide, update } = useCountryTooltip();
   const { position, handleMoveStart, handleMoveEnd, isDragging } = useMapZoom();
@@ -69,10 +67,11 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
     return map;
   }, [countries]);
 
-  const resolveCountryFromGeo = (geoProperties: any) => {
+  const resolveCountryFromGeo = (geoProperties: any): { code: string | null; country: Country | null } => {
     const isoCode = getGeoCountryCode(geoProperties);
     if (isoCode) {
-      return { code: isoCode, country: countryMap.get(isoCode) };
+      const country = countryMap.get(isoCode);
+      return { code: isoCode, country: country ?? null };
     }
 
     const sovereignName =
@@ -89,18 +88,11 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
       }
     }
 
-    return { code: null, country: undefined };
+    return { code: null, country: null };
   };
 
-  // Get selected countries for the bar
-  const selectedCountries = useMemo(() => {
-    return beenTo
-      .map(code => countryMap.get(code))
-      .filter((c): c is Country => c !== undefined);
-  }, [beenTo, countryMap]);
-
   const handleMouseEnter = (geo: any, event: React.MouseEvent) => {
-    const { code: countryCode, country: resolvedCountry } = resolveCountryFromGeo(geo.properties);
+    const { country: resolvedCountry } = resolveCountryFromGeo(geo.properties);
 
     setHoveredGeo(geo.rsmKey);
 
@@ -438,11 +430,6 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, onCountryBrows
         country={removeDialog.country}
         onConfirm={handleRemoveConfirm}
         onCancel={handleRemoveCancel}
-      />
-
-      <SelectedCountriesBar
-        countries={selectedCountries}
-        onAddClick={onCountryBrowse}
       />
     </div>
   );

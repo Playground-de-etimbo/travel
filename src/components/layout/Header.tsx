@@ -6,7 +6,7 @@ export const Header = () => {
           Country Crush
         </h1>
         <p className="text-base text-gray-600" style={{ fontFamily: 'Nunito, sans-serif' }}>
-          Where have you been? Where will you go?
+          Where have you been to? Where will you go?
         </p>
       </div>
       <a

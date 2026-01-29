@@ -44,29 +44,29 @@ vi.mock('@/hooks/useMapZoom', () => ({
 
 describe('WorldMap Component', () => {
   it('should render without errors', () => {
-    const mockOnCountrySelect = vi.fn()
-    const mockOnAddClick = vi.fn()
+    const mockOnAddCountry = vi.fn()
+    const mockOnRemoveCountry = vi.fn()
 
     expect(() => {
       render(
         <WorldMap
           beenTo={[]}
-          onCountrySelect={mockOnCountrySelect}
-          onAddClick={mockOnAddClick}
+          onAddCountry={mockOnAddCountry}
+          onRemoveCountry={mockOnRemoveCountry}
         />
       )
     }).not.toThrow()
   })
 
   it('should render SVG element', () => {
-    const mockOnCountrySelect = vi.fn()
-    const mockOnAddClick = vi.fn()
+    const mockOnAddCountry = vi.fn()
+    const mockOnRemoveCountry = vi.fn()
 
     render(
       <WorldMap
         beenTo={[]}
-        onCountrySelect={mockOnCountrySelect}
-        onAddClick={mockOnAddClick}
+        onAddCountry={mockOnAddCountry}
+        onRemoveCountry={mockOnRemoveCountry}
       />
     )
 
@@ -76,19 +76,19 @@ describe('WorldMap Component', () => {
   })
 
   it('should accept callback props', () => {
-    const mockOnCountrySelect = vi.fn()
-    const mockOnAddClick = vi.fn()
+    const mockOnAddCountry = vi.fn()
+    const mockOnRemoveCountry = vi.fn()
 
     render(
       <WorldMap
         beenTo={['US']}
-        onCountrySelect={mockOnCountrySelect}
-        onAddClick={mockOnAddClick}
+        onAddCountry={mockOnAddCountry}
+        onRemoveCountry={mockOnRemoveCountry}
       />
     )
 
     // Just verify the component accepts and stores the props
-    expect(mockOnCountrySelect).toBeDefined()
-    expect(mockOnAddClick).toBeDefined()
+    expect(mockOnAddCountry).toBeDefined()
+    expect(mockOnRemoveCountry).toBeDefined()
   })
 })
