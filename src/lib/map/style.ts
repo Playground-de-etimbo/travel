@@ -32,9 +32,10 @@ export const MAP_STYLE = {
    */
   PROJECTION: {
     SCALE: 200,
+    ROTATE: [-147, 0, 0] as [number, number, number], // Rotate globe: Europe/Africa left, Asia center, Americas right
     TRANSLATE_EXTENT: {
-      MIN: [-300, -200] as [number, number],
-      MAX: [900, 600] as [number, number],
+      MIN: [-200, -300] as [number, number], // Limit panning to visible continents
+      MAX: [1000, 700] as [number, number],   // Prevent panning into empty space
     },
   },
 } as const;

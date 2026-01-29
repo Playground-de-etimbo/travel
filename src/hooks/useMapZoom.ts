@@ -7,7 +7,7 @@ interface Position {
 
 export function useMapZoom() {
   const [position, setPosition] = useState<Position>({
-    coordinates: [0, 0],
+    coordinates: [95, 15],
     zoom: 1.4, // Initial zoom level (40% closer than default)
   });
   const [isDragging, setIsDragging] = useState(false);

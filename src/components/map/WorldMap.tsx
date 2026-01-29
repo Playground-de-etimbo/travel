@@ -224,6 +224,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
           projection="geoEquirectangular"
           projectionConfig={{
             scale: MAP_STYLE.PROJECTION.SCALE,
+            rotate: MAP_STYLE.PROJECTION.ROTATE,
           }}
           className="w-full h-full"
         >
