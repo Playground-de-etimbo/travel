@@ -165,7 +165,7 @@ useEffect(() => {
 
 **User flows:**
 - Click unvisited country → Instant add with animation (600ms pulse)
-- Click visited country → `RemoveCountryDialog` confirms removal
+- Click visited country → removes immediately (no confirmation dialog)
 - "+ Add Country" button → Modal for search/browse (alternative to map clicking)
 
 ## Key Patterns and Conventions

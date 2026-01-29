@@ -2,7 +2,8 @@
   {
     "countryCode": "AF",
     "countryName": "Afghanistan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "AFN",
     "currencyName": "Afghani",
     "flagEmoji": "🇦🇫",
@@ -12,7 +13,8 @@
   {
     "countryCode": "AL",
     "countryName": "Albania",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "ALL",
     "currencyName": "Lek",
     "flagEmoji": "🇦🇱",
@@ -22,7 +24,8 @@
   {
     "countryCode": "DZ",
     "countryName": "Algeria",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Middle East & North Africa",
     "currencyCode": "DZD",
     "currencyName": "Algerian Dinar",
     "flagEmoji": "🇩🇿",
@@ -32,7 +35,8 @@
   {
     "countryCode": "AS",
     "countryName": "American Samoa",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇦🇸",
@@ -42,7 +46,8 @@
   {
     "countryCode": "AD",
     "countryName": "Andorra",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇦🇩",
@@ -52,7 +57,8 @@
   {
     "countryCode": "AO",
     "countryName": "Angola",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "AOA",
     "currencyName": "Kwanza",
     "flagEmoji": "🇦🇴",
@@ -62,7 +68,8 @@
   {
     "countryCode": "AI",
     "countryName": "Anguilla",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇦🇮",
@@ -72,6 +79,7 @@
   {
     "countryCode": "AQ",
     "countryName": "Antarctica",
+    "continent": "Antarctica",
     "region": "Antarctica",
     "currencyCode": "USD",
     "currencyName": "No universal currency",
@@ -82,7 +90,8 @@
   {
     "countryCode": "AG",
     "countryName": "Antigua and Barbuda",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇦🇬",
@@ -92,7 +101,8 @@
   {
     "countryCode": "AR",
     "countryName": "Argentina",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "ARS",
     "currencyName": "Argentine Peso",
     "flagEmoji": "🇦🇷",
@@ -102,7 +112,8 @@
   {
     "countryCode": "AM",
     "countryName": "Armenia",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "AMD",
     "currencyName": "Armenian Dram",
     "flagEmoji": "🇦🇲",
@@ -112,7 +123,8 @@
   {
     "countryCode": "AW",
     "countryName": "Aruba",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "AWG",
     "currencyName": "Aruban Florin",
     "flagEmoji": "🇦🇼",
@@ -121,8 +133,9 @@
   },
   {
     "countryCode": "AU",
-    "countryName": "Ashmore and Cartier Islands",
-    "region": "Oceania",
+    "countryName": "Australia",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇦🇺",
@@ -132,7 +145,8 @@
   {
     "countryCode": "AT",
     "countryName": "Austria",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇦🇹",
@@ -142,7 +156,8 @@
   {
     "countryCode": "AZ",
     "countryName": "Azerbaijan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "AZN",
     "currencyName": "Azerbaijan Manat",
     "flagEmoji": "🇦🇿",
@@ -152,7 +167,8 @@
   {
     "countryCode": "BS",
     "countryName": "Bahamas",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "BSD",
     "currencyName": "Bahamian Dollar",
     "flagEmoji": "🇧🇸",
@@ -162,7 +178,8 @@
   {
     "countryCode": "BH",
     "countryName": "Bahrain",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "BHD",
     "currencyName": "Bahraini Dinar",
     "flagEmoji": "🇧🇭",
@@ -172,7 +189,8 @@
   {
     "countryCode": "BD",
     "countryName": "Bangladesh",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "BDT",
     "currencyName": "Taka",
     "flagEmoji": "🇧🇩",
@@ -182,7 +200,8 @@
   {
     "countryCode": "BB",
     "countryName": "Barbados",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "BBD",
     "currencyName": "Barbados Dollar",
     "flagEmoji": "🇧🇧",
@@ -192,7 +211,8 @@
   {
     "countryCode": "BY",
     "countryName": "Belarus",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "BYN",
     "currencyName": "Belarusian Ruble",
     "flagEmoji": "🇧🇾",
@@ -202,7 +222,8 @@
   {
     "countryCode": "BE",
     "countryName": "Belgium",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇧🇪",
@@ -212,7 +233,8 @@
   {
     "countryCode": "BZ",
     "countryName": "Belize",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "BZD",
     "currencyName": "Belize Dollar",
     "flagEmoji": "🇧🇿",
@@ -222,7 +244,8 @@
   {
     "countryCode": "BJ",
     "countryName": "Benin",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇧🇯",
@@ -232,6 +255,7 @@
   {
     "countryCode": "BM",
     "countryName": "Bermuda",
+    "continent": "North America",
     "region": "North America",
     "currencyCode": "BMD",
     "currencyName": "Bermudian Dollar",
@@ -242,7 +266,8 @@
   {
     "countryCode": "BT",
     "countryName": "Bhutan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "INR",
     "currencyName": "Indian Rupee",
     "flagEmoji": "🇧🇹",
@@ -252,7 +277,8 @@
   {
     "countryCode": "BO",
     "countryName": "Bolivia",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "BOB",
     "currencyName": "Boliviano",
     "flagEmoji": "🇧🇴",
@@ -262,7 +288,8 @@
   {
     "countryCode": "BQ",
     "countryName": "Bonaire, Sint Eustatius and Saba",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇧🇶",
@@ -272,7 +299,8 @@
   {
     "countryCode": "BA",
     "countryName": "Bosnia and Herzegovina",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "BAM",
     "currencyName": "Convertible Mark",
     "flagEmoji": "🇧🇦",
@@ -282,7 +310,8 @@
   {
     "countryCode": "BW",
     "countryName": "Botswana",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "BWP",
     "currencyName": "Pula",
     "flagEmoji": "🇧🇼",
@@ -292,7 +321,8 @@
   {
     "countryCode": "BV",
     "countryName": "Bouvet Island",
-    "region": "Antarctica",
+    "continent": "Antarctica",
+    "region": "Europe & Central Asia",
     "currencyCode": "NOK",
     "currencyName": "Norwegian Krone",
     "flagEmoji": "🇧🇻",
@@ -302,7 +332,8 @@
   {
     "countryCode": "BR",
     "countryName": "Brazil",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "BRL",
     "currencyName": "Brazilian Real",
     "flagEmoji": "🇧🇷",
@@ -312,7 +343,8 @@
   {
     "countryCode": "IO",
     "countryName": "British Indian Ocean Territory",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇮🇴",
@@ -322,7 +354,8 @@
   {
     "countryCode": "VG",
     "countryName": "British Virgin Islands",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇻🇬",
@@ -332,7 +365,8 @@
   {
     "countryCode": "BN",
     "countryName": "Brunei Darussalam",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "BND",
     "currencyName": "Brunei Dollar",
     "flagEmoji": "🇧🇳",
@@ -342,7 +376,8 @@
   {
     "countryCode": "BG",
     "countryName": "Bulgaria",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇧🇬",
@@ -352,7 +387,8 @@
   {
     "countryCode": "BF",
     "countryName": "Burkina Faso",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇧🇫",
@@ -362,7 +398,8 @@
   {
     "countryCode": "BI",
     "countryName": "Burundi",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "BIF",
     "currencyName": "Burundi Franc",
     "flagEmoji": "🇧🇮",
@@ -372,7 +409,8 @@
   {
     "countryCode": "KH",
     "countryName": "Cambodia",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "KHR",
     "currencyName": "Riel",
     "flagEmoji": "🇰🇭",
@@ -382,7 +420,8 @@
   {
     "countryCode": "CM",
     "countryName": "Cameroon",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XAF",
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇨🇲",
@@ -392,6 +431,7 @@
   {
     "countryCode": "CA",
     "countryName": "Canada",
+    "continent": "North America",
     "region": "North America",
     "currencyCode": "CAD",
     "currencyName": "Canadian Dollar",
@@ -402,7 +442,8 @@
   {
     "countryCode": "KY",
     "countryName": "Cayman Islands",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "KYD",
     "currencyName": "Cayman Islands Dollar",
     "flagEmoji": "🇰🇾",
@@ -412,7 +453,8 @@
   {
     "countryCode": "CF",
     "countryName": "Central African Republic",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XAF",
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇨🇫",
@@ -422,7 +464,8 @@
   {
     "countryCode": "TD",
     "countryName": "Chad",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XAF",
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇹🇩",
@@ -432,7 +475,8 @@
   {
     "countryCode": "CL",
     "countryName": "Chile",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "CLP",
     "currencyName": "Chilean Peso",
     "flagEmoji": "🇨🇱",
@@ -442,7 +486,8 @@
   {
     "countryCode": "CN",
     "countryName": "China",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "CNY",
     "currencyName": "Yuan Renminbi",
     "flagEmoji": "🇨🇳",
@@ -452,7 +497,8 @@
   {
     "countryCode": "CX",
     "countryName": "Christmas Island",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇨🇽",
@@ -462,7 +508,8 @@
   {
     "countryCode": "CC",
     "countryName": "Cocos (Keeling) Islands",
-    "region": "Asia",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇨🇨",
@@ -472,7 +519,8 @@
   {
     "countryCode": "CO",
     "countryName": "Colombia",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "COP",
     "currencyName": "Colombian Peso",
     "flagEmoji": "🇨🇴",
@@ -482,7 +530,8 @@
   {
     "countryCode": "KM",
     "countryName": "Comoros",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "KMF",
     "currencyName": "Comorian Franc",
     "flagEmoji": "🇰🇲",
@@ -492,7 +541,8 @@
   {
     "countryCode": "CK",
     "countryName": "Cook Islands",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "NZD",
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇨🇰",
@@ -502,7 +552,8 @@
   {
     "countryCode": "CR",
     "countryName": "Costa Rica",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "CRC",
     "currencyName": "Costa Rican Colon",
     "flagEmoji": "🇨🇷",
@@ -512,7 +563,8 @@
   {
     "countryCode": "HR",
     "countryName": "Croatia",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇭🇷",
@@ -522,7 +574,8 @@
   {
     "countryCode": "CU",
     "countryName": "Cuba",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "CUP",
     "currencyName": "Cuban Peso",
     "flagEmoji": "🇨🇺",
@@ -532,7 +585,8 @@
   {
     "countryCode": "CW",
     "countryName": "Curaçao",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCG",
     "currencyName": "Caribbean Guilder",
     "flagEmoji": "🇨🇼",
@@ -542,7 +596,8 @@
   {
     "countryCode": "CY",
     "countryName": "Cyprus",
-    "region": "Europe",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇨🇾",
@@ -552,7 +607,8 @@
   {
     "countryCode": "CZ",
     "countryName": "Czech Republic",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "CZK",
     "currencyName": "Czech Koruna",
     "flagEmoji": "🇨🇿",
@@ -562,7 +618,8 @@
   {
     "countryCode": "CI",
     "countryName": "Côte d'Ivoire",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇨🇮",
@@ -572,7 +629,8 @@
   {
     "countryCode": "KP",
     "countryName": "Dem. Rep. Korea",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "KPW",
     "currencyName": "North Korean Won",
     "flagEmoji": "🇰🇵",
@@ -582,7 +640,8 @@
   {
     "countryCode": "CD",
     "countryName": "Democratic Republic of the Congo",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "CDF",
     "currencyName": "Congolese Franc",
     "flagEmoji": "🇨🇩",
@@ -592,7 +651,8 @@
   {
     "countryCode": "DK",
     "countryName": "Denmark",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "DKK",
     "currencyName": "Danish Krone",
     "flagEmoji": "🇩🇰",
@@ -602,7 +662,8 @@
   {
     "countryCode": "DJ",
     "countryName": "Djibouti",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Middle East & North Africa",
     "currencyCode": "DJF",
     "currencyName": "Djibouti Franc",
     "flagEmoji": "🇩🇯",
@@ -612,7 +673,8 @@
   {
     "countryCode": "DM",
     "countryName": "Dominica",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇩🇲",
@@ -622,7 +684,8 @@
   {
     "countryCode": "DO",
     "countryName": "Dominican Republic",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "DOP",
     "currencyName": "Dominican Peso",
     "flagEmoji": "🇩🇴",
@@ -632,7 +695,8 @@
   {
     "countryCode": "EC",
     "countryName": "Ecuador",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇪🇨",
@@ -642,7 +706,8 @@
   {
     "countryCode": "EG",
     "countryName": "Egypt",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Middle East & North Africa",
     "currencyCode": "EGP",
     "currencyName": "Egyptian Pound",
     "flagEmoji": "🇪🇬",
@@ -652,7 +717,8 @@
   {
     "countryCode": "SV",
     "countryName": "El Salvador",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "SVC",
     "currencyName": "El Salvador Colon",
     "flagEmoji": "🇸🇻",
@@ -662,7 +728,8 @@
   {
     "countryCode": "GQ",
     "countryName": "Equatorial Guinea",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XAF",
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇬🇶",
@@ -672,7 +739,8 @@
   {
     "countryCode": "ER",
     "countryName": "Eritrea",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "ERN",
     "currencyName": "Nakfa",
     "flagEmoji": "🇪🇷",
@@ -682,7 +750,8 @@
   {
     "countryCode": "EE",
     "countryName": "Estonia",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇪🇪",
@@ -692,7 +761,8 @@
   {
     "countryCode": "ET",
     "countryName": "Ethiopia",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "ETB",
     "currencyName": "Ethiopian Birr",
     "flagEmoji": "🇪🇹",
@@ -702,7 +772,8 @@
   {
     "countryCode": "FO",
     "countryName": "Faeroe Islands",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "DKK",
     "currencyName": "Danish Krone",
     "flagEmoji": "🇫🇴",
@@ -712,7 +783,8 @@
   {
     "countryCode": "FK",
     "countryName": "Falkland Islands / Malvinas",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "FKP",
     "currencyName": "Falkland Islands Pound",
     "flagEmoji": "🇫🇰",
@@ -722,7 +794,8 @@
   {
     "countryCode": "FM",
     "countryName": "Federated States of Micronesia",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇫🇲",
@@ -732,7 +805,8 @@
   {
     "countryCode": "FJ",
     "countryName": "Fiji",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "FJD",
     "currencyName": "Fiji Dollar",
     "flagEmoji": "🇫🇯",
@@ -742,7 +816,8 @@
   {
     "countryCode": "FI",
     "countryName": "Finland",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇫🇮",
@@ -752,7 +827,8 @@
   {
     "countryCode": "FR",
     "countryName": "France",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇫🇷",
@@ -762,7 +838,8 @@
   {
     "countryCode": "GF",
     "countryName": "French Guiana",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇬🇫",
@@ -772,7 +849,8 @@
   {
     "countryCode": "PF",
     "countryName": "French Polynesia",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "XPF",
     "currencyName": "CFP Franc",
     "flagEmoji": "🇵🇫",
@@ -782,7 +860,8 @@
   {
     "countryCode": "TF",
     "countryName": "French Southern and Antarctic Lands",
-    "region": "Antarctica",
+    "continent": "Seven seas (open ocean)",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇹🇫",
@@ -792,7 +871,8 @@
   {
     "countryCode": "GA",
     "countryName": "Gabon",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XAF",
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇬🇦",
@@ -802,7 +882,8 @@
   {
     "countryCode": "GE",
     "countryName": "Georgia",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "GEL",
     "currencyName": "Lari",
     "flagEmoji": "🇬🇪",
@@ -812,7 +893,8 @@
   {
     "countryCode": "DE",
     "countryName": "Germany",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇩🇪",
@@ -822,7 +904,8 @@
   {
     "countryCode": "GH",
     "countryName": "Ghana",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "GHS",
     "currencyName": "Ghana Cedi",
     "flagEmoji": "🇬🇭",
@@ -832,7 +915,8 @@
   {
     "countryCode": "GI",
     "countryName": "Gibraltar",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "GIP",
     "currencyName": "Gibraltar Pound",
     "flagEmoji": "🇬🇮",
@@ -842,7 +926,8 @@
   {
     "countryCode": "GR",
     "countryName": "Greece",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇬🇷",
@@ -852,7 +937,8 @@
   {
     "countryCode": "GL",
     "countryName": "Greenland",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Europe & Central Asia",
     "currencyCode": "DKK",
     "currencyName": "Danish Krone",
     "flagEmoji": "🇬🇱",
@@ -862,7 +948,8 @@
   {
     "countryCode": "GD",
     "countryName": "Grenada",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇬🇩",
@@ -872,7 +959,8 @@
   {
     "countryCode": "GP",
     "countryName": "Guadeloupe",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇬🇵",
@@ -882,7 +970,8 @@
   {
     "countryCode": "GU",
     "countryName": "Guam",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇬🇺",
@@ -892,7 +981,8 @@
   {
     "countryCode": "GT",
     "countryName": "Guatemala",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "GTQ",
     "currencyName": "Quetzal",
     "flagEmoji": "🇬🇹",
@@ -902,7 +992,8 @@
   {
     "countryCode": "GG",
     "countryName": "Guernsey",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "GBP",
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇬🇬",
@@ -912,7 +1003,8 @@
   {
     "countryCode": "GN",
     "countryName": "Guinea",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "GNF",
     "currencyName": "Guinean Franc",
     "flagEmoji": "🇬🇳",
@@ -922,7 +1014,8 @@
   {
     "countryCode": "GW",
     "countryName": "Guinea-Bissau",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇬🇼",
@@ -932,7 +1025,8 @@
   {
     "countryCode": "GY",
     "countryName": "Guyana",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "GYD",
     "currencyName": "Guyana Dollar",
     "flagEmoji": "🇬🇾",
@@ -942,7 +1036,8 @@
   {
     "countryCode": "HT",
     "countryName": "Haiti",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "HTG",
     "currencyName": "Gourde",
     "flagEmoji": "🇭🇹",
@@ -952,7 +1047,8 @@
   {
     "countryCode": "HM",
     "countryName": "Heard I. and McDonald Islands",
-    "region": "Antarctica",
+    "continent": "Antarctica",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇭🇲",
@@ -962,7 +1058,8 @@
   {
     "countryCode": "HN",
     "countryName": "Honduras",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "HNL",
     "currencyName": "Lempira",
     "flagEmoji": "🇭🇳",
@@ -972,7 +1069,8 @@
   {
     "countryCode": "HK",
     "countryName": "Hong Kong",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "HKD",
     "currencyName": "Hong Kong Dollar",
     "flagEmoji": "🇭🇰",
@@ -982,7 +1080,8 @@
   {
     "countryCode": "HU",
     "countryName": "Hungary",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "HUF",
     "currencyName": "Forint",
     "flagEmoji": "🇭🇺",
@@ -992,7 +1091,8 @@
   {
     "countryCode": "IS",
     "countryName": "Iceland",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "ISK",
     "currencyName": "Iceland Krona",
     "flagEmoji": "🇮🇸",
@@ -1002,7 +1102,8 @@
   {
     "countryCode": "IN",
     "countryName": "India",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "INR",
     "currencyName": "Indian Rupee",
     "flagEmoji": "🇮🇳",
@@ -1012,7 +1113,8 @@
   {
     "countryCode": "ID",
     "countryName": "Indonesia",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "IDR",
     "currencyName": "Rupiah",
     "flagEmoji": "🇮🇩",
@@ -1022,7 +1124,8 @@
   {
     "countryCode": "IR",
     "countryName": "Iran",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "IRR",
     "currencyName": "Iranian Rial",
     "flagEmoji": "🇮🇷",
@@ -1032,7 +1135,8 @@
   {
     "countryCode": "IQ",
     "countryName": "Iraq",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "IQD",
     "currencyName": "Iraqi Dinar",
     "flagEmoji": "🇮🇶",
@@ -1042,7 +1146,8 @@
   {
     "countryCode": "IE",
     "countryName": "Ireland",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇮🇪",
@@ -1052,7 +1157,8 @@
   {
     "countryCode": "IM",
     "countryName": "Isle of Man",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "GBP",
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇮🇲",
@@ -1062,7 +1168,8 @@
   {
     "countryCode": "IL",
     "countryName": "Israel",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "ILS",
     "currencyName": "New Israeli Sheqel",
     "flagEmoji": "🇮🇱",
@@ -1072,7 +1179,8 @@
   {
     "countryCode": "IT",
     "countryName": "Italy",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇮🇹",
@@ -1082,7 +1190,8 @@
   {
     "countryCode": "JM",
     "countryName": "Jamaica",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "JMD",
     "currencyName": "Jamaican Dollar",
     "flagEmoji": "🇯🇲",
@@ -1092,7 +1201,8 @@
   {
     "countryCode": "JP",
     "countryName": "Japan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "JPY",
     "currencyName": "Yen",
     "flagEmoji": "🇯🇵",
@@ -1102,7 +1212,8 @@
   {
     "countryCode": "JE",
     "countryName": "Jersey",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "GBP",
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇯🇪",
@@ -1112,7 +1223,8 @@
   {
     "countryCode": "JO",
     "countryName": "Jordan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "JOD",
     "currencyName": "Jordanian Dinar",
     "flagEmoji": "🇯🇴",
@@ -1122,7 +1234,8 @@
   {
     "countryCode": "KZ",
     "countryName": "Kazakhstan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "KZT",
     "currencyName": "Tenge",
     "flagEmoji": "🇰🇿",
@@ -1132,7 +1245,8 @@
   {
     "countryCode": "KE",
     "countryName": "Kenya",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "KES",
     "currencyName": "Kenyan Shilling",
     "flagEmoji": "🇰🇪",
@@ -1142,7 +1256,8 @@
   {
     "countryCode": "SZ",
     "countryName": "Kingdom of eSwatini",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "SZL",
     "currencyName": "Lilangeni",
     "flagEmoji": "🇸🇿",
@@ -1152,7 +1267,8 @@
   {
     "countryCode": "KI",
     "countryName": "Kiribati",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇰🇮",
@@ -1162,7 +1278,8 @@
   {
     "countryCode": "XK",
     "countryName": "Kosovo",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇽🇰",
@@ -1172,7 +1289,8 @@
   {
     "countryCode": "KW",
     "countryName": "Kuwait",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "KWD",
     "currencyName": "Kuwaiti Dinar",
     "flagEmoji": "🇰🇼",
@@ -1182,7 +1300,8 @@
   {
     "countryCode": "KG",
     "countryName": "Kyrgyzstan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "KGS",
     "currencyName": "Som",
     "flagEmoji": "🇰🇬",
@@ -1192,7 +1311,8 @@
   {
     "countryCode": "LA",
     "countryName": "Lao PDR",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "LAK",
     "currencyName": "Lao Kip",
     "flagEmoji": "🇱🇦",
@@ -1202,7 +1322,8 @@
   {
     "countryCode": "LV",
     "countryName": "Latvia",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇱🇻",
@@ -1212,7 +1333,8 @@
   {
     "countryCode": "LB",
     "countryName": "Lebanon",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "LBP",
     "currencyName": "Lebanese Pound",
     "flagEmoji": "🇱🇧",
@@ -1222,7 +1344,8 @@
   {
     "countryCode": "LS",
     "countryName": "Lesotho",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "LSL",
     "currencyName": "Loti",
     "flagEmoji": "🇱🇸",
@@ -1232,7 +1355,8 @@
   {
     "countryCode": "LR",
     "countryName": "Liberia",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "LRD",
     "currencyName": "Liberian Dollar",
     "flagEmoji": "🇱🇷",
@@ -1242,7 +1366,8 @@
   {
     "countryCode": "LY",
     "countryName": "Libya",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Middle East & North Africa",
     "currencyCode": "LYD",
     "currencyName": "Libyan Dinar",
     "flagEmoji": "🇱🇾",
@@ -1252,7 +1377,8 @@
   {
     "countryCode": "LI",
     "countryName": "Liechtenstein",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "CHF",
     "currencyName": "Swiss Franc",
     "flagEmoji": "🇱🇮",
@@ -1262,7 +1388,8 @@
   {
     "countryCode": "LT",
     "countryName": "Lithuania",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇱🇹",
@@ -1272,7 +1399,8 @@
   {
     "countryCode": "LU",
     "countryName": "Luxembourg",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇱🇺",
@@ -1282,7 +1410,8 @@
   {
     "countryCode": "MO",
     "countryName": "Macao",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "MOP",
     "currencyName": "Pataca",
     "flagEmoji": "🇲🇴",
@@ -1292,7 +1421,8 @@
   {
     "countryCode": "MG",
     "countryName": "Madagascar",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "MGA",
     "currencyName": "Malagasy Ariary",
     "flagEmoji": "🇲🇬",
@@ -1302,7 +1432,8 @@
   {
     "countryCode": "MW",
     "countryName": "Malawi",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "MWK",
     "currencyName": "Malawi Kwacha",
     "flagEmoji": "🇲🇼",
@@ -1312,7 +1443,8 @@
   {
     "countryCode": "MY",
     "countryName": "Malaysia",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "MYR",
     "currencyName": "Malaysian Ringgit",
     "flagEmoji": "🇲🇾",
@@ -1322,7 +1454,8 @@
   {
     "countryCode": "MV",
     "countryName": "Maldives",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "MVR",
     "currencyName": "Rufiyaa",
     "flagEmoji": "🇲🇻",
@@ -1332,7 +1465,8 @@
   {
     "countryCode": "ML",
     "countryName": "Mali",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇲🇱",
@@ -1342,7 +1476,8 @@
   {
     "countryCode": "MT",
     "countryName": "Malta",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇲🇹",
@@ -1352,7 +1487,8 @@
   {
     "countryCode": "MH",
     "countryName": "Marshall Islands",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇲🇭",
@@ -1362,7 +1498,8 @@
   {
     "countryCode": "MQ",
     "countryName": "Martinique",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇲🇶",
@@ -1372,7 +1509,8 @@
   {
     "countryCode": "MR",
     "countryName": "Mauritania",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "MRU",
     "currencyName": "Ouguiya",
     "flagEmoji": "🇲🇷",
@@ -1382,7 +1520,8 @@
   {
     "countryCode": "MU",
     "countryName": "Mauritius",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "MUR",
     "currencyName": "Mauritius Rupee",
     "flagEmoji": "🇲🇺",
@@ -1392,7 +1531,8 @@
   {
     "countryCode": "YT",
     "countryName": "Mayotte",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇾🇹",
@@ -1402,7 +1542,8 @@
   {
     "countryCode": "MX",
     "countryName": "Mexico",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "MXN",
     "currencyName": "Mexican Peso",
     "flagEmoji": "🇲🇽",
@@ -1412,7 +1553,8 @@
   {
     "countryCode": "MD",
     "countryName": "Moldova",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "MDL",
     "currencyName": "Moldovan Leu",
     "flagEmoji": "🇲🇩",
@@ -1422,7 +1564,8 @@
   {
     "countryCode": "MC",
     "countryName": "Monaco",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇲🇨",
@@ -1432,7 +1575,8 @@
   {
     "countryCode": "MN",
     "countryName": "Mongolia",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "MNT",
     "currencyName": "Tugrik",
     "flagEmoji": "🇲🇳",
@@ -1442,7 +1586,8 @@
   {
     "countryCode": "ME",
     "countryName": "Montenegro",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇲🇪",
@@ -1452,7 +1597,8 @@
   {
     "countryCode": "MS",
     "countryName": "Montserrat",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇲🇸",
@@ -1462,7 +1608,8 @@
   {
     "countryCode": "MA",
     "countryName": "Morocco",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Middle East & North Africa",
     "currencyCode": "MAD",
     "currencyName": "Moroccan Dirham",
     "flagEmoji": "🇲🇦",
@@ -1472,7 +1619,8 @@
   {
     "countryCode": "MZ",
     "countryName": "Mozambique",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "MZN",
     "currencyName": "Mozambique Metical",
     "flagEmoji": "🇲🇿",
@@ -1482,7 +1630,8 @@
   {
     "countryCode": "MM",
     "countryName": "Myanmar",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "MMK",
     "currencyName": "Kyat",
     "flagEmoji": "🇲🇲",
@@ -1492,7 +1641,8 @@
   {
     "countryCode": "NA",
     "countryName": "Namibia",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "NAD",
     "currencyName": "Namibia Dollar",
     "flagEmoji": "🇳🇦",
@@ -1502,7 +1652,8 @@
   {
     "countryCode": "NR",
     "countryName": "Nauru",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇳🇷",
@@ -1512,7 +1663,8 @@
   {
     "countryCode": "NP",
     "countryName": "Nepal",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "NPR",
     "currencyName": "Nepalese Rupee",
     "flagEmoji": "🇳🇵",
@@ -1522,7 +1674,8 @@
   {
     "countryCode": "NL",
     "countryName": "Netherlands",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇳🇱",
@@ -1532,7 +1685,8 @@
   {
     "countryCode": "NC",
     "countryName": "New Caledonia",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "XPF",
     "currencyName": "CFP Franc",
     "flagEmoji": "🇳🇨",
@@ -1542,7 +1696,8 @@
   {
     "countryCode": "NZ",
     "countryName": "New Zealand",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "NZD",
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇳🇿",
@@ -1552,7 +1707,8 @@
   {
     "countryCode": "NI",
     "countryName": "Nicaragua",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "NIO",
     "currencyName": "Cordoba Oro",
     "flagEmoji": "🇳🇮",
@@ -1562,7 +1718,8 @@
   {
     "countryCode": "NE",
     "countryName": "Niger",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇳🇪",
@@ -1572,7 +1729,8 @@
   {
     "countryCode": "NG",
     "countryName": "Nigeria",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "NGN",
     "currencyName": "Naira",
     "flagEmoji": "🇳🇬",
@@ -1582,7 +1740,8 @@
   {
     "countryCode": "NU",
     "countryName": "Niue",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "NZD",
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇳🇺",
@@ -1592,7 +1751,8 @@
   {
     "countryCode": "NF",
     "countryName": "Norfolk Island",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇳🇫",
@@ -1602,7 +1762,8 @@
   {
     "countryCode": "MK",
     "countryName": "North Macedonia",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "MKD",
     "currencyName": "Denar",
     "flagEmoji": "🇲🇰",
@@ -1612,7 +1773,8 @@
   {
     "countryCode": "MP",
     "countryName": "Northern Mariana Islands",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇲🇵",
@@ -1622,7 +1784,8 @@
   {
     "countryCode": "NO",
     "countryName": "Norway",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "NOK",
     "currencyName": "Norwegian Krone",
     "flagEmoji": "🇳🇴",
@@ -1632,7 +1795,8 @@
   {
     "countryCode": "OM",
     "countryName": "Oman",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "OMR",
     "currencyName": "Rial Omani",
     "flagEmoji": "🇴🇲",
@@ -1642,7 +1806,8 @@
   {
     "countryCode": "PK",
     "countryName": "Pakistan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "PKR",
     "currencyName": "Pakistan Rupee",
     "flagEmoji": "🇵🇰",
@@ -1652,7 +1817,8 @@
   {
     "countryCode": "PW",
     "countryName": "Palau",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇵🇼",
@@ -1662,7 +1828,8 @@
   {
     "countryCode": "PS",
     "countryName": "Palestine",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "USD",
     "currencyName": "No universal currency",
     "flagEmoji": "🇵🇸",
@@ -1672,7 +1839,8 @@
   {
     "countryCode": "PA",
     "countryName": "Panama",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "PAB",
     "currencyName": "Balboa",
     "flagEmoji": "🇵🇦",
@@ -1682,7 +1850,8 @@
   {
     "countryCode": "PG",
     "countryName": "Papua New Guinea",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "PGK",
     "currencyName": "Kina",
     "flagEmoji": "🇵🇬",
@@ -1692,7 +1861,8 @@
   {
     "countryCode": "PY",
     "countryName": "Paraguay",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "PYG",
     "currencyName": "Guarani",
     "flagEmoji": "🇵🇾",
@@ -1702,7 +1872,8 @@
   {
     "countryCode": "PE",
     "countryName": "Peru",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "PEN",
     "currencyName": "Sol",
     "flagEmoji": "🇵🇪",
@@ -1712,7 +1883,8 @@
   {
     "countryCode": "PH",
     "countryName": "Philippines",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "PHP",
     "currencyName": "Philippine Peso",
     "flagEmoji": "🇵🇭",
@@ -1722,7 +1894,8 @@
   {
     "countryCode": "PN",
     "countryName": "Pitcairn Islands",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "NZD",
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇵🇳",
@@ -1732,7 +1905,8 @@
   {
     "countryCode": "PL",
     "countryName": "Poland",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "PLN",
     "currencyName": "Zloty",
     "flagEmoji": "🇵🇱",
@@ -1742,7 +1916,8 @@
   {
     "countryCode": "PT",
     "countryName": "Portugal",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇵🇹",
@@ -1752,7 +1927,8 @@
   {
     "countryCode": "PR",
     "countryName": "Puerto Rico",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇵🇷",
@@ -1762,7 +1938,8 @@
   {
     "countryCode": "QA",
     "countryName": "Qatar",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "QAR",
     "currencyName": "Qatari Rial",
     "flagEmoji": "🇶🇦",
@@ -1772,7 +1949,8 @@
   {
     "countryCode": "CV",
     "countryName": "Republic of Cabo Verde",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "CVE",
     "currencyName": "Cabo Verde Escudo",
     "flagEmoji": "🇨🇻",
@@ -1782,7 +1960,8 @@
   {
     "countryCode": "KR",
     "countryName": "Republic of Korea",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "KRW",
     "currencyName": "Won",
     "flagEmoji": "🇰🇷",
@@ -1792,7 +1971,8 @@
   {
     "countryCode": "CG",
     "countryName": "Republic of the Congo",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XAF",
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇨🇬",
@@ -1802,7 +1982,8 @@
   {
     "countryCode": "RO",
     "countryName": "Romania",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "RON",
     "currencyName": "Romanian Leu",
     "flagEmoji": "🇷🇴",
@@ -1812,7 +1993,8 @@
   {
     "countryCode": "RU",
     "countryName": "Russian Federation",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "RUB",
     "currencyName": "Russian Ruble",
     "flagEmoji": "🇷🇺",
@@ -1822,7 +2004,8 @@
   {
     "countryCode": "RW",
     "countryName": "Rwanda",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "RWF",
     "currencyName": "Rwanda Franc",
     "flagEmoji": "🇷🇼",
@@ -1832,7 +2015,8 @@
   {
     "countryCode": "RE",
     "countryName": "Réunion",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇷🇪",
@@ -1842,7 +2026,8 @@
   {
     "countryCode": "SH",
     "countryName": "Saint Helena",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "SHP",
     "currencyName": "Saint Helena Pound",
     "flagEmoji": "🇸🇭",
@@ -1852,7 +2037,8 @@
   {
     "countryCode": "KN",
     "countryName": "Saint Kitts and Nevis",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇰🇳",
@@ -1862,7 +2048,8 @@
   {
     "countryCode": "LC",
     "countryName": "Saint Lucia",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇱🇨",
@@ -1872,6 +2059,7 @@
   {
     "countryCode": "PM",
     "countryName": "Saint Pierre and Miquelon",
+    "continent": "North America",
     "region": "North America",
     "currencyCode": "EUR",
     "currencyName": "Euro",
@@ -1882,7 +2070,8 @@
   {
     "countryCode": "VC",
     "countryName": "Saint Vincent and the Grenadines",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCD",
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇻🇨",
@@ -1892,7 +2081,8 @@
   {
     "countryCode": "BL",
     "countryName": "Saint-Barthélemy",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇧🇱",
@@ -1902,7 +2092,8 @@
   {
     "countryCode": "MF",
     "countryName": "Saint-Martin",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇲🇫",
@@ -1912,7 +2103,8 @@
   {
     "countryCode": "WS",
     "countryName": "Samoa",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "WST",
     "currencyName": "Tala",
     "flagEmoji": "🇼🇸",
@@ -1922,7 +2114,8 @@
   {
     "countryCode": "SM",
     "countryName": "San Marino",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇸🇲",
@@ -1932,7 +2125,8 @@
   {
     "countryCode": "SA",
     "countryName": "Saudi Arabia",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "SAR",
     "currencyName": "Saudi Riyal",
     "flagEmoji": "🇸🇦",
@@ -1942,7 +2136,8 @@
   {
     "countryCode": "SN",
     "countryName": "Senegal",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇸🇳",
@@ -1952,7 +2147,8 @@
   {
     "countryCode": "RS",
     "countryName": "Serbia",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "RSD",
     "currencyName": "Serbian Dinar",
     "flagEmoji": "🇷🇸",
@@ -1962,7 +2158,8 @@
   {
     "countryCode": "SC",
     "countryName": "Seychelles",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "SCR",
     "currencyName": "Seychelles Rupee",
     "flagEmoji": "🇸🇨",
@@ -1972,7 +2169,8 @@
   {
     "countryCode": "SL",
     "countryName": "Sierra Leone",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "SLE",
     "currencyName": "Leone",
     "flagEmoji": "🇸🇱",
@@ -1982,7 +2180,8 @@
   {
     "countryCode": "SG",
     "countryName": "Singapore",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "SGD",
     "currencyName": "Singapore Dollar",
     "flagEmoji": "🇸🇬",
@@ -1992,7 +2191,8 @@
   {
     "countryCode": "SX",
     "countryName": "Sint Maarten",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "XCG",
     "currencyName": "Caribbean Guilder",
     "flagEmoji": "🇸🇽",
@@ -2002,7 +2202,8 @@
   {
     "countryCode": "SK",
     "countryName": "Slovakia",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇸🇰",
@@ -2012,7 +2213,8 @@
   {
     "countryCode": "SI",
     "countryName": "Slovenia",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇸🇮",
@@ -2022,7 +2224,8 @@
   {
     "countryCode": "SB",
     "countryName": "Solomon Islands",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "SBD",
     "currencyName": "Solomon Islands Dollar",
     "flagEmoji": "🇸🇧",
@@ -2032,7 +2235,8 @@
   {
     "countryCode": "SO",
     "countryName": "Somalia",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "SOS",
     "currencyName": "Somali Shilling",
     "flagEmoji": "🇸🇴",
@@ -2042,7 +2246,8 @@
   {
     "countryCode": "ZA",
     "countryName": "South Africa",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "ZAR",
     "currencyName": "Rand",
     "flagEmoji": "🇿🇦",
@@ -2052,7 +2257,8 @@
   {
     "countryCode": "GS",
     "countryName": "South Georgia and the Islands",
-    "region": "Antarctica",
+    "continent": "Antarctica",
+    "region": "Latin America & Caribbean",
     "currencyCode": "USD",
     "currencyName": "No universal currency",
     "flagEmoji": "🇬🇸",
@@ -2062,7 +2268,8 @@
   {
     "countryCode": "SS",
     "countryName": "South Sudan",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "SSP",
     "currencyName": "South Sudanese Pound",
     "flagEmoji": "🇸🇸",
@@ -2072,7 +2279,8 @@
   {
     "countryCode": "ES",
     "countryName": "Spain",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇪🇸",
@@ -2082,7 +2290,8 @@
   {
     "countryCode": "LK",
     "countryName": "Sri Lanka",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "South Asia",
     "currencyCode": "LKR",
     "currencyName": "Sri Lanka Rupee",
     "flagEmoji": "🇱🇰",
@@ -2092,7 +2301,8 @@
   {
     "countryCode": "SD",
     "countryName": "Sudan",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "SDG",
     "currencyName": "Sudanese Pound",
     "flagEmoji": "🇸🇩",
@@ -2102,7 +2312,8 @@
   {
     "countryCode": "SR",
     "countryName": "Suriname",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "SRD",
     "currencyName": "Surinam Dollar",
     "flagEmoji": "🇸🇷",
@@ -2112,7 +2323,8 @@
   {
     "countryCode": "SJ",
     "countryName": "Svalbard and Jan Mayen",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "NOK",
     "currencyName": "Norwegian Krone",
     "flagEmoji": "🇸🇯",
@@ -2122,7 +2334,8 @@
   {
     "countryCode": "SE",
     "countryName": "Sweden",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "SEK",
     "currencyName": "Swedish Krona",
     "flagEmoji": "🇸🇪",
@@ -2132,7 +2345,8 @@
   {
     "countryCode": "CH",
     "countryName": "Switzerland",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "CHF",
     "currencyName": "Swiss Franc",
     "flagEmoji": "🇨🇭",
@@ -2142,7 +2356,8 @@
   {
     "countryCode": "SY",
     "countryName": "Syria",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "SYP",
     "currencyName": "Syrian Pound",
     "flagEmoji": "🇸🇾",
@@ -2152,7 +2367,8 @@
   {
     "countryCode": "ST",
     "countryName": "São Tomé and Principe",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "STN",
     "currencyName": "Dobra",
     "flagEmoji": "🇸🇹",
@@ -2162,7 +2378,8 @@
   {
     "countryCode": "TW",
     "countryName": "Taiwan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "TWD",
     "currencyName": "New Taiwan Dollar",
     "flagEmoji": "🇹🇼",
@@ -2172,7 +2389,8 @@
   {
     "countryCode": "TJ",
     "countryName": "Tajikistan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "TJS",
     "currencyName": "Somoni",
     "flagEmoji": "🇹🇯",
@@ -2182,7 +2400,8 @@
   {
     "countryCode": "TZ",
     "countryName": "Tanzania",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "TZS",
     "currencyName": "Tanzanian Shilling",
     "flagEmoji": "🇹🇿",
@@ -2192,7 +2411,8 @@
   {
     "countryCode": "TH",
     "countryName": "Thailand",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "THB",
     "currencyName": "Baht",
     "flagEmoji": "🇹🇭",
@@ -2202,7 +2422,8 @@
   {
     "countryCode": "GM",
     "countryName": "The Gambia",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "GMD",
     "currencyName": "Dalasi",
     "flagEmoji": "🇬🇲",
@@ -2212,7 +2433,8 @@
   {
     "countryCode": "TL",
     "countryName": "Timor-Leste",
-    "region": "Oceania",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇹🇱",
@@ -2222,7 +2444,8 @@
   {
     "countryCode": "TG",
     "countryName": "Togo",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "XOF",
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇹🇬",
@@ -2232,7 +2455,8 @@
   {
     "countryCode": "TK",
     "countryName": "Tokelau",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "NZD",
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇹🇰",
@@ -2242,7 +2466,8 @@
   {
     "countryCode": "TO",
     "countryName": "Tonga",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "TOP",
     "currencyName": "Pa’anga",
     "flagEmoji": "🇹🇴",
@@ -2252,7 +2477,8 @@
   {
     "countryCode": "TT",
     "countryName": "Trinidad and Tobago",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "TTD",
     "currencyName": "Trinidad and Tobago Dollar",
     "flagEmoji": "🇹🇹",
@@ -2262,7 +2488,8 @@
   {
     "countryCode": "TN",
     "countryName": "Tunisia",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Middle East & North Africa",
     "currencyCode": "TND",
     "currencyName": "Tunisian Dinar",
     "flagEmoji": "🇹🇳",
@@ -2272,7 +2499,8 @@
   {
     "countryCode": "TR",
     "countryName": "Turkey",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "TRY",
     "currencyName": "Turkish Lira",
     "flagEmoji": "🇹🇷",
@@ -2282,7 +2510,8 @@
   {
     "countryCode": "TM",
     "countryName": "Turkmenistan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "TMT",
     "currencyName": "Turkmenistan New Manat",
     "flagEmoji": "🇹🇲",
@@ -2292,7 +2521,8 @@
   {
     "countryCode": "TC",
     "countryName": "Turks and Caicos Islands",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇹🇨",
@@ -2302,7 +2532,8 @@
   {
     "countryCode": "TV",
     "countryName": "Tuvalu",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "AUD",
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇹🇻",
@@ -2312,7 +2543,8 @@
   {
     "countryCode": "UG",
     "countryName": "Uganda",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "UGX",
     "currencyName": "Uganda Shilling",
     "flagEmoji": "🇺🇬",
@@ -2322,7 +2554,8 @@
   {
     "countryCode": "UA",
     "countryName": "Ukraine",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "UAH",
     "currencyName": "Hryvnia",
     "flagEmoji": "🇺🇦",
@@ -2332,7 +2565,8 @@
   {
     "countryCode": "AE",
     "countryName": "United Arab Emirates",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "AED",
     "currencyName": "UAE Dirham",
     "flagEmoji": "🇦🇪",
@@ -2342,7 +2576,8 @@
   {
     "countryCode": "GB",
     "countryName": "United Kingdom",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "GBP",
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇬🇧",
@@ -2352,6 +2587,7 @@
   {
     "countryCode": "US",
     "countryName": "United States",
+    "continent": "North America",
     "region": "North America",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
@@ -2362,7 +2598,8 @@
   {
     "countryCode": "UM",
     "countryName": "United States Minor Outlying Islands",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇺🇲",
@@ -2372,7 +2609,8 @@
   {
     "countryCode": "VI",
     "countryName": "United States Virgin Islands",
-    "region": "North America",
+    "continent": "North America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇻🇮",
@@ -2382,7 +2620,8 @@
   {
     "countryCode": "UY",
     "countryName": "Uruguay",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "UYU",
     "currencyName": "Peso Uruguayo",
     "flagEmoji": "🇺🇾",
@@ -2392,7 +2631,8 @@
   {
     "countryCode": "UZ",
     "countryName": "Uzbekistan",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Europe & Central Asia",
     "currencyCode": "UZS",
     "currencyName": "Uzbekistan Sum",
     "flagEmoji": "🇺🇿",
@@ -2402,7 +2642,8 @@
   {
     "countryCode": "VU",
     "countryName": "Vanuatu",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "VUV",
     "currencyName": "Vatu",
     "flagEmoji": "🇻🇺",
@@ -2412,7 +2653,8 @@
   {
     "countryCode": "VA",
     "countryName": "Vatican",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇻🇦",
@@ -2422,7 +2664,8 @@
   {
     "countryCode": "VE",
     "countryName": "Venezuela",
-    "region": "South America",
+    "continent": "South America",
+    "region": "Latin America & Caribbean",
     "currencyCode": "VES",
     "currencyName": "Bolívar Soberano",
     "flagEmoji": "🇻🇪",
@@ -2432,7 +2675,8 @@
   {
     "countryCode": "VN",
     "countryName": "Vietnam",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "East Asia & Pacific",
     "currencyCode": "VND",
     "currencyName": "Dong",
     "flagEmoji": "🇻🇳",
@@ -2442,7 +2686,8 @@
   {
     "countryCode": "WF",
     "countryName": "Wallis and Futuna Islands",
-    "region": "Oceania",
+    "continent": "Oceania",
+    "region": "East Asia & Pacific",
     "currencyCode": "XPF",
     "currencyName": "CFP Franc",
     "flagEmoji": "🇼🇫",
@@ -2452,7 +2697,8 @@
   {
     "countryCode": "EH",
     "countryName": "Western Sahara",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Middle East & North Africa",
     "currencyCode": "MAD",
     "currencyName": "Moroccan Dirham",
     "flagEmoji": "🇪🇭",
@@ -2462,7 +2708,8 @@
   {
     "countryCode": "YE",
     "countryName": "Yemen",
-    "region": "Asia",
+    "continent": "Asia",
+    "region": "Middle East & North Africa",
     "currencyCode": "YER",
     "currencyName": "Yemeni Rial",
     "flagEmoji": "🇾🇪",
@@ -2472,7 +2719,8 @@
   {
     "countryCode": "ZM",
     "countryName": "Zambia",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "ZMW",
     "currencyName": "Zambian Kwacha",
     "flagEmoji": "🇿🇲",
@@ -2482,7 +2730,8 @@
   {
     "countryCode": "ZW",
     "countryName": "Zimbabwe",
-    "region": "Africa",
+    "continent": "Africa",
+    "region": "Sub-Saharan Africa",
     "currencyCode": "ZWG",
     "currencyName": "Zimbabwe Gold",
     "flagEmoji": "🇿🇼",
@@ -2492,7 +2741,8 @@
   {
     "countryCode": "AX",
     "countryName": "Åland Islands",
-    "region": "Europe",
+    "continent": "Europe",
+    "region": "Europe & Central Asia",
     "currencyCode": "EUR",
     "currencyName": "Euro",
     "flagEmoji": "🇦🇽",

@@ -9,8 +9,10 @@ vi.mock('@/hooks/useCountries', () => ({
       {
         countryCode: 'US',
         countryName: 'United States',
-        region: 'Americas',
+        continent: 'North America',
+        region: 'North America',
         currencyCode: 'USD',
+        currencyName: 'US Dollar',
         flagEmoji: '🇺🇸',
         baselineCost: 100,
         nightlyCost: 150,

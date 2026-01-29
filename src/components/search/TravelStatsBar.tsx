@@ -12,7 +12,7 @@ export const TravelStatsBar = ({ beenTo, totalCountries }: TravelStatsBarProps) 
     <div className="text-center mb-8">
       <p
         className="text-sm md:text-base font-medium"
-        style={{ color: 'hsl(var(--color-stats-text))' }}
+        style={{ color: 'var(--color-stats-text)' }}
       >
         {formattedString}
       </p>

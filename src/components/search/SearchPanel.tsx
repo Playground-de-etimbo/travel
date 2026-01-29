@@ -47,36 +47,27 @@ export const SearchPanel = ({
 
   return (
     <div className="relative z-30 -mt-48 py-8 space-y-6">
-      {/* Search box */}
-      <div
-        className="max-w-5xl mx-auto bg-white rounded-lg px-6 py-6"
-        style={{
-          border: `var(--panel-border-width) solid hsl(var(--color-panel-border))`,
-          boxShadow: `0 0 var(--panel-shadow-blur) hsl(var(--color-panel-shadow) / 0.2)`,
-        }}
-      >
-        {/* Mobile search button */}
-        <div className="md:hidden">
-          <Button
-            onClick={() => setMobileSearchOpen(true)}
-            variant="outline"
-            className="w-full justify-start gap-2 text-muted-foreground"
-          >
-            <Search className="h-4 w-4" />
-            Search countries to add...
-          </Button>
-        </div>
-
-        {/* Desktop search box */}
-        <SearchBox countries={countries} beenTo={beenTo} onAddCountry={handleAdd} />
+      {/* Mobile search button */}
+      <div className="md:hidden max-w-5xl mx-auto px-6">
+        <Button
+          onClick={() => setMobileSearchOpen(true)}
+          variant="outline"
+          className="w-full justify-start gap-2 text-muted-foreground"
+        >
+          <Search className="h-4 w-4" />
+          Search countries to add...
+        </Button>
       </div>
+
+      {/* Desktop search box */}
+      <SearchBox countries={countries} beenTo={beenTo} onAddCountry={handleAdd} />
 
       {/* Countries added box */}
       <div
         className="max-w-5xl mx-auto bg-white rounded-lg px-6 py-8"
         style={{
-          border: `var(--panel-border-width) solid hsl(var(--color-panel-border))`,
-          boxShadow: `0 0 var(--panel-shadow-blur) hsl(var(--color-panel-shadow) / 0.2)`,
+          border: `var(--panel-border-width) solid var(--color-panel-border)`,
+          boxShadow: `0 0 var(--panel-shadow-blur) color-mix(in oklab, var(--color-panel-shadow) 20%, transparent)`,
         }}
       >
         {/* Stats */}

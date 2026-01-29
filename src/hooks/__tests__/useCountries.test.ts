@@ -25,6 +25,7 @@ describe('useCountries Hook - Data Validation', () => {
     countries.forEach((country) => {
       expect(country).toHaveProperty('countryCode')
       expect(country).toHaveProperty('countryName')
+      expect(country).toHaveProperty('continent')
       expect(country).toHaveProperty('region')
       expect(country).toHaveProperty('currencyCode')
       expect(country).toHaveProperty('flagEmoji')
@@ -34,6 +35,7 @@ describe('useCountries Hook - Data Validation', () => {
       // Validate types
       expect(typeof country.countryCode).toBe('string')
       expect(typeof country.countryName).toBe('string')
+      expect(typeof country.continent).toBe('string')
       expect(typeof country.region).toBe('string')
       expect(typeof country.currencyCode).toBe('string')
       expect(typeof country.flagEmoji).toBe('string')

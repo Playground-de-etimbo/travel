@@ -17,7 +17,7 @@
 | Interactive world map component | 🟢 | react-simple-maps with pan/zoom |
 | Visited country highlighting | 🟢 | Teal fill for visited countries |
 | Flag overlay on visited countries | ⚪ | Show flag emojis on map |
-| Click country to toggle visited | 🟢 | Single click to add, confirmation dialog to remove |
+| Click country to toggle visited | 🟢 | Single click toggles add/remove |
 | "Add country" button | 🟢 | Opens modal with search/browse |
 | Mobile-responsive map | 🟢 | Touch-friendly, proper zoom |
 

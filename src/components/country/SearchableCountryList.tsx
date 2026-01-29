@@ -13,17 +13,6 @@ interface SearchableCountryListProps {
   preSelectedCountry?: string;
 }
 
-const REGIONS = [
-  'All',
-  'Africa',
-  'Asia',
-  'Europe',
-  'North America',
-  'South America',
-  'Oceania',
-  'Antarctica',
-];
-
 export function SearchableCountryList({
   countries,
   beenTo,
@@ -33,14 +22,23 @@ export function SearchableCountryList({
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('All');
   const preSelectedRef = useRef<HTMLButtonElement>(null);
+  const minMatchCharLength = 3;
+  const scoreCutoff = 0.32;
 
   // Configure fuzzy search with fuse.js
   const fuse = useMemo(() => {
     return new Fuse(countries, {
       keys: ['countryName', 'countryCode', 'region'],
       threshold: 0.3,
+      minMatchCharLength,
       includeScore: true,
     });
+  }, [countries, minMatchCharLength]);
+
+  const regionOptions = useMemo(() => {
+    const uniqueRegions = Array.from(new Set(countries.map(country => country.region).filter(Boolean)));
+    uniqueRegions.sort((a, b) => a.localeCompare(b));
+    return ['All', ...uniqueRegions];
   }, [countries]);
 
   // Filter countries based on search and region
@@ -49,7 +47,19 @@ export function SearchableCountryList({
 
     // Apply fuzzy search if there's a search term
     if (searchTerm.trim()) {
-      const fuseResults = fuse.search(searchTerm);
+      const normalizedTerm = searchTerm.trim().toLowerCase();
+      const isShortQuery = normalizedTerm.length <= 4;
+      const shortPrefix = normalizedTerm.slice(0, 3);
+
+      const fuseResults = fuse
+        .search(searchTerm)
+        .filter(result => (result.score ?? 1) <= scoreCutoff)
+        .filter(result => {
+          if (!isShortQuery) return true;
+          const name = result.item.countryName.toLowerCase();
+          const code = result.item.countryCode.toLowerCase();
+          return name.startsWith(shortPrefix) || code.startsWith(normalizedTerm);
+        });
       results = fuseResults.map(result => result.item);
     }
 
@@ -121,7 +131,7 @@ export function SearchableCountryList({
       {/* Region filter */}
       <div className="p-4 border-b border-border">
         <div className="flex flex-wrap gap-2">
-          {REGIONS.map(region => (
+          {regionOptions.map(region => (
             <Badge
               key={region}
               variant={selectedRegion === region ? 'default' : 'outline'}

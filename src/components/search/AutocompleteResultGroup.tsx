@@ -2,7 +2,6 @@ import { Badge } from '@/components/ui/badge';
 import type { Country } from '@/types';
 
 interface AutocompleteResultGroupProps {
-  region: string;
   countries: Country[];
   beenTo: string[];
   selectedIndex: number;
@@ -23,7 +22,6 @@ const highlightMatches = (text: string, searchTerm: string) => {
 };
 
 export const AutocompleteResultGroup = ({
-  region,
   countries,
   beenTo,
   selectedIndex,
@@ -33,13 +31,11 @@ export const AutocompleteResultGroup = ({
 }: AutocompleteResultGroupProps) => {
   return (
     <div>
-      <div className="px-3 py-2 text-xs font-medium text-muted-foreground bg-muted/50">
-        {region}
-      </div>
       <div>
         {countries.map((country, index) => {
           const globalIndex = startIndex + index;
           const isSelected = globalIndex === selectedIndex;
+          const isTopMatch = globalIndex === 0;
           const isAdded = beenTo.includes(country.countryCode);
 
           return (
@@ -50,23 +46,30 @@ export const AutocompleteResultGroup = ({
               onClick={() => !isAdded && onSelect(country.countryCode)}
               disabled={isAdded}
               className={`
-                w-full px-3 py-3 text-left flex items-center gap-3 transition-colors
+                w-full px-4 py-2.5 text-left flex items-center gap-3 transition-colors
                 ${isSelected ? 'bg-accent/10' : 'hover:bg-accent/5'}
                 ${isAdded ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
               `}
             >
-              <span className="text-2xl">{country.flagEmoji}</span>
+              <span className="text-xl">{country.flagEmoji}</span>
               <div className="flex-1 min-w-0">
-                <div className="font-medium">
-                  {highlightMatches(country.countryName, searchTerm)}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {country.region}
+                <div className="flex items-baseline gap-1 text-sm font-medium min-w-0">
+                  <span className="truncate">
+                    {highlightMatches(country.countryName, searchTerm)}
+                  </span>
+                  <span className="text-[11px] text-muted-foreground whitespace-nowrap">
+                    in {country.region}
+                  </span>
                 </div>
               </div>
+              {isTopMatch && !isAdded && (
+                <Badge variant="default">
+                  Best match
+                </Badge>
+              )}
               {isAdded && (
-                <Badge variant="secondary" className="text-xs">
-                  Added
+                <Badge variant="outline" className="bg-secondary/80 border-border/70 text-foreground">
+                  Already added
                 </Badge>
               )}
             </button>

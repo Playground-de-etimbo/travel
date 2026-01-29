@@ -6,16 +6,20 @@ import { getGeoCountryCode } from './geoCountryCode';
  * Creates a minimal Country object from GeoJSON properties.
  * Used as a fallback when a country isn't in countries.json.
  *
- * Only countryCode, countryName, region, and flagEmoji are populated with real data.
+ * Only countryCode, countryName, continent, region, and flagEmoji are populated with real data.
  * Other fields use placeholder values since they're not displayed in tooltips.
  */
 export function createFallbackCountry(geoProperties: any): Country | null {
   const countryCode = getGeoCountryCode(geoProperties);
   const countryName = geoProperties?.NAME ?? geoProperties?.name ?? geoProperties?.ADMIN ?? geoProperties?.admin;
-  const region = geoProperties?.CONTINENT ?? geoProperties?.continent;
+  const continent = geoProperties?.CONTINENT ?? geoProperties?.continent;
+  const region =
+    geoProperties?.REGION_WB ??
+    geoProperties?.region_wb ??
+    continent;
 
   // Validate required fields exist
-  if (!countryCode || !countryName || !region) {
+  if (!countryCode || !countryName || !continent || !region) {
     console.warn('Missing required GeoJSON properties for fallback country:', geoProperties);
     return null;
   }
@@ -23,6 +27,7 @@ export function createFallbackCountry(geoProperties: any): Country | null {
   return {
     countryCode,
     countryName,
+    continent,
     region,
     flagEmoji: getCountryFlag(countryCode),
     // Placeholder values for fields not used in tooltips

@@ -5,36 +5,52 @@ import type { Country } from '@/types';
 interface UseSearchFilterOptions {
   countries: Country[];
   searchTerm: string;
-  maxPerRegion?: number;
 }
 
 interface SearchResult {
   filteredResults: Record<string, Country[]>;
   matches: FuseResultMatch[];
+  flatResults: Country[];
 }
 
 export const useSearchFilter = ({
   countries,
   searchTerm,
-  maxPerRegion = 5,
 }: UseSearchFilterOptions): SearchResult => {
+  const minMatchCharLength = 3;
+  const scoreCutoff = 0.32;
   const fuse = useMemo(
     () =>
       new Fuse(countries, {
         keys: ['countryName', 'countryCode', 'region'],
         threshold: 0.3,
+        minMatchCharLength,
         includeMatches: true,
+        includeScore: true,
       }),
-    [countries]
+    [countries, minMatchCharLength]
   );
 
   return useMemo(() => {
     if (!searchTerm.trim()) {
-      return { filteredResults: {}, matches: [] };
+      return { filteredResults: {}, matches: [], flatResults: [] };
     }
 
-    const results = fuse.search(searchTerm);
+    const normalizedTerm = searchTerm.trim().toLowerCase();
+    const isShortQuery = normalizedTerm.length <= 4;
+    const shortPrefix = normalizedTerm.slice(0, 3);
+
+    const results = fuse
+      .search(searchTerm)
+      .filter(result => (result.score ?? 1) <= scoreCutoff)
+      .filter(result => {
+        if (!isShortQuery) return true;
+        const name = result.item.countryName.toLowerCase();
+        const code = result.item.countryCode.toLowerCase();
+        return name.startsWith(shortPrefix) || code.startsWith(normalizedTerm);
+      });
     const grouped: Record<string, Country[]> = {};
+    const flatResults: Country[] = [];
     const allMatches: FuseResultMatch[] = [];
 
     for (const result of results) {
@@ -45,11 +61,10 @@ export const useSearchFilter = ({
         grouped[region] = [];
       }
 
-      if (grouped[region].length < maxPerRegion) {
-        grouped[region].push(country);
-        if (result.matches) {
-          allMatches.push(...result.matches);
-        }
+      grouped[region].push(country);
+      flatResults.push(country);
+      if (result.matches) {
+        allMatches.push(...result.matches);
       }
     }
 
@@ -58,6 +73,6 @@ export const useSearchFilter = ({
       Object.entries(grouped).filter(([_, countries]) => countries.length > 0)
     );
 
-    return { filteredResults: nonEmptyRegions, matches: allMatches };
-  }, [fuse, searchTerm, maxPerRegion]);
+    return { filteredResults: nonEmptyRegions, matches: allMatches, flatResults };
+  }, [fuse, searchTerm]);
 };

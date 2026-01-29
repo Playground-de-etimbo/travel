@@ -3,12 +3,12 @@ import { useCountries } from '@/hooks/useCountries';
 import { useCountryTooltip } from '@/hooks/useCountryTooltip';
 import { useMapZoom } from '@/hooks/useMapZoom';
 import { CountryTooltip } from './CountryTooltip';
-import { RemoveCountryDialog } from './RemoveCountryDialog';
 import { getCountryFill, getCountryStroke, MAP_COLORS } from '@/lib/map/colors';
 import { MAP_CONFIG } from '@/lib/map/config';
 import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import { getGeoCountryCode } from '@/lib/map/geoCountryCode';
+import { playCountrySound } from '@/lib/sound/countrySounds';
 import type { Country } from '@/types';
 import { useMemo, useRef, useState } from 'react';
 
@@ -29,15 +29,10 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
   const [hoveredGeo, setHoveredGeo] = useState<string | null>(null);
   const [addFlashCode, setAddFlashCode] = useState<string | null>(null);
   const [toasts, setToasts] = useState<
-    Array<{ id: string; x: number; y: number; label: string }>
+    Array<{ id: string; x: number; y: number; label: string; tone: 'add' | 'remove' }>
   >([]);
-  const [removeDialog, setRemoveDialog] = useState<{
-    open: boolean;
-    country: Country | null;
-  }>({ open: false, country: null });
   const addFlashTimeoutRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
 
   // Create a map of country codes to country objects for fast lookup
   const countryMap = useMemo(() => {
@@ -121,47 +116,17 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
     hide();
   };
 
-  const playSound = (type: 'add' | 'remove') => {
-    const AudioContextClass =
-      window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+  const enqueueToast = (label: string, tone: 'add' | 'remove', event?: React.MouseEvent) => {
+    if (!event || !containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const id = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
-    if (!AudioContextClass) return;
-
-    if (!audioContextRef.current) {
-      audioContextRef.current = new AudioContextClass();
-    }
-
-    const context = audioContextRef.current;
-    if (context.state === 'suspended') {
-      void context.resume();
-    }
-
-    const now = context.currentTime;
-    const osc = context.createOscillator();
-    const gain = context.createGain();
-
-    if (type === 'add') {
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(520, now);
-      osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.exponentialRampToValueAtTime(0.2, now + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
-      osc.start(now);
-      osc.stop(now + 0.2);
-    } else {
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(380, now);
-      osc.frequency.exponentialRampToValueAtTime(200, now + 0.35);
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.exponentialRampToValueAtTime(0.2, now + 0.06);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
-      osc.start(now);
-      osc.stop(now + 0.55);
-    }
-
-    osc.connect(gain);
-    gain.connect(context.destination);
+    setToasts(prev => [...prev, { id, x, y, label, tone }]);
+    window.setTimeout(() => {
+      setToasts(prev => prev.filter(toast => toast.id !== id));
+    }, 1500);
   };
 
   const triggerAddFeedback = (country: Country, event?: React.MouseEvent) => {
@@ -174,24 +139,18 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
       setAddFlashCode(null);
     }, 2200);
 
-    if (event && containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const id = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-      const label = `Added: ${country.countryName}`;
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      setToasts(prev => [...prev, { id, x, y, label }]);
-      window.setTimeout(() => {
-        setToasts(prev => prev.filter(toast => toast.id !== id));
-      }, 1500);
-    }
+    enqueueToast(`Added ${country.countryName}`, 'add', event);
 
     if (navigator.vibrate) {
       navigator.vibrate(25);
     }
 
-    playSound('add');
+    void playCountrySound('add');
+  };
+
+  const triggerRemoveFeedback = (country: Country, event?: React.MouseEvent) => {
+    enqueueToast(`Removed ${country.countryName}`, 'remove', event);
+    void playCountrySound('remove');
   };
 
   const handleClick = (geo: any, event?: React.MouseEvent) => {
@@ -211,8 +170,8 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
     const isVisited = beenTo.includes(countryCode);
 
     if (isVisited) {
-      // Show removal confirmation dialog
-      setRemoveDialog({ open: true, country });
+      triggerRemoveFeedback(country, event);
+      onRemoveCountry(countryCode);
     } else {
       // Instant add
       triggerAddFeedback(country, event);
@@ -220,18 +179,6 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
     }
 
     hide(); // Hide tooltip
-  };
-
-  const handleRemoveConfirm = () => {
-    if (removeDialog.country) {
-      playSound('remove');
-      onRemoveCountry(removeDialog.country.countryCode);
-    }
-    setRemoveDialog({ open: false, country: null });
-  };
-
-  const handleRemoveCancel = () => {
-    setRemoveDialog({ open: false, country: null });
   };
 
   if (countriesLoading) {
@@ -409,9 +356,9 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
       </div>
 
       {toasts.map(toast => (
-        <div
+      <div
           key={toast.id}
-          className="map-add-toast"
+          className={`map-toast map-toast--${toast.tone}`}
           style={{ left: toast.x, top: toast.y }}
         >
           {toast.label}
@@ -423,13 +370,6 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
         position={tooltip.position}
         visible={tooltip.visible}
         isVisited={tooltip.country ? beenTo.includes(tooltip.country.countryCode) : false}
-      />
-
-      <RemoveCountryDialog
-        open={removeDialog.open}
-        country={removeDialog.country}
-        onConfirm={handleRemoveConfirm}
-        onCancel={handleRemoveCancel}
       />
     </div>
   );

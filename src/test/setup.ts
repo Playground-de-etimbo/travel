@@ -13,7 +13,10 @@ beforeAll(() => {
           ? input.toString()
           : input.url
 
-    if (url === '/data/countries-natural-earth-50m.geo.json') {
+    if (
+      url === '/data/countries-natural-earth-50m.geo.json' ||
+      url === '/data/countries-natural-earth-110m.geo.json'
+    ) {
       return new Response(
         JSON.stringify({ type: 'FeatureCollection', features: [] }),
         { status: 200, headers: { 'Content-Type': 'application/json' } },

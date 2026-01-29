@@ -5,7 +5,7 @@ import type { Country } from '@/types';
 interface AutocompleteDropdownProps {
   isOpen: boolean;
   searchTerm: string;
-  results: Record<string, Country[]>;
+  countries: Country[];
   selectedIndex: number;
   beenTo: string[];
   onSelect: (countryCode: string) => void;
@@ -16,7 +16,7 @@ interface AutocompleteDropdownProps {
 export const AutocompleteDropdown = ({
   isOpen,
   searchTerm,
-  results,
+  countries,
   selectedIndex,
   beenTo,
   onSelect,
@@ -47,34 +47,23 @@ export const AutocompleteDropdown = ({
 
   if (!isOpen) return null;
 
-  let currentIndex = 0;
-
   return (
     <div
       ref={dropdownRef}
-      className="absolute bottom-full left-0 right-0 mb-2 bg-background border border-border rounded-lg shadow-lg overflow-hidden autocomplete-open"
+      className="absolute bottom-full left-0 right-0 mb-3 bg-white border-2 border-accent/20 rounded-3xl shadow-2xl overflow-hidden autocomplete-open"
       style={{
         maxHeight: 'var(--autocomplete-max-height)',
         overflowY: 'auto',
       }}
     >
-      {Object.entries(results).map(([region, countries]) => {
-        const startIndex = currentIndex;
-        currentIndex += countries.length;
-
-        return (
-          <AutocompleteResultGroup
-            key={region}
-            region={region}
-            countries={countries}
-            beenTo={beenTo}
-            selectedIndex={selectedIndex}
-            startIndex={startIndex}
-            onSelect={onSelect}
-            searchTerm={searchTerm}
-          />
-        );
-      })}
+      <AutocompleteResultGroup
+        countries={countries}
+        beenTo={beenTo}
+        selectedIndex={selectedIndex}
+        startIndex={0}
+        onSelect={onSelect}
+        searchTerm={searchTerm}
+      />
     </div>
   );
 };

@@ -2,34 +2,34 @@
 
 @theme {
   /* Midnight Map - Light Mode (root) */
-  --color-background: 225 40% 98%;
-  --color-foreground: 230 15% 15%;
-  --color-card: 0 0% 100%;
-  --color-card-foreground: 230 15% 15%;
-  --color-primary: 230 68% 50%;
-  --color-primary-foreground: 0 0% 100%;
-  --color-secondary: 230 20% 92%;
-  --color-secondary-foreground: 230 15% 15%;
-  --color-accent: 160 62% 45%;
-  --color-accent-foreground: 0 0% 100%;
-  --color-muted: 230 20% 92%;
-  --color-muted-foreground: 230 10% 40%;
-  --color-border: 230 25% 88%;
-  --color-input: 230 25% 88%;
-  --color-ring: 230 68% 50%;
+  --color-background: hsl(225 40% 98%);
+  --color-foreground: hsl(230 15% 15%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(230 15% 15%);
+  --color-primary: hsl(230 68% 50%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(230 20% 92%);
+  --color-secondary-foreground: hsl(230 15% 15%);
+  --color-accent: hsl(160 62% 45%);
+  --color-accent-foreground: hsl(0 0% 100%);
+  --color-muted: hsl(230 20% 92%);
+  --color-muted-foreground: hsl(230 10% 40%);
+  --color-border: hsl(230 25% 88%);
+  --color-input: hsl(230 25% 88%);
+  --color-ring: hsl(230 68% 50%);
   --radius: 0.5rem;
   --radius-lg: 0.5rem;
   --radius-md: calc(0.5rem - 2px);
   --radius-sm: calc(0.5rem - 4px);
 
   /* Search Panel specific */
-  --color-panel-border: 160 62% 50%;
-  --color-panel-shadow: 160 62% 50%;
+  --color-panel-border: hsl(160 62% 50%);
+  --color-panel-shadow: hsl(160 62% 50%);
   --panel-border-width: 5px;
   --panel-shadow-blur: 16px;
 
   /* Stats bar */
-  --color-stats-text: 230 10% 40%;
+  --color-stats-text: hsl(230 10% 40%);
 
   /* Autocomplete */
   --autocomplete-max-height: 400px;
@@ -39,26 +39,26 @@
 @media (prefers-color-scheme: dark) {
   @theme {
     /* Midnight Map - Dark Mode */
-    --color-background: 230 28% 7%;
-    --color-foreground: 225 20% 90%;
-    --color-card: 230 25% 10%;
-    --color-card-foreground: 225 20% 90%;
-    --color-primary: 230 68% 56%;
-    --color-primary-foreground: 230 28% 7%;
-    --color-secondary: 230 20% 15%;
-    --color-secondary-foreground: 225 20% 90%;
-    --color-accent: 160 62% 50%;
-    --color-accent-foreground: 230 28% 7%;
-    --color-muted: 230 20% 15%;
-    --color-muted-foreground: 230 10% 60%;
-    --color-border: 230 20% 20%;
-    --color-input: 230 20% 20%;
-    --color-ring: 230 68% 56%;
+    --color-background: hsl(230 28% 7%);
+    --color-foreground: hsl(225 20% 90%);
+    --color-card: hsl(230 25% 10%);
+    --color-card-foreground: hsl(225 20% 90%);
+    --color-primary: hsl(230 68% 56%);
+    --color-primary-foreground: hsl(230 28% 7%);
+    --color-secondary: hsl(230 20% 15%);
+    --color-secondary-foreground: hsl(225 20% 90%);
+    --color-accent: hsl(160 62% 50%);
+    --color-accent-foreground: hsl(230 28% 7%);
+    --color-muted: hsl(230 20% 15%);
+    --color-muted-foreground: hsl(230 10% 60%);
+    --color-border: hsl(230 20% 20%);
+    --color-input: hsl(230 20% 20%);
+    --color-ring: hsl(230 68% 56%);
 
     /* Search Panel specific */
-    --color-panel-border: 160 62% 55%;
-    --color-panel-shadow: 160 62% 55%;
-    --color-stats-text: 230 10% 60%;
+    --color-panel-border: hsl(160 62% 55%);
+    --color-panel-shadow: hsl(160 62% 55%);
+    --color-stats-text: hsl(230 10% 60%);
   }
 }
 
@@ -99,25 +99,53 @@
   }
 }
 
+@keyframes map-add-toast-down {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -4px);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, 6px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 18px);
+  }
+}
+
 .map-add-pulse {
   animation: map-add-pulse 450ms ease-out;
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.map-add-toast {
+.map-toast {
   position: absolute;
   z-index: 30;
   padding: 6px 10px;
   border-radius: 999px;
-  background: color-mix(in oklch, white, transparent 5%);
-  color: oklch(47.73% 0.129 191.636);
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.2px;
-  box-shadow: 0 8px 20px color-mix(in oklch, oklch(47.73% 0.129 191.636), transparent 75%);
   pointer-events: none;
-  animation: map-add-toast 1500ms ease-out forwards;
+  animation: map-add-toast 2200ms ease-out forwards;
+}
+
+.map-toast--down {
+  animation: map-add-toast-down 2200ms ease-out forwards;
+}
+
+.map-toast--add {
+  background: color-mix(in oklch, white, transparent 5%);
+  color: oklch(47.73% 0.129 191.636);
+  box-shadow: 0 8px 20px color-mix(in oklch, oklch(47.73% 0.129 191.636), transparent 75%);
+}
+
+.map-toast--remove {
+  background: color-mix(in oklch, white, transparent 5%);
+  color: oklch(57% 0.208 25);
+  box-shadow: 0 8px 20px color-mix(in oklch, oklch(57% 0.208 25), transparent 75%);
 }
 
 /* Allow clicks to pass through ZoomableGroup's overlay rect to Geography elements */

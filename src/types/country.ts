@@ -1,7 +1,8 @@
 export interface Country {
   countryCode: string;        // ISO 3166-1 alpha-2 (e.g., "US")
   countryName: string;         // Full name (e.g., "United States")
-  region: string;              // Continent/region (e.g., "North America")
+  continent: string;           // Continent (e.g., "North America")
+  region: string;              // World Bank region (e.g., "Latin America & Caribbean")
   currencyCode: string;        // ISO 4217 (e.g., "USD")
   currencyName: string;        // Full currency name (e.g., "US Dollar")
   flagEmoji: string;           // Unicode flag (e.g., "🇺🇸")

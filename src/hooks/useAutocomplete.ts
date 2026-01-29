@@ -8,36 +8,26 @@ interface SelectableItem {
 }
 
 interface UseAutocompleteOptions {
-  filteredResults: Record<string, Country[]>;
+  results: Country[];
   onSelect: (countryCode: string) => void;
   onClose: () => void;
 }
 
 export const useAutocomplete = ({
-  filteredResults,
+  results,
   onSelect,
   onClose,
 }: UseAutocompleteOptions) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  // Flatten grouped results into selectable items (skip region headers)
+  // Flatten results into selectable items
   const selectableItems = useMemo(() => {
-    const items: SelectableItem[] = [];
-    let index = 0;
-
-    Object.entries(filteredResults).forEach(([_, countries]) => {
-      countries.forEach((country) => {
-        items.push({
-          type: 'country',
-          country,
-          index,
-        });
-        index++;
-      });
-    });
-
-    return items;
-  }, [filteredResults]);
+    return results.map((country, index) => ({
+      type: 'country',
+      country,
+      index,
+    }));
+  }, [results]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {

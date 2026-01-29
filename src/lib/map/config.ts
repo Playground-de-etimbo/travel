@@ -28,10 +28,10 @@ export const MAP_CONFIG = {
   /**
    * GeoJSON URL for map rendering
    *
-   * Default: countries-natural-earth-50m.geo.json (~4.0MB, medium detail, includes territories)
+   * Default: countries-natural-earth-110m.geo.json (~0.6MB, lower detail, includes territories)
    * Override via environment variable: VITE_MAP_GEOJSON_URL
    *
    * Example: VITE_MAP_GEOJSON_URL=/data/countries-natural-earth-110m.geo.json pnpm dev
    */
-  geoJsonUrl: import.meta.env.VITE_MAP_GEOJSON_URL || '/data/countries-natural-earth-50m.geo.json',
+  geoJsonUrl: import.meta.env.VITE_MAP_GEOJSON_URL || '/data/countries-natural-earth-110m.geo.json',
 } as const;
