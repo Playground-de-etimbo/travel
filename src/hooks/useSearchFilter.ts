@@ -22,7 +22,11 @@ export const useSearchFilter = ({
   const fuse = useMemo(
     () =>
       new Fuse(countries, {
-        keys: ['countryName', 'countryCode', 'region'],
+        keys: [
+          { name: 'countryName', weight: 0.8 },
+          { name: 'countryCode', weight: 0.15 },
+          { name: 'region', weight: 0.05 },
+        ],
         threshold: 0.3,
         minMatchCharLength,
         includeMatches: true,
@@ -40,20 +44,38 @@ export const useSearchFilter = ({
     const isShortQuery = normalizedTerm.length <= 4;
     const shortPrefix = normalizedTerm.slice(0, 3);
 
-    const results = fuse
-      .search(searchTerm)
-      .filter(result => (result.score ?? 1) <= scoreCutoff)
+    const resultsWithAdjustedScore = fuse.search(searchTerm).map(result => {
+      const score = result.score ?? 1;
+      const matches = result.matches ?? [];
+      const nameMatch = matches.some(match => match.key === 'countryName');
+      const codeMatch = matches.some(match => match.key === 'countryCode');
+      const regionMatch = matches.some(match => match.key === 'region');
+      const adjustedScore =
+        score - (nameMatch ? 0.08 : 0) - (codeMatch ? 0.03 : 0) + (regionMatch ? 0.03 : 0);
+      return { ...result, adjustedScore };
+    });
+    const results = resultsWithAdjustedScore
+      .filter(result => result.adjustedScore <= scoreCutoff)
       .filter(result => {
         if (!isShortQuery) return true;
         const name = result.item.countryName.toLowerCase();
         const code = result.item.countryCode.toLowerCase();
-        return name.startsWith(shortPrefix) || code.startsWith(normalizedTerm);
+        const nameParts = name.split(/[\s-]+/);
+        const matchesNamePart = nameParts.some(part => part.startsWith(shortPrefix));
+        return matchesNamePart || code.startsWith(normalizedTerm);
       });
+    const sortedResults = [...results].sort((a, b) => {
+      if (a.adjustedScore !== b.adjustedScore) {
+        return a.adjustedScore - b.adjustedScore;
+      }
+
+      return a.item.countryName.localeCompare(b.item.countryName);
+    });
     const grouped: Record<string, Country[]> = {};
     const flatResults: Country[] = [];
     const allMatches: FuseResultMatch[] = [];
 
-    for (const result of results) {
+    for (const result of sortedResults) {
       const country = result.item;
       const region = country.region;
 

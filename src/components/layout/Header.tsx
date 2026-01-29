@@ -67,15 +67,15 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
               textShadow: '0 1px 3px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(0, 0, 0, 0.3)',
             }}
           >
-            Where have you been to? Where will you go?
+            Where have you been? Where will you go?
           </p>
         </div>
 
         <Button
           asChild
-          variant="outline"
-          size="sm"
-          className="h-9 rounded-full px-3 text-xs font-semibold pointer-events-auto justify-self-end"
+          variant="default"
+          size="lg"
+          className="h-9 rounded-full px-5 pointer-events-auto justify-self-end"
         >
           <a href="https://buymeacoffee.com/" target="_blank" rel="noreferrer">
             <span className="mr-1.5">☕</span>

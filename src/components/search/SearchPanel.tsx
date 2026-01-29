@@ -64,11 +64,7 @@ export const SearchPanel = ({
 
       {/* Countries added box */}
       <div
-        className="max-w-5xl mx-auto bg-white rounded-lg px-6 py-8"
-        style={{
-          border: `var(--panel-border-width) solid var(--color-panel-border)`,
-          boxShadow: `0 0 var(--panel-shadow-blur) color-mix(in oklab, var(--color-panel-shadow) 20%, transparent)`,
-        }}
+        className="max-w-5xl mx-auto"
       >
         {/* Stats */}
         <TravelStatsBar beenTo={beenTo} totalCountries={countries.length} />
