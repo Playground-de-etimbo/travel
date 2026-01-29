@@ -1,6 +1,7 @@
 type CountrySoundType = 'add' | 'remove';
 
 let audioContext: AudioContext | null = null;
+let muted = false;
 
 const getAudioContextClass = () => {
   return (
@@ -22,6 +23,7 @@ const ensureAudioContext = () => {
 };
 
 export const playCountrySound = async (type: CountrySoundType) => {
+  if (muted) return;
   const context = ensureAudioContext();
   if (!context) return;
 
@@ -62,3 +64,9 @@ export const playCountrySound = async (type: CountrySoundType) => {
   osc.connect(gain);
   gain.connect(context.destination);
 };
+
+export const setSoundMuted = (nextMuted: boolean) => {
+  muted = nextMuted;
+};
+
+export const getSoundMuted = () => muted;

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,15 +6,29 @@ import { WorldMap } from '@/components/map/WorldMap';
 import { SearchPanel } from '@/components/search/SearchPanel';
 import { useCountries } from '@/hooks/useCountries';
 import { useUserData } from '@/hooks/useUserData';
+import { setSoundMuted } from '@/lib/sound/countrySounds';
 
 function App() {
   const { countries } = useCountries();
-  const { beenTo, addCountry, removeCountry } = useUserData();
+  const { beenTo, addCountry, removeCountry, clearAll } = useUserData();
+  const [soundMuted, setSoundMutedState] = useState(false);
+
+  const handleToggleSound = () => {
+    setSoundMutedState((prev) => {
+      const next = !prev;
+      setSoundMuted(next);
+      return next;
+    });
+  };
 
   return (
     <BrowserRouter>
       <div className="min-h-screen">
-        <Header />
+        <Header
+          soundMuted={soundMuted}
+          onToggleSound={handleToggleSound}
+          onClearSession={clearAll}
+        />
         <Routes>
           <Route path="/" element={
             <main>
