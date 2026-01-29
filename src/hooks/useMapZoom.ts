@@ -21,19 +21,15 @@ export function useMapZoom() {
   }, []);
 
   const handleMoveEnd = useCallback((endPosition: Position) => {
-    // Only consider it a drag if position changed significantly
+    // Only consider it a drag if position changed SIGNIFICANTLY
+    // Increased thresholds to prevent micro-movements from blocking clicks
     const coordsChanged =
-      Math.abs(endPosition.coordinates[0] - previousPosition.current.coordinates[0]) > 0.01 ||
-      Math.abs(endPosition.coordinates[1] - previousPosition.current.coordinates[1]) > 0.01;
-    const zoomChanged = Math.abs(endPosition.zoom - previousPosition.current.zoom) > 0.01;
+      Math.abs(endPosition.coordinates[0] - previousPosition.current.coordinates[0]) > 2 ||
+      Math.abs(endPosition.coordinates[1] - previousPosition.current.coordinates[1]) > 2;
+    const zoomChanged = Math.abs(endPosition.zoom - previousPosition.current.zoom) > 0.05;
 
-    if (coordsChanged || zoomChanged) {
-      setIsDragging(true);
-      // Reset after a short delay
-      setTimeout(() => setIsDragging(false), 100);
-    } else {
-      setIsDragging(false);
-    }
+    // Set dragging flag immediately based on movement - no timeout needed
+    setIsDragging(coordsChanged || zoomChanged);
 
     setPosition(endPosition);
     previousPosition.current = endPosition;

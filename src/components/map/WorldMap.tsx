@@ -165,7 +165,10 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
 
     const { code: countryCode, country } = resolveCountryFromGeo(geo.properties);
 
-    if (!country || !countryCode) return;
+    if (!country || !countryCode) {
+      console.warn('Failed to resolve country from GeoJSON:', geo.properties);
+      return;
+    }
 
     const isVisited = beenTo.includes(countryCode);
 
@@ -231,6 +234,14 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
           <ZoomableGroup
             zoom={position.zoom}
             center={position.coordinates}
+            filterZoomEvent={(event) => {
+              if (!event) return false;
+              if (event.type === 'wheel') {
+                // Allow trackpad pinch (ctrlKey) but block scroll-wheel zoom
+                return Boolean(event.ctrlKey);
+              }
+              return !event.button;
+            }}
             onMoveStart={handleMoveStart}
             onMoveEnd={handleMoveEnd}
             minZoom={MAP_STYLE.ZOOM.MIN}
