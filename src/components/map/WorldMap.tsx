@@ -11,6 +11,7 @@ import { getGeoCountryCode } from '@/lib/map/geoCountryCode';
 import { playCountrySound } from '@/lib/sound/countrySounds';
 import type { Country } from '@/types';
 import { useMemo, useRef, useState } from 'react';
+import { toast } from 'sonner';
 
 // GeoJSON URL configured via src/lib/map/config.ts
 // Override with: VITE_MAP_GEOJSON_URL=/data/countries-simple.geo.json pnpm dev
@@ -166,7 +167,11 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
     const { code: countryCode, country } = resolveCountryFromGeo(geo.properties);
 
     if (!country || !countryCode) {
-      console.warn('Failed to resolve country from GeoJSON:', geo.properties);
+      const territoryName = geo.properties?.name ?? geo.properties?.NAME ?? 'this region';
+      toast.info('Region Not Available', {
+        description: `We don't yet support tracking for ${territoryName}. This may be a disputed territory or region with limited international recognition.`,
+        duration: 4000,
+      });
       return;
     }
 

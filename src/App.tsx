@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
+import { Toaster } from '@/components/ui/sonner';
 import { WorldMap } from '@/components/map/WorldMap';
 import { SearchPanel } from '@/components/search/SearchPanel';
 import { useCountries } from '@/hooks/useCountries';
@@ -29,6 +30,7 @@ function App() {
           onToggleSound={handleToggleSound}
           onClearSession={clearAll}
         />
+        <Toaster />
         <Routes>
           <Route path="/" element={
             <main>
