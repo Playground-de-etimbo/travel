@@ -20,7 +20,7 @@ export function useMapZoom() {
   });
   const [isDragging, setIsDragging] = useState(false);
   const previousPosition = useRef<Position>({
-    coordinates: [0, 0],
+    coordinates: [95, 15], // Match initial position to avoid false-positive drag on first interaction
     zoom: initialZoom,
   });
 

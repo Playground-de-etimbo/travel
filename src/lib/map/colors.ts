@@ -31,6 +31,9 @@ export const MAP_COLORS = {
   // Coastline border
   COASTLINE: colors.white,
 
+  // Spotlight effect for pan animation
+  SPOTLIGHT: colors.blue['500'],
+
   // Tooltip - Add state
   TOOLTIP_ADD_BG: colors.teal['700'],
   TOOLTIP_ADD_TEXT: colors.white,

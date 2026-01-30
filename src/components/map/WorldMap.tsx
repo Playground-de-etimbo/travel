@@ -8,9 +8,10 @@ import { MAP_CONFIG } from '@/lib/map/config';
 import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import { getGeoCountryCode } from '@/lib/map/geoCountryCode';
+import { getCountryCentroid, isPointVisible } from '@/lib/map/geojson';
 import { playCountrySound } from '@/lib/sound/countrySounds';
 import type { Country } from '@/types';
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState, useCallback, useEffect } from 'react';
 import { toast } from 'sonner';
 
 // GeoJSON URL configured via src/lib/map/config.ts
@@ -21,9 +22,10 @@ interface WorldMapProps {
   beenTo: string[];
   onAddCountry: (code: string) => void;
   onRemoveCountry: (code: string) => void;
+  panToCountryCode?: string | null; // Trigger pan when this changes (from search)
 }
 
-export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProps) {
+export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCode }: WorldMapProps) {
   const { countries, loading: countriesLoading } = useCountries();
   const { tooltip, show, hide, update } = useCountryTooltip();
   const { position, handleMoveStart, handleMoveEnd, isDragging } = useMapZoom();
@@ -32,8 +34,13 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
   const [toasts, setToasts] = useState<
     Array<{ id: string; x: number; y: number; label: string; tone: 'add' | 'remove' }>
   >([]);
+  const [spotlightCode, setSpotlightCode] = useState<string | null>(null);
+  const [isInteractionLocked, setIsInteractionLocked] = useState(false);
   const addFlashTimeoutRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const geoDataRef = useRef<any[]>([]);
+  const spotlightTimeoutRef = useRef<number | null>(null);
+  const lockTimeoutRef = useRef<number | null>(null);
 
   // Create a map of country codes to country objects for fast lookup
   const countryMap = useMemo(() => {
@@ -117,6 +124,55 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
     hide();
   };
 
+  /**
+   * Pan the map to show a specific country with animation
+   * Called when country is added via search (not map click)
+   */
+  const panToCountry = useCallback((countryCode: string, geo: any) => {
+    // Get country centroid from GeoJSON geometry
+    const centroid = getCountryCentroid(geo.geometry);
+
+    // Check if country is already visible (rough approximation)
+    const viewportWidth = containerRef.current?.clientWidth || 1024;
+    const viewportHeight = containerRef.current?.clientHeight || 768;
+    const isVisible = isPointVisible(centroid, {
+      center: position.coordinates,
+      zoom: position.zoom,
+      width: viewportWidth,
+      height: viewportHeight,
+    });
+
+    // Only pan if country is not currently visible
+    if (!isVisible) {
+      // Trigger position update (react-simple-maps handles smooth transition)
+      handleMoveEnd({
+        coordinates: centroid,
+        zoom: position.zoom, // Keep current zoom
+      });
+    }
+
+    // Apply spotlight effect (regardless of pan)
+    setSpotlightCode(countryCode);
+    if (spotlightTimeoutRef.current) {
+      window.clearTimeout(spotlightTimeoutRef.current);
+    }
+    spotlightTimeoutRef.current = window.setTimeout(() => {
+      setSpotlightCode(null);
+    }, 400); // Clear after pan completes
+
+    // Lock interactions
+    setIsInteractionLocked(true);
+    if (lockTimeoutRef.current) {
+      window.clearTimeout(lockTimeoutRef.current);
+    }
+    lockTimeoutRef.current = window.setTimeout(() => {
+      setIsInteractionLocked(false);
+    }, 500);
+
+    // Play grinding roller sound
+    void playCountrySound('pan');
+  }, [position, handleMoveEnd]);
+
   const enqueueToast = (label: string, tone: 'add' | 'remove', event?: React.MouseEvent) => {
     if (!event || !containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -154,12 +210,29 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
     void playCountrySound('remove');
   };
 
+  // Watch for pan trigger from search
+  useEffect(() => {
+    if (panToCountryCode && geoDataRef.current.length > 0) {
+      const geo = geoDataRef.current.find((g: any) => {
+        const { code } = resolveCountryFromGeo(g.properties);
+        return code === panToCountryCode;
+      });
+
+      if (geo) {
+        panToCountry(panToCountryCode, geo);
+      }
+    }
+  }, [panToCountryCode, panToCountry, resolveCountryFromGeo]);
+
   const handleClick = (geo: any, event?: React.MouseEvent) => {
     // Stop propagation to prevent ZoomableGroup from zooming
     if (event) {
       event.stopPropagation();
       event.preventDefault();
     }
+
+    // Block clicks during interaction lock
+    if (isInteractionLocked) return;
 
     // Don't perform action if user was dragging the map
     if (isDragging) return;
@@ -256,6 +329,11 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
             {/* First pass: white coastline borders */}
             <Geographies geography={geoUrl}>
               {({ geographies }) => {
+                // Store geographies for pan functionality
+                if (geoDataRef.current.length === 0) {
+                  geoDataRef.current = geographies;
+                }
+
                 return geographies.map((geo: any) => {
                   const { code } = resolveCountryFromGeo(geo.properties);
                   const safeCountryCode = code ?? '';
@@ -297,17 +375,26 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
                   const isHovered = geo.rsmKey === hoveredGeo;
                   const isVisited = countryCode ? beenTo.includes(countryCode) : false;
                   const isAddFlash = countryCode ? addFlashCode === countryCode : false;
+                  const isSpotlight = countryCode ? spotlightCode === countryCode : false;
 
                   // Use red hover color for visited countries (indicates removal)
                   const hoverFill = isVisited ? MAP_COLORS.HOVER_REMOVE : MAP_COLORS.HOVER;
                   const hoverStroke = isVisited ? MAP_COLORS.HOVER_REMOVE_BORDER : MAP_COLORS.HOVER_BORDER;
                   const displayFill = isAddFlash ? MAP_COLORS.ADD_FLASH : isHovered ? hoverFill : fill;
-                  const displayStroke = isAddFlash ? MAP_COLORS.ADD_FLASH_BORDER : isHovered ? hoverStroke : stroke;
-                  const displayStrokeWidth = isAddFlash
-                    ? MAP_STYLE.BORDER.HOVER
-                    : isHovered
+                  const displayStroke = isSpotlight
+                    ? MAP_COLORS.SPOTLIGHT
+                    : isAddFlash
+                      ? MAP_COLORS.ADD_FLASH_BORDER
+                      : isHovered
+                        ? hoverStroke
+                        : stroke;
+                  const displayStrokeWidth = isSpotlight
+                    ? 2
+                    : isAddFlash
                       ? MAP_STYLE.BORDER.HOVER
-                      : MAP_STYLE.BORDER.DEFAULT;
+                      : isHovered
+                        ? MAP_STYLE.BORDER.HOVER
+                        : MAP_STYLE.BORDER.DEFAULT;
 
                   return (
                     <Geography
@@ -325,6 +412,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
                         default: {
                           outline: 'none',
                           cursor: 'pointer',
+                          transition: 'stroke 0.2s ease, stroke-width 0.2s ease',
                         },
                         hover: {
                           outline: 'none',

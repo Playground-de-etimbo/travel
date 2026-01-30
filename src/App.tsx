@@ -14,6 +14,7 @@ function App() {
   const { countries } = useCountries();
   const { beenTo, addCountry, removeCountry, clearAll } = useUserData();
   const [soundMuted, setSoundMutedState] = useState(false);
+  const [panTarget, setPanTarget] = useState<string | null>(null);
 
   const handleToggleSound = () => {
     setSoundMutedState((prev) => {
@@ -21,6 +22,12 @@ function App() {
       setSoundMuted(next);
       return next;
     });
+  };
+
+  const handleAddCountryFromSearch = (code: string) => {
+    addCountry(code);
+    setPanTarget(code); // Trigger pan animation
+    setTimeout(() => setPanTarget(null), 100); // Clear after WorldMap processes
   };
 
   return (
@@ -41,6 +48,7 @@ function App() {
                   beenTo={beenTo}
                   onAddCountry={addCountry}
                   onRemoveCountry={removeCountry}
+                  panToCountryCode={panTarget}
                 />
               </section>
 
@@ -48,7 +56,7 @@ function App() {
               <SearchPanel
                 beenTo={beenTo}
                 countries={countries}
-                onAddCountry={addCountry}
+                onAddCountry={handleAddCountryFromSearch}
                 onRemoveCountry={removeCountry}
               />
 
@@ -56,7 +64,7 @@ function App() {
               <MobileSearchPanel
                 beenTo={beenTo}
                 countries={countries}
-                onAddCountry={addCountry}
+                onAddCountry={handleAddCountryFromSearch}
                 onRemoveCountry={removeCountry}
               />
 
