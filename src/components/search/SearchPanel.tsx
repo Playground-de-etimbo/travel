@@ -43,7 +43,7 @@ export const SearchPanel = ({
   };
 
   return (
-    <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-4">
+    <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-3">
       {/* Desktop search box */}
       <SearchBox
         countries={countries}

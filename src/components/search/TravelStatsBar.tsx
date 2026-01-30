@@ -15,9 +15,15 @@ export const TravelStatsBar = ({ beenTo, totalCountries, isMobile = false }: Tra
   if (isMobile) return null;
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="bg-white rounded-full px-6 py-3 shadow-md">
-        <p className="text-sm font-medium text-center text-gray-700">
+    <div className="flex justify-center">
+      <div
+        className="backdrop-blur-md bg-white/80 rounded-full px-5 py-2.5 shadow-lg border border-white/20"
+        style={{
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)'
+        }}
+      >
+        <p className="text-sm font-medium text-gray-800 whitespace-nowrap">
           {formattedString}
         </p>
       </div>
