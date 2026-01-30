@@ -43,7 +43,7 @@ export const SearchPanel = ({
   };
 
   return (
-    <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-6">
+    <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-4">
       {/* Desktop search box */}
       <SearchBox
         countries={countries}
@@ -52,13 +52,11 @@ export const SearchPanel = ({
         searchInputRef={searchInputRef}
       />
 
-      {/* Countries added box */}
-      <div
-        className="max-w-5xl mx-auto"
-      >
-        {/* Stats */}
-        <TravelStatsBar beenTo={beenTo} totalCountries={countries.length} />
+      {/* Stats card - directly below search */}
+      <TravelStatsBar beenTo={beenTo} totalCountries={countries.length} />
 
+      {/* Countries added box */}
+      <div className="max-w-5xl mx-auto">
         {/* Visited countries list */}
         <VisitedCountriesList
           countries={countries}

@@ -11,14 +11,16 @@ export const TravelStatsBar = ({ beenTo, totalCountries, isMobile = false }: Tra
     showAndCounting: !isMobile
   });
 
+  // Don't render on mobile
+  if (isMobile) return null;
+
   return (
-    <div className="text-center mb-8">
-      <p
-        className="text-sm md:text-base font-medium"
-        style={{ color: 'var(--color-stats-text)' }}
-      >
-        {formattedString}
-      </p>
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-white rounded-full px-6 py-3 shadow-md">
+        <p className="text-sm font-medium text-center text-gray-700">
+          {formattedString}
+        </p>
+      </div>
     </div>
   );
 };
