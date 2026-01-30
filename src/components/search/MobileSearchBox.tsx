@@ -12,6 +12,7 @@ interface MobileSearchBoxProps {
   onAddCountry: (countryCode: string) => void;
   onCollapse?: () => void;
   searchInputRef?: React.RefObject<HTMLInputElement>;
+  onFocusChange?: (isFocused: boolean) => void;
 }
 
 export const MobileSearchBox = ({
@@ -20,6 +21,7 @@ export const MobileSearchBox = ({
   onAddCountry,
   onCollapse,
   searchInputRef,
+  onFocusChange,
 }: MobileSearchBoxProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -151,8 +153,14 @@ export const MobileSearchBox = ({
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={handleKeyDown}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onFocus={() => {
+            setIsFocused(true);
+            onFocusChange?.(true);
+          }}
+          onBlur={() => {
+            setIsFocused(false);
+            onFocusChange?.(false);
+          }}
           className="flex-1 bg-transparent border-0 outline-none text-base placeholder:text-muted-foreground"
         />
       </div>

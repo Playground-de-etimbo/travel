@@ -35,21 +35,21 @@ A web app that motivates travel by helping users track where they've been and wh
 ✅ These features are required for launch.
 
 #### World Map Hero
-- [ ] Interactive world map at top of page
-- [ ] Visited country highlighting with fill color
+- [x] Interactive world map at top of page ✅
+- [x] Visited country highlighting with fill color ✅
 - [ ] Flag emoji overlays on visited countries
-- [ ] Click country on map to toggle visited
-- [ ] "Add country" button (opens multi-select)
-- [ ] Mobile-responsive map with touch controls
+- [x] Click country on map to toggle visited ✅
+- [x] "Add country" button (opens multi-select) ✅
+- [x] Mobile-responsive map with touch controls ✅
 
 #### Multi-Select Flow
-- [ ] Modal dialog for bulk country selection
-- [ ] Searchable country list in modal
-- [ ] Multi-select checkboxes
+- [x] Modal dialog for bulk country selection ✅
+- [x] Searchable country list in modal ✅
+- [ ] Multi-select checkboxes (in progress)
 - [ ] Running count ("X countries selected")
 - [ ] Region filter within modal
-- [ ] Save selections and update map
-- [ ] Cancel without saving
+- [ ] Save selections and update map (partial)
+- [x] Cancel without saving ✅
 
 #### Regional Stats
 - [ ] Calculate visited per region/continent
@@ -60,11 +60,11 @@ A web app that motivates travel by helping users track where they've been and wh
 - [ ] Global total ("45/195 countries visited")
 
 #### Country Data
-- [ ] ~200 countries in static JSON
-- [ ] GeoJSON data for map boundaries
-- [ ] Country cards with flag, name, region, costs
-- [ ] Search and filter functionality
-- [ ] Mobile-responsive layout
+- [ ] ~200 countries in static JSON (currently 20 for testing)
+- [x] GeoJSON data for map boundaries ✅
+- [x] Country cards with flag, name, region, costs ✅
+- [x] Search and filter functionality ✅
+- [x] Mobile-responsive layout ✅
 
 #### User State (localStorage)
 - [ ] Storage abstraction layer (Firebase-ready)
@@ -74,12 +74,12 @@ A web app that motivates travel by helping users track where they've been and wh
 - [ ] Export/import functionality
 
 #### List Views
-- [ ] Dedicated "Been To" page
-- [ ] Dedicated "Want To Go" page
-- [ ] Dedicated "Stats" page
-- [ ] Navigation between views
-- [ ] Empty states
-- [ ] Remove from list functionality
+- [x] "Been To" section (single-page layout) ✅
+- [ ] "Want To Go" section (single-page layout)
+- [ ] "Stats" section (single-page layout)
+- [ ] Anchor link navigation between sections (in progress)
+- [x] Empty states ✅
+- [x] Remove from list functionality ✅
 
 #### Costs & Currency
 - [ ] Placeholder baseline cost per country

@@ -14,44 +14,44 @@
 ### 1. World Map Hero
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Interactive world map component | 🟢 | react-simple-maps with pan/zoom |
-| Visited country highlighting | 🟢 | Teal fill for visited countries |
+| Interactive world map component | 🟢 | react-simple-maps with pan/zoom - WORKING |
+| Visited country highlighting | 🟢 | Teal fill for visited countries - WORKING |
 | Flag overlay on visited countries | ⚪ | Show flag emojis on map |
-| Click country to toggle visited | 🟢 | Single click toggles add/remove |
-| "Add country" button | 🟢 | Opens modal with search/browse |
-| Mobile-responsive map | 🟢 | Touch-friendly, proper zoom |
+| Click country to toggle visited | 🟢 | Single click toggles add/remove - WORKING |
+| "Add country" button | 🟢 | Opens modal with search/browse - WORKING |
+| Mobile-responsive map | 🟢 | Touch-friendly, proper zoom - WORKING |
 
-**Status:** Core map interactions complete. Click-to-toggle bypasses ZoomableGroup with global click handler.
+**Status:** ✅ Core map interactions complete and working in production. Click-to-toggle bypasses ZoomableGroup with global click handler.
 
 ---
 
 ### 2. Multi-Select Country Flow
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Modal dialog component | ⚪ | Opens on "Add country" click |
-| Searchable country list | ⚪ | Filter by name |
-| Multi-select checkboxes | ⚪ | Bulk selection |
+| Modal dialog component | 🟢 | Opens on "Add country" click - WORKING |
+| Searchable country list | 🟢 | Filter by name - WORKING |
+| Multi-select checkboxes | 🔵 | Bulk selection - in progress |
 | Running count display | ⚪ | "X countries selected" |
 | Region filter in modal | ⚪ | Filter by continent |
-| Save and apply selections | ⚪ | Update map and stats |
-| Cancel without saving | ⚪ | Close modal, discard changes |
+| Save and apply selections | 🔵 | Update map and stats - partial |
+| Cancel without saving | 🟢 | Close modal, discard changes - WORKING |
 
-**Dependencies:** Country data structure, map component
+**Status:** ✅ Modal and search functionality working. Multi-select and save features in progress.
 
 ---
 
 ### 3. Country Data & Display
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Static country JSON file | 🟢 | 20 countries for MVP testing |
-| Country interface (TypeScript) | 🟢 | Type definitions complete |
-| Country card component | ⚪ | Flag, name, region, costs |
-| Searchable country grid | ⚪ | Search by name, filter by region |
-| Mobile-responsive layout | ⚪ | Mobile-first design |
-| Display placeholder costs | ⚪ | Baseline + nightly cost |
-| Display local currency | ⚪ | Currency code and name |
+| Static country JSON file | 🟢 | 20 countries for MVP testing - WORKING |
+| Country interface (TypeScript) | 🟢 | Type definitions complete - WORKING |
+| Country card component | 🟢 | Flag, name, region, costs - WORKING |
+| Searchable country grid | 🟢 | Search by name - WORKING |
+| Mobile-responsive layout | 🟢 | Mobile-first design - WORKING |
+| Display placeholder costs | 🔵 | Baseline + nightly cost - partial |
+| Display local currency | 🔵 | Currency code and name - partial |
 
-**Ready to start:** Now - data structure complete
+**Status:** ✅ Core country data display and search fully functional.
 
 ---
 
@@ -103,15 +103,15 @@
 ### 6. List Views (Single-Page Sections)
 | Feature | Status | Notes |
 |---------|--------|-------|
-| "Been to" section | ⚪ | Grid of visited countries on main page |
+| "Been to" section | 🟢 | Grid of visited countries on main page - WORKING |
 | "Want to go" section | ⚪ | Grid of wishlist countries on main page |
-| Anchor link navigation | ⚪ | Smooth scroll to Map / Directory / Been To / Want To Go / Stats |
-| Single-page layout | ⚪ | All sections on one scrollable page |
-| Empty states | ⚪ | Nice messages when lists empty |
-| Remove from list action | ⚪ | Toggle off countries |
+| Anchor link navigation | 🔵 | Smooth scroll to Map / Directory / Been To / Want To Go / Stats - in progress |
+| Single-page layout | 🟢 | All sections on one scrollable page - WORKING |
+| Empty states | 🟢 | Nice messages when lists empty - WORKING |
+| Remove from list action | 🟢 | Toggle off countries - WORKING |
 | Sort options | ⚪ | Alphabetical, recently added |
 
-**Dependencies:** Country cards, user state, anchor link navigation
+**Status:** ✅ "Been to" section fully functional with list display and remove actions.
 
 ---
 
@@ -286,17 +286,23 @@
 
 ## Current Focus
 
-**Next up:** Phase 2 - Single-page layout and country card component
+**In Progress:** Phase 3/4 - Multi-select flow and stats implementation
 
-**Completed:** ✅ Phase 1 Foundation - All setup complete
+**Completed:**
+- ✅ Phase 1 Foundation - All setup complete
+- ✅ Phase 2 Core Features:
+  - Interactive world map with click-to-toggle
+  - Country search and selection
+  - "Been to" list display
+  - Single-page layout structure
+  - Country card components
+  - User state management
 
-**Ready to build:**
-- Single-page layout structure with sections
-- Convert React Router to anchor link navigation
-- Country card component
-- Grid layout with search
-- User state hooks (useCountries, useUserData)
-- Section-based list views (all on one page)
+**Next up:**
+- Complete multi-select bulk selection
+- Regional and comparative travel statistics
+- "Want to go" section
+- Smooth scroll anchor navigation polish
 
 **Major Architecture Change:**
 - 🔄 **Single-page design:** Changed from multi-page routes to one scrollable page with anchor links

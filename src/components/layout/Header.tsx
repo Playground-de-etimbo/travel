@@ -22,7 +22,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
             <title>Country Crush</title>
             <text
               x="0"
-              y="50%"
+              y="55%"
               textAnchor="start"
               dominantBaseline="middle"
               fill="currentColor"
@@ -37,7 +37,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
           </svg>
         </div>
 
-        <div className="flex items-start gap-2 pointer-events-auto">
+        <div className="flex items-center gap-2 pointer-events-auto">
           <Button
             type="button"
             variant="secondary"
@@ -65,7 +65,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
             size="sm"
             className="h-9 rounded-full pl-2 pr-2 pointer-events-auto"
           >
-            <a href="https://buymeacoffee.com/" target="_blank" rel="noreferrer">
+            <a href="https://buymeacoffee.com/etimbo" target="_blank" rel="noreferrer">
               <span>☕</span>
             </a>
           </Button>
@@ -73,8 +73,8 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
       </div>
 
       {/* Desktop layout: buttons left, text center, coffee right */}
-      <div className="hidden md:grid w-full grid-cols-[1fr_auto_1fr] items-start">
-        <div className="flex items-start gap-2 pointer-events-auto justify-self-start">
+      <div className="hidden md:grid w-full grid-cols-[1fr_auto_1fr] items-center">
+        <div className="flex items-center gap-2 pointer-events-auto justify-self-start">
           <Button
             type="button"
             variant="secondary"
@@ -140,7 +140,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
           size="sm"
           className="h-9 rounded-full px-4 pointer-events-auto justify-self-end"
         >
-          <a href="https://buymeacoffee.com/" target="_blank" rel="noreferrer">
+          <a href="https://buymeacoffee.com/etimbo" target="_blank" rel="noreferrer">
             <span className="mr-1.5">☕</span>
             <span>Buy me a coffee</span>
           </a>
