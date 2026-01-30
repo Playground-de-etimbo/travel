@@ -132,26 +132,19 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
     // Get country centroid from GeoJSON geometry
     const centroid = getCountryCentroid(geo.geometry);
 
-    // Check if country is already visible (rough approximation)
-    const viewportWidth = containerRef.current?.clientWidth || 1024;
-    const viewportHeight = containerRef.current?.clientHeight || 768;
-    const isVisible = isPointVisible(centroid, {
-      center: position.coordinates,
-      zoom: position.zoom,
-      width: viewportWidth,
-      height: viewportHeight,
+    // Apply upward offset to center country with more space below
+    // Offset scales with zoom level - less offset when zoomed in
+    const offsetFactor = 15 / position.zoom; // ~10 degrees at default zoom
+    const [lon, lat] = centroid;
+    const offsetCentroid: [number, number] = [lon, lat - offsetFactor];
+
+    // Always pan to center the country (with offset)
+    handleMoveEnd({
+      coordinates: offsetCentroid,
+      zoom: position.zoom, // Keep current zoom
     });
 
-    // Only pan if country is not currently visible
-    if (!isVisible) {
-      // Trigger position update (react-simple-maps handles smooth transition)
-      handleMoveEnd({
-        coordinates: centroid,
-        zoom: position.zoom, // Keep current zoom
-      });
-    }
-
-    // Apply spotlight effect (regardless of pan)
+    // Apply spotlight effect
     setSpotlightCode(countryCode);
     if (spotlightTimeoutRef.current) {
       window.clearTimeout(spotlightTimeoutRef.current);
@@ -168,9 +161,6 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
     lockTimeoutRef.current = window.setTimeout(() => {
       setIsInteractionLocked(false);
     }, 500);
-
-    // Play grinding roller sound
-    void playCountrySound('pan');
   }, [position, handleMoveEnd]);
 
   const enqueueToast = (label: string, tone: 'add' | 'remove', event?: React.MouseEvent) => {
