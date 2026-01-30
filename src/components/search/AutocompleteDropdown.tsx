@@ -11,6 +11,8 @@ interface AutocompleteDropdownProps {
   onSelect: (countryCode: string) => void;
   onClose: () => void;
   inputRef: React.RefObject<HTMLInputElement>;
+  position?: 'above' | 'below'; // Position relative to input
+  showRegion?: boolean; // Show region in results
 }
 
 export const AutocompleteDropdown = ({
@@ -22,6 +24,8 @@ export const AutocompleteDropdown = ({
   onSelect,
   onClose,
   inputRef,
+  position = 'above', // Default to above for desktop compatibility
+  showRegion = true, // Default to showing region
 }: AutocompleteDropdownProps) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -47,10 +51,14 @@ export const AutocompleteDropdown = ({
 
   if (!isOpen) return null;
 
+  const positionClasses = position === 'below'
+    ? 'top-full mt-3'
+    : 'bottom-full mb-3';
+
   return (
     <div
       ref={dropdownRef}
-      className="absolute bottom-full left-0 right-0 mb-3 bg-white border-2 border-accent/20 rounded-3xl shadow-2xl overflow-hidden autocomplete-open"
+      className={`absolute ${positionClasses} left-0 right-0 bg-white border-2 border-accent/20 rounded-3xl shadow-2xl overflow-hidden autocomplete-open`}
       style={{
         maxHeight: 'var(--autocomplete-max-height)',
         overflowY: 'auto',
@@ -63,6 +71,7 @@ export const AutocompleteDropdown = ({
         startIndex={0}
         onSelect={onSelect}
         searchTerm={searchTerm}
+        showRegion={showRegion}
       />
     </div>
   );

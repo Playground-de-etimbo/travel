@@ -221,7 +221,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry }: WorldMapProp
       }}
     >
       {/* Lightening overlay */}
-      <div className="absolute inset-0 bg-white opacity-90 pointer-events-none" />
+      <div className="absolute inset-0 bg-white opacity-70 pointer-events-none" />
 
       <div
         className="w-full h-full relative"

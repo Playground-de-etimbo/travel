@@ -3,10 +3,13 @@ import { useTravelStats } from '@/hooks/useTravelStats';
 interface TravelStatsBarProps {
   beenTo: string[];
   totalCountries: number;
+  isMobile?: boolean;
 }
 
-export const TravelStatsBar = ({ beenTo, totalCountries }: TravelStatsBarProps) => {
-  const { formattedString } = useTravelStats(beenTo, totalCountries);
+export const TravelStatsBar = ({ beenTo, totalCountries, isMobile = false }: TravelStatsBarProps) => {
+  const { formattedString } = useTravelStats(beenTo, totalCountries, {
+    showAndCounting: !isMobile
+  });
 
   return (
     <div className="text-center mb-8">

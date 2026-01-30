@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import { Search } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState, useRef } from 'react';
 import { SearchBox } from './SearchBox';
 import { TravelStatsBar } from './TravelStatsBar';
 import { VisitedCountriesList } from './VisitedCountriesList';
-import { MobileSearchOverlay } from './MobileSearchOverlay';
 import type { Country } from '@/types';
 
 interface SearchPanelProps {
@@ -20,8 +17,8 @@ export const SearchPanel = ({
   onAddCountry,
   onRemoveCountry,
 }: SearchPanelProps) => {
-  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [recentlyAdded, setRecentlyAdded] = useState<string | null>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleAdd = async (code: string) => {
     await onAddCountry(code);
@@ -46,21 +43,14 @@ export const SearchPanel = ({
   };
 
   return (
-    <div className="relative z-30 -mt-48 py-8 space-y-6">
-      {/* Mobile search button */}
-      <div className="md:hidden max-w-5xl mx-auto px-6">
-        <Button
-          onClick={() => setMobileSearchOpen(true)}
-          variant="outline"
-          className="w-full justify-start gap-2 text-muted-foreground"
-        >
-          <Search className="h-4 w-4" />
-          Search countries to add...
-        </Button>
-      </div>
-
+    <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-6">
       {/* Desktop search box */}
-      <SearchBox countries={countries} beenTo={beenTo} onAddCountry={handleAdd} />
+      <SearchBox
+        countries={countries}
+        beenTo={beenTo}
+        onAddCountry={handleAdd}
+        searchInputRef={searchInputRef}
+      />
 
       {/* Countries added box */}
       <div
@@ -75,17 +65,9 @@ export const SearchPanel = ({
           beenTo={beenTo}
           onRemoveCountry={handleRemove}
           recentlyAdded={recentlyAdded}
+          searchInputRef={searchInputRef}
         />
       </div>
-
-      {/* Mobile search overlay */}
-      <MobileSearchOverlay
-        isOpen={mobileSearchOpen}
-        countries={countries}
-        beenTo={beenTo}
-        onAddCountry={handleAdd}
-        onClose={() => setMobileSearchOpen(false)}
-      />
     </div>
   );
 };

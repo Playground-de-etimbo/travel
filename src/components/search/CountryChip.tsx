@@ -28,7 +28,7 @@ export const CountryChip = ({
       <button
         type="button"
         onClick={() => onRemove(country.countryCode)}
-        className="relative opacity-0 group-hover:opacity-100 transition-opacity"
+        className="relative opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
         aria-label={`Remove ${country.countryName}`}
       >
         {/* Larger touch target */}

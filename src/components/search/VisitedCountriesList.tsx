@@ -7,6 +7,7 @@ interface VisitedCountriesListProps {
   beenTo: string[];
   onRemoveCountry: (countryCode: string) => void;
   recentlyAdded: string | null;
+  searchInputRef?: React.RefObject<HTMLInputElement>;
 }
 
 export const VisitedCountriesList = ({
@@ -14,6 +15,7 @@ export const VisitedCountriesList = ({
   beenTo,
   onRemoveCountry,
   recentlyAdded,
+  searchInputRef,
 }: VisitedCountriesListProps) => {
   const groupedCountries = useMemo(() => {
     // Filter to visited countries
@@ -53,16 +55,34 @@ export const VisitedCountriesList = ({
     }));
   }, [countries, beenTo]);
 
+  const handleStartExploring = () => {
+    searchInputRef?.current?.focus();
+    searchInputRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Add extra scroll offset to pull panel up more (reduce gap at top)
+    setTimeout(() => {
+      window.scrollBy({ top: -280, behavior: 'smooth' });
+    }, 300);
+  };
+
   if (beenTo.length === 0) {
     return (
       <div className="text-center py-12 text-muted-foreground">
-        <p>No countries visited yet. Start exploring!</p>
+        <p>
+          You have not told us where you have been yet.{' '}
+          <button
+            type="button"
+            onClick={handleStartExploring}
+            className="text-accent font-semibold underline decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+          >
+            Start exploring
+          </button>
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-8 max-w-6xl mx-auto px-4">
+    <div className="space-y-8 max-w-6xl mx-auto md:px-4">
       {groupedCountries.map(({ region, countries, visitedCount, totalInRegion }) => (
         <RegionCountryGroup
           key={region}

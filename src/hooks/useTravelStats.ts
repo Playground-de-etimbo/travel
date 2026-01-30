@@ -9,8 +9,11 @@ interface TravelStats {
 
 export const useTravelStats = (
   beenTo: string[],
-  totalCountries: number
+  totalCountries: number,
+  options: { showAndCounting?: boolean } = {}
 ): TravelStats => {
+  const { showAndCounting = true } = options;
+
   return useMemo(() => {
     const visitedCount = beenTo.length;
     const remainingCount = totalCountries - visitedCount;
@@ -19,10 +22,14 @@ export const useTravelStats = (
 
     const formattedString =
       visitedCount === 0
-        ? `0% of the world explored • ${totalCountries} countries to discover`
+        ? `${totalCountries} countries to discover`
+        : showAndCounting
+        ? `${percentageExplored.toFixed(1)}% of the world explored • ${visitedCount} ${
+            visitedCount === 1 ? 'country' : 'countries'
+          } and counting • ${remainingCount} to go`
         : `${percentageExplored.toFixed(1)}% of the world explored • ${visitedCount} ${
             visitedCount === 1 ? 'country' : 'countries'
-          } and counting • ${remainingCount} to go`;
+          } • ${remainingCount} to go`;
 
     return {
       visitedCount,
@@ -30,5 +37,5 @@ export const useTravelStats = (
       percentageExplored,
       formattedString,
     };
-  }, [beenTo, totalCountries]);
+  }, [beenTo, totalCountries, showAndCounting]);
 };

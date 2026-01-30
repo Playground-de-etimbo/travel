@@ -8,6 +8,7 @@ interface AutocompleteResultGroupProps {
   startIndex: number;
   onSelect: (countryCode: string) => void;
   searchTerm: string;
+  showRegion?: boolean;
 }
 
 const escapeRegex = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -28,6 +29,7 @@ export const AutocompleteResultGroup = ({
   startIndex,
   onSelect,
   searchTerm,
+  showRegion = true,
 }: AutocompleteResultGroupProps) => {
   return (
     <div>
@@ -57,9 +59,11 @@ export const AutocompleteResultGroup = ({
                   <span className="truncate">
                     {highlightMatches(country.countryName, searchTerm)}
                   </span>
-                  <span className="text-[11px] text-muted-foreground whitespace-nowrap">
-                    in {country.region}
-                  </span>
+                  {showRegion && (
+                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">
+                      in {country.region}
+                    </span>
+                  )}
                 </div>
               </div>
               {isTopMatch && !isAdded && (

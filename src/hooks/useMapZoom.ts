@@ -5,15 +5,23 @@ interface Position {
   zoom: number;
 }
 
+// Responsive initial zoom: more zoomed in on mobile
+const getInitialZoom = () => {
+  const isMobile = window.innerWidth < 768;
+  return isMobile ? 2.1 : 1.4;
+};
+
 export function useMapZoom() {
+  const initialZoom = getInitialZoom();
+
   const [position, setPosition] = useState<Position>({
     coordinates: [95, 15],
-    zoom: 1.4, // Initial zoom level (40% closer than default)
+    zoom: initialZoom,
   });
   const [isDragging, setIsDragging] = useState(false);
   const previousPosition = useRef<Position>({
     coordinates: [0, 0],
-    zoom: 1.4,
+    zoom: initialZoom,
   });
 
   const handleMoveStart = useCallback(() => {

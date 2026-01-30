@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Toaster } from '@/components/ui/sonner';
 import { WorldMap } from '@/components/map/WorldMap';
 import { SearchPanel } from '@/components/search/SearchPanel';
+import { MobileSearchPanel } from '@/components/search/MobileSearchPanel';
 import { useCountries } from '@/hooks/useCountries';
 import { useUserData } from '@/hooks/useUserData';
 import { setSoundMuted } from '@/lib/sound/countrySounds';
@@ -43,8 +44,16 @@ function App() {
                 />
               </section>
 
-              {/* Search Panel - Sticky panel overlapping map */}
+              {/* Search Panel - Desktop sticky panel overlapping map */}
               <SearchPanel
+                beenTo={beenTo}
+                countries={countries}
+                onAddCountry={addCountry}
+                onRemoveCountry={removeCountry}
+              />
+
+              {/* Mobile Search Panel - Fixed bottom panel with scroll expansion */}
+              <MobileSearchPanel
                 beenTo={beenTo}
                 countries={countries}
                 onAddCountry={addCountry}
