@@ -53,10 +53,8 @@ export function RecommendationsSection({
           </div>
         )}
 
-        {/* Show BudgetSlider once we have results (even during regeneration) */}
-        {result && (
-          <BudgetSlider tier={activeTier} onTierChange={setActiveTier} />
-        )}
+        {/* Show BudgetSlider always */}
+        <BudgetSlider tier={activeTier} onTierChange={setActiveTier} />
 
         {/* Show sample results if no real results yet */}
         {!result && !loading && <SampleResults />}
