@@ -106,6 +106,12 @@ See [ROADMAP.md](ROADMAP.md) for full roadmap.
 - pnpm (`npm install -g pnpm`)
 - Firebase account (free tier)
 
+### Environment Setup (Optional)
+
+The app works without configuration, but you can add Unsplash photos to travel recommendations:
+
+See [UNSPLASH_SETUP_QUICK.md](UNSPLASH_SETUP_QUICK.md) for 2-minute setup instructions.
+
 ### Quick Start
 
 #### Option A: Docker (Recommended)
