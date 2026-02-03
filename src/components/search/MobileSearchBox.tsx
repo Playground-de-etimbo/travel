@@ -156,6 +156,14 @@ export const MobileSearchBox = ({
           onFocus={() => {
             setIsFocused(true);
             onFocusChange?.(true);
+
+            // Scroll panel further up when focused to maximize visible area
+            setTimeout(() => {
+              window.scrollBy({
+                top: window.innerHeight * 0.15, // Scroll down 15vh to pull panel up more
+                behavior: 'smooth'
+              });
+            }, 100);
           }}
           onBlur={() => {
             setIsFocused(false);

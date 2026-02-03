@@ -94,7 +94,7 @@ function App() {
               </section>
 
               {/* Been To Section */}
-              <section id="been-to" className="py-16 border-t border-border bg-muted/30">
+              <section id="been-to" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
                     <h2 className="text-3xl font-bold mb-2">Been To</h2>
@@ -128,7 +128,7 @@ function App() {
               </section>
 
               {/* Stats Section */}
-              <section id="stats" className="py-16 border-t border-border bg-muted/30">
+              <section id="stats" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
                     <h2 className="text-3xl font-bold mb-2">Your Travel Stats</h2>
