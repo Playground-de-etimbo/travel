@@ -58,7 +58,7 @@ export const AutocompleteDropdown = ({
   return (
     <div
       ref={dropdownRef}
-      className={`absolute ${positionClasses} left-0 right-0 bg-white border-2 border-accent/20 rounded-3xl shadow-2xl overflow-hidden autocomplete-open`}
+      className={`absolute ${positionClasses} left-0 right-0 z-40 bg-white border-2 border-accent/20 rounded-3xl shadow-2xl overflow-hidden autocomplete-open`}
       style={{
         maxHeight: 'var(--autocomplete-max-height)',
         overflowY: 'auto',
