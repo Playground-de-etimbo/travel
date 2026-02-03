@@ -30,10 +30,12 @@ export function RecommendationsSection({
   return (
     <section id="recommendations" className="py-16 border-t border-border">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-2">Personalized Recommendations</h2>
-        <p className="text-muted-foreground mb-8">
-          AI-powered suggestions based on your preferences
-        </p>
+        <div className="mb-6 pb-4 border-b border-border/30">
+          <h2 className="text-2xl font-bold mb-1.5 tracking-tight">Personalized Recommendations</h2>
+          <p className="text-sm text-muted-foreground/80">
+            AI-powered suggestions based on your preferences
+          </p>
+        </div>
 
         <PreferencesForm
           countries={countries}

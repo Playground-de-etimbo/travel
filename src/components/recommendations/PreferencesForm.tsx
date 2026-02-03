@@ -68,11 +68,11 @@ export function PreferencesForm({
   }, [home, interests, duration]);
 
   return (
-    <div className="space-y-8 mb-8">
+    <div className="space-y-5 mb-6">
       {/* Question 1: Home Location (always enabled) */}
-      <div className="space-y-3">
-        <label className="text-lg font-semibold">Where do you live?</label>
-        <p className="text-sm text-muted-foreground">
+      <div className="space-y-2.5">
+        <label className="text-base font-semibold text-foreground/90">Where do you live?</label>
+        <p className="text-xs text-muted-foreground/80">
           {availableCountries.length} countries available for recommendations
         </p>
         <HomeLocationInput
@@ -84,9 +84,9 @@ export function PreferencesForm({
       </div>
 
       {/* Question 2: Interests (always enabled) */}
-      <div className="space-y-3">
-        <label className="text-lg font-semibold">What interests you?</label>
-        <p className="text-sm text-muted-foreground">Select all that apply</p>
+      <div className="space-y-2.5">
+        <label className="text-base font-semibold text-foreground/90">What interests you?</label>
+        <p className="text-xs text-muted-foreground/80">Select all that apply</p>
         <InterestsSelector
           selected={interests}
           onChange={setInterests}
@@ -95,8 +95,8 @@ export function PreferencesForm({
       </div>
 
       {/* Question 3: Travel Duration (always enabled) */}
-      <div className="space-y-3">
-        <label className="text-lg font-semibold">
+      <div className="space-y-2.5">
+        <label className="text-base font-semibold text-foreground/90">
           How far are you willing to travel?
         </label>
         <FlightDurationSelector

@@ -48,7 +48,7 @@ export const AutocompleteResultGroup = ({
               onClick={() => !isAdded && onSelect(country.countryCode)}
               disabled={isAdded}
               className={`
-                w-full px-4 py-2.5 text-left flex items-center gap-3 transition-colors
+                w-full px-4 py-2 text-left flex items-center gap-2.5 transition-colors
                 ${isSelected ? 'bg-accent/10' : 'hover:bg-accent/5'}
                 ${isAdded ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
               `}
@@ -60,8 +60,8 @@ export const AutocompleteResultGroup = ({
                     {highlightMatches(country.countryName, searchTerm)}
                   </span>
                   {showRegion && (
-                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">
-                      in {country.region}
+                    <span className="text-[10px] text-muted-foreground whitespace-nowrap uppercase tracking-wide opacity-70">
+                      {country.region}
                     </span>
                   )}
                 </div>

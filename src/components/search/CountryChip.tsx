@@ -17,14 +17,16 @@ export const CountryChip = ({
   return (
     <div
       className={`
-        group inline-flex items-center gap-2 px-3 py-2 rounded-full border border-border
-        hover:bg-accent/10 transition-colors
+        group inline-flex items-center gap-2 px-3 py-1.5 rounded-full
+        border border-border/60 bg-card
+        hover:bg-accent/5 hover:border-accent/30 hover:shadow-sm
+        transition-all duration-200
         ${isRecentlyAdded ? 'country-chip-enter' : ''}
       `}
       style={animationDelay > 0 ? { animationDelay: `${animationDelay}ms` } : undefined}
     >
       <span className="text-xl">{country.flagEmoji}</span>
-      <span className="text-sm font-medium">{country.countryName}</span>
+      <span className="text-sm font-medium leading-none">{country.countryName}</span>
       <button
         type="button"
         onClick={() => onRemove(country.countryCode)}

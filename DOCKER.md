@@ -151,19 +151,34 @@ When you edit files locally, Vite detects changes and hot-reloads automatically.
 
 ## Environment Variables
 
-### Setup
-1. Create `.env.local` in the project root
-2. Add your Firebase config:
+### MVP Setup (No Configuration Needed!)
+
+**For MVP:** The app works without any environment variables. Just run `docker-compose up` and start developing!
+
+The app uses localStorage for data persistence, so no Firebase setup is required.
+
+### Optional: Unsplash API (Travel Recommendations)
+
+If you want to use the travel recommendations feature, add to `.env.local`:
 ```bash
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
+VITE_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
 ```
 
-3. Docker Compose automatically loads `.env.local`
+### v1.1+ Setup (With Firebase Auth/Sync)
+
+When implementing authentication and cross-device sync in v1.1+, uncomment these in `.env.local`:
+
+```bash
+# v1.1+ only - not needed for MVP
+# VITE_FIREBASE_API_KEY=your_api_key
+# VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+# VITE_FIREBASE_PROJECT_ID=your_project_id
+# VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+# VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+# VITE_FIREBASE_APP_ID=your_app_id
+```
+
+Docker Compose automatically loads `.env.local` when present.
 
 ### Verify Variables
 ```bash

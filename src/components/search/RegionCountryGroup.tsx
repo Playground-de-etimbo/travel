@@ -22,9 +22,9 @@ export const RegionCountryGroup = ({
 
   return (
     <div>
-      <h3 className="text-sm font-semibold mb-3 text-muted-foreground flex items-baseline gap-2">
+      <h3 className="text-xs font-semibold mb-2.5 text-muted-foreground uppercase tracking-wider flex items-baseline gap-2">
         <span>{region}</span>
-        <span className="text-xs font-normal">
+        <span className="text-[10px] font-normal opacity-80">
           {visitedCount}/{totalInRegion} countries ({percentage.toFixed(1)}%)
         </span>
       </h3>

@@ -41,9 +41,9 @@ interface BudgetSliderProps {
 
 export function BudgetSlider({ tier, onTierChange }: BudgetSliderProps) {
   return (
-    <div className="mb-8">
-      <div className="mb-4 text-center">
-        <label className="text-lg font-semibold">Budget Level</label>
+    <div className="mb-6">
+      <div className="mb-3 text-center">
+        <label className="text-base font-semibold text-foreground/90">Budget Level</label>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
@@ -57,7 +57,7 @@ export function BudgetSlider({ tier, onTierChange }: BudgetSliderProps) {
               type="button"
               onClick={() => onTierChange(option.id)}
               className={cn(
-                'relative p-6 rounded-lg border-2 transition-all duration-200',
+                'relative p-5 rounded-lg border-2 transition-all duration-200',
                 'flex flex-col items-center gap-3 text-center',
                 isSelected
                   ? 'bg-accent/10 border-accent shadow-md scale-[1.02]'

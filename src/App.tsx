@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { WorldMap } from '@/components/map/WorldMap';
 import { SearchPanel } from '@/components/search/SearchPanel';
 import { MobileSearchPanel } from '@/components/search/MobileSearchPanel';
+import { RecommendationsSection } from '@/components/recommendations/RecommendationsSection';
 import { useCountries } from '@/hooks/useCountries';
 import { useUserData } from '@/hooks/useUserData';
 import { setSoundMuted } from '@/lib/sound/countrySounds';
@@ -66,6 +67,13 @@ function App() {
                 countries={countries}
                 onAddCountry={handleAddCountryFromSearch}
                 onRemoveCountry={removeCountry}
+              />
+
+              {/* Recommendations Section */}
+              <RecommendationsSection
+                countries={countries}
+                beenTo={beenTo}
+                addCountry={addCountry}
               />
 
               {/* Directory Section */}

@@ -75,7 +75,7 @@ export function InterestsSelector({
             onClick={() => handleToggle(interest.id)}
             disabled={disabled}
             className={cn(
-              'relative p-6 rounded-lg transition-all duration-200',
+              'relative p-5 rounded-lg transition-all duration-200',
               'flex flex-col items-center gap-3',
               isSelected
                 ? `bg-gradient-to-br ${interest.gradient} border-2 border-accent shadow-md scale-[1.02]`

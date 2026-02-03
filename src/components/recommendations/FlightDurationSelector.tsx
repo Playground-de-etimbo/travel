@@ -58,7 +58,7 @@ export function FlightDurationSelector({
             onClick={() => onChange(duration.id)}
             disabled={disabled}
             className={cn(
-              'relative p-6 rounded-lg border-2 transition-all duration-200',
+              'relative p-5 rounded-lg border-2 transition-all duration-200',
               'flex flex-col items-center justify-center gap-2',
               isSelected
                 ? 'bg-accent/10 border-accent shadow-md scale-[1.02]'

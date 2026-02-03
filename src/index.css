@@ -33,7 +33,7 @@
 
   /* Autocomplete */
   --autocomplete-max-height: 400px;
-  --autocomplete-item-height: 56px;
+  --autocomplete-item-height: 42px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -207,3 +207,29 @@ svg g > g > rect[fill="transparent"] {
 .tagline-entrance {
   animation: taglineEntrance 0.8s ease-out 0.3s both;
 }
+
+/* Recommendation card fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recommendation-card {
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.recommendation-card:nth-child(1) { animation-delay: 0.1s; }
+.recommendation-card:nth-child(2) { animation-delay: 0.2s; }
+.recommendation-card:nth-child(3) { animation-delay: 0.3s; }
+.recommendation-card:nth-child(4) { animation-delay: 0.4s; }
+.recommendation-card:nth-child(5) { animation-delay: 0.5s; }
+.recommendation-card:nth-child(6) { animation-delay: 0.6s; }
+.recommendation-card:nth-child(7) { animation-delay: 0.7s; }
+.recommendation-card:nth-child(8) { animation-delay: 0.8s; }

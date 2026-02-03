@@ -29,7 +29,7 @@ You can develop this project in two ways:
 - [ ] Docker Desktop installed (`docker --version`)
 - [ ] Git installed (`git --version`)
 - [ ] Code editor ready (VS Code recommended)
-- [ ] Firebase account created (free)
+- [ ] (Optional - v1.1+) Firebase account if you want authentication/sync
 - [ ] Read `DOCKER.md` for Docker-specific setup
 - [ ] Read `PROJECT_BRIEF.md` (understand the vision)
 - [ ] Read `TECH_STACK.md` (understand tech decisions)
@@ -39,10 +39,10 @@ You can develop this project in two ways:
 
 ### For Local Development (Option B)
 - [ ] Node.js 18+ installed (`node --version`)
-- [ ] ppnpm installed (`pnpm --version` - install with `pnpm install -g pnpm`)
+- [ ] pnpm installed (`pnpm --version` - install with `pnpm install -g pnpm`)
 - [ ] Git installed (`git --version`)
 - [ ] Code editor ready (VS Code recommended)
-- [ ] Firebase account created (free)
+- [ ] (Optional - v1.1+) Firebase account if you want authentication/sync
 - [ ] Read `PROJECT_BRIEF.md` (understand the vision)
 - [ ] Read `TECH_STACK.md` (understand tech decisions)
 - [ ] Reviewed `FEATURES.md` (know what we're building)
@@ -55,8 +55,11 @@ You can develop this project in two ways:
 
 **If you're using Docker**, follow these steps instead:
 
-### 1. Set Up Firebase (Required)
-Complete [Step 3: Set Up Firebase](#step-3-set-up-firebase) below to:
+### 1. Environment Setup (Optional)
+
+**For MVP:** No setup needed! Skip to step 2.
+
+**For v1.1+ (Firebase):** Complete [Step 3: Set Up Firebase](#step-3-set-up-firebase) below to:
 - Create Firebase project
 - Enable Google Authentication
 - Create Firestore database
@@ -163,22 +166,58 @@ export default {
 
 ---
 
-## Step 3: Set Up Firebase
+## Step 3: Deploy to Vercel (MVP)
 
-### 3.1 Create Firebase Project
+The easiest way to deploy your MVP is with Vercel. It provides automatic deployments, free SSL, and requires zero configuration.
+
+### 3.1 Install Vercel CLI
+```bash
+pnpm install -g vercel
+```
+
+### 3.2 Login and Deploy
+```bash
+vercel login
+vercel --prod
+```
+
+Follow the prompts to set up your project. Your app will be live at `https://your-project-name.vercel.app`
+
+### 3.3 Automatic Deployments (Optional)
+Connect your Git repository in the Vercel dashboard for automatic deployments on every push.
+
+### 3.4 Environment Variables (Optional)
+Add your Unsplash API key in the Vercel dashboard under Settings → Environment Variables:
+- Key: `VITE_UNSPLASH_ACCESS_KEY`
+- Value: Your Unsplash access key
+
+For complete deployment instructions, see `VERCEL_DEPLOYMENT.md`.
+
+---
+
+## Step 4: Set Up Firebase (v1.1+ - Optional)
+
+**Skip this step for MVP development. Firebase is only needed for v1.1+ features (authentication and cross-device sync).**
+
+### When You Need This
+- Google/Apple sign-in support
+- Multi-device data synchronization
+- Real-time updates across devices
+
+### 4.1 Create Firebase Project
 1. Go to https://console.firebase.google.com/
 2. Click "Add project"
 3. Project name: `travel-planner` (or your choice)
 4. Disable Google Analytics (for now)
 5. Click "Create project"
 
-### 3.2 Register Web App
+### 4.2 Register Web App
 1. Click web icon (`</>`)
 2. App nickname: `travel-web`
 3. Don't set up Firebase Hosting yet
 4. Copy the config object
 
-### 3.3 Create Environment File
+### 4.3 Create Environment File
 Create `.env.local`:
 ```bash
 VITE_FIREBASE_API_KEY=your_api_key
@@ -199,21 +238,21 @@ VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
 ```
 
-### 3.4 Enable Google Authentication
+### 4.4 Enable Google Authentication
 1. In Firebase Console → Authentication
 2. Click "Get started"
 3. Enable "Google" provider
 4. Select support email
 5. Save
 
-### 3.5 Create Firestore Database
+### 4.5 Create Firestore Database
 1. In Firebase Console → Firestore Database
 2. Click "Create database"
 3. Start in **Production mode**
 4. Choose location (closest to users)
 5. Click "Enable"
 
-### 3.6 Set Firestore Rules
+### 4.6 Set Firestore Rules
 In Firestore → Rules:
 ```javascript
 rules_version = '2';
@@ -229,9 +268,9 @@ Click "Publish"
 
 ---
 
-## Step 4: Create Initial File Structure
+## Step 5: Create Initial File Structure
 
-### 4.1 Create Folders
+### 5.1 Create Folders
 ```bash
 mkdir -p src/components/ui
 mkdir -p src/components/layout
@@ -245,7 +284,7 @@ mkdir -p src/types
 mkdir -p public/data
 ```
 
-### 4.2 Update `.gitignore`
+### 5.2 Update `.gitignore`
 Add to `.gitignore`:
 ```
 # Environment variables
@@ -262,21 +301,21 @@ dist/
 
 ---
 
-## Step 5: Verify Setup
+## Step 6: Verify Setup
 
-### 5.1 Start Dev Server
+### 6.1 Start Dev Server
 ```bash
 pnpm dev
 ```
 
 Should start on `http://localhost:5173`
 
-### 5.2 Check for Errors
+### 6.2 Check for Errors
 - No TypeScript errors
 - No console errors
 - Vite default page loads
 
-### 5.3 Test Build
+### 6.3 Test Build
 ```bash
 pnpm build
 ```
@@ -285,7 +324,7 @@ Should create `dist/` folder without errors.
 
 ---
 
-## Step 6: Ready to Build Feature 1!
+## Step 7: Ready to Build Feature 1!
 
 You're now ready to start building. The first feature is:
 

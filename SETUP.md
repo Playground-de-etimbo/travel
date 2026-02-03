@@ -47,21 +47,28 @@ This will install:
 - Firebase SDK
 - shadcn/ui dependencies
 
-### 3. Environment Variables
+### 3. Environment Variables (Optional for MVP)
 
-Create `.env.local` in the root directory:
+**For MVP:** The app works without environment variables! Uses localStorage for data persistence.
+
+To add the optional Unsplash API key for travel recommendations, create `.env.local`:
 
 ```bash
-# Firebase Configuration
-VITE_FIREBASE_API_KEY=your_api_key_here
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
+# Unsplash API Configuration (optional)
+VITE_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
 ```
 
-**Note:** These values will be provided after setting up Firebase (see below).
+**For v1.1+ (Firebase):** When you're ready to add authentication and sync features, uncomment these in `.env.local`:
+
+```bash
+# v1.1+ only - not needed for MVP
+# VITE_FIREBASE_API_KEY=your_api_key_here
+# VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+# VITE_FIREBASE_PROJECT_ID=your_project_id
+# VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+# VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+# VITE_FIREBASE_APP_ID=your_app_id
+```
 
 ### 4. Start Development Server
 ```bash
@@ -72,7 +79,62 @@ The app will be available at `http://localhost:5173`
 
 ---
 
-## Firebase Setup
+## Deployment to Vercel (MVP)
+
+The MVP uses Vercel for hosting. It's a zero-configuration deployment platform with automatic builds, free SSL, and edge network.
+
+### Step 1: Install Vercel CLI
+```bash
+pnpm install -g vercel
+```
+
+### Step 2: Login to Vercel
+```bash
+vercel login
+```
+
+### Step 3: Deploy
+```bash
+vercel --prod
+```
+
+Follow the prompts:
+- Set up and deploy: **Yes**
+- Scope: Select your account
+- Link to existing project: **No** (first time)
+- Project name: `travel-planner` (or your choice)
+- Directory: `./` (current directory)
+- Override settings: **No**
+
+### Step 4: Configure Custom Domain (Optional)
+1. Go to your project dashboard at vercel.com
+2. Navigate to Settings → Domains
+3. Add your custom domain
+4. Update DNS records as shown
+5. SSL certificates are automatic
+
+### Step 5: Environment Variables (Optional)
+For the Unsplash API key (travel recommendations feature):
+1. Go to Settings → Environment Variables
+2. Add `VITE_UNSPLASH_ACCESS_KEY` with your key
+3. Redeploy for changes to take effect
+
+Your app will be live at: `https://your-project-name.vercel.app`
+
+For more details, see `VERCEL_DEPLOYMENT.md`.
+
+---
+
+## Firebase Setup (v1.1+ - Optional)
+
+> **Note:** This section is for v1.1+ when adding authentication and cross-device sync.
+> The MVP works perfectly with localStorage only.
+> **You can skip this entire section for MVP development.**
+
+### When You Need This
+- Google/Apple sign-in support
+- Multi-device data synchronization
+- Real-time updates across devices
 
 ### Step 1: Create Firebase Project
 1. Go to https://console.firebase.google.com/
@@ -121,7 +183,9 @@ service cloud.firestore {
 
 ---
 
-## Firebase Hosting Setup (for deployment)
+## Alternative Deployment: Firebase Hosting (v1.1+)
+
+If you're already using Firebase for authentication/sync in v1.1+, you can also use Firebase Hosting:
 
 ### Step 1: Install Firebase CLI
 ```bash

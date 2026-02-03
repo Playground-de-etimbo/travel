@@ -17,9 +17,9 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
             className="w-full max-w-[300px] h-9 text-gray-800"
             viewBox="0 0 300 36"
             role="img"
-            aria-label="Country Crush"
+            aria-label="Destino"
           >
-            <title>Country Crush</title>
+            <title>Destino</title>
             <text
               x="0"
               y="55%"
@@ -32,7 +32,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
               strokeLinejoin="round"
               style={{ fontFamily: 'Nunito, sans-serif', fontSize: 28, fontWeight: 800, letterSpacing: 1 }}
             >
-              COUNTRY CRUSH
+              DESTINO
             </text>
           </svg>
         </div>
@@ -105,9 +105,9 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
             className="w-full max-w-[420px] h-12 text-gray-800 -mb-1"
             viewBox="0 0 420 60"
             role="img"
-            aria-label="Country Crush"
+            aria-label="Destino"
           >
-            <title>Country Crush</title>
+            <title>Destino</title>
             <text
               x="50%"
               y="40%"
@@ -120,7 +120,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
               strokeLinejoin="round"
               style={{ fontFamily: 'Nunito, sans-serif', fontSize: 42, fontWeight: 800, letterSpacing: 2 }}
             >
-              COUNTRY CRUSH
+              DESTINO
             </text>
           </svg>
           <p
@@ -130,7 +130,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
               textShadow: '0 1px 3px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(0, 0, 0, 0.3)',
             }}
           >
-            Where have you been? Where will you go?
+            where have you been?
           </p>
         </div>
 
