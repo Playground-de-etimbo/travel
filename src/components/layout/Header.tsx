@@ -102,7 +102,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
 
         <div className="flex flex-col items-center text-center">
           <svg
-            className="w-full max-w-[420px] h-12 text-gray-800 -mb-1"
+            className="w-full max-w-[420px] h-12 text-gray-800 -mb-3"
             viewBox="0 0 420 60"
             role="img"
             aria-label="Destino"
@@ -124,13 +124,13 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
             </text>
           </svg>
           <p
-            className="text-sm font-medium tracking-[0.12em] text-gray-800 mt-0 tagline-entrance"
+            className="text-sm font-medium tracking-[0.12em] text-gray-800 -mt-1 tagline-entrance"
             style={{
               fontFamily: 'Fredoka, sans-serif',
               textShadow: '0 1px 3px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(0, 0, 0, 0.3)',
             }}
           >
-            where have you been?
+            Where on earth have you been?
           </p>
         </div>
 

@@ -56,19 +56,14 @@ export const VisitedCountriesList = ({
   }, [countries, beenTo]);
 
   const handleStartExploring = () => {
+    // Simply focus the input - browser will handle scrolling it into view
     searchInputRef?.current?.focus();
-    searchInputRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Add extra scroll offset to pull panel up more (reduce gap at top)
-    setTimeout(() => {
-      window.scrollBy({ top: -280, behavior: 'smooth' });
-    }, 300);
   };
 
   if (beenTo.length === 0) {
     return (
       <div className="text-center py-8 text-muted-foreground">
         <p>
-          You have not told us where you have been yet.{' '}
           <button
             type="button"
             onClick={handleStartExploring}
@@ -76,6 +71,7 @@ export const VisitedCountriesList = ({
           >
             Start exploring
           </button>
+          {' '}to map everywhere you have been in the world
         </p>
       </div>
     );
