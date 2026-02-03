@@ -1,9 +1,12 @@
+import { useMemo } from 'react';
 import { PreferencesForm } from './PreferencesForm';
 import { BudgetSlider } from './BudgetSlider';
 import { RecommendationsGrid } from './RecommendationsGrid';
 import { LoadingState } from './LoadingState';
 import { SampleResults } from './SampleResults';
 import { useRecommendations } from '@/hooks/useRecommendations';
+import { useGeolocation } from '@/hooks/useGeolocation';
+import { hasCoordinates } from '@/data/countryCoordinates';
 import type { Country } from '@/types/country';
 
 interface RecommendationsSectionProps {
@@ -27,6 +30,20 @@ export function RecommendationsSection({
     setActiveTier,
   } = useRecommendations(countries, beenTo);
 
+  // Get countries with coordinates for geolocation
+  const availableCountries = useMemo(
+    () => countries.filter((country) => hasCoordinates(country.countryCode)),
+    [countries]
+  );
+
+  // Use geolocation hook
+  const {
+    detectedCountry,
+    isDetecting,
+    isDismissed,
+    dismissDetection,
+  } = useGeolocation(availableCountries);
+
   return (
     <section id="recommendations" className="py-16 border-t border-border">
       <div className="container mx-auto px-4">
@@ -41,7 +58,10 @@ export function RecommendationsSection({
           countries={countries}
           onSubmit={generate}
           onHomeSelected={(code) => addCountry(code)}
-          loading={loading}
+          loading={loading || isDetecting}
+          detectedCountry={detectedCountry}
+          onDetectionDismiss={dismissDetection}
+          showDetectionBadge={!isDismissed && detectedCountry !== null}
         />
 
         {error && (

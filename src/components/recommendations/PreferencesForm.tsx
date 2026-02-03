@@ -15,6 +15,9 @@ interface PreferencesFormProps {
   onSubmit: (preferences: RecommendationPreferences) => void;
   onHomeSelected: (countryCode: string) => void;
   loading: boolean;
+  detectedCountry?: string | null;
+  onDetectionDismiss?: () => void;
+  showDetectionBadge?: boolean;
 }
 
 export function PreferencesForm({
@@ -22,10 +25,13 @@ export function PreferencesForm({
   onSubmit,
   onHomeSelected,
   loading,
+  detectedCountry,
+  onDetectionDismiss,
+  showDetectionBadge = false,
 }: PreferencesFormProps) {
   const [home, setHome] = useState<string | null>(null);
-  const [interests, setInterests] = useState<TravelInterest[]>([]);
-  const [duration, setDuration] = useState<FlightDuration | null>(null);
+  const [interests, setInterests] = useState<TravelInterest[]>(['culture']);
+  const [duration, setDuration] = useState<FlightDuration | null>('12-plus');
 
   // Track last generated values to prevent infinite loop
   const lastGeneratedRef = useRef<string>('');
@@ -42,6 +48,15 @@ export function PreferencesForm({
     setHome(countryCode);
     onHomeSelected(countryCode);
   };
+
+  // Update home when detectedCountry changes (on mount)
+  // Don't re-populate if user has dismissed the detection (showDetectionBadge=false)
+  useEffect(() => {
+    if (detectedCountry && !home && showDetectionBadge) {
+      setHome(detectedCountry);
+      onHomeSelected(detectedCountry);
+    }
+  }, [detectedCountry, home, showDetectionBadge, onHomeSelected]);
 
   // Auto-generate when all fields are filled or any field changes (if all are filled)
   useEffect(() => {
@@ -79,6 +94,9 @@ export function PreferencesForm({
           onChange={handleHomeChange}
           countries={availableCountries}
           placeholder="Start typing your country..."
+          detectedCountry={detectedCountry}
+          onDetectionDismiss={onDetectionDismiss}
+          showDetectionBadge={showDetectionBadge}
         />
       </div>
 

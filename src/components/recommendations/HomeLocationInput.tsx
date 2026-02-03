@@ -9,6 +9,9 @@ interface HomeLocationInputProps {
   countries: Country[];
   disabled?: boolean;
   placeholder?: string;
+  detectedCountry?: string | null;
+  onDetectionDismiss?: () => void;
+  showDetectionBadge?: boolean;
 }
 
 export function HomeLocationInput({
@@ -17,6 +20,9 @@ export function HomeLocationInput({
   countries,
   disabled = false,
   placeholder = 'Start typing your country...',
+  detectedCountry,
+  onDetectionDismiss,
+  showDetectionBadge = false,
 }: HomeLocationInputProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -79,6 +85,14 @@ export function HomeLocationInput({
     }
   };
 
+  // Handle dismiss - clear field, focus input, and call parent handler
+  const handleDismiss = () => {
+    onChange(''); // Clear the country selection
+    setSearchTerm(''); // Clear search term
+    inputRef.current?.focus(); // Focus input
+    onDetectionDismiss?.(); // Call parent handler
+  };
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -96,6 +110,11 @@ export function HomeLocationInput({
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Get detected country details for badge
+  const detectedCountryData = detectedCountry
+    ? countries.find((c) => c.countryCode === detectedCountry)
+    : null;
 
   return (
     <div className="relative">
@@ -145,6 +164,25 @@ export function HomeLocationInput({
               <span className="font-medium">{country.countryName}</span>
             </button>
           ))}
+        </div>
+      )}
+
+      {/* Detection badge */}
+      {showDetectionBadge && detectedCountryData && (
+        <div className="mt-2 text-xs text-muted-foreground">
+          <span>
+            We detected you live in {detectedCountryData.flagEmoji}{' '}
+            {detectedCountryData.countryName} (
+            <button
+              type="button"
+              onClick={handleDismiss}
+              className="text-foreground hover:text-accent font-medium transition-colors underline decoration-dotted underline-offset-2"
+              aria-label="Clear detected country"
+            >
+              yeah, but nah
+            </button>
+            )
+          </span>
         </div>
       )}
     </div>
