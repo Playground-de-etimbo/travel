@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { HomeLocationInput } from './HomeLocationInput';
 import { InterestsSelector } from './InterestsSelector';
 import { FlightDurationSelector } from './FlightDurationSelector';
-import { cn } from '@/lib/utils';
 import { hasCoordinates } from '@/data/countryCoordinates';
 import type { Country } from '@/types/country';
 import type {

@@ -8,7 +8,7 @@ import { MAP_CONFIG } from '@/lib/map/config';
 import { MAP_STYLE } from '@/lib/map/style';
 import { createFallbackCountry } from '@/lib/map/fallbackCountry';
 import { getGeoCountryCode } from '@/lib/map/geoCountryCode';
-import { getCountryCentroid, isPointVisible } from '@/lib/map/geojson';
+import { getCountryCentroid } from '@/lib/map/geojson';
 import { playCountrySound } from '@/lib/sound/countrySounds';
 import type { Country } from '@/types';
 import { useMemo, useRef, useState, useCallback, useEffect } from 'react';
@@ -302,7 +302,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
           <ZoomableGroup
             zoom={position.zoom}
             center={position.coordinates}
-            filterZoomEvent={(event) => {
+            filterZoomEvent={(event: any) => {
               if (!event) return false;
               if (event.type === 'wheel') {
                 // Allow trackpad pinch (ctrlKey) but block scroll-wheel zoom

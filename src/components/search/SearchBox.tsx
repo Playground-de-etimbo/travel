@@ -59,7 +59,7 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
     setIsDropdownOpen(false);
   };
 
-  const { handleKeyDown, selectableItems, selectedIndex, setSelectedIndex, scrollToItem } =
+  const { handleKeyDown, selectedIndex, setSelectedIndex, scrollToItem } =
     useAutocomplete({
       results: flatResults,
       onSelect: handleSelect,
@@ -95,12 +95,6 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
       }
     };
   }, []);
-
-  const handleSubmit = () => {
-    if (selectableItems.length > 0 && selectableItems[selectedIndex]) {
-      handleSelect(selectableItems[selectedIndex].country.countryCode);
-    }
-  };
 
   const handleAddTopResult = () => {
     const topCountry = flatResults[0];

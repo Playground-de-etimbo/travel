@@ -140,17 +140,21 @@ describe('GeoJSON Validation', () => {
       throw new Error('France feature is missing geometry')
     }
 
-    const polygons =
-      geometry.type === 'MultiPolygon' ? geometry.coordinates : [geometry.coordinates]
+    if (geometry.type === 'GeometryCollection') {
+      throw new Error('Unexpected GeometryCollection for France')
+    }
 
-    const hasFrenchGuiana = polygons.some((poly) => {
+    const polygons =
+      geometry.type === 'MultiPolygon' ? geometry.coordinates : [geometry.coordinates as any]
+
+    const hasFrenchGuiana = polygons.some((poly: any) => {
       let minX = Infinity
       let minY = Infinity
       let maxX = -Infinity
       let maxY = -Infinity
 
-      poly.forEach((ring) => {
-        ring.forEach(([x, y]) => {
+      poly.forEach((ring: any) => {
+        ring.forEach(([x, y]: [number, number]) => {
           minX = Math.min(minX, x)
           minY = Math.min(minY, y)
           maxX = Math.max(maxX, x)

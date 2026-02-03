@@ -1,12 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import type { Country } from '@/types';
 
-interface SelectableItem {
-  type: 'country';
-  country: Country;
-  index: number;
-}
-
 interface UseAutocompleteOptions {
   results: Country[];
   onSelect: (countryCode: string) => void;
