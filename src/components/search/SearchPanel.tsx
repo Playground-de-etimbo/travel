@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { SearchBox } from './SearchBox';
 import { TravelStatsBar } from './TravelStatsBar';
 import { VisitedCountriesList } from './VisitedCountriesList';
+import { Card } from '@/components/ui/card';
 import type { Country } from '@/types';
 
 interface SearchPanelProps {
@@ -43,7 +44,7 @@ export const SearchPanel = ({
   };
 
   return (
-    <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-3">
+    <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-6">
       {/* Desktop search box */}
       <SearchBox
         countries={countries}
@@ -52,19 +53,25 @@ export const SearchPanel = ({
         searchInputRef={searchInputRef}
       />
 
-      {/* Stats card - directly below search */}
-      <TravelStatsBar beenTo={beenTo} totalCountries={countries.length} />
+      {/* Stats and countries container */}
+      <div className="max-w-4xl mx-auto">
+        <Card className="backdrop-blur-md bg-white/80 border border-white/20 shadow-lg">
+          {/* Stats bar */}
+          <div className="px-6 pt-6 pb-4">
+            <TravelStatsBar beenTo={beenTo} totalCountries={countries.length} />
+          </div>
 
-      {/* Countries added box */}
-      <div className="max-w-5xl mx-auto">
-        {/* Visited countries list */}
-        <VisitedCountriesList
-          countries={countries}
-          beenTo={beenTo}
-          onRemoveCountry={handleRemove}
-          recentlyAdded={recentlyAdded}
-          searchInputRef={searchInputRef}
-        />
+          {/* Visited countries list */}
+          <div className="px-6 pb-6">
+            <VisitedCountriesList
+              countries={countries}
+              beenTo={beenTo}
+              onRemoveCountry={handleRemove}
+              recentlyAdded={recentlyAdded}
+              searchInputRef={searchInputRef}
+            />
+          </div>
+        </Card>
       </div>
     </div>
   );

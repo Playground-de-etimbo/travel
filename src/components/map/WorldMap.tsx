@@ -276,7 +276,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
   return (
     <div
       ref={containerRef}
-      className="relative h-screen overflow-hidden"
+      className="relative h-[85vh] max-h-screen overflow-hidden"
       style={{
         background: `url('/patterns/ocean-waves.jpg')`,
         backgroundSize: '300px 300px',

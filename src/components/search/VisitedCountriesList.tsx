@@ -66,7 +66,7 @@ export const VisitedCountriesList = ({
 
   if (beenTo.length === 0) {
     return (
-      <div className="text-center py-12 text-muted-foreground">
+      <div className="text-center py-8 text-muted-foreground">
         <p>
           You have not told us where you have been yet.{' '}
           <button
@@ -82,7 +82,7 @@ export const VisitedCountriesList = ({
   }
 
   return (
-    <div className="space-y-8 max-w-6xl mx-auto md:px-4">
+    <div className="space-y-8">
       {groupedCountries.map(({ region, countries, visitedCount, totalInRegion }) => (
         <RegionCountryGroup
           key={region}
