@@ -31,6 +31,7 @@ export const MobileSearchBox = ({
   const inputRef = searchInputRef || internalInputRef;
   const clearTimeoutRef = useRef<NodeJS.Timeout>();
   const toastTimeoutRef = useRef<number | null>(null);
+  const preventScrollOnFocusRef = useRef(false);
 
   const { flatResults } = useSearchFilter({
     countries,
@@ -55,11 +56,15 @@ export const MobileSearchBox = ({
     onAddCountry(countryCode);
     setIsDropdownOpen(false);
     setSearchTerm('');
+
+    // Prevent scroll on refocus after selection
+    preventScrollOnFocusRef.current = true;
     inputRef.current?.focus();
 
     // Clear input after 300ms delay
     clearTimeoutRef.current = setTimeout(() => {
       setSearchTerm('');
+      preventScrollOnFocusRef.current = true;
       inputRef.current?.focus();
     }, 300);
   };
@@ -158,12 +163,18 @@ export const MobileSearchBox = ({
             onFocusChange?.(true);
 
             // Scroll panel further up when focused to maximize visible area
-            setTimeout(() => {
-              window.scrollBy({
-                top: window.innerHeight * 0.15, // Scroll down 15vh to pull panel up more
-                behavior: 'smooth'
-              });
-            }, 100);
+            // Skip scroll if this is a programmatic refocus after selection
+            if (!preventScrollOnFocusRef.current) {
+              setTimeout(() => {
+                window.scrollBy({
+                  top: window.innerHeight * 0.15, // Scroll down 15vh to pull panel up more
+                  behavior: 'smooth'
+                });
+              }, 100);
+            } else {
+              // Reset flag for next focus
+              preventScrollOnFocusRef.current = false;
+            }
           }}
           onBlur={() => {
             setIsFocused(false);

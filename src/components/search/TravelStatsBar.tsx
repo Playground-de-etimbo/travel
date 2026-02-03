@@ -11,9 +11,6 @@ export const TravelStatsBar = ({ beenTo, totalCountries, isMobile = false }: Tra
     showAndCounting: !isMobile
   });
 
-  // Don't render on mobile
-  if (isMobile) return null;
-
   return (
     <div className="flex justify-center">
       <p className="text-sm font-medium text-gray-800 whitespace-nowrap">
