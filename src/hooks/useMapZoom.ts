@@ -15,12 +15,12 @@ export function useMapZoom() {
   const initialZoom = getInitialZoom();
 
   const [position, setPosition] = useState<Position>({
-    coordinates: [95, 15],
+    coordinates: [70, 15],
     zoom: initialZoom,
   });
   const [isDragging, setIsDragging] = useState(false);
   const previousPosition = useRef<Position>({
-    coordinates: [95, 15], // Match initial position to avoid false-positive drag on first interaction
+    coordinates: [70, 15], // Match initial position to avoid false-positive drag on first interaction
     zoom: initialZoom,
   });
 
