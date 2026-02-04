@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { Country } from '@/types/country';
 import type {
   BudgetTier,
@@ -22,22 +22,21 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
   const [error, setError] = useState<Error | null>(null);
   const [hasGeneratedThisSession, setHasGeneratedThisSession] = useState(false);
 
-  // Don't auto-load from localStorage - let user see samples first
-  // Load from localStorage on mount (commented out to show samples first)
-  // useEffect(() => {
-  //   const loadSaved = async () => {
-  //     try {
-  //       const data = await storage.load();
-  //       if (data?.recommendations) {
-  //         setResult(data.recommendations);
-  //         setPreferences(data.recommendations.preferences);
-  //       }
-  //     } catch (err) {
-  //       console.error('Failed to load recommendations:', err);
-  //     }
-  //   };
-  //   loadSaved();
-  // }, []);
+  // Load budget tier from storage on mount
+  useEffect(() => {
+    const loadBudgetTier = async () => {
+      try {
+        const userData = await storage.load();
+        const storedTier = userData?.preferences?.recommendations?.budgetTier;
+        if (storedTier) {
+          setActiveTier(storedTier);
+        }
+      } catch (error) {
+        console.warn('Failed to load budget tier:', error);
+      }
+    };
+    loadBudgetTier();
+  }, []);
 
   const generate = useCallback(
     async (prefs: RecommendationPreferences) => {
@@ -104,12 +103,34 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
     [countries, beenTo]
   );
 
+  // Save budget tier when it changes
+  const handleTierChange = async (newTier: BudgetTier) => {
+    setActiveTier(newTier);
+
+    try {
+      const userData = await storage.load();
+      await storage.update({
+        preferences: {
+          theme: userData?.preferences?.theme ?? 'system',
+          displayCurrency: userData?.preferences?.displayCurrency ?? 'USD',
+          recommendations: {
+            detectedCountry: userData?.preferences?.recommendations?.detectedCountry ?? null,
+            budgetTier: newTier,
+            detectionDismissed: userData?.preferences?.recommendations?.detectionDismissed ?? false,
+          },
+        },
+      });
+    } catch (error) {
+      console.warn('Failed to save budget tier:', error);
+    }
+  };
+
   return {
     preferences,
     setPreferences,
     result,
     activeTier,
-    setActiveTier,
+    setActiveTier: handleTierChange,
     loading,
     error,
     generate,
