@@ -7,6 +7,9 @@ import { WorldMap } from '@/components/map/WorldMap';
 import { SearchPanel } from '@/components/search/SearchPanel';
 import { MobileSearchPanel } from '@/components/search/MobileSearchPanel';
 import { RecommendationsSection } from '@/components/recommendations/RecommendationsSection';
+import { TechStackSection } from '@/components/footer/TechStackSection';
+import { CountriesNote } from '@/components/footer/CountriesNote';
+import { PortfolioFooter } from '@/components/footer/PortfolioFooter';
 import { useCountries } from '@/hooks/useCountries';
 import { useUserData } from '@/hooks/useUserData';
 import { setSoundMuted } from '@/lib/sound/countrySounds';
@@ -75,6 +78,27 @@ function App() {
                 beenTo={beenTo}
                 addCountry={addCountry}
               />
+
+              {/* Bottom Sections: Tech Stack + Countries Note */}
+              <section id="about" className="py-16 border-t border-border">
+                <div className="container mx-auto px-4">
+                  {/* Two-column layout on desktop, stacked on mobile */}
+                  <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16">
+                    {/* Left: Tech Stack (60% width on desktop) */}
+                    <div>
+                      <TechStackSection />
+                    </div>
+
+                    {/* Right: Countries Note (40% width on desktop) */}
+                    <div>
+                      <CountriesNote />
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Portfolio Footer */}
+              <PortfolioFooter />
 
               {/* Directory Section */}
               <section id="directory" className="py-16 border-t border-border">
