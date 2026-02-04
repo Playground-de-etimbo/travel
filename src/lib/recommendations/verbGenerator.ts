@@ -7,13 +7,13 @@ export type PlayfulVerb =
   | 'Adventure' | 'Explore' | 'Discover' | 'Venture' | 'Journey' | 'Trek'
   | 'Frolic' | 'Galavant' | 'Romp' | 'Cavort' | 'Revel'
   | 'Immerse' | 'Embrace' | 'Connect' | 'Celebrate' | 'Feast'
-  | 'Chase' | 'Conquer' | 'Summit' | 'Navigate';
+  | 'Mingle' | 'Wander' | 'Summit' | 'Navigate';
 
 const ALL_VERBS: PlayfulVerb[] = [
   'Adventure', 'Explore', 'Discover', 'Venture', 'Journey', 'Trek',
   'Frolic', 'Galavant', 'Romp', 'Cavort', 'Revel',
   'Immerse', 'Embrace', 'Connect', 'Celebrate', 'Feast',
-  'Chase', 'Conquer', 'Summit', 'Navigate',
+  'Mingle', 'Wander', 'Summit', 'Navigate',
 ];
 
 const REGION_VERBS: Record<string, PlayfulVerb[]> = {
@@ -22,9 +22,9 @@ const REGION_VERBS: Record<string, PlayfulVerb[]> = {
   'Europe & Central Asia': ['Romp', 'Galavant', 'Feast', 'Revel', 'Embrace'],
   'Latin America & Caribbean': ['Celebrate', 'Frolic', 'Feast', 'Revel'],
   'Middle East & North Africa': ['Discover', 'Journey', 'Navigate', 'Immerse'],
-  'North America': ['Chase', 'Adventure', 'Summit', 'Conquer', 'Trek'],
+  'North America': ['Mingle', 'Adventure', 'Summit', 'Wander', 'Trek'],
   'Sub-Saharan Africa': ['Trek', 'Connect', 'Venture', 'Discover'],
-  'Antarctica': ['Conquer', 'Summit', 'Venture', 'Trek'],
+  'Antarctica': ['Wander', 'Summit', 'Venture', 'Trek'],
 };
 
 /**
