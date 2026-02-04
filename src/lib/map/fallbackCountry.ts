@@ -33,7 +33,9 @@ export function createFallbackCountry(geoProperties: any): Country | null {
     // Placeholder values for fields not used in tooltips
     currencyCode: 'USD',
     currencyName: 'US Dollar',
+    description: 'Highlights vary by region and season. Explore local culture, food, and landscapes.',
     baselineCost: 0,
     nightlyCost: 0,
+    interests: [], // No interests for fallback countries
   };
 }

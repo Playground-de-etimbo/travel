@@ -1,10 +1,35 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { PreferencesForm } from '../PreferencesForm';
+import type { Country } from '@/types/country';
 
-const mockCountries = [
-  { countryCode: 'US', countryName: 'United States', flagEmoji: '🇺🇸', region: 'North America', continent: 'North America', currencyCode: 'USD', currencyName: 'US Dollar', baselineCost: 100, nightlyCost: 150 },
-  { countryCode: 'JP', countryName: 'Japan', flagEmoji: '🇯🇵', region: 'Asia', continent: 'Asia', currencyCode: 'JPY', currencyName: 'Japanese Yen', baselineCost: 120, nightlyCost: 180 },
+const mockCountries: Country[] = [
+  {
+    countryCode: 'US',
+    countryName: 'United States',
+    flagEmoji: '🇺🇸',
+    region: 'North America',
+    continent: 'North America',
+    currencyCode: 'USD',
+    currencyName: 'US Dollar',
+    description: 'Sample description. Second sentence.',
+    baselineCost: 100,
+    nightlyCost: 150,
+    interests: ['culture', 'action'],
+  },
+  {
+    countryCode: 'JP',
+    countryName: 'Japan',
+    flagEmoji: '🇯🇵',
+    region: 'Asia',
+    continent: 'Asia',
+    currencyCode: 'JPY',
+    currencyName: 'Japanese Yen',
+    description: 'Sample description. Second sentence.',
+    baselineCost: 120,
+    nightlyCost: 180,
+    interests: ['culture', 'action'],
+  },
 ];
 
 describe('PreferencesForm', () => {

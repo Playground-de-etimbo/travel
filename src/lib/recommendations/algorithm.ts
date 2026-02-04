@@ -3,7 +3,6 @@ import type {
   CountryRecommendation,
   FlightDuration,
   RecommendationPreferences,
-  TravelInterest,
 } from '@/types/recommendation';
 import { getCountryCoordinates } from '@/data/countryCoordinates';
 import {
@@ -12,16 +11,7 @@ import {
 } from './distanceCalculator';
 import { calculateCosts } from './costCalculator';
 import { generateReason } from './reasonGenerator';
-
-/**
- * Interest-to-country mappings for scoring
- */
-const INTEREST_MAPPINGS: Record<TravelInterest, string[]> = {
-  weather: ['CR', 'GR', 'TH', 'ES', 'PT', 'AU', 'MX'],
-  relaxation: ['FJ', 'MY', 'ID', 'GR', 'CR', 'TH'],
-  culture: ['IT', 'JP', 'MA', 'EG', 'IN', 'PE', 'TR', 'GR'],
-  action: ['NZ', 'IS', 'CR', 'NP', 'CL', 'NO', 'CH'],
-};
+import { generateVerbsForBatch } from './verbGenerator';
 
 /**
  * Flight duration thresholds in hours
@@ -103,9 +93,10 @@ export async function generateRecommendations(
 
     let score = 50; // Base score
 
-    // Interest matching: +10 per matched interest
+    // Interest matching: +10 per matched interest using country data
+    // Countries now have interests defined in their data (e.g., ['weather', 'culture'])
     interests.forEach((interest) => {
-      if (INTEREST_MAPPINGS[interest]?.includes(country.countryCode)) {
+      if (country.interests?.includes(interest)) {
         score += 10;
       }
     });
@@ -115,12 +106,17 @@ export async function generateRecommendations(
       score += 15;
     }
 
+    // Random variance: ±10 points for variety across generations
+    // This ensures the same preferences produce different results each time
+    score += Math.floor(Math.random() * 21) - 10; // -10 to +10
+
     return { country, score, distance };
   });
 
   // Step 3: Sort by score and select top candidates
+  // Expanded pool from 12 to 25 for much more variety
   scored.sort((a, b) => b.score - a.score);
-  const topCandidates = scored.slice(0, 12);
+  const topCandidates = scored.slice(0, 25);
 
   // Apply variety filter (max 3 per region)
   const regionCounts: Record<string, number> = {};
@@ -139,18 +135,35 @@ export async function generateRecommendations(
   const selected = shuffled.slice(0, targetCount);
 
   // Step 4: Generate recommendations with costs and reasons
-  const recommendations: CountryRecommendation[] = selected.map((item) => {
-    const costs = calculateCosts(item.country, item.distance);
-    const reason = generateReason(item.country.countryName, interests);
+  const recommendations: CountryRecommendation[] = await Promise.all(
+    selected.map(async (item) => {
+      const costs = await calculateCosts(item.country, item.distance);
+      const reason = generateReason(item.country.countryName, interests);
 
-    return {
-      countryCode: item.country.countryCode,
-      reason,
-      imageUrl: null, // Will be populated by API call
-      matchScore: Math.round(item.score),
-      costs,
-    };
+      return {
+        countryCode: item.country.countryCode,
+        reason,
+        imageUrl: null, // Will be populated by API call
+        matchScore: Math.round(item.score),
+        costs,
+        actionVerb: '', // Will be assigned below
+      };
+    })
+  );
+
+  // Step 5: Assign playful verbs (no repeats in batch)
+  const countriesForVerbs = selected.map((item) => ({
+    countryCode: item.country.countryCode,
+    region: item.country.region,
+  }));
+  const verbs = generateVerbsForBatch(countriesForVerbs);
+
+  recommendations.forEach((rec, index) => {
+    rec.actionVerb = verbs[index];
   });
+
+  // Step 6: Sort by match score (highest first)
+  recommendations.sort((a, b) => b.matchScore - a.matchScore);
 
   return recommendations;
 }

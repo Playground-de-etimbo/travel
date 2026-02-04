@@ -8,7 +8,12 @@
     "currencyName": "Afghani",
     "flagEmoji": "🇦🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "The Bamiyan Valley is a UNESCO World Heritage cultural landscape with major archaeological and Buddhist heritage sites. Travelers drawn to history and highland scenery find a profound sense of place.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "AL",
@@ -19,7 +24,12 @@
     "currencyName": "Lek",
     "flagEmoji": "🇦🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "UNESCO-listed Butrint blends archaeology and nature, while Berat and Gjirokastra showcase historic urban heritage. Travelers love the layered history and distinctive townscapes.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "DZ",
@@ -30,7 +40,12 @@
     "currencyName": "Algerian Dinar",
     "flagEmoji": "🇩🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tassili n’Ajjer is a UNESCO site famed for prehistoric rock art and dramatic sandstone landscapes. Djémila adds remarkably preserved Roman-era architecture and mosaics.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "AS",
@@ -41,7 +56,12 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇦🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "The National Park of American Samoa protects rainforest, reef, and Samoan cultural heritage across the islands. Visitors come for the natural beauty and living traditions.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "AD",
@@ -52,7 +72,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇦🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "The UNESCO-listed Madriu-Perafita-Claror Valley captures the Pyrenees’ cultural landscape and pastoral heritage. Travelers love the mountain scenery and deep sense of tradition.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "AO",
@@ -63,7 +88,12 @@
     "currencyName": "Kwanza",
     "flagEmoji": "🇦🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Mbanza Kongo, a UNESCO World Heritage site, preserves the former capital of the Kingdom of Kongo. Visitors drawn to history experience the legacy of a major African state.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "AI",
@@ -74,7 +104,12 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇦🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Anguilla is known for its many beaches with white sand and clear, calm waters. The island is also celebrated for its award-winning dining scene.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "AQ",
@@ -85,7 +120,11 @@
     "currencyName": "No universal currency",
     "flagEmoji": "🇦🇶",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Antarctica is the world’s largest wilderness and remains relatively pristine. Travelers seek its polar landscapes and emblematic wildlife such as penguins.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "AG",
@@ -96,7 +135,12 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇦🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "The UNESCO-listed Antigua Naval Dockyard preserves Georgian-era naval structures set within sheltered bays. Visitors are drawn to the island’s maritime heritage and history.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "AR",
@@ -107,7 +151,13 @@
     "currencyName": "Argentine Peso",
     "flagEmoji": "🇦🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Iguazú National Park is a UNESCO World Heritage site with one of the world’s most spectacular waterfall systems. The surrounding subtropical rainforest adds rich biodiversity and wildlife.",
+    "interests": [
+      "culture",
+      "action",
+      "weather"
+    ]
   },
   {
     "countryCode": "AM",
@@ -118,7 +168,12 @@
     "currencyName": "Armenian Dram",
     "flagEmoji": "🇦🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Armenia. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "AW",
@@ -129,7 +184,12 @@
     "currencyName": "Aruban Florin",
     "flagEmoji": "🇦🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Eagle Beach has been recognized by Tripadvisor as one of the world’s best beaches. Travelers come for its white sand and clear, calm waters.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "AU",
@@ -140,7 +200,14 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇦🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "The Great Barrier Reef is a UNESCO World Heritage site and the world’s largest collection of coral reefs. Visitors are drawn by its remarkable marine biodiversity and seascapes.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "AT",
@@ -151,7 +218,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇦🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vienna’s historic centre is a UNESCO World Heritage site known for its architectural ensembles and the Ringstrasse. Travelers come for the city’s heritage and celebrated musical legacy.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "AZ",
@@ -162,7 +234,11 @@
     "currencyName": "Azerbaijan Manat",
     "flagEmoji": "🇦🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Baku’s walled city with the Shirvanshah’s Palace and Maiden Tower is a UNESCO World Heritage site. Visitors come for the historic city walls, palace complex, and deep cultural layers.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "BS",
@@ -173,7 +249,12 @@
     "currencyName": "Bahamian Dollar",
     "flagEmoji": "🇧🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Color, culture, and daily life give it its spark in Bahamas. Visitors come for the food, music, and human connection.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "BH",
@@ -184,7 +265,11 @@
     "currencyName": "Bahraini Dinar",
     "flagEmoji": "🇧🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in Bahrain. The mix of tradition and daily life keeps it captivating.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "BD",
@@ -195,7 +280,11 @@
     "currencyName": "Taka",
     "flagEmoji": "🇧🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "The Sundarbans is a UNESCO World Heritage site and the world’s largest contiguous mangrove forest. Travelers visit for its rare wildlife and unique delta landscapes.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "BB",
@@ -206,7 +295,12 @@
     "currencyName": "Barbados Dollar",
     "flagEmoji": "🇧🇧",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Historic Bridgetown and its Garrison is a UNESCO World Heritage site tied to British colonial trade and defense. Visitors come for its preserved historic townscape and waterfront heritage.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "BY",
@@ -217,7 +311,11 @@
     "currencyName": "Belarusian Ruble",
     "flagEmoji": "🇧🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Belarus. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "BE",
@@ -228,7 +326,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇧🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Brussels’ Grand-Place is a UNESCO World Heritage site and an exceptional architectural ensemble. Travelers come for its historic square and richly preserved civic buildings.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "BZ",
@@ -239,7 +341,13 @@
     "currencyName": "Belize Dollar",
     "flagEmoji": "🇧🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Belize. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "BJ",
@@ -250,7 +358,11 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇧🇯",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Benin. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "BM",
@@ -261,7 +373,12 @@
     "currencyName": "Bermudian Dollar",
     "flagEmoji": "🇧🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Diverse regions and everyday culture give it its character in Bermuda. Travelers love the variety, comfort, and sense of possibility.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "BT",
@@ -272,7 +389,12 @@
     "currencyName": "Indian Rupee",
     "flagEmoji": "🇧🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and daily life create a vivid, immersive visit in Bhutan. Travelers love the cuisine, hospitality, and cultural depth.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "BO",
@@ -283,7 +405,12 @@
     "currencyName": "Boliviano",
     "flagEmoji": "🇧🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Bolivia. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "BQ",
@@ -294,7 +421,9 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇧🇶",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Color, culture, and daily life give it its spark in Bonaire, Sint Eustatius and Saba. The energy, culture, and local pride make it unforgettable.",
+    "interests": []
   },
   {
     "countryCode": "BA",
@@ -305,7 +434,12 @@
     "currencyName": "Convertible Mark",
     "flagEmoji": "🇧🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Mostar’s Old Bridge area is a UNESCO World Heritage site shaped by Ottoman and Austro-Hungarian periods. Travelers are drawn to the restored bridge and the multicultural old town.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "BW",
@@ -316,7 +450,12 @@
     "currencyName": "Pula",
     "flagEmoji": "🇧🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Botswana. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "action",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "BV",
@@ -327,7 +466,9 @@
     "currencyName": "Norwegian Krone",
     "flagEmoji": "🇧🇻",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Bouvet Island. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": []
   },
   {
     "countryCode": "BR",
@@ -338,7 +479,14 @@
     "currencyName": "Brazilian Real",
     "flagEmoji": "🇧🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Brazil. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "weather",
+      "culture",
+      "action",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "IO",
@@ -349,7 +497,9 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇮🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Strong traditions and local life shape the experience in British Indian Ocean Territory. The depth of tradition makes it a powerful trip.",
+    "interests": []
   },
   {
     "countryCode": "VG",
@@ -360,7 +510,9 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇻🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in British Virgin Islands. Visitors come for the food, music, and human connection.",
+    "interests": []
   },
   {
     "countryCode": "BN",
@@ -371,7 +523,12 @@
     "currencyName": "Brunei Dollar",
     "flagEmoji": "🇧🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Brunei Darussalam. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "relaxation",
+      "culture"
+    ]
   },
   {
     "countryCode": "BG",
@@ -382,7 +539,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇧🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Bulgaria. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "BF",
@@ -393,7 +555,11 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇧🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "The Ruins of Loropéni are a UNESCO World Heritage site with imposing stone walls linked to the trans-Saharan gold trade. Visitors are drawn to its archaeological remains and West African heritage.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "BI",
@@ -404,7 +570,12 @@
     "currencyName": "Burundi Franc",
     "flagEmoji": "🇧🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Burundi. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "KH",
@@ -415,7 +586,12 @@
     "currencyName": "Riel",
     "flagEmoji": "🇰🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Cambodia. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "CM",
@@ -426,7 +602,12 @@
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇨🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Cameroon. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "CA",
@@ -437,7 +618,12 @@
     "currencyName": "Canadian Dollar",
     "flagEmoji": "🇨🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Scale, variety, and cultural energy define the experience in Canada. Visitors come for the range of experiences and local flavor.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "KY",
@@ -448,7 +634,12 @@
     "currencyName": "Cayman Islands Dollar",
     "flagEmoji": "🇰🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Cayman Islands. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "CF",
@@ -459,7 +650,11 @@
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇨🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Central African Republic. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "TD",
@@ -470,7 +665,11 @@
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇹🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Chad. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "CL",
@@ -481,7 +680,13 @@
     "currencyName": "Chilean Peso",
     "flagEmoji": "🇨🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Chile. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "action",
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "CN",
@@ -492,7 +697,12 @@
     "currencyName": "Yuan Renminbi",
     "flagEmoji": "🇨🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in China. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "CX",
@@ -503,7 +713,9 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇨🇽",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Christmas Island. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": []
   },
   {
     "countryCode": "CC",
@@ -514,7 +726,9 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇨🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Cocos (Keeling) Islands. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": []
   },
   {
     "countryCode": "CO",
@@ -525,7 +739,13 @@
     "currencyName": "Colombian Peso",
     "flagEmoji": "🇨🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Colombia. The energy, culture, and local pride make it unforgettable.",
+    "interests": [
+      "culture",
+      "action",
+      "weather"
+    ]
   },
   {
     "countryCode": "KM",
@@ -536,7 +756,12 @@
     "currencyName": "Comorian Franc",
     "flagEmoji": "🇰🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Comoros. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "CK",
@@ -547,7 +772,12 @@
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇨🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Cook Islands. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "CR",
@@ -558,7 +788,13 @@
     "currencyName": "Costa Rican Colon",
     "flagEmoji": "🇨🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Costa Rica. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "weather",
+      "action",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "HR",
@@ -569,7 +805,13 @@
     "currencyName": "Euro",
     "flagEmoji": "🇭🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Croatia. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "weather",
+      "culture",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "CU",
@@ -580,7 +822,13 @@
     "currencyName": "Cuban Peso",
     "flagEmoji": "🇨🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Cuba. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "CW",
@@ -591,7 +839,9 @@
     "currencyName": "Caribbean Guilder",
     "flagEmoji": "🇨🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Curaçao. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": []
   },
   {
     "countryCode": "CY",
@@ -602,7 +852,13 @@
     "currencyName": "Euro",
     "flagEmoji": "🇨🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Cyprus. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "weather",
+      "culture",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "CZ",
@@ -613,7 +869,11 @@
     "currencyName": "Czech Koruna",
     "flagEmoji": "🇨🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Czech Republic. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "CI",
@@ -624,7 +884,9 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇨🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Côte d'Ivoire. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": []
   },
   {
     "countryCode": "KP",
@@ -635,7 +897,9 @@
     "currencyName": "North Korean Won",
     "flagEmoji": "🇰🇵",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Dem. Rep. Korea. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": []
   },
   {
     "countryCode": "CD",
@@ -646,7 +910,11 @@
     "currencyName": "Congolese Franc",
     "flagEmoji": "🇨🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Democratic Republic of the Congo. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "DK",
@@ -657,7 +925,11 @@
     "currencyName": "Danish Krone",
     "flagEmoji": "🇩🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Denmark. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "DJ",
@@ -668,7 +940,11 @@
     "currencyName": "Djibouti Franc",
     "flagEmoji": "🇩🇯",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Deep history and strong traditions shape the journey in Djibouti. It is loved for its culture, flavors, and welcoming spirit.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "DM",
@@ -679,7 +955,13 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇩🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Dominica. The energy, culture, and local pride make it unforgettable.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "DO",
@@ -690,7 +972,12 @@
     "currencyName": "Dominican Peso",
     "flagEmoji": "🇩🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Dominican Republic. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "EC",
@@ -701,7 +988,13 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇪🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Ecuador. The energy, culture, and local pride make it unforgettable.",
+    "interests": [
+      "action",
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "EG",
@@ -712,7 +1005,12 @@
     "currencyName": "Egyptian Pound",
     "flagEmoji": "🇪🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and modern life meet in compelling ways in Egypt. It is loved for its culture, flavors, and welcoming spirit.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "SV",
@@ -723,7 +1021,12 @@
     "currencyName": "El Salvador Colon",
     "flagEmoji": "🇸🇻",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in El Salvador. Visitors come for the food, music, and human connection.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "GQ",
@@ -734,7 +1037,11 @@
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇬🇶",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Equatorial Guinea. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "ER",
@@ -745,7 +1052,11 @@
     "currencyName": "Nakfa",
     "flagEmoji": "🇪🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Eritrea. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "EE",
@@ -756,7 +1067,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇪🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Estonia. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "ET",
@@ -767,7 +1082,12 @@
     "currencyName": "Ethiopian Birr",
     "flagEmoji": "🇪🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Ethiopia. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "FO",
@@ -778,7 +1098,9 @@
     "currencyName": "Danish Krone",
     "flagEmoji": "🇫🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Faeroe Islands. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": []
   },
   {
     "countryCode": "FK",
@@ -789,7 +1111,9 @@
     "currencyName": "Falkland Islands Pound",
     "flagEmoji": "🇫🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Color, culture, and daily life give it its spark in Falkland Islands / Malvinas. The energy, culture, and local pride make it unforgettable.",
+    "interests": []
   },
   {
     "countryCode": "FM",
@@ -800,7 +1124,13 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇫🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Federated States of Micronesia. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "FJ",
@@ -811,7 +1141,12 @@
     "currencyName": "Fiji Dollar",
     "flagEmoji": "🇫🇯",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Fiji. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "FI",
@@ -822,7 +1157,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇫🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Finland. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "FR",
@@ -833,7 +1173,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇫🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in France. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "GF",
@@ -844,7 +1189,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇬🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in French Guiana. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": []
   },
   {
     "countryCode": "PF",
@@ -855,7 +1202,9 @@
     "currencyName": "CFP Franc",
     "flagEmoji": "🇵🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in French Polynesia. It is loved for its culture, hospitality, and variety.",
+    "interests": []
   },
   {
     "countryCode": "TF",
@@ -866,7 +1215,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇹🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in French Southern and Antarctic Lands. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": []
   },
   {
     "countryCode": "GA",
@@ -877,7 +1228,11 @@
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇬🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Gabon. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "GE",
@@ -888,7 +1243,12 @@
     "currencyName": "Lari",
     "flagEmoji": "🇬🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Georgia. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "DE",
@@ -899,7 +1259,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇩🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Germany. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "GH",
@@ -910,7 +1274,11 @@
     "currencyName": "Ghana Cedi",
     "flagEmoji": "🇬🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Ghana. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "GI",
@@ -921,7 +1289,9 @@
     "currencyName": "Gibraltar Pound",
     "flagEmoji": "🇬🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Gibraltar. Visitors return for the culture, art, and timeless feel.",
+    "interests": []
   },
   {
     "countryCode": "GR",
@@ -932,7 +1302,13 @@
     "currencyName": "Euro",
     "flagEmoji": "🇬🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Greece. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "GL",
@@ -943,7 +1319,11 @@
     "currencyName": "Danish Krone",
     "flagEmoji": "🇬🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Greenland. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "GD",
@@ -954,7 +1334,12 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇬🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Grenada. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "GP",
@@ -965,7 +1350,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇬🇵",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Guadeloupe. Visitors come for the food, music, and human connection.",
+    "interests": []
   },
   {
     "countryCode": "GU",
@@ -976,7 +1363,12 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇬🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Guam. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "GT",
@@ -987,7 +1379,12 @@
     "currencyName": "Quetzal",
     "flagEmoji": "🇬🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Guatemala. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "GG",
@@ -998,7 +1395,9 @@
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇬🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Guernsey. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": []
   },
   {
     "countryCode": "GN",
@@ -1009,7 +1408,11 @@
     "currencyName": "Guinean Franc",
     "flagEmoji": "🇬🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Guinea. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "GW",
@@ -1020,7 +1423,11 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇬🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, community, and scenery create a memorable trip in Guinea-Bissau. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "GY",
@@ -1031,7 +1438,11 @@
     "currencyName": "Guyana Dollar",
     "flagEmoji": "🇬🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Guyana. Visitors come for the food, music, and human connection.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "HT",
@@ -1042,7 +1453,11 @@
     "currencyName": "Gourde",
     "flagEmoji": "🇭🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Haiti. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "HM",
@@ -1053,7 +1468,9 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇭🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Heard I. and McDonald Islands. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": []
   },
   {
     "countryCode": "HN",
@@ -1064,7 +1481,12 @@
     "currencyName": "Lempira",
     "flagEmoji": "🇭🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Color, culture, and daily life give it its spark in Honduras. Visitors come for the food, music, and human connection.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "HK",
@@ -1075,7 +1497,12 @@
     "currencyName": "Hong Kong Dollar",
     "flagEmoji": "🇭🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Hong Kong. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "HU",
@@ -1086,7 +1513,11 @@
     "currencyName": "Forint",
     "flagEmoji": "🇭🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Hungary. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "IS",
@@ -1097,7 +1528,12 @@
     "currencyName": "Iceland Krona",
     "flagEmoji": "🇮🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Iceland. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "IN",
@@ -1108,7 +1544,12 @@
     "currencyName": "Indian Rupee",
     "flagEmoji": "🇮🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Strong traditions and local life shape the experience in India. Visitors come for the culture, food, and unforgettable energy.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "ID",
@@ -1119,7 +1560,14 @@
     "currencyName": "Rupiah",
     "flagEmoji": "🇮🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Indonesia. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "weather",
+      "culture",
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "IR",
@@ -1130,7 +1578,11 @@
     "currencyName": "Iranian Rial",
     "flagEmoji": "🇮🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and modern life meet in compelling ways in Iran. It is loved for its culture, flavors, and welcoming spirit.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "IQ",
@@ -1141,7 +1593,11 @@
     "currencyName": "Iraqi Dinar",
     "flagEmoji": "🇮🇶",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in Iraq. Visitors come for the heritage, food, and memorable atmosphere.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "IE",
@@ -1152,7 +1608,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇮🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Ireland. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "IM",
@@ -1163,7 +1623,9 @@
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇮🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Isle of Man. Visitors return for the culture, art, and timeless feel.",
+    "interests": []
   },
   {
     "countryCode": "IL",
@@ -1174,7 +1636,12 @@
     "currencyName": "New Israeli Sheqel",
     "flagEmoji": "🇮🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and modern life meet in compelling ways in Israel. It is loved for its culture, flavors, and welcoming spirit.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "IT",
@@ -1185,7 +1652,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇮🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Italy. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "JM",
@@ -1196,7 +1668,13 @@
     "currencyName": "Jamaican Dollar",
     "flagEmoji": "🇯🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Jamaica. The energy, culture, and local pride make it unforgettable.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "culture"
+    ]
   },
   {
     "countryCode": "JP",
@@ -1207,7 +1685,12 @@
     "currencyName": "Yen",
     "flagEmoji": "🇯🇵",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Japan. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "JE",
@@ -1218,7 +1701,9 @@
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇯🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Jersey. Visitors return for the culture, art, and timeless feel.",
+    "interests": []
   },
   {
     "countryCode": "JO",
@@ -1229,7 +1714,12 @@
     "currencyName": "Jordanian Dinar",
     "flagEmoji": "🇯🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in Jordan. The mix of tradition and daily life keeps it captivating.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "KZ",
@@ -1240,7 +1730,12 @@
     "currencyName": "Tenge",
     "flagEmoji": "🇰🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Kazakhstan. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "KE",
@@ -1251,7 +1746,12 @@
     "currencyName": "Kenyan Shilling",
     "flagEmoji": "🇰🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Kenya. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "SZ",
@@ -1262,7 +1762,12 @@
     "currencyName": "Lilangeni",
     "flagEmoji": "🇸🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Kingdom of eSwatini. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "KI",
@@ -1273,7 +1778,12 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇰🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Kiribati. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "XK",
@@ -1284,7 +1794,9 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇽🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Kosovo. The mix of history and modern life makes it a classic trip.",
+    "interests": []
   },
   {
     "countryCode": "KW",
@@ -1295,7 +1807,11 @@
     "currencyName": "Kuwaiti Dinar",
     "flagEmoji": "🇰🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in Kuwait. Visitors come for the heritage, food, and memorable atmosphere.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "KG",
@@ -1306,7 +1822,12 @@
     "currencyName": "Som",
     "flagEmoji": "🇰🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Kyrgyzstan. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "LA",
@@ -1317,7 +1838,12 @@
     "currencyName": "Lao Kip",
     "flagEmoji": "🇱🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Lao PDR. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "LV",
@@ -1328,7 +1854,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇱🇻",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Latvia. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "LB",
@@ -1339,7 +1869,11 @@
     "currencyName": "Lebanese Pound",
     "flagEmoji": "🇱🇧",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in Lebanon. Visitors come for the heritage, food, and memorable atmosphere.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "LS",
@@ -1350,7 +1884,11 @@
     "currencyName": "Loti",
     "flagEmoji": "🇱🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Lesotho. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "LR",
@@ -1361,7 +1899,11 @@
     "currencyName": "Liberian Dollar",
     "flagEmoji": "🇱🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Liberia. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "LY",
@@ -1372,7 +1914,11 @@
     "currencyName": "Libyan Dinar",
     "flagEmoji": "🇱🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Deep history and strong traditions shape the journey in Libya. Travelers love the hospitality, cuisine, and sense of place.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "LI",
@@ -1383,7 +1929,11 @@
     "currencyName": "Swiss Franc",
     "flagEmoji": "🇱🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Liechtenstein. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "LT",
@@ -1394,7 +1944,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇱🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Lithuania. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "LU",
@@ -1405,7 +1959,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇱🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Luxembourg. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "MO",
@@ -1416,7 +1974,11 @@
     "currencyName": "Pataca",
     "flagEmoji": "🇲🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Macao. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "MG",
@@ -1427,7 +1989,12 @@
     "currencyName": "Malagasy Ariary",
     "flagEmoji": "🇲🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Madagascar. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "MW",
@@ -1438,7 +2005,12 @@
     "currencyName": "Malawi Kwacha",
     "flagEmoji": "🇲🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, community, and scenery create a memorable trip in Malawi. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "action",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "MY",
@@ -1449,7 +2021,13 @@
     "currencyName": "Malaysian Ringgit",
     "flagEmoji": "🇲🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Malaysia. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "MV",
@@ -1460,7 +2038,12 @@
     "currencyName": "Rufiyaa",
     "flagEmoji": "🇲🇻",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and daily life create a vivid, immersive visit in Maldives. Visitors come for the culture, food, and unforgettable energy.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "ML",
@@ -1471,7 +2054,11 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇲🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Mali. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "MT",
@@ -1482,7 +2069,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇲🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Malta. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "MH",
@@ -1493,7 +2085,12 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇲🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Marshall Islands. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "MQ",
@@ -1504,7 +2101,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇲🇶",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Martinique. The energy, culture, and local pride make it unforgettable.",
+    "interests": []
   },
   {
     "countryCode": "MR",
@@ -1515,7 +2114,12 @@
     "currencyName": "Ouguiya",
     "flagEmoji": "🇲🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Mauritania. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "MU",
@@ -1526,7 +2130,12 @@
     "currencyName": "Mauritius Rupee",
     "flagEmoji": "🇲🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Mauritius. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "YT",
@@ -1537,7 +2146,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇾🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Mayotte. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": []
   },
   {
     "countryCode": "MX",
@@ -1548,7 +2159,13 @@
     "currencyName": "Mexican Peso",
     "flagEmoji": "🇲🇽",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Mexico. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "MD",
@@ -1559,7 +2176,11 @@
     "currencyName": "Moldovan Leu",
     "flagEmoji": "🇲🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Moldova. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "MC",
@@ -1570,7 +2191,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇲🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Monaco. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "weather",
+      "culture"
+    ]
   },
   {
     "countryCode": "MN",
@@ -1581,7 +2207,12 @@
     "currencyName": "Tugrik",
     "flagEmoji": "🇲🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Mongolia. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "ME",
@@ -1592,7 +2223,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇲🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Montenegro. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "MS",
@@ -1603,7 +2239,9 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇲🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Montserrat. The energy, culture, and local pride make it unforgettable.",
+    "interests": []
   },
   {
     "countryCode": "MA",
@@ -1614,7 +2252,12 @@
     "currencyName": "Moroccan Dirham",
     "flagEmoji": "🇲🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Deep history and strong traditions shape the journey in Morocco. It is loved for its culture, flavors, and welcoming spirit.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "MZ",
@@ -1625,7 +2268,12 @@
     "currencyName": "Mozambique Metical",
     "flagEmoji": "🇲🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Mozambique. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "MM",
@@ -1636,7 +2284,11 @@
     "currencyName": "Kyat",
     "flagEmoji": "🇲🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Myanmar. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "NA",
@@ -1647,7 +2299,11 @@
     "currencyName": "Namibia Dollar",
     "flagEmoji": "🇳🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Namibia. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "NR",
@@ -1658,7 +2314,11 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇳🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Nauru. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "relaxation"
+    ]
   },
   {
     "countryCode": "NP",
@@ -1669,7 +2329,12 @@
     "currencyName": "Nepalese Rupee",
     "flagEmoji": "🇳🇵",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Strong traditions and local life shape the experience in Nepal. Travelers love the cuisine, hospitality, and cultural depth.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "NL",
@@ -1680,7 +2345,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇳🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Netherlands. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "NC",
@@ -1691,7 +2360,9 @@
     "currencyName": "CFP Franc",
     "flagEmoji": "🇳🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in New Caledonia. It is loved for its culture, hospitality, and variety.",
+    "interests": []
   },
   {
     "countryCode": "NZ",
@@ -1702,7 +2373,12 @@
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇳🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in New Zealand. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "action",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "NI",
@@ -1713,7 +2389,12 @@
     "currencyName": "Cordoba Oro",
     "flagEmoji": "🇳🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Nicaragua. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "NE",
@@ -1724,7 +2405,12 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇳🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Niger. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "NG",
@@ -1735,7 +2421,11 @@
     "currencyName": "Naira",
     "flagEmoji": "🇳🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Nigeria. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "NU",
@@ -1746,7 +2436,11 @@
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇳🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Niue. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "relaxation"
+    ]
   },
   {
     "countryCode": "NF",
@@ -1757,7 +2451,9 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇳🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Norfolk Island. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": []
   },
   {
     "countryCode": "MK",
@@ -1768,7 +2464,9 @@
     "currencyName": "Denar",
     "flagEmoji": "🇲🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in North Macedonia. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": []
   },
   {
     "countryCode": "MP",
@@ -1779,7 +2477,9 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇲🇵",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Northern Mariana Islands. The blend of tradition and modern life keeps it captivating.",
+    "interests": []
   },
   {
     "countryCode": "NO",
@@ -1790,7 +2490,12 @@
     "currencyName": "Norwegian Krone",
     "flagEmoji": "🇳🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Norway. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "OM",
@@ -1801,7 +2506,12 @@
     "currencyName": "Rial Omani",
     "flagEmoji": "🇴🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in Oman. Travelers love the hospitality, cuisine, and sense of place.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "PK",
@@ -1812,7 +2522,12 @@
     "currencyName": "Pakistan Rupee",
     "flagEmoji": "🇵🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and daily life create a vivid, immersive visit in Pakistan. Visitors come for the culture, food, and unforgettable energy.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "PW",
@@ -1823,7 +2538,12 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇵🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Palau. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "PS",
@@ -1834,7 +2554,9 @@
     "currencyName": "No universal currency",
     "flagEmoji": "🇵🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich cultural legacy defines the experience in Palestine. The mix of tradition and daily life keeps it captivating.",
+    "interests": []
   },
   {
     "countryCode": "PA",
@@ -1845,7 +2567,13 @@
     "currencyName": "Balboa",
     "flagEmoji": "🇵🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Panama. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "culture",
+      "action",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "PG",
@@ -1856,7 +2584,12 @@
     "currencyName": "Kina",
     "flagEmoji": "🇵🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Papua New Guinea. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "PY",
@@ -1867,7 +2600,11 @@
     "currencyName": "Guarani",
     "flagEmoji": "🇵🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Paraguay. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "PE",
@@ -1878,7 +2615,12 @@
     "currencyName": "Sol",
     "flagEmoji": "🇵🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Peru. The energy, culture, and local pride make it unforgettable.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "PH",
@@ -1889,7 +2631,13 @@
     "currencyName": "Philippine Peso",
     "flagEmoji": "🇵🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Philippines. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "culture"
+    ]
   },
   {
     "countryCode": "PN",
@@ -1900,7 +2648,9 @@
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇵🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Pitcairn Islands. It is loved for its culture, hospitality, and variety.",
+    "interests": []
   },
   {
     "countryCode": "PL",
@@ -1911,7 +2661,11 @@
     "currencyName": "Zloty",
     "flagEmoji": "🇵🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Poland. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "PT",
@@ -1922,7 +2676,13 @@
     "currencyName": "Euro",
     "flagEmoji": "🇵🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Portugal. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "PR",
@@ -1933,7 +2693,13 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇵🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Puerto Rico. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "culture"
+    ]
   },
   {
     "countryCode": "QA",
@@ -1944,7 +2710,11 @@
     "currencyName": "Qatari Rial",
     "flagEmoji": "🇶🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in Qatar. Visitors come for the heritage, food, and memorable atmosphere.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "CV",
@@ -1955,7 +2725,12 @@
     "currencyName": "Cabo Verde Escudo",
     "flagEmoji": "🇨🇻",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Republic of Cabo Verde. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "KR",
@@ -1966,7 +2741,11 @@
     "currencyName": "Won",
     "flagEmoji": "🇰🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Republic of Korea. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "CG",
@@ -1977,7 +2756,11 @@
     "currencyName": "CFA Franc BEAC",
     "flagEmoji": "🇨🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Republic of the Congo. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "RO",
@@ -1988,7 +2771,12 @@
     "currencyName": "Romanian Leu",
     "flagEmoji": "🇷🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Romania. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "RU",
@@ -1999,7 +2787,12 @@
     "currencyName": "Russian Ruble",
     "flagEmoji": "🇷🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Russian Federation. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "RW",
@@ -2010,7 +2803,12 @@
     "currencyName": "Rwanda Franc",
     "flagEmoji": "🇷🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Rwanda. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "RE",
@@ -2021,7 +2819,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇷🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, community, and scenery create a memorable trip in Réunion. It is loved for its hospitality, culture, and character.",
+    "interests": []
   },
   {
     "countryCode": "SH",
@@ -2032,7 +2832,9 @@
     "currencyName": "Saint Helena Pound",
     "flagEmoji": "🇸🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Saint Helena. The mix of culture and landscapes makes it unforgettable.",
+    "interests": []
   },
   {
     "countryCode": "KN",
@@ -2043,7 +2845,12 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇰🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Saint Kitts and Nevis. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "LC",
@@ -2054,7 +2861,12 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇱🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Saint Lucia. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "PM",
@@ -2065,7 +2877,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇵🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Wide-ranging landscapes and cultural life set the tone in Saint Pierre and Miquelon. Travelers love the variety, comfort, and sense of possibility.",
+    "interests": []
   },
   {
     "countryCode": "VC",
@@ -2076,7 +2890,12 @@
     "currencyName": "East Caribbean Dollar",
     "flagEmoji": "🇻🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Saint Vincent and the Grenadines. The energy, culture, and local pride make it unforgettable.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "BL",
@@ -2087,7 +2906,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇧🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Saint-Barthélemy. Visitors come for the food, music, and human connection.",
+    "interests": []
   },
   {
     "countryCode": "MF",
@@ -2098,7 +2919,9 @@
     "currencyName": "Euro",
     "flagEmoji": "🇲🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Vibrant culture and everyday energy define the experience in Saint-Martin. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": []
   },
   {
     "countryCode": "WS",
@@ -2109,7 +2932,13 @@
     "currencyName": "Tala",
     "flagEmoji": "🇼🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Samoa. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "weather",
+      "relaxation",
+      "culture"
+    ]
   },
   {
     "countryCode": "SM",
@@ -2120,7 +2949,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇸🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in San Marino. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "SA",
@@ -2131,7 +2964,11 @@
     "currencyName": "Saudi Riyal",
     "flagEmoji": "🇸🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Deep history and strong traditions shape the journey in Saudi Arabia. Visitors come for the heritage, food, and memorable atmosphere.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "SN",
@@ -2142,7 +2979,11 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇸🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Senegal. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "RS",
@@ -2153,7 +2994,11 @@
     "currencyName": "Serbian Dinar",
     "flagEmoji": "🇷🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Serbia. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "SC",
@@ -2164,7 +3009,12 @@
     "currencyName": "Seychelles Rupee",
     "flagEmoji": "🇸🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Traditions and everyday life shape the experience in Seychelles. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "SL",
@@ -2175,7 +3025,12 @@
     "currencyName": "Leone",
     "flagEmoji": "🇸🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Sierra Leone. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "culture",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "SG",
@@ -2186,7 +3041,12 @@
     "currencyName": "Singapore Dollar",
     "flagEmoji": "🇸🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Singapore. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "SX",
@@ -2197,7 +3057,9 @@
     "currencyName": "Caribbean Guilder",
     "flagEmoji": "🇸🇽",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in Sint Maarten. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": []
   },
   {
     "countryCode": "SK",
@@ -2208,7 +3070,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇸🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Slovakia. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "SI",
@@ -2219,7 +3086,12 @@
     "currencyName": "Euro",
     "flagEmoji": "🇸🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Slovenia. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "SB",
@@ -2230,7 +3102,12 @@
     "currencyName": "Solomon Islands Dollar",
     "flagEmoji": "🇸🇧",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Solomon Islands. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "SO",
@@ -2241,7 +3118,11 @@
     "currencyName": "Somali Shilling",
     "flagEmoji": "🇸🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Somalia. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "ZA",
@@ -2252,7 +3133,13 @@
     "currencyName": "Rand",
     "flagEmoji": "🇿🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in South Africa. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action",
+      "culture",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "GS",
@@ -2263,7 +3150,9 @@
     "currencyName": "No universal currency",
     "flagEmoji": "🇬🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in South Georgia and the Islands. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": []
   },
   {
     "countryCode": "SS",
@@ -2274,7 +3163,12 @@
     "currencyName": "South Sudanese Pound",
     "flagEmoji": "🇸🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in South Sudan. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "ES",
@@ -2285,7 +3179,13 @@
     "currencyName": "Euro",
     "flagEmoji": "🇪🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Spain. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "LK",
@@ -2296,7 +3196,13 @@
     "currencyName": "Sri Lanka Rupee",
     "flagEmoji": "🇱🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Strong traditions and local life shape the experience in Sri Lanka. The depth of tradition makes it a powerful trip.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "SD",
@@ -2307,7 +3213,11 @@
     "currencyName": "Sudanese Pound",
     "flagEmoji": "🇸🇩",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Sudan. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "SR",
@@ -2318,7 +3228,11 @@
     "currencyName": "Surinam Dollar",
     "flagEmoji": "🇸🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Suriname. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "SJ",
@@ -2329,7 +3243,9 @@
     "currencyName": "Norwegian Krone",
     "flagEmoji": "🇸🇯",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Svalbard and Jan Mayen. The mix of history and modern life makes it a classic trip.",
+    "interests": []
   },
   {
     "countryCode": "SE",
@@ -2340,7 +3256,12 @@
     "currencyName": "Swedish Krona",
     "flagEmoji": "🇸🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Sweden. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "CH",
@@ -2351,7 +3272,12 @@
     "currencyName": "Swiss Franc",
     "flagEmoji": "🇨🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Switzerland. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "SY",
@@ -2362,7 +3288,11 @@
     "currencyName": "Syrian Pound",
     "flagEmoji": "🇸🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich cultural legacy defines the experience in Syria. Visitors come for the heritage, food, and memorable atmosphere.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "ST",
@@ -2373,7 +3303,12 @@
     "currencyName": "Dobra",
     "flagEmoji": "🇸🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in São Tomé and Principe. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "TW",
@@ -2384,7 +3319,12 @@
     "currencyName": "New Taiwan Dollar",
     "flagEmoji": "🇹🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Taiwan. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "TJ",
@@ -2395,7 +3335,12 @@
     "currencyName": "Somoni",
     "flagEmoji": "🇹🇯",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place and tradition defines the visit in Tajikistan. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "TZ",
@@ -2406,7 +3351,12 @@
     "currencyName": "Tanzanian Shilling",
     "flagEmoji": "🇹🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Tanzania. It is loved for its hospitality, culture, and character.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "TH",
@@ -2417,7 +3367,13 @@
     "currencyName": "Baht",
     "flagEmoji": "🇹🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Thailand. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "GM",
@@ -2428,7 +3384,12 @@
     "currencyName": "Dalasi",
     "flagEmoji": "🇬🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in The Gambia. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "TL",
@@ -2439,7 +3400,12 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇹🇱",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Timor-Leste. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "TG",
@@ -2450,7 +3416,11 @@
     "currencyName": "CFA Franc BCEAO",
     "flagEmoji": "🇹🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Togo. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "TK",
@@ -2461,7 +3431,9 @@
     "currencyName": "New Zealand Dollar",
     "flagEmoji": "🇹🇰",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Tokelau. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": []
   },
   {
     "countryCode": "TO",
@@ -2472,7 +3444,12 @@
     "currencyName": "Pa’anga",
     "flagEmoji": "🇹🇴",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich mix of heritage and contemporary life defines the visit in Tonga. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "TT",
@@ -2483,7 +3460,13 @@
     "currencyName": "Trinidad and Tobago Dollar",
     "flagEmoji": "🇹🇹",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Color, culture, and daily life give it its spark in Trinidad and Tobago. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "culture",
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "TN",
@@ -2494,7 +3477,12 @@
     "currencyName": "Tunisian Dinar",
     "flagEmoji": "🇹🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and modern life meet in compelling ways in Tunisia. The mix of tradition and daily life keeps it captivating.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "TR",
@@ -2505,7 +3493,12 @@
     "currencyName": "Turkish Lira",
     "flagEmoji": "🇹🇷",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Turkey. Visitors return for the culture, art, and timeless feel.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "TM",
@@ -2516,7 +3509,12 @@
     "currencyName": "Turkmenistan New Manat",
     "flagEmoji": "🇹🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Layered history and local traditions set the tone in Turkmenistan. The mix of history and modern life makes it a classic trip.",
+    "interests": [
+      "culture",
+      "action"
+    ]
   },
   {
     "countryCode": "TC",
@@ -2527,7 +3525,12 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇹🇨",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and a strong sense of rhythm shape the visit in Turks and Caicos Islands. Visitors come for the food, music, and human connection.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "TV",
@@ -2538,7 +3541,12 @@
     "currencyName": "Australian Dollar",
     "flagEmoji": "🇹🇻",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Everyday life, traditions, and scenery give it its character in Tuvalu. The blend of tradition and modern life keeps it captivating.",
+    "interests": [
+      "weather",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "UG",
@@ -2549,7 +3557,12 @@
     "currencyName": "Uganda Shilling",
     "flagEmoji": "🇺🇬",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A strong sense of place gives the visit its character in Uganda. The mix of culture and landscapes makes it unforgettable.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "UA",
@@ -2560,7 +3573,11 @@
     "currencyName": "Hryvnia",
     "flagEmoji": "🇺🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, heritage, and everyday life make it distinctive in Ukraine. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "AE",
@@ -2571,7 +3588,12 @@
     "currencyName": "UAE Dirham",
     "flagEmoji": "🇦🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Heritage and everyday life create a distinct atmosphere in United Arab Emirates. Visitors come for the heritage, food, and memorable atmosphere.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "GB",
@@ -2582,7 +3604,11 @@
     "currencyName": "Pound Sterling",
     "flagEmoji": "🇬🇧",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in United Kingdom. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "US",
@@ -2593,7 +3619,13 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇺🇸",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Diverse regions and everyday culture give it its character in United States. The mix of nature and culture makes it an easy favorite.",
+    "interests": [
+      "culture",
+      "action",
+      "weather"
+    ]
   },
   {
     "countryCode": "UM",
@@ -2604,7 +3636,9 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇺🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in United States Minor Outlying Islands. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": []
   },
   {
     "countryCode": "VI",
@@ -2615,7 +3649,9 @@
     "currencyName": "US Dollar",
     "flagEmoji": "🇻🇮",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A lively spirit and distinctive heritage define the trip in United States Virgin Islands. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": []
   },
   {
     "countryCode": "UY",
@@ -2626,7 +3662,12 @@
     "currencyName": "Peso Uruguayo",
     "flagEmoji": "🇺🇾",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Color, culture, and daily life give it its spark in Uruguay. Travelers love the warmth, flavors, and welcoming feel.",
+    "interests": [
+      "culture",
+      "relaxation"
+    ]
   },
   {
     "countryCode": "UZ",
@@ -2637,7 +3678,11 @@
     "currencyName": "Uzbekistan Sum",
     "flagEmoji": "🇺🇿",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Uzbekistan. Travelers love the walkable feel, the food, and the cultural depth.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "VU",
@@ -2648,7 +3693,12 @@
     "currencyName": "Vatu",
     "flagEmoji": "🇻🇺",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Vanuatu. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "interests": [
+      "relaxation",
+      "action"
+    ]
   },
   {
     "countryCode": "VA",
@@ -2659,7 +3709,11 @@
     "currencyName": "Euro",
     "flagEmoji": "🇻🇦",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Its character comes from history, culture, and lived-in charm in Vatican. It is loved for its atmosphere, cuisine, and local character.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "VE",
@@ -2670,7 +3724,12 @@
     "currencyName": "Bolívar Soberano",
     "flagEmoji": "🇻🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Color, culture, and daily life give it its spark in Venezuela. It is loved for its culture, hospitality, and sense of joy.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "VN",
@@ -2681,7 +3740,12 @@
     "currencyName": "Dong",
     "flagEmoji": "🇻🇳",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Distinctive culture and varied landscapes shape the experience in Vietnam. It is loved for its culture, hospitality, and variety.",
+    "interests": [
+      "culture",
+      "weather"
+    ]
   },
   {
     "countryCode": "WF",
@@ -2692,7 +3756,9 @@
     "currencyName": "CFP Franc",
     "flagEmoji": "🇼🇫",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local traditions and modern energy create a memorable trip in Wallis and Futuna Islands. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "interests": []
   },
   {
     "countryCode": "EH",
@@ -2703,7 +3769,9 @@
     "currencyName": "Moroccan Dirham",
     "flagEmoji": "🇪🇭",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Tradition and modern life meet in compelling ways in Western Sahara. Travelers love the hospitality, cuisine, and sense of place.",
+    "interests": []
   },
   {
     "countryCode": "YE",
@@ -2714,7 +3782,11 @@
     "currencyName": "Yemeni Rial",
     "flagEmoji": "🇾🇪",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "A rich cultural legacy defines the experience in Yemen. The mix of tradition and daily life keeps it captivating.",
+    "interests": [
+      "culture"
+    ]
   },
   {
     "countryCode": "ZM",
@@ -2725,7 +3797,11 @@
     "currencyName": "Zambian Kwacha",
     "flagEmoji": "🇿🇲",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Culture, community, and scenery create a memorable trip in Zambia. Visitors come for the culture, food, and meaningful encounters.",
+    "interests": [
+      "action"
+    ]
   },
   {
     "countryCode": "ZW",
@@ -2736,7 +3812,12 @@
     "currencyName": "Zimbabwe Gold",
     "flagEmoji": "🇿🇼",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Local culture and distinctive landscapes define the journey in Zimbabwe. Travelers love the warmth, authenticity, and sense of discovery.",
+    "interests": [
+      "action",
+      "culture"
+    ]
   },
   {
     "countryCode": "AX",
@@ -2747,6 +3828,8 @@
     "currencyName": "Euro",
     "flagEmoji": "🇦🇽",
     "baselineCost": 0,
-    "nightlyCost": 0
+    "nightlyCost": 0,
+    "description": "Åland is an archipelago of about 6,700 islands, according to the official Visit Åland tourism site. Travelers are drawn to its maritime setting, outdoor life, and island culture.",
+    "interests": []
   }
 ]
