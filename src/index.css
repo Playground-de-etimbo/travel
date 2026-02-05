@@ -67,6 +67,16 @@ body {
   color: var(--color-foreground);
 }
 
+/* Interactive elements cursor styling */
+button:not(:disabled),
+[role="button"]:not([disabled]),
+a,
+label,
+select,
+[onclick] {
+  cursor: pointer;
+}
+
 /* Map transitions */
 * {
   transition-property: fill, stroke;
