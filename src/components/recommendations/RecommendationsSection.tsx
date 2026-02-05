@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { PreferencesForm } from './PreferencesForm';
 import { BudgetSlider } from './BudgetSlider';
 import { RecommendationsGrid } from './RecommendationsGrid';
@@ -7,7 +6,6 @@ import { SampleResults } from './SampleResults';
 import { useRecommendations } from '@/hooks/useRecommendations';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useCountryEnrichment } from '@/hooks/useCountryEnrichment';
-import { hasCoordinates } from '@/data/countryCoordinates';
 import type { Country } from '@/types/country';
 
 interface RecommendationsSectionProps {
@@ -36,12 +34,6 @@ export function RecommendationsSection({
   useCountryEnrichment(
     result?.recommendations || [],
     updateEnrichedData
-  );
-
-  // Get countries with coordinates for geolocation
-  const availableCountries = useMemo(
-    () => countries.filter((country) => hasCoordinates(country.countryCode)),
-    [countries]
   );
 
   // Use geolocation hook (runs independently of country loading)
