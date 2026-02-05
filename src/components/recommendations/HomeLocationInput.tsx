@@ -179,7 +179,7 @@ export function HomeLocationInput({
               className="text-foreground hover:text-accent font-medium transition-colors underline decoration-dotted underline-offset-2"
               aria-label="Clear detected country"
             >
-              yeah, but nah
+              yeah, but nah, thats not my country
             </button>
             )
           </span>
