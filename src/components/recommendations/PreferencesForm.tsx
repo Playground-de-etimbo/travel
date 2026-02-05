@@ -51,12 +51,20 @@ export function PreferencesForm({
 
   // Update home when detectedCountry changes (on mount)
   // Don't re-populate if user has dismissed the detection (showDetectionBadge=false)
+  // Validate that detected country is in our available list before using it
   useEffect(() => {
     if (detectedCountry && !home && showDetectionBadge) {
-      setHome(detectedCountry);
-      onHomeSelected(detectedCountry);
+      // Check if detected country is available (has coordinate data)
+      const isAvailable = availableCountries.some(
+        (c) => c.countryCode === detectedCountry
+      );
+
+      if (isAvailable) {
+        setHome(detectedCountry);
+        onHomeSelected(detectedCountry);
+      }
     }
-  }, [detectedCountry, home, showDetectionBadge, onHomeSelected]);
+  }, [detectedCountry, home, showDetectionBadge, onHomeSelected, availableCountries]);
 
   // Auto-generate when all fields are filled or any field changes (if all are filled)
   useEffect(() => {

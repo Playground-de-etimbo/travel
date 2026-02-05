@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { detectUserCountry } from '@/lib/api/geolocation';
 import { storage } from '@/lib/storage';
-import type { Country } from '@/types/country';
 
 interface UseGeolocationResult {
   detectedCountry: string | null;
@@ -14,8 +13,12 @@ interface UseGeolocationResult {
  * Hook to manage auto-detection of user's country via IP geolocation.
  * Detects country once on first visit and stores result in localStorage.
  * Subsequent visits use the cached value without re-detecting.
+ *
+ * This hook runs independently of country data loading - it just detects
+ * and caches the raw country code. UI components should validate whether
+ * the detected country is available before using it.
  */
-export function useGeolocation(availableCountries: Country[]): UseGeolocationResult {
+export function useGeolocation(): UseGeolocationResult {
   const [detectedCountry, setDetectedCountry] = useState<string | null>(null);
   const [isDetecting, setIsDetecting] = useState(true);
   const [isDismissed, setIsDismissed] = useState(false);
@@ -36,12 +39,8 @@ export function useGeolocation(availableCountries: Country[]): UseGeolocationRes
           return;
         }
 
-        // Detect country
+        // Detect country - just save the raw code, don't validate yet
         const countryCode = await detectUserCountry();
-
-        // Verify country is in our available list
-        const isAvailable = availableCountries.some(c => c.countryCode === countryCode);
-        const finalCountry = isAvailable ? countryCode : 'AU';
 
         // Save to storage
         const currentData = await storage.load();
@@ -50,24 +49,24 @@ export function useGeolocation(availableCountries: Country[]): UseGeolocationRes
             theme: currentData?.preferences?.theme ?? 'system',
             displayCurrency: currentData?.preferences?.displayCurrency ?? 'USD',
             recommendations: {
-              detectedCountry: finalCountry,
+              detectedCountry: countryCode,
               budgetTier: currentData?.preferences?.recommendations?.budgetTier ?? 'modest',
               detectionDismissed: false,
             },
           },
         });
 
-        setDetectedCountry(finalCountry);
+        setDetectedCountry(countryCode);
         setIsDetecting(false);
       } catch (error) {
         console.error('Geolocation initialization failed:', error);
-        setDetectedCountry('AU'); // Fallback
+        setDetectedCountry(null);
         setIsDetecting(false);
       }
     };
 
     initializeGeolocation();
-  }, [availableCountries]);
+  }, []); // Run once on mount, independent of country data
 
   const dismissDetection = async () => {
     setIsDismissed(true);

@@ -44,13 +44,13 @@ export function RecommendationsSection({
     [countries]
   );
 
-  // Use geolocation hook
+  // Use geolocation hook (runs independently of country loading)
   const {
     detectedCountry,
     isDetecting,
     isDismissed,
     dismissDetection,
-  } = useGeolocation(availableCountries);
+  } = useGeolocation();
 
   return (
     <section id="recommendations" className="py-16 border-t border-border">
