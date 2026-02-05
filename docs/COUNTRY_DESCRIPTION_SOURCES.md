@@ -3,7 +3,7 @@
 This file records the primary Wikipedia page used to ground each country description in `public/data/countries.json`.
 Descriptions are still travel copy, but we avoid specific claims unless supported by the referenced page summary.
 
-Generated: 2026-02-05T02:26:10.302Z
+Generated: 2026-02-05T02:38:00.853Z
 
 | Code | Country | Wikipedia Title | URL |
 |---|---|---|---|

@@ -92,6 +92,10 @@ const SPECIAL_DESCRIPTIONS = {
   AQ: 'Icebound wilderness around the South Pole makes it feel truly otherworldly. Go for stark beauty and iconic polar wildlife in one of the planet’s most remote places.',
 };
 
+// Used to avoid repetitive payoffs in nearby countries (editorial feel).
+const RECENT_PAYOFF_STARTERS_MAX = 10;
+const recentPayoffStarters = [];
+
 function hashCode(value) {
   let hash = 0;
   for (let i = 0; i < value.length; i++) hash = (hash * 31 + value.charCodeAt(i)) | 0;
@@ -141,6 +145,8 @@ function findKeywordHighlights(extract) {
   push('temples and heritage sites', /\btemple(s)?\b|\bheritage\b|\bworld heritage\b|\bunesco\b/);
   push('music and arts', /\bmusic\b|\barts?\b/);
   push('beaches', /\bbeach(es)?\b/);
+  push('historic cities', /\bhistoric\b|\bhistory\b|\bancient\b/);
+  push('mountain towns', /\bmountain\b|\bmountainous\b|\balps\b|\bandes\b|\bhimalaya\b/);
 
   return keywords;
 }
@@ -250,13 +256,49 @@ function buildDescription({ code, extract, seed }) {
   else if (flags.rainforest) openerKey = 'rainforest';
   else if (flags.mountains) openerKey = 'mountains';
 
-  const second = [
-    'Go for local food, a change of pace, and days that feel like a genuine escape.',
-    'Travelers love the culture, the scenery, and the small moments that turn into stories.',
-    'Come for the atmosphere and landscapes, then stay for the food and local warmth.',
-    'It is perfect for wandering, unwinding, and soaking up everyday life.',
-    'Show up curious and leave with stories, flavors, and a real sense of place.',
-    'Come for the scenery and culture, and let the slower moments be the highlight.',
+  const payoffBits = [];
+  const addBit = (value) => {
+    if (!value) return;
+    if (payoffBits.includes(value)) return;
+    payoffBits.push(value);
+  };
+
+  // Bits are intentionally broad; only include when supported by flags/extract keywords.
+  if (flags.sea || flags.island) addBit('sea air and coastal days');
+  if (flags.reef) addBit('clear water and reef scenery');
+  if (flags.mountains) addBit('mountain scenery');
+  if (flags.desert) addBit('big-sky landscapes');
+  if (flags.rainforest) addBit('lush nature');
+  if (flags.volcano) addBit('volcanic landscapes');
+  if (flags.lakes) addBit('lake country');
+  if (flags.rivers) addBit('riverside scenes');
+
+  // Use extract-triggered highlights first, then fall back to safe travel-copy.
+  for (const k of keywordHighlights) addBit(k);
+  addBit('good food');
+  addBit('a change of pace');
+  addBit('everyday culture');
+  addBit('scenery');
+
+  const joinBits = (bits, max = 3) => {
+    const chosen = bits.slice(0, max);
+    if (chosen.length === 1) return chosen[0];
+    if (chosen.length === 2) return `${chosen[0]} and ${chosen[1]}`;
+    return `${chosen[0]}, ${chosen[1]}, and ${chosen[2]}`;
+  };
+
+  const payoffTemplates = [
+    // Each template is a full second sentence to avoid over-repeating a starter.
+    ({ a, b, c }) => `Think ${a} with ${b}, plus ${c} when you want it.`,
+    ({ a, b, c }) => `Expect ${a}, ${b}, and a trip that keeps surprising you with ${c}.`,
+    ({ a, b, c }) => `Best when you want ${a} and ${b}, with ${c} rounding it out.`,
+    ({ a, b, c }) => `Made for ${a}, then linger for ${b} and ${c}.`,
+    ({ a, b, c }) => `It suits travelers after ${a}, with ${b} and ${c} close behind.`,
+    ({ a, b, c }) => `Plan on ${a}, and let ${b} and ${c} set the rhythm.`,
+    ({ a, b, c }) => `Ideal for ${a}; ${b} and ${c} are the bonus.`,
+    ({ a, b, c }) => `If you want ${a}, you will find ${b} and plenty of ${c}.`,
+    ({ a, b, c }) => `A great pick for ${a}, plus ${b} and ${c} in the mix.`,
+    ({ a, b, c }) => `You will leave with ${a}, ${b}, and a renewed taste for ${c}.`,
   ];
 
   // Add a light nudge toward nature if the extract suggests it, without inventing specifics.
@@ -268,26 +310,51 @@ function buildDescription({ code, extract, seed }) {
   if (flags.volcano) natureNudge.push('volcanic landscapes');
 
   let nudge = '';
-  if (keywordHighlights.length) {
-    const list = keywordHighlights.slice(0, 2).join(' and ');
-    nudge = `Go for ${list}, local food, and a trip that feels genuinely different.`;
-  } else if (highlights.length >= 1) {
+  if (highlights.length >= 1) {
     const h = highlights[0];
-    if (/Sea|Ocean/i.test(h)) nudge = 'Go for sea air, coastal days, and a culture you can taste in the food and daily life.';
-    else if (/Sahara|desert/i.test(h)) nudge = 'Go for desert-scale landscapes, warm hospitality, and nights that feel far from everything.';
-    else if (/Balkans/i.test(h)) nudge = 'Go for Balkan culture, memorable scenery, and an easy sense of discovery day to day.';
-    else nudge = pick(second, seed + 19);
+    if (/Sea|Ocean/i.test(h)) addBit('sea air and coastal days');
+    else if (/Sahara|desert/i.test(h)) addBit('desert-scale horizons');
+    else if (/Balkans/i.test(h)) addBit('a Balkan feel');
+
+    const chosen = payoffBits.slice(0, 3);
+    const [a, b, c] = [chosen[0], chosen[1] ?? chosen[0], chosen[2] ?? chosen[1] ?? chosen[0]];
+    let tpl = pick(payoffTemplates, seed + 11);
+    for (let tries = 0; tries < payoffTemplates.length; tries++) {
+      const candidateStarter = tpl({ a, b, c }).split(' ')[0];
+      if (!recentPayoffStarters.includes(candidateStarter)) break;
+      tpl = pick(payoffTemplates, seed + 11 + tries + 2);
+    }
+    const starter = tpl({ a, b, c }).split(' ')[0];
+    recentPayoffStarters.push(starter);
+    while (recentPayoffStarters.length > RECENT_PAYOFF_STARTERS_MAX) recentPayoffStarters.shift();
+    nudge = tpl({ a, b, c });
   } else if (natureNudge.length) {
-    nudge = `Go for ${pick(
-      [
-        `${natureNudge.slice(0, 2).join(' and ')},`,
-        `${natureNudge[0]},`,
-        `nature that feels close at hand,`,
-      ],
-      seed + 13
-    )} great food, and a memorable sense of place.`;
+    addBit(joinBits(natureNudge, 2));
+    const chosen = payoffBits.slice(0, 3);
+    const [a, b, c] = [chosen[0], chosen[1] ?? chosen[0], chosen[2] ?? chosen[1] ?? chosen[0]];
+    let tpl = pick(payoffTemplates, seed + 17);
+    for (let tries = 0; tries < payoffTemplates.length; tries++) {
+      const candidateStarter = tpl({ a, b, c }).split(' ')[0];
+      if (!recentPayoffStarters.includes(candidateStarter)) break;
+      tpl = pick(payoffTemplates, seed + 17 + tries + 3);
+    }
+    const starter = tpl({ a, b, c }).split(' ')[0];
+    recentPayoffStarters.push(starter);
+    while (recentPayoffStarters.length > RECENT_PAYOFF_STARTERS_MAX) recentPayoffStarters.shift();
+    nudge = tpl({ a, b, c });
   } else {
-    nudge = pick(second, seed + 7);
+    const chosen = payoffBits.slice(0, 3);
+    const [a, b, c] = [chosen[0], chosen[1] ?? chosen[0], chosen[2] ?? chosen[1] ?? chosen[0]];
+    let tpl = pick(payoffTemplates, seed + 23);
+    for (let tries = 0; tries < payoffTemplates.length; tries++) {
+      const candidateStarter = tpl({ a, b, c }).split(' ')[0];
+      if (!recentPayoffStarters.includes(candidateStarter)) break;
+      tpl = pick(payoffTemplates, seed + 23 + tries + 5);
+    }
+    const starter = tpl({ a, b, c }).split(' ')[0];
+    recentPayoffStarters.push(starter);
+    while (recentPayoffStarters.length > RECENT_PAYOFF_STARTERS_MAX) recentPayoffStarters.shift();
+    nudge = tpl({ a, b, c });
   }
 
   return `${pick(openers[openerKey], seed)} ${nudge}`;
