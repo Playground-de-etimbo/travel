@@ -14,6 +14,7 @@ vi.mock('@/hooks/useCountries', () => ({
         currencyCode: 'USD',
         currencyName: 'US Dollar',
         flagEmoji: '🇺🇸',
+        description: 'Sample description. Second sentence.',
         baselineCost: 100,
         nightlyCost: 150,
       },

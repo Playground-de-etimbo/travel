@@ -6,6 +6,7 @@ import { LoadingState } from './LoadingState';
 import { SampleResults } from './SampleResults';
 import { useRecommendations } from '@/hooks/useRecommendations';
 import { useGeolocation } from '@/hooks/useGeolocation';
+import { useCountryEnrichment } from '@/hooks/useCountryEnrichment';
 import { hasCoordinates } from '@/data/countryCoordinates';
 import type { Country } from '@/types/country';
 
@@ -28,7 +29,14 @@ export function RecommendationsSection({
     error,
     generate,
     setActiveTier,
+    updateEnrichedData,
   } = useRecommendations(countries, beenTo);
+
+  // Trigger background enrichment after recommendations are generated
+  useCountryEnrichment(
+    result?.recommendations || [],
+    updateEnrichedData
+  );
 
   // Get countries with coordinates for geolocation
   const availableCountries = useMemo(

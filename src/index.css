@@ -233,3 +233,30 @@ svg g > g > rect[fill="transparent"] {
 .recommendation-card:nth-child(6) { animation-delay: 0.6s; }
 .recommendation-card:nth-child(7) { animation-delay: 0.7s; }
 .recommendation-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* Accordion animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 200ms ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 200ms ease-out;
+}

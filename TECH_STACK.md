@@ -111,15 +111,18 @@ class FirestoreAdapter implements StorageAdapter { ... }
   {
     "countryCode": "US",
     "countryName": "United States",
+    "continent": "North America",
     "region": "North America",
     "currencyCode": "USD",
     "currencyName": "US Dollar",
     "flagEmoji": "🇺🇸",
+    "description": "Two-sentence travel summary.",
     "baselineCost": 100,
     "nightlyCost": 150
   }
   ```
 - **Cost data:** Rough estimates based on country income levels (good enough for MVP).
+- **Travel cost tiers:** Stored separately in `public/data/country-travel-costs.json` (budget/modest/bougie), generated via AI-guided heuristics.
 - **Source:** Will compile from reliable sources (REST Countries API for metadata, cost estimates based on research).
 
 ---

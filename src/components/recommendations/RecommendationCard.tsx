@@ -52,7 +52,7 @@ export function RecommendationCard({
     <Card className="overflow-hidden hover:shadow-lg hover:scale-[1.01] transition-all duration-300 recommendation-card border-border/50">
       <div className="flex flex-col md:flex-row">
         {/* Image section with match badge overlay */}
-        <div className="md:w-2/5 h-48 md:h-auto relative bg-gradient-to-br from-accent/20 to-primary/20">
+        <div className="md:w-2/5 h-48 md:min-h-[280px] relative bg-gradient-to-br from-accent/20 to-primary/20">
           {/* Flag emoji - always visible as fallback */}
           <div className="absolute inset-0 flex items-center justify-center text-6xl">
             {flagEmoji}

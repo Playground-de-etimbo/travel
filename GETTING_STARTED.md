@@ -332,6 +332,7 @@ You're now ready to start building. The first feature is:
 
 **What to build:**
 1. Create `public/data/countries.json` with country data
+2. Create `public/data/country-travel-costs.json` with budget tier costs (optional)
 2. Create TypeScript interface for Country
 3. Create `CountryCard` component
 4. Create `CountryGrid` component to display all cards
@@ -339,6 +340,7 @@ You're now ready to start building. The first feature is:
 
 **Files you'll create:**
 - `public/data/countries.json` - Country data
+- `public/data/country-travel-costs.json` - Local-currency travel cost tiers
 - `src/types/country.ts` - TypeScript types
 - `src/components/country/CountryCard.tsx` - Card component
 - `src/components/country/CountryGrid.tsx` - Grid layout

@@ -212,12 +212,14 @@ travel/
 │
 ├── public/                  # Static assets
 │   └── data/
-│       └── countries.json   # Country data
+│       ├── countries.json   # Country data
+│       └── country-travel-costs.json # Local-currency travel cost tiers
 │
 └── ... (config files)
 ```
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed structure.
+See `docs/TRAVEL_COSTS_AI_AUDIT.md` and `docs/TRAVEL_COSTS_GENERATION.md` for AI cost generation notes.
 
 ---
 

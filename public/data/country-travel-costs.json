@@ -1,0 +1,3509 @@
+{
+  "meta": {
+    "generatedAt": "2026-02-04",
+    "model": "ai-guided-heuristic-v3",
+    "notes": "AI-guided synthetic estimates derived from regional baselines, income tiers, tourism modifiers, and rough FX assumptions. Anchors applied to select countries. Not suitable for real budgeting."
+  },
+  "costs": {
+    "AF": {
+      "budget": {
+        "hotelPerNight": 14,
+        "dailyPerPerson": 10
+      },
+      "modest": {
+        "hotelPerNight": 33,
+        "dailyPerPerson": 23
+      },
+      "bougie": {
+        "hotelPerNight": 87,
+        "dailyPerPerson": 56
+      }
+    },
+    "AL": {
+      "budget": {
+        "hotelPerNight": 7904,
+        "dailyPerPerson": 5928
+      },
+      "modest": {
+        "hotelPerNight": 18772,
+        "dailyPerPerson": 13832
+      },
+      "bougie": {
+        "hotelPerNight": 47424,
+        "dailyPerPerson": 31616
+      }
+    },
+    "DZ": {
+      "budget": {
+        "hotelPerNight": 8242,
+        "dailyPerPerson": 6294
+      },
+      "modest": {
+        "hotelPerNight": 19481,
+        "dailyPerPerson": 14236
+      },
+      "bougie": {
+        "hotelPerNight": 47952,
+        "dailyPerPerson": 30719
+      }
+    },
+    "AS": {
+      "budget": {
+        "hotelPerNight": 72,
+        "dailyPerPerson": 56
+      },
+      "modest": {
+        "hotelPerNight": 178,
+        "dailyPerPerson": 133
+      },
+      "bougie": {
+        "hotelPerNight": 444,
+        "dailyPerPerson": 300
+      }
+    },
+    "AD": {
+      "budget": {
+        "hotelPerNight": 83,
+        "dailyPerPerson": 63
+      },
+      "modest": {
+        "hotelPerNight": 198,
+        "dailyPerPerson": 146
+      },
+      "bougie": {
+        "hotelPerNight": 500,
+        "dailyPerPerson": 333
+      }
+    },
+    "AO": {
+      "budget": {
+        "hotelPerNight": 40928,
+        "dailyPerPerson": 30923
+      },
+      "modest": {
+        "hotelPerNight": 100045,
+        "dailyPerPerson": 72760
+      },
+      "bougie": {
+        "hotelPerNight": 245565,
+        "dailyPerPerson": 159163
+      }
+    },
+    "AI": {
+      "budget": {
+        "hotelPerNight": 136,
+        "dailyPerPerson": 104
+      },
+      "modest": {
+        "hotelPerNight": 327,
+        "dailyPerPerson": 245
+      },
+      "bougie": {
+        "hotelPerNight": 764,
+        "dailyPerPerson": 491
+      }
+    },
+    "AQ": {
+      "budget": {
+        "hotelPerNight": 98,
+        "dailyPerPerson": 76
+      },
+      "modest": {
+        "hotelPerNight": 240,
+        "dailyPerPerson": 185
+      },
+      "bougie": {
+        "hotelPerNight": 610,
+        "dailyPerPerson": 425
+      }
+    },
+    "AG": {
+      "budget": {
+        "hotelPerNight": 170,
+        "dailyPerPerson": 129
+      },
+      "modest": {
+        "hotelPerNight": 409,
+        "dailyPerPerson": 307
+      },
+      "bougie": {
+        "hotelPerNight": 954,
+        "dailyPerPerson": 613
+      }
+    },
+    "AR": {
+      "budget": {
+        "hotelPerNight": 52470,
+        "dailyPerPerson": 39877
+      },
+      "modest": {
+        "hotelPerNight": 125928,
+        "dailyPerPerson": 94446
+      },
+      "bougie": {
+        "hotelPerNight": 293832,
+        "dailyPerPerson": 188892
+      }
+    },
+    "AM": {
+      "budget": {
+        "hotelPerNight": 33600,
+        "dailyPerPerson": 25200
+      },
+      "modest": {
+        "hotelPerNight": 79800,
+        "dailyPerPerson": 58800
+      },
+      "bougie": {
+        "hotelPerNight": 201600,
+        "dailyPerPerson": 134400
+      }
+    },
+    "AW": {
+      "budget": {
+        "hotelPerNight": 49,
+        "dailyPerPerson": 37
+      },
+      "modest": {
+        "hotelPerNight": 117,
+        "dailyPerPerson": 87
+      },
+      "bougie": {
+        "hotelPerNight": 272,
+        "dailyPerPerson": 175
+      }
+    },
+    "AU": {
+      "budget": {
+        "hotelPerNight": 110,
+        "dailyPerPerson": 63
+      },
+      "modest": {
+        "hotelPerNight": 314,
+        "dailyPerPerson": 166
+      },
+      "bougie": {
+        "hotelPerNight": 1016,
+        "dailyPerPerson": 462
+      }
+    },
+    "AT": {
+      "budget": {
+        "hotelPerNight": 111,
+        "dailyPerPerson": 83
+      },
+      "modest": {
+        "hotelPerNight": 264,
+        "dailyPerPerson": 195
+      },
+      "bougie": {
+        "hotelPerNight": 668,
+        "dailyPerPerson": 445
+      }
+    },
+    "AZ": {
+      "budget": {
+        "hotelPerNight": 126,
+        "dailyPerPerson": 95
+      },
+      "modest": {
+        "hotelPerNight": 300,
+        "dailyPerPerson": 221
+      },
+      "bougie": {
+        "hotelPerNight": 759,
+        "dailyPerPerson": 506
+      }
+    },
+    "BS": {
+      "budget": {
+        "hotelPerNight": 59,
+        "dailyPerPerson": 45
+      },
+      "modest": {
+        "hotelPerNight": 141,
+        "dailyPerPerson": 106
+      },
+      "bougie": {
+        "hotelPerNight": 328,
+        "dailyPerPerson": 211
+      }
+    },
+    "BH": {
+      "budget": {
+        "hotelPerNight": 34,
+        "dailyPerPerson": 26
+      },
+      "modest": {
+        "hotelPerNight": 80,
+        "dailyPerPerson": 58
+      },
+      "bougie": {
+        "hotelPerNight": 196,
+        "dailyPerPerson": 125
+      }
+    },
+    "BD": {
+      "budget": {
+        "hotelPerNight": 2513,
+        "dailyPerPerson": 1795
+      },
+      "modest": {
+        "hotelPerNight": 5834,
+        "dailyPerPerson": 4039
+      },
+      "bougie": {
+        "hotelPerNight": 15259,
+        "dailyPerPerson": 9874
+      }
+    },
+    "BB": {
+      "budget": {
+        "hotelPerNight": 127,
+        "dailyPerPerson": 97
+      },
+      "modest": {
+        "hotelPerNight": 306,
+        "dailyPerPerson": 229
+      },
+      "bougie": {
+        "hotelPerNight": 714,
+        "dailyPerPerson": 459
+      }
+    },
+    "BY": {
+      "budget": {
+        "hotelPerNight": 78,
+        "dailyPerPerson": 59
+      },
+      "modest": {
+        "hotelPerNight": 186,
+        "dailyPerPerson": 137
+      },
+      "bougie": {
+        "hotelPerNight": 470,
+        "dailyPerPerson": 314
+      }
+    },
+    "BE": {
+      "budget": {
+        "hotelPerNight": 102,
+        "dailyPerPerson": 77
+      },
+      "modest": {
+        "hotelPerNight": 243,
+        "dailyPerPerson": 179
+      },
+      "bougie": {
+        "hotelPerNight": 614,
+        "dailyPerPerson": 409
+      }
+    },
+    "BZ": {
+      "budget": {
+        "hotelPerNight": 99,
+        "dailyPerPerson": 75
+      },
+      "modest": {
+        "hotelPerNight": 238,
+        "dailyPerPerson": 178
+      },
+      "bougie": {
+        "hotelPerNight": 554,
+        "dailyPerPerson": 356
+      }
+    },
+    "BJ": {
+      "budget": {
+        "hotelPerNight": 29160,
+        "dailyPerPerson": 22032
+      },
+      "modest": {
+        "hotelPerNight": 71280,
+        "dailyPerPerson": 51840
+      },
+      "bougie": {
+        "hotelPerNight": 174960,
+        "dailyPerPerson": 113400
+      }
+    },
+    "BM": {
+      "budget": {
+        "hotelPerNight": 183,
+        "dailyPerPerson": 143
+      },
+      "modest": {
+        "hotelPerNight": 448,
+        "dailyPerPerson": 346
+      },
+      "bougie": {
+        "hotelPerNight": 1141,
+        "dailyPerPerson": 795
+      }
+    },
+    "BT": {
+      "budget": {
+        "hotelPerNight": 2161,
+        "dailyPerPerson": 1544
+      },
+      "modest": {
+        "hotelPerNight": 5017,
+        "dailyPerPerson": 3474
+      },
+      "bougie": {
+        "hotelPerNight": 13122,
+        "dailyPerPerson": 8491
+      }
+    },
+    "BO": {
+      "budget": {
+        "hotelPerNight": 243,
+        "dailyPerPerson": 185
+      },
+      "modest": {
+        "hotelPerNight": 583,
+        "dailyPerPerson": 437
+      },
+      "bougie": {
+        "hotelPerNight": 1360,
+        "dailyPerPerson": 874
+      }
+    },
+    "BQ": {
+      "budget": {
+        "hotelPerNight": 45,
+        "dailyPerPerson": 34
+      },
+      "modest": {
+        "hotelPerNight": 108,
+        "dailyPerPerson": 81
+      },
+      "bougie": {
+        "hotelPerNight": 252,
+        "dailyPerPerson": 162
+      }
+    },
+    "BA": {
+      "budget": {
+        "hotelPerNight": 79,
+        "dailyPerPerson": 59
+      },
+      "modest": {
+        "hotelPerNight": 188,
+        "dailyPerPerson": 139
+      },
+      "bougie": {
+        "hotelPerNight": 475,
+        "dailyPerPerson": 317
+      }
+    },
+    "BW": {
+      "budget": {
+        "hotelPerNight": 467,
+        "dailyPerPerson": 353
+      },
+      "modest": {
+        "hotelPerNight": 1140,
+        "dailyPerPerson": 829
+      },
+      "bougie": {
+        "hotelPerNight": 2799,
+        "dailyPerPerson": 1814
+      }
+    },
+    "BV": {
+      "budget": {
+        "hotelPerNight": 813,
+        "dailyPerPerson": 610
+      },
+      "modest": {
+        "hotelPerNight": 1931,
+        "dailyPerPerson": 1423
+      },
+      "bougie": {
+        "hotelPerNight": 4879,
+        "dailyPerPerson": 3253
+      }
+    },
+    "BR": {
+      "budget": {
+        "hotelPerNight": 241,
+        "dailyPerPerson": 183
+      },
+      "modest": {
+        "hotelPerNight": 579,
+        "dailyPerPerson": 434
+      },
+      "bougie": {
+        "hotelPerNight": 1350,
+        "dailyPerPerson": 868
+      }
+    },
+    "IO": {
+      "budget": {
+        "hotelPerNight": 29,
+        "dailyPerPerson": 21
+      },
+      "modest": {
+        "hotelPerNight": 68,
+        "dailyPerPerson": 47
+      },
+      "bougie": {
+        "hotelPerNight": 179,
+        "dailyPerPerson": 116
+      }
+    },
+    "VG": {
+      "budget": {
+        "hotelPerNight": 54,
+        "dailyPerPerson": 41
+      },
+      "modest": {
+        "hotelPerNight": 130,
+        "dailyPerPerson": 97
+      },
+      "bougie": {
+        "hotelPerNight": 302,
+        "dailyPerPerson": 194
+      }
+    },
+    "BN": {
+      "budget": {
+        "hotelPerNight": 115,
+        "dailyPerPerson": 89
+      },
+      "modest": {
+        "hotelPerNight": 283,
+        "dailyPerPerson": 213
+      },
+      "bougie": {
+        "hotelPerNight": 708,
+        "dailyPerPerson": 478
+      }
+    },
+    "BG": {
+      "budget": {
+        "hotelPerNight": 77,
+        "dailyPerPerson": 58
+      },
+      "modest": {
+        "hotelPerNight": 184,
+        "dailyPerPerson": 135
+      },
+      "bougie": {
+        "hotelPerNight": 464,
+        "dailyPerPerson": 309
+      }
+    },
+    "BF": {
+      "budget": {
+        "hotelPerNight": 28080,
+        "dailyPerPerson": 21216
+      },
+      "modest": {
+        "hotelPerNight": 68640,
+        "dailyPerPerson": 49920
+      },
+      "bougie": {
+        "hotelPerNight": 168480,
+        "dailyPerPerson": 109200
+      }
+    },
+    "BI": {
+      "budget": {
+        "hotelPerNight": 31,
+        "dailyPerPerson": 24
+      },
+      "modest": {
+        "hotelPerNight": 77,
+        "dailyPerPerson": 56
+      },
+      "bougie": {
+        "hotelPerNight": 188,
+        "dailyPerPerson": 122
+      }
+    },
+    "KH": {
+      "budget": {
+        "hotelPerNight": 234520,
+        "dailyPerPerson": 180400
+      },
+      "modest": {
+        "hotelPerNight": 577280,
+        "dailyPerPerson": 432960
+      },
+      "bougie": {
+        "hotelPerNight": 1443200,
+        "dailyPerPerson": 974160
+      }
+    },
+    "CM": {
+      "budget": {
+        "hotelPerNight": 19872,
+        "dailyPerPerson": 15014
+      },
+      "modest": {
+        "hotelPerNight": 48576,
+        "dailyPerPerson": 35328
+      },
+      "bougie": {
+        "hotelPerNight": 119232,
+        "dailyPerPerson": 77280
+      }
+    },
+    "CA": {
+      "budget": {
+        "hotelPerNight": 174,
+        "dailyPerPerson": 135
+      },
+      "modest": {
+        "hotelPerNight": 424,
+        "dailyPerPerson": 328
+      },
+      "bougie": {
+        "hotelPerNight": 1080,
+        "dailyPerPerson": 752
+      }
+    },
+    "KY": {
+      "budget": {
+        "hotelPerNight": 94,
+        "dailyPerPerson": 71
+      },
+      "modest": {
+        "hotelPerNight": 225,
+        "dailyPerPerson": 169
+      },
+      "bougie": {
+        "hotelPerNight": 524,
+        "dailyPerPerson": 337
+      }
+    },
+    "CF": {
+      "budget": {
+        "hotelPerNight": 15444,
+        "dailyPerPerson": 11669
+      },
+      "modest": {
+        "hotelPerNight": 37752,
+        "dailyPerPerson": 27456
+      },
+      "bougie": {
+        "hotelPerNight": 92664,
+        "dailyPerPerson": 60060
+      }
+    },
+    "TD": {
+      "budget": {
+        "hotelPerNight": 19305,
+        "dailyPerPerson": 14586
+      },
+      "modest": {
+        "hotelPerNight": 47190,
+        "dailyPerPerson": 34320
+      },
+      "bougie": {
+        "hotelPerNight": 115830,
+        "dailyPerPerson": 75075
+      }
+    },
+    "CL": {
+      "budget": {
+        "hotelPerNight": 40950,
+        "dailyPerPerson": 31122
+      },
+      "modest": {
+        "hotelPerNight": 98280,
+        "dailyPerPerson": 73710
+      },
+      "bougie": {
+        "hotelPerNight": 229320,
+        "dailyPerPerson": 147420
+      }
+    },
+    "CN": {
+      "budget": {
+        "hotelPerNight": 429,
+        "dailyPerPerson": 330
+      },
+      "modest": {
+        "hotelPerNight": 1056,
+        "dailyPerPerson": 792
+      },
+      "bougie": {
+        "hotelPerNight": 2641,
+        "dailyPerPerson": 1783
+      }
+    },
+    "CX": {
+      "budget": {
+        "hotelPerNight": 104,
+        "dailyPerPerson": 80
+      },
+      "modest": {
+        "hotelPerNight": 255,
+        "dailyPerPerson": 192
+      },
+      "bougie": {
+        "hotelPerNight": 639,
+        "dailyPerPerson": 431
+      }
+    },
+    "CC": {
+      "budget": {
+        "hotelPerNight": 108,
+        "dailyPerPerson": 83
+      },
+      "modest": {
+        "hotelPerNight": 265,
+        "dailyPerPerson": 199
+      },
+      "bougie": {
+        "hotelPerNight": 663,
+        "dailyPerPerson": 448
+      }
+    },
+    "CO": {
+      "budget": {
+        "hotelPerNight": 188000,
+        "dailyPerPerson": 142880
+      },
+      "modest": {
+        "hotelPerNight": 451200,
+        "dailyPerPerson": 338400
+      },
+      "bougie": {
+        "hotelPerNight": 1052800,
+        "dailyPerPerson": 676800
+      }
+    },
+    "KM": {
+      "budget": {
+        "hotelPerNight": 18225,
+        "dailyPerPerson": 13770
+      },
+      "modest": {
+        "hotelPerNight": 44550,
+        "dailyPerPerson": 32400
+      },
+      "bougie": {
+        "hotelPerNight": 109350,
+        "dailyPerPerson": 70875
+      }
+    },
+    "CK": {
+      "budget": {
+        "hotelPerNight": 97,
+        "dailyPerPerson": 74
+      },
+      "modest": {
+        "hotelPerNight": 238,
+        "dailyPerPerson": 178
+      },
+      "bougie": {
+        "hotelPerNight": 594,
+        "dailyPerPerson": 401
+      }
+    },
+    "CR": {
+      "budget": {
+        "hotelPerNight": 25220,
+        "dailyPerPerson": 19167
+      },
+      "modest": {
+        "hotelPerNight": 60528,
+        "dailyPerPerson": 45396
+      },
+      "bougie": {
+        "hotelPerNight": 141232,
+        "dailyPerPerson": 90792
+      }
+    },
+    "HR": {
+      "budget": {
+        "hotelPerNight": 86,
+        "dailyPerPerson": 65
+      },
+      "modest": {
+        "hotelPerNight": 205,
+        "dailyPerPerson": 151
+      },
+      "bougie": {
+        "hotelPerNight": 518,
+        "dailyPerPerson": 345
+      }
+    },
+    "CU": {
+      "budget": {
+        "hotelPerNight": 54,
+        "dailyPerPerson": 41
+      },
+      "modest": {
+        "hotelPerNight": 130,
+        "dailyPerPerson": 97
+      },
+      "bougie": {
+        "hotelPerNight": 302,
+        "dailyPerPerson": 194
+      }
+    },
+    "CW": {
+      "budget": {
+        "hotelPerNight": 55,
+        "dailyPerPerson": 42
+      },
+      "modest": {
+        "hotelPerNight": 132,
+        "dailyPerPerson": 99
+      },
+      "bougie": {
+        "hotelPerNight": 308,
+        "dailyPerPerson": 198
+      }
+    },
+    "CY": {
+      "budget": {
+        "hotelPerNight": 104,
+        "dailyPerPerson": 78
+      },
+      "modest": {
+        "hotelPerNight": 247,
+        "dailyPerPerson": 182
+      },
+      "bougie": {
+        "hotelPerNight": 623,
+        "dailyPerPerson": 415
+      }
+    },
+    "CZ": {
+      "budget": {
+        "hotelPerNight": 2222,
+        "dailyPerPerson": 1666
+      },
+      "modest": {
+        "hotelPerNight": 5277,
+        "dailyPerPerson": 3888
+      },
+      "bougie": {
+        "hotelPerNight": 13331,
+        "dailyPerPerson": 8887
+      }
+    },
+    "CI": {
+      "budget": {
+        "hotelPerNight": 19008,
+        "dailyPerPerson": 14362
+      },
+      "modest": {
+        "hotelPerNight": 46464,
+        "dailyPerPerson": 33792
+      },
+      "bougie": {
+        "hotelPerNight": 114048,
+        "dailyPerPerson": 73920
+      }
+    },
+    "KP": {
+      "budget": {
+        "hotelPerNight": 60,
+        "dailyPerPerson": 47
+      },
+      "modest": {
+        "hotelPerNight": 149,
+        "dailyPerPerson": 112
+      },
+      "bougie": {
+        "hotelPerNight": 372,
+        "dailyPerPerson": 251
+      }
+    },
+    "CD": {
+      "budget": {
+        "hotelPerNight": 25,
+        "dailyPerPerson": 19
+      },
+      "modest": {
+        "hotelPerNight": 62,
+        "dailyPerPerson": 45
+      },
+      "bougie": {
+        "hotelPerNight": 152,
+        "dailyPerPerson": 98
+      }
+    },
+    "DK": {
+      "budget": {
+        "hotelPerNight": 888,
+        "dailyPerPerson": 666
+      },
+      "modest": {
+        "hotelPerNight": 2109,
+        "dailyPerPerson": 1554
+      },
+      "bougie": {
+        "hotelPerNight": 5327,
+        "dailyPerPerson": 3551
+      }
+    },
+    "DJ": {
+      "budget": {
+        "hotelPerNight": 9301,
+        "dailyPerPerson": 7102
+      },
+      "modest": {
+        "hotelPerNight": 21983,
+        "dailyPerPerson": 16065
+      },
+      "bougie": {
+        "hotelPerNight": 54112,
+        "dailyPerPerson": 34666
+      }
+    },
+    "DM": {
+      "budget": {
+        "hotelPerNight": 169,
+        "dailyPerPerson": 128
+      },
+      "modest": {
+        "hotelPerNight": 405,
+        "dailyPerPerson": 303
+      },
+      "bougie": {
+        "hotelPerNight": 944,
+        "dailyPerPerson": 607
+      }
+    },
+    "DO": {
+      "budget": {
+        "hotelPerNight": 2549,
+        "dailyPerPerson": 1937
+      },
+      "modest": {
+        "hotelPerNight": 6117,
+        "dailyPerPerson": 4588
+      },
+      "bougie": {
+        "hotelPerNight": 14273,
+        "dailyPerPerson": 9176
+      }
+    },
+    "EC": {
+      "budget": {
+        "hotelPerNight": 47,
+        "dailyPerPerson": 36
+      },
+      "modest": {
+        "hotelPerNight": 113,
+        "dailyPerPerson": 85
+      },
+      "bougie": {
+        "hotelPerNight": 263,
+        "dailyPerPerson": 169
+      }
+    },
+    "EG": {
+      "budget": {
+        "hotelPerNight": 1371,
+        "dailyPerPerson": 1047
+      },
+      "modest": {
+        "hotelPerNight": 3241,
+        "dailyPerPerson": 2368
+      },
+      "bougie": {
+        "hotelPerNight": 7978,
+        "dailyPerPerson": 5111
+      }
+    },
+    "SV": {
+      "budget": {
+        "hotelPerNight": 39,
+        "dailyPerPerson": 29
+      },
+      "modest": {
+        "hotelPerNight": 93,
+        "dailyPerPerson": 70
+      },
+      "bougie": {
+        "hotelPerNight": 217,
+        "dailyPerPerson": 140
+      }
+    },
+    "GQ": {
+      "budget": {
+        "hotelPerNight": 25650,
+        "dailyPerPerson": 19380
+      },
+      "modest": {
+        "hotelPerNight": 62700,
+        "dailyPerPerson": 45600
+      },
+      "bougie": {
+        "hotelPerNight": 153900,
+        "dailyPerPerson": 99750
+      }
+    },
+    "ER": {
+      "budget": {
+        "hotelPerNight": 32,
+        "dailyPerPerson": 24
+      },
+      "modest": {
+        "hotelPerNight": 78,
+        "dailyPerPerson": 57
+      },
+      "bougie": {
+        "hotelPerNight": 191,
+        "dailyPerPerson": 124
+      }
+    },
+    "EE": {
+      "budget": {
+        "hotelPerNight": 81,
+        "dailyPerPerson": 61
+      },
+      "modest": {
+        "hotelPerNight": 193,
+        "dailyPerPerson": 142
+      },
+      "bougie": {
+        "hotelPerNight": 488,
+        "dailyPerPerson": 325
+      }
+    },
+    "ET": {
+      "budget": {
+        "hotelPerNight": 2278,
+        "dailyPerPerson": 1721
+      },
+      "modest": {
+        "hotelPerNight": 5568,
+        "dailyPerPerson": 4049
+      },
+      "bougie": {
+        "hotelPerNight": 13666,
+        "dailyPerPerson": 8858
+      }
+    },
+    "FO": {
+      "budget": {
+        "hotelPerNight": 609,
+        "dailyPerPerson": 457
+      },
+      "modest": {
+        "hotelPerNight": 1447,
+        "dailyPerPerson": 1066
+      },
+      "bougie": {
+        "hotelPerNight": 3656,
+        "dailyPerPerson": 2437
+      }
+    },
+    "FK": {
+      "budget": {
+        "hotelPerNight": 54,
+        "dailyPerPerson": 41
+      },
+      "modest": {
+        "hotelPerNight": 130,
+        "dailyPerPerson": 97
+      },
+      "bougie": {
+        "hotelPerNight": 302,
+        "dailyPerPerson": 194
+      }
+    },
+    "FM": {
+      "budget": {
+        "hotelPerNight": 77,
+        "dailyPerPerson": 59
+      },
+      "modest": {
+        "hotelPerNight": 190,
+        "dailyPerPerson": 143
+      },
+      "bougie": {
+        "hotelPerNight": 475,
+        "dailyPerPerson": 321
+      }
+    },
+    "FJ": {
+      "budget": {
+        "hotelPerNight": 173,
+        "dailyPerPerson": 133
+      },
+      "modest": {
+        "hotelPerNight": 425,
+        "dailyPerPerson": 319
+      },
+      "bougie": {
+        "hotelPerNight": 1063,
+        "dailyPerPerson": 718
+      }
+    },
+    "FI": {
+      "budget": {
+        "hotelPerNight": 133,
+        "dailyPerPerson": 99
+      },
+      "modest": {
+        "hotelPerNight": 315,
+        "dailyPerPerson": 232
+      },
+      "bougie": {
+        "hotelPerNight": 796,
+        "dailyPerPerson": 531
+      }
+    },
+    "FR": {
+      "budget": {
+        "hotelPerNight": 114,
+        "dailyPerPerson": 55
+      },
+      "modest": {
+        "hotelPerNight": 306,
+        "dailyPerPerson": 148
+      },
+      "bougie": {
+        "hotelPerNight": 882,
+        "dailyPerPerson": 430
+      }
+    },
+    "GF": {
+      "budget": {
+        "hotelPerNight": 50,
+        "dailyPerPerson": 38
+      },
+      "modest": {
+        "hotelPerNight": 120,
+        "dailyPerPerson": 90
+      },
+      "bougie": {
+        "hotelPerNight": 281,
+        "dailyPerPerson": 181
+      }
+    },
+    "PF": {
+      "budget": {
+        "hotelPerNight": 6795,
+        "dailyPerPerson": 5227
+      },
+      "modest": {
+        "hotelPerNight": 16727,
+        "dailyPerPerson": 12545
+      },
+      "bougie": {
+        "hotelPerNight": 41818,
+        "dailyPerPerson": 28227
+      }
+    },
+    "TF": {
+      "budget": {
+        "hotelPerNight": 46,
+        "dailyPerPerson": 35
+      },
+      "modest": {
+        "hotelPerNight": 113,
+        "dailyPerPerson": 82
+      },
+      "bougie": {
+        "hotelPerNight": 278,
+        "dailyPerPerson": 180
+      }
+    },
+    "GA": {
+      "budget": {
+        "hotelPerNight": 28080,
+        "dailyPerPerson": 21216
+      },
+      "modest": {
+        "hotelPerNight": 68640,
+        "dailyPerPerson": 49920
+      },
+      "bougie": {
+        "hotelPerNight": 168480,
+        "dailyPerPerson": 109200
+      }
+    },
+    "GE": {
+      "budget": {
+        "hotelPerNight": 233,
+        "dailyPerPerson": 175
+      },
+      "modest": {
+        "hotelPerNight": 554,
+        "dailyPerPerson": 408
+      },
+      "bougie": {
+        "hotelPerNight": 1400,
+        "dailyPerPerson": 933
+      }
+    },
+    "DE": {
+      "budget": {
+        "hotelPerNight": 89,
+        "dailyPerPerson": 67
+      },
+      "modest": {
+        "hotelPerNight": 212,
+        "dailyPerPerson": 156
+      },
+      "bougie": {
+        "hotelPerNight": 537,
+        "dailyPerPerson": 358
+      }
+    },
+    "GH": {
+      "budget": {
+        "hotelPerNight": 480,
+        "dailyPerPerson": 362
+      },
+      "modest": {
+        "hotelPerNight": 1172,
+        "dailyPerPerson": 852
+      },
+      "bougie": {
+        "hotelPerNight": 2877,
+        "dailyPerPerson": 1865
+      }
+    },
+    "GI": {
+      "budget": {
+        "hotelPerNight": 90,
+        "dailyPerPerson": 67
+      },
+      "modest": {
+        "hotelPerNight": 213,
+        "dailyPerPerson": 157
+      },
+      "bougie": {
+        "hotelPerNight": 538,
+        "dailyPerPerson": 358
+      }
+    },
+    "GR": {
+      "budget": {
+        "hotelPerNight": 52,
+        "dailyPerPerson": 40
+      },
+      "modest": {
+        "hotelPerNight": 126,
+        "dailyPerPerson": 100
+      },
+      "bougie": {
+        "hotelPerNight": 292,
+        "dailyPerPerson": 245
+      }
+    },
+    "GL": {
+      "budget": {
+        "hotelPerNight": 490,
+        "dailyPerPerson": 367
+      },
+      "modest": {
+        "hotelPerNight": 1163,
+        "dailyPerPerson": 857
+      },
+      "bougie": {
+        "hotelPerNight": 2938,
+        "dailyPerPerson": 1958
+      }
+    },
+    "GD": {
+      "budget": {
+        "hotelPerNight": 184,
+        "dailyPerPerson": 140
+      },
+      "modest": {
+        "hotelPerNight": 442,
+        "dailyPerPerson": 331
+      },
+      "bougie": {
+        "hotelPerNight": 1031,
+        "dailyPerPerson": 663
+      }
+    },
+    "GP": {
+      "budget": {
+        "hotelPerNight": 47,
+        "dailyPerPerson": 35
+      },
+      "modest": {
+        "hotelPerNight": 112,
+        "dailyPerPerson": 84
+      },
+      "bougie": {
+        "hotelPerNight": 262,
+        "dailyPerPerson": 168
+      }
+    },
+    "GU": {
+      "budget": {
+        "hotelPerNight": 64,
+        "dailyPerPerson": 50
+      },
+      "modest": {
+        "hotelPerNight": 158,
+        "dailyPerPerson": 119
+      },
+      "bougie": {
+        "hotelPerNight": 396,
+        "dailyPerPerson": 267
+      }
+    },
+    "GT": {
+      "budget": {
+        "hotelPerNight": 39,
+        "dailyPerPerson": 30
+      },
+      "modest": {
+        "hotelPerNight": 94,
+        "dailyPerPerson": 71
+      },
+      "bougie": {
+        "hotelPerNight": 220,
+        "dailyPerPerson": 141
+      }
+    },
+    "GG": {
+      "budget": {
+        "hotelPerNight": 75,
+        "dailyPerPerson": 56
+      },
+      "modest": {
+        "hotelPerNight": 178,
+        "dailyPerPerson": 131
+      },
+      "bougie": {
+        "hotelPerNight": 450,
+        "dailyPerPerson": 300
+      }
+    },
+    "GN": {
+      "budget": {
+        "hotelPerNight": 41,
+        "dailyPerPerson": 31
+      },
+      "modest": {
+        "hotelPerNight": 101,
+        "dailyPerPerson": 74
+      },
+      "bougie": {
+        "hotelPerNight": 248,
+        "dailyPerPerson": 161
+      }
+    },
+    "GW": {
+      "budget": {
+        "hotelPerNight": 27270,
+        "dailyPerPerson": 20604
+      },
+      "modest": {
+        "hotelPerNight": 66660,
+        "dailyPerPerson": 48480
+      },
+      "bougie": {
+        "hotelPerNight": 163620,
+        "dailyPerPerson": 106050
+      }
+    },
+    "GY": {
+      "budget": {
+        "hotelPerNight": 10815,
+        "dailyPerPerson": 8219
+      },
+      "modest": {
+        "hotelPerNight": 25956,
+        "dailyPerPerson": 19467
+      },
+      "bougie": {
+        "hotelPerNight": 60564,
+        "dailyPerPerson": 38934
+      }
+    },
+    "HT": {
+      "budget": {
+        "hotelPerNight": 29,
+        "dailyPerPerson": 22
+      },
+      "modest": {
+        "hotelPerNight": 70,
+        "dailyPerPerson": 53
+      },
+      "bougie": {
+        "hotelPerNight": 164,
+        "dailyPerPerson": 105
+      }
+    },
+    "HM": {
+      "budget": {
+        "hotelPerNight": 98,
+        "dailyPerPerson": 75
+      },
+      "modest": {
+        "hotelPerNight": 241,
+        "dailyPerPerson": 180
+      },
+      "bougie": {
+        "hotelPerNight": 601,
+        "dailyPerPerson": 406
+      }
+    },
+    "HN": {
+      "budget": {
+        "hotelPerNight": 39,
+        "dailyPerPerson": 30
+      },
+      "modest": {
+        "hotelPerNight": 94,
+        "dailyPerPerson": 71
+      },
+      "bougie": {
+        "hotelPerNight": 220,
+        "dailyPerPerson": 141
+      }
+    },
+    "HK": {
+      "budget": {
+        "hotelPerNight": 966,
+        "dailyPerPerson": 743
+      },
+      "modest": {
+        "hotelPerNight": 2378,
+        "dailyPerPerson": 1784
+      },
+      "bougie": {
+        "hotelPerNight": 5946,
+        "dailyPerPerson": 4013
+      }
+    },
+    "HU": {
+      "budget": {
+        "hotelPerNight": 34776,
+        "dailyPerPerson": 26082
+      },
+      "modest": {
+        "hotelPerNight": 82593,
+        "dailyPerPerson": 60858
+      },
+      "bougie": {
+        "hotelPerNight": 208656,
+        "dailyPerPerson": 139104
+      }
+    },
+    "IS": {
+      "budget": {
+        "hotelPerNight": 12816,
+        "dailyPerPerson": 6914
+      },
+      "modest": {
+        "hotelPerNight": 38944,
+        "dailyPerPerson": 17348
+      },
+      "bougie": {
+        "hotelPerNight": 135930,
+        "dailyPerPerson": 42994
+      }
+    },
+    "IN": {
+      "budget": {
+        "hotelPerNight": 1934,
+        "dailyPerPerson": 1381
+      },
+      "modest": {
+        "hotelPerNight": 4489,
+        "dailyPerPerson": 3108
+      },
+      "bougie": {
+        "hotelPerNight": 11740,
+        "dailyPerPerson": 7596
+      }
+    },
+    "ID": {
+      "budget": {
+        "hotelPerNight": 872942,
+        "dailyPerPerson": 671494
+      },
+      "modest": {
+        "hotelPerNight": 2148780,
+        "dailyPerPerson": 1611585
+      },
+      "bougie": {
+        "hotelPerNight": 5371951,
+        "dailyPerPerson": 3626067
+      }
+    },
+    "IR": {
+      "budget": {
+        "hotelPerNight": 2494800,
+        "dailyPerPerson": 1905120
+      },
+      "modest": {
+        "hotelPerNight": 5896800,
+        "dailyPerPerson": 4309200
+      },
+      "bougie": {
+        "hotelPerNight": 14515200,
+        "dailyPerPerson": 9298800
+      }
+    },
+    "IQ": {
+      "budget": {
+        "hotelPerNight": 76505,
+        "dailyPerPerson": 58422
+      },
+      "modest": {
+        "hotelPerNight": 180830,
+        "dailyPerPerson": 132145
+      },
+      "bougie": {
+        "hotelPerNight": 445120,
+        "dailyPerPerson": 285155
+      }
+    },
+    "IE": {
+      "budget": {
+        "hotelPerNight": 108,
+        "dailyPerPerson": 81
+      },
+      "modest": {
+        "hotelPerNight": 257,
+        "dailyPerPerson": 189
+      },
+      "bougie": {
+        "hotelPerNight": 648,
+        "dailyPerPerson": 432
+      }
+    },
+    "IM": {
+      "budget": {
+        "hotelPerNight": 70,
+        "dailyPerPerson": 53
+      },
+      "modest": {
+        "hotelPerNight": 167,
+        "dailyPerPerson": 123
+      },
+      "bougie": {
+        "hotelPerNight": 422,
+        "dailyPerPerson": 281
+      }
+    },
+    "IL": {
+      "budget": {
+        "hotelPerNight": 343,
+        "dailyPerPerson": 262
+      },
+      "modest": {
+        "hotelPerNight": 812,
+        "dailyPerPerson": 593
+      },
+      "bougie": {
+        "hotelPerNight": 1998,
+        "dailyPerPerson": 1280
+      }
+    },
+    "IT": {
+      "budget": {
+        "hotelPerNight": 66,
+        "dailyPerPerson": 46
+      },
+      "modest": {
+        "hotelPerNight": 180,
+        "dailyPerPerson": 120
+      },
+      "bougie": {
+        "hotelPerNight": 526,
+        "dailyPerPerson": 315
+      }
+    },
+    "JM": {
+      "budget": {
+        "hotelPerNight": 7299,
+        "dailyPerPerson": 5547
+      },
+      "modest": {
+        "hotelPerNight": 17517,
+        "dailyPerPerson": 13138
+      },
+      "bougie": {
+        "hotelPerNight": 40872,
+        "dailyPerPerson": 26275
+      }
+    },
+    "JP": {
+      "budget": {
+        "hotelPerNight": 8690,
+        "dailyPerPerson": 7302
+      },
+      "modest": {
+        "hotelPerNight": 23462,
+        "dailyPerPerson": 20364
+      },
+      "bougie": {
+        "hotelPerNight": 67776,
+        "dailyPerPerson": 62334
+      }
+    },
+    "JE": {
+      "budget": {
+        "hotelPerNight": 69,
+        "dailyPerPerson": 52
+      },
+      "modest": {
+        "hotelPerNight": 164,
+        "dailyPerPerson": 121
+      },
+      "bougie": {
+        "hotelPerNight": 414,
+        "dailyPerPerson": 276
+      }
+    },
+    "JO": {
+      "budget": {
+        "hotelPerNight": 49,
+        "dailyPerPerson": 37
+      },
+      "modest": {
+        "hotelPerNight": 115,
+        "dailyPerPerson": 84
+      },
+      "bougie": {
+        "hotelPerNight": 284,
+        "dailyPerPerson": 182
+      }
+    },
+    "KZ": {
+      "budget": {
+        "hotelPerNight": 37904,
+        "dailyPerPerson": 28428
+      },
+      "modest": {
+        "hotelPerNight": 90022,
+        "dailyPerPerson": 66332
+      },
+      "bougie": {
+        "hotelPerNight": 227424,
+        "dailyPerPerson": 151616
+      }
+    },
+    "KE": {
+      "budget": {
+        "hotelPerNight": 6163,
+        "dailyPerPerson": 4657
+      },
+      "modest": {
+        "hotelPerNight": 15066,
+        "dailyPerPerson": 10957
+      },
+      "bougie": {
+        "hotelPerNight": 36979,
+        "dailyPerPerson": 23968
+      }
+    },
+    "SZ": {
+      "budget": {
+        "hotelPerNight": 45,
+        "dailyPerPerson": 34
+      },
+      "modest": {
+        "hotelPerNight": 111,
+        "dailyPerPerson": 81
+      },
+      "bougie": {
+        "hotelPerNight": 273,
+        "dailyPerPerson": 177
+      }
+    },
+    "KI": {
+      "budget": {
+        "hotelPerNight": 121,
+        "dailyPerPerson": 93
+      },
+      "modest": {
+        "hotelPerNight": 297,
+        "dailyPerPerson": 223
+      },
+      "bougie": {
+        "hotelPerNight": 743,
+        "dailyPerPerson": 502
+      }
+    },
+    "XK": {
+      "budget": {
+        "hotelPerNight": 73,
+        "dailyPerPerson": 55
+      },
+      "modest": {
+        "hotelPerNight": 173,
+        "dailyPerPerson": 127
+      },
+      "bougie": {
+        "hotelPerNight": 437,
+        "dailyPerPerson": 291
+      }
+    },
+    "KW": {
+      "budget": {
+        "hotelPerNight": 38,
+        "dailyPerPerson": 29
+      },
+      "modest": {
+        "hotelPerNight": 91,
+        "dailyPerPerson": 66
+      },
+      "bougie": {
+        "hotelPerNight": 223,
+        "dailyPerPerson": 143
+      }
+    },
+    "KG": {
+      "budget": {
+        "hotelPerNight": 6209,
+        "dailyPerPerson": 4656
+      },
+      "modest": {
+        "hotelPerNight": 14746,
+        "dailyPerPerson": 10865
+      },
+      "bougie": {
+        "hotelPerNight": 37252,
+        "dailyPerPerson": 24835
+      }
+    },
+    "LA": {
+      "budget": {
+        "hotelPerNight": 1190280,
+        "dailyPerPerson": 915600
+      },
+      "modest": {
+        "hotelPerNight": 2929920,
+        "dailyPerPerson": 2197440
+      },
+      "bougie": {
+        "hotelPerNight": 7324800,
+        "dailyPerPerson": 4944240
+      }
+    },
+    "LV": {
+      "budget": {
+        "hotelPerNight": 89,
+        "dailyPerPerson": 67
+      },
+      "modest": {
+        "hotelPerNight": 211,
+        "dailyPerPerson": 156
+      },
+      "bougie": {
+        "hotelPerNight": 533,
+        "dailyPerPerson": 355
+      }
+    },
+    "LB": {
+      "budget": {
+        "hotelPerNight": 61,
+        "dailyPerPerson": 46
+      },
+      "modest": {
+        "hotelPerNight": 143,
+        "dailyPerPerson": 105
+      },
+      "bougie": {
+        "hotelPerNight": 352,
+        "dailyPerPerson": 226
+      }
+    },
+    "LS": {
+      "budget": {
+        "hotelPerNight": 46,
+        "dailyPerPerson": 35
+      },
+      "modest": {
+        "hotelPerNight": 112,
+        "dailyPerPerson": 82
+      },
+      "bougie": {
+        "hotelPerNight": 275,
+        "dailyPerPerson": 179
+      }
+    },
+    "LR": {
+      "budget": {
+        "hotelPerNight": 30,
+        "dailyPerPerson": 22
+      },
+      "modest": {
+        "hotelPerNight": 72,
+        "dailyPerPerson": 53
+      },
+      "bougie": {
+        "hotelPerNight": 177,
+        "dailyPerPerson": 115
+      }
+    },
+    "LY": {
+      "budget": {
+        "hotelPerNight": 48,
+        "dailyPerPerson": 36
+      },
+      "modest": {
+        "hotelPerNight": 112,
+        "dailyPerPerson": 82
+      },
+      "bougie": {
+        "hotelPerNight": 276,
+        "dailyPerPerson": 177
+      }
+    },
+    "LI": {
+      "budget": {
+        "hotelPerNight": 130,
+        "dailyPerPerson": 97
+      },
+      "modest": {
+        "hotelPerNight": 309,
+        "dailyPerPerson": 227
+      },
+      "bougie": {
+        "hotelPerNight": 780,
+        "dailyPerPerson": 520
+      }
+    },
+    "LT": {
+      "budget": {
+        "hotelPerNight": 87,
+        "dailyPerPerson": 65
+      },
+      "modest": {
+        "hotelPerNight": 207,
+        "dailyPerPerson": 153
+      },
+      "bougie": {
+        "hotelPerNight": 523,
+        "dailyPerPerson": 349
+      }
+    },
+    "LU": {
+      "budget": {
+        "hotelPerNight": 154,
+        "dailyPerPerson": 115
+      },
+      "modest": {
+        "hotelPerNight": 365,
+        "dailyPerPerson": 269
+      },
+      "bougie": {
+        "hotelPerNight": 921,
+        "dailyPerPerson": 614
+      }
+    },
+    "MO": {
+      "budget": {
+        "hotelPerNight": 136,
+        "dailyPerPerson": 104
+      },
+      "modest": {
+        "hotelPerNight": 334,
+        "dailyPerPerson": 250
+      },
+      "bougie": {
+        "hotelPerNight": 834,
+        "dailyPerPerson": 563
+      }
+    },
+    "MG": {
+      "budget": {
+        "hotelPerNight": 136469,
+        "dailyPerPerson": 103110
+      },
+      "modest": {
+        "hotelPerNight": 333590,
+        "dailyPerPerson": 242611
+      },
+      "bougie": {
+        "hotelPerNight": 818813,
+        "dailyPerPerson": 530712
+      }
+    },
+    "MW": {
+      "budget": {
+        "hotelPerNight": 33,
+        "dailyPerPerson": 25
+      },
+      "modest": {
+        "hotelPerNight": 80,
+        "dailyPerPerson": 58
+      },
+      "bougie": {
+        "hotelPerNight": 197,
+        "dailyPerPerson": 127
+      }
+    },
+    "MY": {
+      "budget": {
+        "hotelPerNight": 294,
+        "dailyPerPerson": 226
+      },
+      "modest": {
+        "hotelPerNight": 723,
+        "dailyPerPerson": 542
+      },
+      "bougie": {
+        "hotelPerNight": 1807,
+        "dailyPerPerson": 1220
+      }
+    },
+    "MV": {
+      "budget": {
+        "hotelPerNight": 610,
+        "dailyPerPerson": 436
+      },
+      "modest": {
+        "hotelPerNight": 1416,
+        "dailyPerPerson": 980
+      },
+      "bougie": {
+        "hotelPerNight": 3703,
+        "dailyPerPerson": 2396
+      }
+    },
+    "ML": {
+      "budget": {
+        "hotelPerNight": 17726,
+        "dailyPerPerson": 13393
+      },
+      "modest": {
+        "hotelPerNight": 43329,
+        "dailyPerPerson": 31512
+      },
+      "bougie": {
+        "hotelPerNight": 106353,
+        "dailyPerPerson": 68933
+      }
+    },
+    "MT": {
+      "budget": {
+        "hotelPerNight": 109,
+        "dailyPerPerson": 82
+      },
+      "modest": {
+        "hotelPerNight": 259,
+        "dailyPerPerson": 191
+      },
+      "bougie": {
+        "hotelPerNight": 653,
+        "dailyPerPerson": 435
+      }
+    },
+    "MH": {
+      "budget": {
+        "hotelPerNight": 68,
+        "dailyPerPerson": 52
+      },
+      "modest": {
+        "hotelPerNight": 168,
+        "dailyPerPerson": 126
+      },
+      "bougie": {
+        "hotelPerNight": 419,
+        "dailyPerPerson": 283
+      }
+    },
+    "MQ": {
+      "budget": {
+        "hotelPerNight": 53,
+        "dailyPerPerson": 40
+      },
+      "modest": {
+        "hotelPerNight": 126,
+        "dailyPerPerson": 95
+      },
+      "bougie": {
+        "hotelPerNight": 295,
+        "dailyPerPerson": 190
+      }
+    },
+    "MR": {
+      "budget": {
+        "hotelPerNight": 48,
+        "dailyPerPerson": 36
+      },
+      "modest": {
+        "hotelPerNight": 118,
+        "dailyPerPerson": 86
+      },
+      "bougie": {
+        "hotelPerNight": 289,
+        "dailyPerPerson": 187
+      }
+    },
+    "MU": {
+      "budget": {
+        "hotelPerNight": 2406,
+        "dailyPerPerson": 1818
+      },
+      "modest": {
+        "hotelPerNight": 5881,
+        "dailyPerPerson": 4277
+      },
+      "bougie": {
+        "hotelPerNight": 14434,
+        "dailyPerPerson": 9356
+      }
+    },
+    "YT": {
+      "budget": {
+        "hotelPerNight": 44,
+        "dailyPerPerson": 33
+      },
+      "modest": {
+        "hotelPerNight": 107,
+        "dailyPerPerson": 78
+      },
+      "bougie": {
+        "hotelPerNight": 263,
+        "dailyPerPerson": 171
+      }
+    },
+    "MX": {
+      "budget": {
+        "hotelPerNight": 793,
+        "dailyPerPerson": 603
+      },
+      "modest": {
+        "hotelPerNight": 1903,
+        "dailyPerPerson": 1427
+      },
+      "bougie": {
+        "hotelPerNight": 4440,
+        "dailyPerPerson": 2854
+      }
+    },
+    "MD": {
+      "budget": {
+        "hotelPerNight": 74,
+        "dailyPerPerson": 56
+      },
+      "modest": {
+        "hotelPerNight": 177,
+        "dailyPerPerson": 130
+      },
+      "bougie": {
+        "hotelPerNight": 446,
+        "dailyPerPerson": 298
+      }
+    },
+    "MC": {
+      "budget": {
+        "hotelPerNight": 136,
+        "dailyPerPerson": 102
+      },
+      "modest": {
+        "hotelPerNight": 323,
+        "dailyPerPerson": 238
+      },
+      "bougie": {
+        "hotelPerNight": 815,
+        "dailyPerPerson": 543
+      }
+    },
+    "MN": {
+      "budget": {
+        "hotelPerNight": 184782,
+        "dailyPerPerson": 142140
+      },
+      "modest": {
+        "hotelPerNight": 454848,
+        "dailyPerPerson": 341136
+      },
+      "bougie": {
+        "hotelPerNight": 1137120,
+        "dailyPerPerson": 767556
+      }
+    },
+    "ME": {
+      "budget": {
+        "hotelPerNight": 69,
+        "dailyPerPerson": 52
+      },
+      "modest": {
+        "hotelPerNight": 164,
+        "dailyPerPerson": 121
+      },
+      "bougie": {
+        "hotelPerNight": 415,
+        "dailyPerPerson": 277
+      }
+    },
+    "MS": {
+      "budget": {
+        "hotelPerNight": 146,
+        "dailyPerPerson": 111
+      },
+      "modest": {
+        "hotelPerNight": 350,
+        "dailyPerPerson": 262
+      },
+      "bougie": {
+        "hotelPerNight": 816,
+        "dailyPerPerson": 525
+      }
+    },
+    "MA": {
+      "budget": {
+        "hotelPerNight": 420,
+        "dailyPerPerson": 321
+      },
+      "modest": {
+        "hotelPerNight": 992,
+        "dailyPerPerson": 725
+      },
+      "bougie": {
+        "hotelPerNight": 2442,
+        "dailyPerPerson": 1565
+      }
+    },
+    "MZ": {
+      "budget": {
+        "hotelPerNight": 1685,
+        "dailyPerPerson": 1273
+      },
+      "modest": {
+        "hotelPerNight": 4118,
+        "dailyPerPerson": 2995
+      },
+      "bougie": {
+        "hotelPerNight": 10109,
+        "dailyPerPerson": 6552
+      }
+    },
+    "MM": {
+      "budget": {
+        "hotelPerNight": 89107,
+        "dailyPerPerson": 68544
+      },
+      "modest": {
+        "hotelPerNight": 219341,
+        "dailyPerPerson": 164506
+      },
+      "bougie": {
+        "hotelPerNight": 548352,
+        "dailyPerPerson": 370138
+      }
+    },
+    "NA": {
+      "budget": {
+        "hotelPerNight": 639,
+        "dailyPerPerson": 483
+      },
+      "modest": {
+        "hotelPerNight": 1563,
+        "dailyPerPerson": 1137
+      },
+      "bougie": {
+        "hotelPerNight": 3836,
+        "dailyPerPerson": 2486
+      }
+    },
+    "NR": {
+      "budget": {
+        "hotelPerNight": 96,
+        "dailyPerPerson": 74
+      },
+      "modest": {
+        "hotelPerNight": 236,
+        "dailyPerPerson": 177
+      },
+      "bougie": {
+        "hotelPerNight": 589,
+        "dailyPerPerson": 398
+      }
+    },
+    "NP": {
+      "budget": {
+        "hotelPerNight": 3282,
+        "dailyPerPerson": 2344
+      },
+      "modest": {
+        "hotelPerNight": 7619,
+        "dailyPerPerson": 5275
+      },
+      "bougie": {
+        "hotelPerNight": 19927,
+        "dailyPerPerson": 12894
+      }
+    },
+    "NL": {
+      "budget": {
+        "hotelPerNight": 106,
+        "dailyPerPerson": 80
+      },
+      "modest": {
+        "hotelPerNight": 252,
+        "dailyPerPerson": 186
+      },
+      "bougie": {
+        "hotelPerNight": 638,
+        "dailyPerPerson": 425
+      }
+    },
+    "NC": {
+      "budget": {
+        "hotelPerNight": 7568,
+        "dailyPerPerson": 5821
+      },
+      "modest": {
+        "hotelPerNight": 18628,
+        "dailyPerPerson": 13971
+      },
+      "bougie": {
+        "hotelPerNight": 46570,
+        "dailyPerPerson": 31434
+      }
+    },
+    "NZ": {
+      "budget": {
+        "hotelPerNight": 106,
+        "dailyPerPerson": 52
+      },
+      "modest": {
+        "hotelPerNight": 334,
+        "dailyPerPerson": 123
+      },
+      "bougie": {
+        "hotelPerNight": 1216,
+        "dailyPerPerson": 273
+      }
+    },
+    "NI": {
+      "budget": {
+        "hotelPerNight": 42,
+        "dailyPerPerson": 32
+      },
+      "modest": {
+        "hotelPerNight": 100,
+        "dailyPerPerson": 75
+      },
+      "bougie": {
+        "hotelPerNight": 233,
+        "dailyPerPerson": 150
+      }
+    },
+    "NE": {
+      "budget": {
+        "hotelPerNight": 17550,
+        "dailyPerPerson": 13260
+      },
+      "modest": {
+        "hotelPerNight": 42900,
+        "dailyPerPerson": 31200
+      },
+      "bougie": {
+        "hotelPerNight": 105300,
+        "dailyPerPerson": 68250
+      }
+    },
+    "NG": {
+      "budget": {
+        "hotelPerNight": 68850,
+        "dailyPerPerson": 52020
+      },
+      "modest": {
+        "hotelPerNight": 168300,
+        "dailyPerPerson": 122400
+      },
+      "bougie": {
+        "hotelPerNight": 413100,
+        "dailyPerPerson": 267750
+      }
+    },
+    "NU": {
+      "budget": {
+        "hotelPerNight": 98,
+        "dailyPerPerson": 75
+      },
+      "modest": {
+        "hotelPerNight": 240,
+        "dailyPerPerson": 180
+      },
+      "bougie": {
+        "hotelPerNight": 601,
+        "dailyPerPerson": 405
+      }
+    },
+    "NF": {
+      "budget": {
+        "hotelPerNight": 102,
+        "dailyPerPerson": 78
+      },
+      "modest": {
+        "hotelPerNight": 250,
+        "dailyPerPerson": 188
+      },
+      "bougie": {
+        "hotelPerNight": 626,
+        "dailyPerPerson": 423
+      }
+    },
+    "MK": {
+      "budget": {
+        "hotelPerNight": 4560,
+        "dailyPerPerson": 3420
+      },
+      "modest": {
+        "hotelPerNight": 10830,
+        "dailyPerPerson": 7980
+      },
+      "bougie": {
+        "hotelPerNight": 27360,
+        "dailyPerPerson": 18240
+      }
+    },
+    "MP": {
+      "budget": {
+        "hotelPerNight": 68,
+        "dailyPerPerson": 53
+      },
+      "modest": {
+        "hotelPerNight": 168,
+        "dailyPerPerson": 126
+      },
+      "bougie": {
+        "hotelPerNight": 420,
+        "dailyPerPerson": 284
+      }
+    },
+    "NO": {
+      "budget": {
+        "hotelPerNight": 1793,
+        "dailyPerPerson": 1345
+      },
+      "modest": {
+        "hotelPerNight": 4258,
+        "dailyPerPerson": 3137
+      },
+      "bougie": {
+        "hotelPerNight": 10757,
+        "dailyPerPerson": 7171
+      }
+    },
+    "OM": {
+      "budget": {
+        "hotelPerNight": 36,
+        "dailyPerPerson": 27
+      },
+      "modest": {
+        "hotelPerNight": 85,
+        "dailyPerPerson": 62
+      },
+      "bougie": {
+        "hotelPerNight": 209,
+        "dailyPerPerson": 134
+      }
+    },
+    "PK": {
+      "budget": {
+        "hotelPerNight": 5833,
+        "dailyPerPerson": 4166
+      },
+      "modest": {
+        "hotelPerNight": 13541,
+        "dailyPerPerson": 9374
+      },
+      "bougie": {
+        "hotelPerNight": 35414,
+        "dailyPerPerson": 22915
+      }
+    },
+    "PW": {
+      "budget": {
+        "hotelPerNight": 68,
+        "dailyPerPerson": 53
+      },
+      "modest": {
+        "hotelPerNight": 168,
+        "dailyPerPerson": 126
+      },
+      "bougie": {
+        "hotelPerNight": 420,
+        "dailyPerPerson": 284
+      }
+    },
+    "PS": {
+      "budget": {
+        "hotelPerNight": 56,
+        "dailyPerPerson": 42
+      },
+      "modest": {
+        "hotelPerNight": 131,
+        "dailyPerPerson": 96
+      },
+      "bougie": {
+        "hotelPerNight": 323,
+        "dailyPerPerson": 207
+      }
+    },
+    "PA": {
+      "budget": {
+        "hotelPerNight": 54,
+        "dailyPerPerson": 41
+      },
+      "modest": {
+        "hotelPerNight": 130,
+        "dailyPerPerson": 97
+      },
+      "bougie": {
+        "hotelPerNight": 302,
+        "dailyPerPerson": 194
+      }
+    },
+    "PG": {
+      "budget": {
+        "hotelPerNight": 214,
+        "dailyPerPerson": 165
+      },
+      "modest": {
+        "hotelPerNight": 527,
+        "dailyPerPerson": 395
+      },
+      "bougie": {
+        "hotelPerNight": 1317,
+        "dailyPerPerson": 889
+      }
+    },
+    "PY": {
+      "budget": {
+        "hotelPerNight": 316720,
+        "dailyPerPerson": 240707
+      },
+      "modest": {
+        "hotelPerNight": 760128,
+        "dailyPerPerson": 570096
+      },
+      "bougie": {
+        "hotelPerNight": 1773632,
+        "dailyPerPerson": 1140192
+      }
+    },
+    "PE": {
+      "budget": {
+        "hotelPerNight": 226,
+        "dailyPerPerson": 171
+      },
+      "modest": {
+        "hotelPerNight": 541,
+        "dailyPerPerson": 406
+      },
+      "bougie": {
+        "hotelPerNight": 1263,
+        "dailyPerPerson": 812
+      }
+    },
+    "PH": {
+      "budget": {
+        "hotelPerNight": 3000,
+        "dailyPerPerson": 2308
+      },
+      "modest": {
+        "hotelPerNight": 7385,
+        "dailyPerPerson": 5539
+      },
+      "bougie": {
+        "hotelPerNight": 18463,
+        "dailyPerPerson": 12463
+      }
+    },
+    "PN": {
+      "budget": {
+        "hotelPerNight": 103,
+        "dailyPerPerson": 79
+      },
+      "modest": {
+        "hotelPerNight": 253,
+        "dailyPerPerson": 190
+      },
+      "bougie": {
+        "hotelPerNight": 634,
+        "dailyPerPerson": 428
+      }
+    },
+    "PL": {
+      "budget": {
+        "hotelPerNight": 346,
+        "dailyPerPerson": 259
+      },
+      "modest": {
+        "hotelPerNight": 822,
+        "dailyPerPerson": 605
+      },
+      "bougie": {
+        "hotelPerNight": 2076,
+        "dailyPerPerson": 1384
+      }
+    },
+    "PT": {
+      "budget": {
+        "hotelPerNight": 107,
+        "dailyPerPerson": 81
+      },
+      "modest": {
+        "hotelPerNight": 255,
+        "dailyPerPerson": 188
+      },
+      "bougie": {
+        "hotelPerNight": 645,
+        "dailyPerPerson": 430
+      }
+    },
+    "PR": {
+      "budget": {
+        "hotelPerNight": 54,
+        "dailyPerPerson": 41
+      },
+      "modest": {
+        "hotelPerNight": 130,
+        "dailyPerPerson": 97
+      },
+      "bougie": {
+        "hotelPerNight": 302,
+        "dailyPerPerson": 194
+      }
+    },
+    "QA": {
+      "budget": {
+        "hotelPerNight": 400,
+        "dailyPerPerson": 306
+      },
+      "modest": {
+        "hotelPerNight": 946,
+        "dailyPerPerson": 691
+      },
+      "bougie": {
+        "hotelPerNight": 2329,
+        "dailyPerPerson": 1492
+      }
+    },
+    "CV": {
+      "budget": {
+        "hotelPerNight": 4545,
+        "dailyPerPerson": 3434
+      },
+      "modest": {
+        "hotelPerNight": 11110,
+        "dailyPerPerson": 8080
+      },
+      "bougie": {
+        "hotelPerNight": 27270,
+        "dailyPerPerson": 17675
+      }
+    },
+    "KR": {
+      "budget": {
+        "hotelPerNight": 112539,
+        "dailyPerPerson": 86569
+      },
+      "modest": {
+        "hotelPerNight": 277020,
+        "dailyPerPerson": 207765
+      },
+      "bougie": {
+        "hotelPerNight": 692550,
+        "dailyPerPerson": 467471
+      }
+    },
+    "CG": {
+      "budget": {
+        "hotelPerNight": 29970,
+        "dailyPerPerson": 22644
+      },
+      "modest": {
+        "hotelPerNight": 73260,
+        "dailyPerPerson": 53280
+      },
+      "bougie": {
+        "hotelPerNight": 179820,
+        "dailyPerPerson": 116550
+      }
+    },
+    "RO": {
+      "budget": {
+        "hotelPerNight": 401,
+        "dailyPerPerson": 301
+      },
+      "modest": {
+        "hotelPerNight": 953,
+        "dailyPerPerson": 702
+      },
+      "bougie": {
+        "hotelPerNight": 2407,
+        "dailyPerPerson": 1604
+      }
+    },
+    "RU": {
+      "budget": {
+        "hotelPerNight": 6480,
+        "dailyPerPerson": 4860
+      },
+      "modest": {
+        "hotelPerNight": 15390,
+        "dailyPerPerson": 11340
+      },
+      "bougie": {
+        "hotelPerNight": 38880,
+        "dailyPerPerson": 25920
+      }
+    },
+    "RW": {
+      "budget": {
+        "hotelPerNight": 41400,
+        "dailyPerPerson": 31280
+      },
+      "modest": {
+        "hotelPerNight": 101200,
+        "dailyPerPerson": 73600
+      },
+      "bougie": {
+        "hotelPerNight": 248400,
+        "dailyPerPerson": 161000
+      }
+    },
+    "RE": {
+      "budget": {
+        "hotelPerNight": 44,
+        "dailyPerPerson": 33
+      },
+      "modest": {
+        "hotelPerNight": 108,
+        "dailyPerPerson": 79
+      },
+      "bougie": {
+        "hotelPerNight": 266,
+        "dailyPerPerson": 172
+      }
+    },
+    "SH": {
+      "budget": {
+        "hotelPerNight": 49,
+        "dailyPerPerson": 37
+      },
+      "modest": {
+        "hotelPerNight": 119,
+        "dailyPerPerson": 86
+      },
+      "bougie": {
+        "hotelPerNight": 292,
+        "dailyPerPerson": 189
+      }
+    },
+    "KN": {
+      "budget": {
+        "hotelPerNight": 157,
+        "dailyPerPerson": 119
+      },
+      "modest": {
+        "hotelPerNight": 376,
+        "dailyPerPerson": 282
+      },
+      "bougie": {
+        "hotelPerNight": 877,
+        "dailyPerPerson": 564
+      }
+    },
+    "LC": {
+      "budget": {
+        "hotelPerNight": 191,
+        "dailyPerPerson": 145
+      },
+      "modest": {
+        "hotelPerNight": 458,
+        "dailyPerPerson": 344
+      },
+      "bougie": {
+        "hotelPerNight": 1069,
+        "dailyPerPerson": 687
+      }
+    },
+    "PM": {
+      "budget": {
+        "hotelPerNight": 79,
+        "dailyPerPerson": 61
+      },
+      "modest": {
+        "hotelPerNight": 192,
+        "dailyPerPerson": 149
+      },
+      "bougie": {
+        "hotelPerNight": 489,
+        "dailyPerPerson": 341
+      }
+    },
+    "VC": {
+      "budget": {
+        "hotelPerNight": 165,
+        "dailyPerPerson": 126
+      },
+      "modest": {
+        "hotelPerNight": 396,
+        "dailyPerPerson": 297
+      },
+      "bougie": {
+        "hotelPerNight": 925,
+        "dailyPerPerson": 595
+      }
+    },
+    "BL": {
+      "budget": {
+        "hotelPerNight": 51,
+        "dailyPerPerson": 38
+      },
+      "modest": {
+        "hotelPerNight": 121,
+        "dailyPerPerson": 91
+      },
+      "bougie": {
+        "hotelPerNight": 283,
+        "dailyPerPerson": 182
+      }
+    },
+    "MF": {
+      "budget": {
+        "hotelPerNight": 44,
+        "dailyPerPerson": 33
+      },
+      "modest": {
+        "hotelPerNight": 105,
+        "dailyPerPerson": 79
+      },
+      "bougie": {
+        "hotelPerNight": 245,
+        "dailyPerPerson": 157
+      }
+    },
+    "WS": {
+      "budget": {
+        "hotelPerNight": 176,
+        "dailyPerPerson": 136
+      },
+      "modest": {
+        "hotelPerNight": 434,
+        "dailyPerPerson": 325
+      },
+      "bougie": {
+        "hotelPerNight": 1085,
+        "dailyPerPerson": 732
+      }
+    },
+    "SM": {
+      "budget": {
+        "hotelPerNight": 76,
+        "dailyPerPerson": 57
+      },
+      "modest": {
+        "hotelPerNight": 182,
+        "dailyPerPerson": 134
+      },
+      "bougie": {
+        "hotelPerNight": 459,
+        "dailyPerPerson": 306
+      }
+    },
+    "SA": {
+      "budget": {
+        "hotelPerNight": 268,
+        "dailyPerPerson": 205
+      },
+      "modest": {
+        "hotelPerNight": 634,
+        "dailyPerPerson": 463
+      },
+      "bougie": {
+        "hotelPerNight": 1561,
+        "dailyPerPerson": 1000
+      }
+    },
+    "SN": {
+      "budget": {
+        "hotelPerNight": 19224,
+        "dailyPerPerson": 14525
+      },
+      "modest": {
+        "hotelPerNight": 46992,
+        "dailyPerPerson": 34176
+      },
+      "bougie": {
+        "hotelPerNight": 115344,
+        "dailyPerPerson": 74760
+      }
+    },
+    "RS": {
+      "budget": {
+        "hotelPerNight": 7603,
+        "dailyPerPerson": 5702
+      },
+      "modest": {
+        "hotelPerNight": 18058,
+        "dailyPerPerson": 13306
+      },
+      "bougie": {
+        "hotelPerNight": 45619,
+        "dailyPerPerson": 30413
+      }
+    },
+    "SC": {
+      "budget": {
+        "hotelPerNight": 797,
+        "dailyPerPerson": 602
+      },
+      "modest": {
+        "hotelPerNight": 1949,
+        "dailyPerPerson": 1418
+      },
+      "bougie": {
+        "hotelPerNight": 4785,
+        "dailyPerPerson": 3101
+      }
+    },
+    "SL": {
+      "budget": {
+        "hotelPerNight": 33,
+        "dailyPerPerson": 25
+      },
+      "modest": {
+        "hotelPerNight": 80,
+        "dailyPerPerson": 58
+      },
+      "bougie": {
+        "hotelPerNight": 197,
+        "dailyPerPerson": 127
+      }
+    },
+    "SG": {
+      "budget": {
+        "hotelPerNight": 202,
+        "dailyPerPerson": 155
+      },
+      "modest": {
+        "hotelPerNight": 497,
+        "dailyPerPerson": 373
+      },
+      "bougie": {
+        "hotelPerNight": 1243,
+        "dailyPerPerson": 839
+      }
+    },
+    "SX": {
+      "budget": {
+        "hotelPerNight": 53,
+        "dailyPerPerson": 41
+      },
+      "modest": {
+        "hotelPerNight": 128,
+        "dailyPerPerson": 96
+      },
+      "bougie": {
+        "hotelPerNight": 299,
+        "dailyPerPerson": 192
+      }
+    },
+    "SK": {
+      "budget": {
+        "hotelPerNight": 94,
+        "dailyPerPerson": 70
+      },
+      "modest": {
+        "hotelPerNight": 223,
+        "dailyPerPerson": 164
+      },
+      "bougie": {
+        "hotelPerNight": 564,
+        "dailyPerPerson": 376
+      }
+    },
+    "SI": {
+      "budget": {
+        "hotelPerNight": 92,
+        "dailyPerPerson": 69
+      },
+      "modest": {
+        "hotelPerNight": 219,
+        "dailyPerPerson": 161
+      },
+      "bougie": {
+        "hotelPerNight": 554,
+        "dailyPerPerson": 369
+      }
+    },
+    "SB": {
+      "budget": {
+        "hotelPerNight": 594,
+        "dailyPerPerson": 457
+      },
+      "modest": {
+        "hotelPerNight": 1463,
+        "dailyPerPerson": 1097
+      },
+      "bougie": {
+        "hotelPerNight": 3657,
+        "dailyPerPerson": 2469
+      }
+    },
+    "SO": {
+      "budget": {
+        "hotelPerNight": 21,
+        "dailyPerPerson": 16
+      },
+      "modest": {
+        "hotelPerNight": 51,
+        "dailyPerPerson": 37
+      },
+      "bougie": {
+        "hotelPerNight": 126,
+        "dailyPerPerson": 82
+      }
+    },
+    "ZA": {
+      "budget": {
+        "hotelPerNight": 821,
+        "dailyPerPerson": 620
+      },
+      "modest": {
+        "hotelPerNight": 2006,
+        "dailyPerPerson": 1459
+      },
+      "bougie": {
+        "hotelPerNight": 4924,
+        "dailyPerPerson": 3192
+      }
+    },
+    "GS": {
+      "budget": {
+        "hotelPerNight": 49,
+        "dailyPerPerson": 37
+      },
+      "modest": {
+        "hotelPerNight": 116,
+        "dailyPerPerson": 87
+      },
+      "bougie": {
+        "hotelPerNight": 272,
+        "dailyPerPerson": 175
+      }
+    },
+    "SS": {
+      "budget": {
+        "hotelPerNight": 22,
+        "dailyPerPerson": 17
+      },
+      "modest": {
+        "hotelPerNight": 54,
+        "dailyPerPerson": 39
+      },
+      "bougie": {
+        "hotelPerNight": 132,
+        "dailyPerPerson": 86
+      }
+    },
+    "ES": {
+      "budget": {
+        "hotelPerNight": 70,
+        "dailyPerPerson": 37
+      },
+      "modest": {
+        "hotelPerNight": 184,
+        "dailyPerPerson": 91
+      },
+      "bougie": {
+        "hotelPerNight": 512,
+        "dailyPerPerson": 215
+      }
+    },
+    "LK": {
+      "budget": {
+        "hotelPerNight": 6422,
+        "dailyPerPerson": 4587
+      },
+      "modest": {
+        "hotelPerNight": 14908,
+        "dailyPerPerson": 10321
+      },
+      "bougie": {
+        "hotelPerNight": 38991,
+        "dailyPerPerson": 25230
+      }
+    },
+    "SD": {
+      "budget": {
+        "hotelPerNight": 24,
+        "dailyPerPerson": 18
+      },
+      "modest": {
+        "hotelPerNight": 59,
+        "dailyPerPerson": 43
+      },
+      "bougie": {
+        "hotelPerNight": 146,
+        "dailyPerPerson": 95
+      }
+    },
+    "SR": {
+      "budget": {
+        "hotelPerNight": 1674,
+        "dailyPerPerson": 1272
+      },
+      "modest": {
+        "hotelPerNight": 4018,
+        "dailyPerPerson": 3013
+      },
+      "bougie": {
+        "hotelPerNight": 9374,
+        "dailyPerPerson": 6026
+      }
+    },
+    "SJ": {
+      "budget": {
+        "hotelPerNight": 942,
+        "dailyPerPerson": 706
+      },
+      "modest": {
+        "hotelPerNight": 2236,
+        "dailyPerPerson": 1648
+      },
+      "bougie": {
+        "hotelPerNight": 5650,
+        "dailyPerPerson": 3766
+      }
+    },
+    "SE": {
+      "budget": {
+        "hotelPerNight": 1499,
+        "dailyPerPerson": 1125
+      },
+      "modest": {
+        "hotelPerNight": 3561,
+        "dailyPerPerson": 2624
+      },
+      "bougie": {
+        "hotelPerNight": 8996,
+        "dailyPerPerson": 5998
+      }
+    },
+    "CH": {
+      "budget": {
+        "hotelPerNight": 134,
+        "dailyPerPerson": 101
+      },
+      "modest": {
+        "hotelPerNight": 318,
+        "dailyPerPerson": 235
+      },
+      "bougie": {
+        "hotelPerNight": 804,
+        "dailyPerPerson": 536
+      }
+    },
+    "SY": {
+      "budget": {
+        "hotelPerNight": 572000,
+        "dailyPerPerson": 436800
+      },
+      "modest": {
+        "hotelPerNight": 1352000,
+        "dailyPerPerson": 988000
+      },
+      "bougie": {
+        "hotelPerNight": 3328000,
+        "dailyPerPerson": 2132000
+      }
+    },
+    "ST": {
+      "budget": {
+        "hotelPerNight": 43,
+        "dailyPerPerson": 32
+      },
+      "modest": {
+        "hotelPerNight": 105,
+        "dailyPerPerson": 76
+      },
+      "bougie": {
+        "hotelPerNight": 257,
+        "dailyPerPerson": 166
+      }
+    },
+    "TW": {
+      "budget": {
+        "hotelPerNight": 78,
+        "dailyPerPerson": 60
+      },
+      "modest": {
+        "hotelPerNight": 191,
+        "dailyPerPerson": 144
+      },
+      "bougie": {
+        "hotelPerNight": 478,
+        "dailyPerPerson": 323
+      }
+    },
+    "TJ": {
+      "budget": {
+        "hotelPerNight": 641,
+        "dailyPerPerson": 480
+      },
+      "modest": {
+        "hotelPerNight": 1522,
+        "dailyPerPerson": 1121
+      },
+      "bougie": {
+        "hotelPerNight": 3844,
+        "dailyPerPerson": 2563
+      }
+    },
+    "TZ": {
+      "budget": {
+        "hotelPerNight": 98226,
+        "dailyPerPerson": 74215
+      },
+      "modest": {
+        "hotelPerNight": 240108,
+        "dailyPerPerson": 174624
+      },
+      "bougie": {
+        "hotelPerNight": 589356,
+        "dailyPerPerson": 381990
+      }
+    },
+    "TH": {
+      "budget": {
+        "hotelPerNight": 1188,
+        "dailyPerPerson": 663
+      },
+      "modest": {
+        "hotelPerNight": 3200,
+        "dailyPerPerson": 1732
+      },
+      "bougie": {
+        "hotelPerNight": 9184,
+        "dailyPerPerson": 4705
+      }
+    },
+    "GM": {
+      "budget": {
+        "hotelPerNight": 41,
+        "dailyPerPerson": 31
+      },
+      "modest": {
+        "hotelPerNight": 100,
+        "dailyPerPerson": 73
+      },
+      "bougie": {
+        "hotelPerNight": 246,
+        "dailyPerPerson": 159
+      }
+    },
+    "TL": {
+      "budget": {
+        "hotelPerNight": 60,
+        "dailyPerPerson": 47
+      },
+      "modest": {
+        "hotelPerNight": 149,
+        "dailyPerPerson": 112
+      },
+      "bougie": {
+        "hotelPerNight": 372,
+        "dailyPerPerson": 251
+      }
+    },
+    "TG": {
+      "budget": {
+        "hotelPerNight": 23760,
+        "dailyPerPerson": 17952
+      },
+      "modest": {
+        "hotelPerNight": 58080,
+        "dailyPerPerson": 42240
+      },
+      "bougie": {
+        "hotelPerNight": 142560,
+        "dailyPerPerson": 92400
+      }
+    },
+    "TK": {
+      "budget": {
+        "hotelPerNight": 99,
+        "dailyPerPerson": 76
+      },
+      "modest": {
+        "hotelPerNight": 243,
+        "dailyPerPerson": 182
+      },
+      "bougie": {
+        "hotelPerNight": 607,
+        "dailyPerPerson": 410
+      }
+    },
+    "TO": {
+      "budget": {
+        "hotelPerNight": 155,
+        "dailyPerPerson": 119
+      },
+      "modest": {
+        "hotelPerNight": 382,
+        "dailyPerPerson": 286
+      },
+      "bougie": {
+        "hotelPerNight": 954,
+        "dailyPerPerson": 644
+      }
+    },
+    "TT": {
+      "budget": {
+        "hotelPerNight": 371,
+        "dailyPerPerson": 282
+      },
+      "modest": {
+        "hotelPerNight": 890,
+        "dailyPerPerson": 668
+      },
+      "bougie": {
+        "hotelPerNight": 2077,
+        "dailyPerPerson": 1335
+      }
+    },
+    "TN": {
+      "budget": {
+        "hotelPerNight": 130,
+        "dailyPerPerson": 99
+      },
+      "modest": {
+        "hotelPerNight": 306,
+        "dailyPerPerson": 224
+      },
+      "bougie": {
+        "hotelPerNight": 754,
+        "dailyPerPerson": 483
+      }
+    },
+    "TR": {
+      "budget": {
+        "hotelPerNight": 2519,
+        "dailyPerPerson": 1889
+      },
+      "modest": {
+        "hotelPerNight": 5982,
+        "dailyPerPerson": 4407
+      },
+      "bougie": {
+        "hotelPerNight": 15111,
+        "dailyPerPerson": 10074
+      }
+    },
+    "TM": {
+      "budget": {
+        "hotelPerNight": 75,
+        "dailyPerPerson": 56
+      },
+      "modest": {
+        "hotelPerNight": 179,
+        "dailyPerPerson": 132
+      },
+      "bougie": {
+        "hotelPerNight": 451,
+        "dailyPerPerson": 301
+      }
+    },
+    "TC": {
+      "budget": {
+        "hotelPerNight": 55,
+        "dailyPerPerson": 41
+      },
+      "modest": {
+        "hotelPerNight": 131,
+        "dailyPerPerson": 98
+      },
+      "bougie": {
+        "hotelPerNight": 305,
+        "dailyPerPerson": 196
+      }
+    },
+    "TV": {
+      "budget": {
+        "hotelPerNight": 112,
+        "dailyPerPerson": 86
+      },
+      "modest": {
+        "hotelPerNight": 276,
+        "dailyPerPerson": 207
+      },
+      "bougie": {
+        "hotelPerNight": 690,
+        "dailyPerPerson": 466
+      }
+    },
+    "UG": {
+      "budget": {
+        "hotelPerNight": 128592,
+        "dailyPerPerson": 97158
+      },
+      "modest": {
+        "hotelPerNight": 314336,
+        "dailyPerPerson": 228608
+      },
+      "bougie": {
+        "hotelPerNight": 771552,
+        "dailyPerPerson": 500080
+      }
+    },
+    "UA": {
+      "budget": {
+        "hotelPerNight": 2675,
+        "dailyPerPerson": 2006
+      },
+      "modest": {
+        "hotelPerNight": 6354,
+        "dailyPerPerson": 4682
+      },
+      "bougie": {
+        "hotelPerNight": 16051,
+        "dailyPerPerson": 10701
+      }
+    },
+    "AE": {
+      "budget": {
+        "hotelPerNight": 395,
+        "dailyPerPerson": 302
+      },
+      "modest": {
+        "hotelPerNight": 934,
+        "dailyPerPerson": 683
+      },
+      "bougie": {
+        "hotelPerNight": 2299,
+        "dailyPerPerson": 1473
+      }
+    },
+    "GB": {
+      "budget": {
+        "hotelPerNight": 103,
+        "dailyPerPerson": 77
+      },
+      "modest": {
+        "hotelPerNight": 244,
+        "dailyPerPerson": 179
+      },
+      "bougie": {
+        "hotelPerNight": 615,
+        "dailyPerPerson": 410
+      }
+    },
+    "US": {
+      "budget": {
+        "hotelPerNight": 126,
+        "dailyPerPerson": 80
+      },
+      "modest": {
+        "hotelPerNight": 350,
+        "dailyPerPerson": 267
+      },
+      "bougie": {
+        "hotelPerNight": 1064,
+        "dailyPerPerson": 1045
+      }
+    },
+    "UM": {
+      "budget": {
+        "hotelPerNight": 65,
+        "dailyPerPerson": 50
+      },
+      "modest": {
+        "hotelPerNight": 160,
+        "dailyPerPerson": 120
+      },
+      "bougie": {
+        "hotelPerNight": 400,
+        "dailyPerPerson": 270
+      }
+    },
+    "VI": {
+      "budget": {
+        "hotelPerNight": 55,
+        "dailyPerPerson": 42
+      },
+      "modest": {
+        "hotelPerNight": 132,
+        "dailyPerPerson": 99
+      },
+      "bougie": {
+        "hotelPerNight": 308,
+        "dailyPerPerson": 198
+      }
+    },
+    "UY": {
+      "budget": {
+        "hotelPerNight": 2184,
+        "dailyPerPerson": 1660
+      },
+      "modest": {
+        "hotelPerNight": 5242,
+        "dailyPerPerson": 3931
+      },
+      "bougie": {
+        "hotelPerNight": 12230,
+        "dailyPerPerson": 7862
+      }
+    },
+    "UZ": {
+      "budget": {
+        "hotelPerNight": 698368,
+        "dailyPerPerson": 523776
+      },
+      "modest": {
+        "hotelPerNight": 1658624,
+        "dailyPerPerson": 1222144
+      },
+      "bougie": {
+        "hotelPerNight": 4190208,
+        "dailyPerPerson": 2793472
+      }
+    },
+    "VU": {
+      "budget": {
+        "hotelPerNight": 7497,
+        "dailyPerPerson": 5767
+      },
+      "modest": {
+        "hotelPerNight": 18455,
+        "dailyPerPerson": 13841
+      },
+      "bougie": {
+        "hotelPerNight": 46138,
+        "dailyPerPerson": 31143
+      }
+    },
+    "VA": {
+      "budget": {
+        "hotelPerNight": 82,
+        "dailyPerPerson": 61
+      },
+      "modest": {
+        "hotelPerNight": 194,
+        "dailyPerPerson": 143
+      },
+      "bougie": {
+        "hotelPerNight": 490,
+        "dailyPerPerson": 327
+      }
+    },
+    "VE": {
+      "budget": {
+        "hotelPerNight": 49,
+        "dailyPerPerson": 37
+      },
+      "modest": {
+        "hotelPerNight": 118,
+        "dailyPerPerson": 88
+      },
+      "bougie": {
+        "hotelPerNight": 274,
+        "dailyPerPerson": 176
+      }
+    },
+    "VN": {
+      "budget": {
+        "hotelPerNight": 1363180,
+        "dailyPerPerson": 1048600
+      },
+      "modest": {
+        "hotelPerNight": 3355520,
+        "dailyPerPerson": 2516640
+      },
+      "bougie": {
+        "hotelPerNight": 8388800,
+        "dailyPerPerson": 5662440
+      }
+    },
+    "WF": {
+      "budget": {
+        "hotelPerNight": 7508,
+        "dailyPerPerson": 5775
+      },
+      "modest": {
+        "hotelPerNight": 18480,
+        "dailyPerPerson": 13860
+      },
+      "bougie": {
+        "hotelPerNight": 46200,
+        "dailyPerPerson": 31185
+      }
+    },
+    "EH": {
+      "budget": {
+        "hotelPerNight": 545,
+        "dailyPerPerson": 416
+      },
+      "modest": {
+        "hotelPerNight": 1287,
+        "dailyPerPerson": 941
+      },
+      "bougie": {
+        "hotelPerNight": 3168,
+        "dailyPerPerson": 2030
+      }
+    },
+    "YE": {
+      "budget": {
+        "hotelPerNight": 26,
+        "dailyPerPerson": 20
+      },
+      "modest": {
+        "hotelPerNight": 62,
+        "dailyPerPerson": 45
+      },
+      "bougie": {
+        "hotelPerNight": 151,
+        "dailyPerPerson": 97
+      }
+    },
+    "ZM": {
+      "budget": {
+        "hotelPerNight": 1181,
+        "dailyPerPerson": 893
+      },
+      "modest": {
+        "hotelPerNight": 2888,
+        "dailyPerPerson": 2100
+      },
+      "bougie": {
+        "hotelPerNight": 7088,
+        "dailyPerPerson": 4594
+      }
+    },
+    "ZW": {
+      "budget": {
+        "hotelPerNight": 41,
+        "dailyPerPerson": 31
+      },
+      "modest": {
+        "hotelPerNight": 99,
+        "dailyPerPerson": 72
+      },
+      "bougie": {
+        "hotelPerNight": 243,
+        "dailyPerPerson": 158
+      }
+    },
+    "AX": {
+      "budget": {
+        "hotelPerNight": 67,
+        "dailyPerPerson": 50
+      },
+      "modest": {
+        "hotelPerNight": 159,
+        "dailyPerPerson": 117
+      },
+      "bougie": {
+        "hotelPerNight": 402,
+        "dailyPerPerson": 268
+      }
+    }
+  }
+}

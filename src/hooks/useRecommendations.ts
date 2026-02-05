@@ -4,6 +4,7 @@ import type {
   BudgetTier,
   RecommendationPreferences,
   RecommendationResult,
+  CountryEnrichedData,
 } from '@/types/recommendation';
 import { storage } from '@/lib/storage';
 import { generateRecommendations } from '@/lib/recommendations/algorithm';
@@ -125,6 +126,25 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
     }
   };
 
+  // Callback to update individual recommendation enriched data
+  const updateEnrichedData = useCallback(
+    (countryCode: string, data: CountryEnrichedData | null) => {
+      setResult((prev) => {
+        if (!prev) return prev;
+
+        return {
+          ...prev,
+          recommendations: prev.recommendations.map((rec) =>
+            rec.countryCode === countryCode
+              ? { ...rec, enrichedData: data }
+              : rec
+          ),
+        };
+      });
+    },
+    []
+  );
+
   return {
     preferences,
     setPreferences,
@@ -135,5 +155,6 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
     error,
     generate,
     hasGeneratedThisSession,
+    updateEnrichedData,
   };
 }

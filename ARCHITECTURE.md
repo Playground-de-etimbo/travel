@@ -12,7 +12,8 @@ travel/
 ├── public/                      # Static assets
 │   ├── vite.svg                # Default Vite icon (replace with logo)
 │   └── data/                   # Static data files
-│       ├── countries.json      # Country metadata (name, flag, costs, etc.)
+│       ├── countries.json      # Country metadata (name, flag, descriptions)
+│       ├── country-travel-costs.json # Local-currency travel cost tiers by country
 │       └── countries.geo.json  # GeoJSON country boundaries for map
 │
 ├── src/                        # Source code

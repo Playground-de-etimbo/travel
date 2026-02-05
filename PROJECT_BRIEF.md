@@ -147,9 +147,12 @@
 - **Guest mode** with localStorage (sync to Firestore on sign-in)
 
 ### Data
-- **Static JSON** file for country data (~200 countries)
-- Placeholder costs: Rough estimates based on country income levels
-- Fields: countryCode, countryName, region, currencyCode, currencyName, flagEmoji, baselineCost, nightlyCost
+- **Static JSON** file for country data (~250 countries)
+- Placeholder costs: AI-guided estimates, plus local-currency budget tiers in a separate JSON file
+- Fields: countryCode, countryName, region, currencyCode, currencyName, flagEmoji, description, baselineCost, nightlyCost
+- Local-currency cost tiers: `public/data/country-travel-costs.json` keyed by countryCode
+- Audit notes: `docs/TRAVEL_COSTS_AI_AUDIT.md`
+- Regeneration notes: `docs/TRAVEL_COSTS_GENERATION.md`
 
 ### Future Integrations
 - Map (v1.1): **MapLibre GL + OpenStreetMap** (free, open source)
@@ -176,7 +179,7 @@
 - A user can search a country, mark it "Been to" or "Want to go," and see it in the corresponding section.
 - A user can view regional completion stats for visited vs unvisited countries.
 - A user can see comparative stats showing how their travel compares to global averages (e.g., "Most people visit 10 countries - you've visited 25!").
-- Each country detail shows placeholder baseline + nightly costs and the local currency.
+- Each country detail shows a short description and placeholder baseline + nightly costs, with local-currency budget tiers where available.
 - A country can be unmarked and removed from the lists.
 
 ## 12) Decisions Made

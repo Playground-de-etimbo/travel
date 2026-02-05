@@ -126,20 +126,21 @@ See details above.
 
 ### Country Data Completeness
 **Priority:** Low
-**Description:** Current country dataset is limited to 20 countries for MVP testing. Full dataset of ~195 countries needed for production.
+**Description:** Country dataset includes ~250 entries (including territories). Some metadata (like cost tiers) remains synthetic placeholders.
 
-**Impact:** Limited country selection for users during MVP testing.
+**Impact:** Cost tiers may be inaccurate and should not be used for real budgeting.
 
-**Planned Resolution:** Before v1.0 launch - Expand `public/data/countries.json` to include all countries with complete metadata (costs, currency, regions).
+**Planned Resolution:** Before v1.0 launch - Replace synthetic travel costs with sourced data.
 
 **Files:**
 - `public/data/countries.json`
+- `public/data/country-travel-costs.json`
 
 ---
 
 ### Placeholder Travel Costs
 **Priority:** Medium
-**Description:** Baseline and nightly costs are currently placeholder values, not real cost data.
+**Description:** Baseline and nightly costs are placeholders, and AI-generated travel tiers are synthetic estimates.
 
 **Impact:** Cost estimates shown to users are not accurate for trip planning.
 
@@ -147,6 +148,8 @@ See details above.
 
 **Files:**
 - `public/data/countries.json` (placeholder values)
+- `public/data/country-travel-costs.json` (AI-generated synthetic tiers)
+- `docs/TRAVEL_COSTS_AI_AUDIT.md` (delta review)
 - Future: Cost API integration service
 
 ---

@@ -237,6 +237,13 @@ return () => unsubscribe();
    const response = await fetch('/data/countries.json');
    const countries = await response.json();
    ```
+3. Optional: load local-currency cost tiers separately:
+   ```tsx
+   const costsResponse = await fetch('/data/country-travel-costs.json');
+   const costTiers = await costsResponse.json();
+   ```
+4. Review AI cost audit notes:
+   - `docs/TRAVEL_COSTS_AI_AUDIT.md`
 
 ---
 

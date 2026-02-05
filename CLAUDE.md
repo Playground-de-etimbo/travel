@@ -106,7 +106,10 @@ src/
 - `region` - Continent/region
 - `currencyCode` - ISO 4217
 - `flagEmoji` - Unicode flag emoji
-- `baselineCost` / `nightlyCost` - Placeholder travel costs
+- `description` - Two-sentence travel summary
+- `baselineCost` / `nightlyCost` - Placeholder travel costs (USD)
+
+**Travel cost tiers** live in `public/data/country-travel-costs.json` and are keyed by countryCode.
 
 **UserData Interface** (`src/types/user.ts`):
 - `beenTo: string[]` - Array of country codes
