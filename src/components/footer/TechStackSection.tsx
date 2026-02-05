@@ -22,7 +22,7 @@ const technologies: Technology[] = [
   // External APIs
   { name: 'Unsplash API', description: 'Country images', url: 'https://unsplash.com/developers', icon: '📸', category: 'api' },
   { name: 'OpenAI API', description: 'AI recommendations', url: 'https://platform.openai.com/docs', icon: '🤖', category: 'api' },
-  { name: 'ip-api.com', description: 'Geolocation', url: 'https://ip-api.com', icon: '🌍', category: 'api' },
+  { name: 'ipwhois.app', description: 'Geolocation', url: 'https://ipwhois.app', icon: '🌍', category: 'api' },
 ];
 
 export function TechStackSection() {

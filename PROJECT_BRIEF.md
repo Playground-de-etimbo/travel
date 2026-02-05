@@ -153,6 +153,7 @@
 - Local-currency cost tiers: `public/data/country-travel-costs.json` keyed by countryCode
 - Audit notes: `docs/TRAVEL_COSTS_AI_AUDIT.md`
 - Regeneration notes: `docs/TRAVEL_COSTS_GENERATION.md`
+- Description sources: `docs/COUNTRY_DESCRIPTION_SOURCES.md`
 
 ### Future Integrations
 - Map (v1.1): **MapLibre GL + OpenStreetMap** (free, open source)

@@ -9,7 +9,7 @@
     "flagEmoji": "🇦🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Bamiyan Valley is a UNESCO World Heritage cultural landscape with major archaeological and Buddhist heritage sites. Travelers drawn to history and highland scenery find a profound sense of place.",
+    "description": "Mountain backdrops and fresh air shape the trip. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "culture",
       "action"
@@ -25,7 +25,7 @@
     "flagEmoji": "🇦🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "UNESCO-listed Butrint blends archaeology and nature, while Berat and Gjirokastra showcase historic urban heritage. Travelers love the layered history and distinctive townscapes.",
+    "description": "Mediterranean Sea and Balkans give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -41,7 +41,7 @@
     "flagEmoji": "🇩🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tassili n’Ajjer is a UNESCO site famed for prehistoric rock art and dramatic sandstone landscapes. Djémila adds remarkably preserved Roman-era architecture and mosaics.",
+    "description": "Mediterranean Sea edges and Sahara influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -57,7 +57,7 @@
     "flagEmoji": "🇦🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The National Park of American Samoa protects rainforest, reef, and Samoan cultural heritage across the islands. Visitors come for the natural beauty and living traditions.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -73,7 +73,7 @@
     "flagEmoji": "🇦🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The UNESCO-listed Madriu-Perafita-Claror Valley captures the Pyrenees’ cultural landscape and pastoral heritage. Travelers love the mountain scenery and deep sense of tradition.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "action",
       "culture"
@@ -89,7 +89,7 @@
     "flagEmoji": "🇦🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Mbanza Kongo, a UNESCO World Heritage site, preserves the former capital of the Kingdom of Kongo. Visitors drawn to history experience the legacy of a major African state.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -105,7 +105,7 @@
     "flagEmoji": "🇦🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Anguilla is known for its many beaches with white sand and clear, calm waters. The island is also celebrated for its award-winning dining scene.",
+    "description": "Island life and salt air set the tone. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "weather",
       "relaxation"
@@ -121,7 +121,7 @@
     "flagEmoji": "🇦🇶",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Antarctica is the world’s largest wilderness and remains relatively pristine. Travelers seek its polar landscapes and emblematic wildlife such as penguins.",
+    "description": "Icebound wilderness around the South Pole makes it feel truly otherworldly. Go for stark beauty and iconic polar wildlife in one of the planet’s most remote places.",
     "interests": [
       "action"
     ]
@@ -136,7 +136,7 @@
     "flagEmoji": "🇦🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The UNESCO-listed Antigua Naval Dockyard preserves Georgian-era naval structures set within sheltered bays. Visitors are drawn to the island’s maritime heritage and history.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "weather",
       "relaxation"
@@ -152,7 +152,7 @@
     "flagEmoji": "🇦🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Iguazú National Park is a UNESCO World Heritage site with one of the world’s most spectacular waterfall systems. The surrounding subtropical rainforest adds rich biodiversity and wildlife.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action",
@@ -169,7 +169,7 @@
     "flagEmoji": "🇦🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Armenia. The mix of history and modern life makes it a classic trip.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": [
       "culture",
       "action"
@@ -185,7 +185,7 @@
     "flagEmoji": "🇦🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Eagle Beach has been recognized by Tripadvisor as one of the world’s best beaches. Travelers come for its white sand and clear, calm waters.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -201,7 +201,7 @@
     "flagEmoji": "🇦🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Great Barrier Reef is a UNESCO World Heritage site and the world’s largest collection of coral reefs. Visitors are drawn by its remarkable marine biodiversity and seascapes.",
+    "description": "Island life and salt air set the tone. Go for rainforests, local food, and a trip that feels genuinely different.",
     "interests": [
       "weather",
       "relaxation",
@@ -219,7 +219,7 @@
     "flagEmoji": "🇦🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vienna’s historic centre is a UNESCO World Heritage site known for its architectural ensembles and the Ringstrasse. Travelers come for the city’s heritage and celebrated musical legacy.",
+    "description": "Rugged terrain and sweeping views make it feel wild and rewarding. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "culture",
       "action"
@@ -235,7 +235,7 @@
     "flagEmoji": "🇦🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Baku’s walled city with the Shirvanshah’s Palace and Maiden Tower is a UNESCO World Heritage site. Visitors come for the historic city walls, palace complex, and deep cultural layers.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "culture"
     ]
@@ -250,7 +250,7 @@
     "flagEmoji": "🇧🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Color, culture, and daily life give it its spark in Bahamas. Visitors come for the food, music, and human connection.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -266,7 +266,7 @@
     "flagEmoji": "🇧🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in Bahrain. The mix of tradition and daily life keeps it captivating.",
+    "description": "Island life and salt air set the tone. Travelers love the culture, the scenery, and the small moments that turn into stories.",
     "interests": [
       "culture"
     ]
@@ -281,7 +281,7 @@
     "flagEmoji": "🇧🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Sundarbans is a UNESCO World Heritage site and the world’s largest contiguous mangrove forest. Travelers visit for its rare wildlife and unique delta landscapes.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "culture"
     ]
@@ -296,7 +296,7 @@
     "flagEmoji": "🇧🇧",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Historic Bridgetown and its Garrison is a UNESCO World Heritage site tied to British colonial trade and defense. Visitors come for its preserved historic townscape and waterfront heritage.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -312,7 +312,7 @@
     "flagEmoji": "🇧🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Belarus. The mix of history and modern life makes it a classic trip.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "culture"
     ]
@@ -327,7 +327,7 @@
     "flagEmoji": "🇧🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Brussels’ Grand-Place is a UNESCO World Heritage site and an exceptional architectural ensemble. Travelers come for its historic square and richly preserved civic buildings.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -342,7 +342,7 @@
     "flagEmoji": "🇧🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Belize. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation",
@@ -359,7 +359,7 @@
     "flagEmoji": "🇧🇯",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Benin. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -374,7 +374,7 @@
     "flagEmoji": "🇧🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Diverse regions and everyday culture give it its character in Bermuda. Travelers love the variety, comfort, and sense of possibility.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -390,7 +390,7 @@
     "flagEmoji": "🇧🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and daily life create a vivid, immersive visit in Bhutan. Travelers love the cuisine, hospitality, and cultural depth.",
+    "description": "A strong sense of place makes it hard to forget. Travelers love the culture, the scenery, and the small moments that turn into stories.",
     "interests": [
       "culture",
       "action"
@@ -406,7 +406,7 @@
     "flagEmoji": "🇧🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Bolivia. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "action",
       "culture"
@@ -422,7 +422,7 @@
     "flagEmoji": "🇧🇶",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Color, culture, and daily life give it its spark in Bonaire, Sint Eustatius and Saba. The energy, culture, and local pride make it unforgettable.",
+    "description": "A strong sense of place makes it hard to forget. Go for coastal views, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -435,7 +435,7 @@
     "flagEmoji": "🇧🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Mostar’s Old Bridge area is a UNESCO World Heritage site shaped by Ottoman and Austro-Hungarian periods. Travelers are drawn to the restored bridge and the multicultural old town.",
+    "description": "Adriatic Sea edges and Alps influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -451,7 +451,7 @@
     "flagEmoji": "🇧🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Botswana. The mix of culture and landscapes makes it unforgettable.",
+    "description": "Desert light and wide-open horizons make it feel cinematic. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "action",
       "relaxation"
@@ -467,7 +467,7 @@
     "flagEmoji": "🇧🇻",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Bouvet Island. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Vast wilderness and stark beauty set the mood. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": []
   },
   {
@@ -480,7 +480,7 @@
     "flagEmoji": "🇧🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Brazil. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": [
       "weather",
       "culture",
@@ -498,7 +498,7 @@
     "flagEmoji": "🇮🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Strong traditions and local life shape the experience in British Indian Ocean Territory. The depth of tradition makes it a powerful trip.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -511,7 +511,7 @@
     "flagEmoji": "🇻🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in British Virgin Islands. Visitors come for the food, music, and human connection.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -524,7 +524,7 @@
     "flagEmoji": "🇧🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Brunei Darussalam. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "relaxation",
       "culture"
@@ -540,7 +540,7 @@
     "flagEmoji": "🇧🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Bulgaria. The mix of history and modern life makes it a classic trip.",
+    "description": "Black Sea edges and Balkans influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -556,7 +556,7 @@
     "flagEmoji": "🇧🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Ruins of Loropéni are a UNESCO World Heritage site with imposing stone walls linked to the trans-Saharan gold trade. Visitors are drawn to its archaeological remains and West African heritage.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": [
       "culture"
     ]
@@ -571,7 +571,7 @@
     "flagEmoji": "🇧🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Burundi’s UNESCO-listed ritual dance of the royal drum combines powerful drumming, dance, and song as a living cultural tradition. Travelers drawn to heritage and community celebrations come for this distinctive cultural experience.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "culture",
       "action"
@@ -587,7 +587,7 @@
     "flagEmoji": "🇰🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Angkor is a UNESCO World Heritage site with vast temple complexes from the Khmer Empire, including Angkor Wat and the Bayon. Visitors come for monumental architecture and deep history.",
+    "description": "A strong sense of place makes it hard to forget. Go for lake country, great food, and a memorable sense of place.",
     "interests": [
       "culture",
       "weather"
@@ -603,7 +603,7 @@
     "flagEmoji": "🇨🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Dja Faunal Reserve is a UNESCO World Heritage site and one of Africa’s largest, best-protected rainforests. Travelers come for its remarkable biodiversity and rich primate life.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -619,7 +619,7 @@
     "flagEmoji": "🇨🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Canadian Rocky Mountain Parks are a UNESCO World Heritage site known for dramatic mountain scenery, glaciers, and alpine landscapes. Visitors come for iconic national parks and exceptional natural beauty.",
+    "description": "Pacific Ocean and Atlantic Ocean give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture"
@@ -635,7 +635,7 @@
     "flagEmoji": "🇰🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Seven Mile Beach is a signature Cayman Islands attraction, recognized by the official tourism authority for its sparkling waters and coral sands. Travelers come for the beach culture and relaxed island vibe.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "weather",
       "relaxation"
@@ -651,7 +651,7 @@
     "flagEmoji": "🇨🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Manovo-Gounda St Floris National Park is a UNESCO World Heritage site and the largest park in the Central African savannas. Visitors come for wide-open landscapes and its rich wildlife.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "action"
     ]
@@ -666,7 +666,7 @@
     "flagEmoji": "🇹🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Lakes of Ounianga are a UNESCO World Heritage site of 18 interconnected lakes in the Sahara. Travelers come for the striking desert landscapes and rare freshwater oases.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "action"
     ]
@@ -681,7 +681,7 @@
     "flagEmoji": "🇨🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Rapa Nui National Park is a UNESCO World Heritage site known for its monumental moai and cultural landscape. Visitors come for the island’s unique Polynesian heritage and archaeology.",
+    "description": "Pacific Ocean edges and Andes influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture",
@@ -698,7 +698,7 @@
     "flagEmoji": "🇨🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Great Wall is a UNESCO World Heritage site and one of the world’s largest historic defensive structures. Travelers come for its architectural scale and enduring historical significance.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "culture",
       "action"
@@ -714,7 +714,7 @@
     "flagEmoji": "🇨🇽",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Christmas Island National Park protects tropical rainforests, sea cliffs, and diverse wildlife in the Indian Ocean. Visitors come for endemic species and the island’s famous red crab migration.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for wildlife, local food, and a trip that feels genuinely different.",
     "interests": []
   },
   {
@@ -727,7 +727,7 @@
     "flagEmoji": "🇨🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Pulu Keeling National Park protects North Keeling Island and surrounding waters in the Cocos (Keeling) Islands. Travelers come for the seabird rookery and the park’s exceptional marine wildlife.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -740,7 +740,7 @@
     "flagEmoji": "🇨🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Cartagena’s port, fortresses, and monuments are a UNESCO World Heritage site with some of South America’s most extensive fortifications. Visitors come for the historic walled city and colonial architecture.",
+    "description": "Caribbean Sea edges and Pacific Ocean influences make it feel distinctive. Go for temples and heritage sites and music and arts, local food, and a trip that feels genuinely different.",
     "interests": [
       "culture",
       "action",
@@ -757,7 +757,7 @@
     "flagEmoji": "🇰🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "The Mwali (Moheli) Biosphere Reserve covers the entire land and marine territory of Moheli and is recognized by UNESCO for its biodiversity. Travelers come for its island landscapes and marine ecosystems.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -773,7 +773,7 @@
     "flagEmoji": "🇨🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Aitutaki Lagoon is central to the Cook Islands and is highlighted by local authorities as a defining draw for visitors. Travelers come for the lagoon’s clear waters and island atmosphere.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -789,7 +789,7 @@
     "flagEmoji": "🇨🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Cocos Island National Park is a UNESCO World Heritage site renowned for its tropical rainforest and rich marine ecosystems. Divers and nature travelers come for large pelagic wildlife and remote beauty.",
+    "description": "Caribbean Sea edges and Pacific Ocean influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "action",
@@ -806,7 +806,7 @@
     "flagEmoji": "🇭🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Dubrovnik’s Old City is a UNESCO World Heritage site known for its preserved Gothic, Renaissance, and Baroque architecture. Visitors come for the historic walls and Adriatic coastal setting.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "culture",
@@ -823,7 +823,7 @@
     "flagEmoji": "🇨🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Old Havana and its fortifications are a UNESCO World Heritage site with a distinctive mix of Baroque and neoclassical architecture. Travelers come for the historic plazas, streets, and seafront fortifications.",
+    "description": "Caribbean Sea edges and Atlantic Ocean influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather",
@@ -840,7 +840,7 @@
     "flagEmoji": "🇨🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Willemstad’s historic area is a UNESCO World Heritage site shaped by Dutch colonial urban planning and a natural harbor. Visitors come for its distinctive waterfront districts and architecture.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -853,7 +853,7 @@
     "flagEmoji": "🇨🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Paphos is a UNESCO World Heritage site with significant archaeological remains linked to the cult of Aphrodite. Travelers come for the ancient sites and renowned mosaics.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "culture",
@@ -870,7 +870,7 @@
     "flagEmoji": "🇨🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Prague’s historic centre is a UNESCO World Heritage site spanning the Old Town, Lesser Town, and New Town. Visitors come for the city’s monumental architecture and cultural heritage.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "culture"
     ]
@@ -885,7 +885,7 @@
     "flagEmoji": "🇨🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Côte d'Ivoire. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -898,7 +898,7 @@
     "flagEmoji": "🇰🇵",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Dem. Rep. Korea. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for coastal views and riverside scenes, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -911,7 +911,7 @@
     "flagEmoji": "🇨🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Democratic Republic of the Congo. It is loved for its hospitality, culture, and character.",
+    "description": "Mountain backdrops and fresh air shape the trip. Go for rainforests, local food, and a trip that feels genuinely different.",
     "interests": [
       "action"
     ]
@@ -926,7 +926,7 @@
     "flagEmoji": "🇩🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Denmark. The mix of history and modern life makes it a classic trip.",
+    "description": "Baltic Sea edges and North Sea influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -941,7 +941,7 @@
     "flagEmoji": "🇩🇯",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Deep history and strong traditions shape the journey in Djibouti. It is loved for its culture, flavors, and welcoming spirit.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action"
     ]
@@ -956,7 +956,7 @@
     "flagEmoji": "🇩🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Dominica. The energy, culture, and local pride make it unforgettable.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation",
@@ -973,7 +973,7 @@
     "flagEmoji": "🇩🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Dominican Republic. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Caribbean Sea and Atlantic Ocean give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -989,7 +989,7 @@
     "flagEmoji": "🇪🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Ecuador. The energy, culture, and local pride make it unforgettable.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture",
@@ -1006,7 +1006,7 @@
     "flagEmoji": "🇪🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and modern life meet in compelling ways in Egypt. It is loved for its culture, flavors, and welcoming spirit.",
+    "description": "Red Sea edges and Mediterranean Sea influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -1022,7 +1022,7 @@
     "flagEmoji": "🇸🇻",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in El Salvador. Visitors come for the food, music, and human connection.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -1038,7 +1038,7 @@
     "flagEmoji": "🇬🇶",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Equatorial Guinea. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "action"
     ]
@@ -1053,7 +1053,7 @@
     "flagEmoji": "🇪🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Eritrea. It is loved for its hospitality, culture, and character.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1068,7 +1068,7 @@
     "flagEmoji": "🇪🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Estonia. The mix of history and modern life makes it a classic trip.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1083,7 +1083,7 @@
     "flagEmoji": "🇪🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Ethiopia. The mix of culture and landscapes makes it unforgettable.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "culture",
       "action"
@@ -1099,7 +1099,7 @@
     "flagEmoji": "🇫🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Faeroe Islands. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Atlantic Ocean edges and Arctic influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -1112,7 +1112,7 @@
     "flagEmoji": "🇫🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Color, culture, and daily life give it its spark in Falkland Islands / Malvinas. The energy, culture, and local pride make it unforgettable.",
+    "description": "Raw, remote scenery creates a once-in-a-lifetime feeling. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -1125,7 +1125,7 @@
     "flagEmoji": "🇫🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Federated States of Micronesia. The blend of tradition and modern life keeps it captivating.",
+    "description": "Island life and salt air set the tone. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "weather",
       "relaxation",
@@ -1142,7 +1142,7 @@
     "flagEmoji": "🇫🇯",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Fiji. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -1158,7 +1158,7 @@
     "flagEmoji": "🇫🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Finland. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for lake country, great food, and a memorable sense of place.",
     "interests": [
       "culture",
       "action"
@@ -1174,7 +1174,7 @@
     "flagEmoji": "🇫🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in France. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "North Sea edges and Mediterranean Sea influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -1190,7 +1190,7 @@
     "flagEmoji": "🇬🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in French Guiana. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": []
   },
   {
@@ -1203,7 +1203,7 @@
     "flagEmoji": "🇵🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in French Polynesia. It is loved for its culture, hospitality, and variety.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -1216,7 +1216,7 @@
     "flagEmoji": "🇹🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in French Southern and Antarctic Lands. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Raw, remote scenery creates a once-in-a-lifetime feeling. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": []
   },
   {
@@ -1229,7 +1229,7 @@
     "flagEmoji": "🇬🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Gabon. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": [
       "action"
     ]
@@ -1244,7 +1244,7 @@
     "flagEmoji": "🇬🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Georgia. Visitors return for the culture, art, and timeless feel.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "culture",
       "action"
@@ -1260,7 +1260,7 @@
     "flagEmoji": "🇩🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Germany. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Baltic Sea edges and North Sea influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1275,7 +1275,7 @@
     "flagEmoji": "🇬🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Ghana. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for rainforests, local food, and a trip that feels genuinely different.",
     "interests": [
       "culture"
     ]
@@ -1290,7 +1290,7 @@
     "flagEmoji": "🇬🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Gibraltar. Visitors return for the culture, art, and timeless feel.",
+    "description": "Mediterranean Sea and Atlantic Ocean give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -1303,7 +1303,7 @@
     "flagEmoji": "🇬🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Greece. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Ionian Sea and Aegean Sea give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather",
@@ -1320,7 +1320,7 @@
     "flagEmoji": "🇬🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Greenland. The mix of history and modern life makes it a classic trip.",
+    "description": "Extreme landscapes and profound quiet make it unforgettable. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "action"
     ]
@@ -1335,7 +1335,7 @@
     "flagEmoji": "🇬🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Grenada. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -1351,7 +1351,7 @@
     "flagEmoji": "🇬🇵",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Guadeloupe. Visitors come for the food, music, and human connection.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -1364,7 +1364,7 @@
     "flagEmoji": "🇬🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Guam. The blend of tradition and modern life keeps it captivating.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -1380,7 +1380,7 @@
     "flagEmoji": "🇬🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Guatemala. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -1396,7 +1396,7 @@
     "flagEmoji": "🇬🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Guernsey. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Sea views and island pace make it instantly relaxing. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": []
   },
   {
@@ -1409,7 +1409,7 @@
     "flagEmoji": "🇬🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Guinea. The mix of culture and landscapes makes it unforgettable.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1424,7 +1424,7 @@
     "flagEmoji": "🇬🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, community, and scenery create a memorable trip in Guinea-Bissau. The mix of culture and landscapes makes it unforgettable.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "culture"
     ]
@@ -1439,7 +1439,7 @@
     "flagEmoji": "🇬🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Guyana. Visitors come for the food, music, and human connection.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action"
     ]
@@ -1454,7 +1454,7 @@
     "flagEmoji": "🇭🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Haiti. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1469,7 +1469,7 @@
     "flagEmoji": "🇭🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Heard I. and McDonald Islands. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Vast wilderness and stark beauty set the mood. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": []
   },
   {
@@ -1482,7 +1482,7 @@
     "flagEmoji": "🇭🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Color, culture, and daily life give it its spark in Honduras. Visitors come for the food, music, and human connection.",
+    "description": "Caribbean Sea and Pacific Ocean give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -1498,7 +1498,7 @@
     "flagEmoji": "🇭🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Hong Kong. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Island life and salt air set the tone. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "culture",
       "weather"
@@ -1514,7 +1514,7 @@
     "flagEmoji": "🇭🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Hungary. The mix of history and modern life makes it a classic trip.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "culture"
     ]
@@ -1529,7 +1529,7 @@
     "flagEmoji": "🇮🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Iceland. Visitors return for the culture, art, and timeless feel.",
+    "description": "Atlantic Ocean and Arctic Ocean give it a signature feel. Go for glaciers and volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": [
       "action",
       "culture"
@@ -1545,7 +1545,7 @@
     "flagEmoji": "🇮🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Strong traditions and local life shape the experience in India. Visitors come for the culture, food, and unforgettable energy.",
+    "description": "Set between Arabian Sea and Indian Ocean, it delivers big scenery and a strong sense of place. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -1561,7 +1561,7 @@
     "flagEmoji": "🇮🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Indonesia. It is loved for its culture, hospitality, and variety.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "weather",
       "culture",
@@ -1579,7 +1579,7 @@
     "flagEmoji": "🇮🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and modern life meet in compelling ways in Iran. It is loved for its culture, flavors, and welcoming spirit.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "culture"
     ]
@@ -1594,7 +1594,7 @@
     "flagEmoji": "🇮🇶",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in Iraq. Visitors come for the heritage, food, and memorable atmosphere.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": [
       "culture"
     ]
@@ -1609,7 +1609,7 @@
     "flagEmoji": "🇮🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Ireland. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1624,7 +1624,7 @@
     "flagEmoji": "🇮🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Isle of Man. Visitors return for the culture, art, and timeless feel.",
+    "description": "A strong sense of place makes it hard to forget. Go for coastal views, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -1637,7 +1637,7 @@
     "flagEmoji": "🇮🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and modern life meet in compelling ways in Israel. It is loved for its culture, flavors, and welcoming spirit.",
+    "description": "Red Sea edges and Mediterranean Sea influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -1653,7 +1653,7 @@
     "flagEmoji": "🇮🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Italy. Visitors return for the culture, art, and timeless feel.",
+    "description": "Set between Mediterranean Sea and Alps, it delivers big scenery and a strong sense of place. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -1669,7 +1669,7 @@
     "flagEmoji": "🇯🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Jamaica. The energy, culture, and local pride make it unforgettable.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "weather",
       "relaxation",
@@ -1686,7 +1686,7 @@
     "flagEmoji": "🇯🇵",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Japan. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -1702,7 +1702,7 @@
     "flagEmoji": "🇯🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Jersey. Visitors return for the culture, art, and timeless feel.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": []
   },
   {
@@ -1715,7 +1715,7 @@
     "flagEmoji": "🇯🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in Jordan. The mix of tradition and daily life keeps it captivating.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -1731,7 +1731,7 @@
     "flagEmoji": "🇰🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Kazakhstan. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "A strong sense of place makes it hard to forget. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "action",
       "culture"
@@ -1747,7 +1747,7 @@
     "flagEmoji": "🇰🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Kenya. The mix of culture and landscapes makes it unforgettable.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture"
@@ -1763,7 +1763,7 @@
     "flagEmoji": "🇸🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Kingdom of eSwatini. It is loved for its hospitality, culture, and character.",
+    "description": "Rugged terrain and sweeping views make it feel wild and rewarding. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "action",
       "culture"
@@ -1779,7 +1779,7 @@
     "flagEmoji": "🇰🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Kiribati. The blend of tradition and modern life keeps it captivating.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for coral reefs, local food, and a trip that feels genuinely different.",
     "interests": [
       "weather",
       "relaxation"
@@ -1795,7 +1795,7 @@
     "flagEmoji": "🇽🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Kosovo. The mix of history and modern life makes it a classic trip.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -1808,7 +1808,7 @@
     "flagEmoji": "🇰🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in Kuwait. Visitors come for the heritage, food, and memorable atmosphere.",
+    "description": "A strong sense of place makes it hard to forget. Travelers love the culture, the scenery, and the small moments that turn into stories.",
     "interests": [
       "culture"
     ]
@@ -1823,7 +1823,7 @@
     "flagEmoji": "🇰🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Kyrgyzstan. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Rugged terrain and sweeping views make it feel wild and rewarding. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "action",
       "culture"
@@ -1839,7 +1839,7 @@
     "flagEmoji": "🇱🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Lao PDR. It is loved for its culture, hospitality, and variety.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "culture",
       "action"
@@ -1855,7 +1855,7 @@
     "flagEmoji": "🇱🇻",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Latvia. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "A strong sense of place makes it hard to forget. Travelers love the culture, the scenery, and the small moments that turn into stories.",
     "interests": [
       "culture"
     ]
@@ -1870,7 +1870,7 @@
     "flagEmoji": "🇱🇧",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in Lebanon. Visitors come for the heritage, food, and memorable atmosphere.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1885,7 +1885,7 @@
     "flagEmoji": "🇱🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Lesotho. It is loved for its hospitality, culture, and character.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "action"
     ]
@@ -1900,7 +1900,7 @@
     "flagEmoji": "🇱🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Liberia. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1915,7 +1915,7 @@
     "flagEmoji": "🇱🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Deep history and strong traditions shape the journey in Libya. Travelers love the hospitality, cuisine, and sense of place.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1930,7 +1930,7 @@
     "flagEmoji": "🇱🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Liechtenstein. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Rugged terrain and sweeping views make it feel wild and rewarding. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "action"
     ]
@@ -1945,7 +1945,7 @@
     "flagEmoji": "🇱🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Lithuania. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -1960,7 +1960,7 @@
     "flagEmoji": "🇱🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Luxembourg. The mix of history and modern life makes it a classic trip.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "culture"
     ]
@@ -1975,7 +1975,7 @@
     "flagEmoji": "🇲🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Macao. It is loved for its culture, hospitality, and variety.",
+    "description": "Island life and salt air set the tone. Travelers love the culture, the scenery, and the small moments that turn into stories.",
     "interests": [
       "culture"
     ]
@@ -1990,7 +1990,7 @@
     "flagEmoji": "🇲🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Madagascar. It is loved for its hospitality, culture, and character.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "relaxation"
@@ -2006,7 +2006,7 @@
     "flagEmoji": "🇲🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, community, and scenery create a memorable trip in Malawi. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "action",
       "relaxation"
@@ -2022,7 +2022,7 @@
     "flagEmoji": "🇲🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Malaysia. It is loved for its culture, hospitality, and variety.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather",
@@ -2039,7 +2039,7 @@
     "flagEmoji": "🇲🇻",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and daily life create a vivid, immersive visit in Maldives. Visitors come for the culture, food, and unforgettable energy.",
+    "description": "Set between Arabian Sea and Indian Ocean, it delivers big scenery and a strong sense of place. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -2055,7 +2055,7 @@
     "flagEmoji": "🇲🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Mali. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": [
       "culture"
     ]
@@ -2070,7 +2070,7 @@
     "flagEmoji": "🇲🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Malta. Visitors return for the culture, art, and timeless feel.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -2086,7 +2086,7 @@
     "flagEmoji": "🇲🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Marshall Islands. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -2102,7 +2102,7 @@
     "flagEmoji": "🇲🇶",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Martinique. The energy, culture, and local pride make it unforgettable.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -2115,7 +2115,7 @@
     "flagEmoji": "🇲🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Mauritania. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Atlantic Ocean and Sahara give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -2131,7 +2131,7 @@
     "flagEmoji": "🇲🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Mauritius. The mix of culture and landscapes makes it unforgettable.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -2147,7 +2147,7 @@
     "flagEmoji": "🇾🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Mayotte. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": []
   },
   {
@@ -2160,7 +2160,7 @@
     "flagEmoji": "🇲🇽",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Mexico. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Caribbean Sea and Pacific Ocean give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather",
@@ -2177,7 +2177,7 @@
     "flagEmoji": "🇲🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Moldova. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "culture"
     ]
@@ -2192,7 +2192,7 @@
     "flagEmoji": "🇲🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Monaco. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "culture"
@@ -2208,7 +2208,7 @@
     "flagEmoji": "🇲🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Mongolia. The blend of tradition and modern life keeps it captivating.",
+    "description": "Arid scenery and dramatic distance define the journey. Go for desert-scale landscapes, warm hospitality, and nights that feel far from everything.",
     "interests": [
       "action",
       "culture"
@@ -2224,7 +2224,7 @@
     "flagEmoji": "🇲🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Montenegro. The mix of history and modern life makes it a classic trip.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "relaxation"
@@ -2240,7 +2240,7 @@
     "flagEmoji": "🇲🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Montserrat. The energy, culture, and local pride make it unforgettable.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -2253,7 +2253,7 @@
     "flagEmoji": "🇲🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Deep history and strong traditions shape the journey in Morocco. It is loved for its culture, flavors, and welcoming spirit.",
+    "description": "Set between Mediterranean Sea and Atlantic Ocean, it delivers big scenery and a strong sense of place. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -2269,7 +2269,7 @@
     "flagEmoji": "🇲🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Mozambique. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "relaxation",
       "action"
@@ -2285,7 +2285,7 @@
     "flagEmoji": "🇲🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Myanmar. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "culture"
     ]
@@ -2300,7 +2300,7 @@
     "flagEmoji": "🇳🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Namibia. It is loved for its hospitality, culture, and character.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action"
     ]
@@ -2315,7 +2315,7 @@
     "flagEmoji": "🇳🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Nauru. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "relaxation"
     ]
@@ -2330,7 +2330,7 @@
     "flagEmoji": "🇳🇵",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Strong traditions and local life shape the experience in Nepal. Travelers love the cuisine, hospitality, and cultural depth.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "action",
       "culture"
@@ -2346,7 +2346,7 @@
     "flagEmoji": "🇳🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Netherlands. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -2361,7 +2361,7 @@
     "flagEmoji": "🇳🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in New Caledonia. It is loved for its culture, hospitality, and variety.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -2374,7 +2374,7 @@
     "flagEmoji": "🇳🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in New Zealand. It is loved for its culture, hospitality, and variety.",
+    "description": "Pacific Ocean and Alps give it a signature feel. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": [
       "action",
       "relaxation"
@@ -2390,7 +2390,7 @@
     "flagEmoji": "🇳🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Nicaragua. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "action",
       "culture"
@@ -2406,7 +2406,7 @@
     "flagEmoji": "🇳🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Niger. The mix of culture and landscapes makes it unforgettable.",
+    "description": "Desert light and wide-open horizons make it feel cinematic. Go for desert-scale landscapes, warm hospitality, and nights that feel far from everything.",
     "interests": [
       "culture",
       "action"
@@ -2422,7 +2422,7 @@
     "flagEmoji": "🇳🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Nigeria. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Atlantic Ocean edges and Sahel influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -2437,7 +2437,7 @@
     "flagEmoji": "🇳🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Niue. The blend of tradition and modern life keeps it captivating.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for coral reefs, local food, and a trip that feels genuinely different.",
     "interests": [
       "relaxation"
     ]
@@ -2452,7 +2452,7 @@
     "flagEmoji": "🇳🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Norfolk Island. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -2465,7 +2465,7 @@
     "flagEmoji": "🇲🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in North Macedonia. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": []
   },
   {
@@ -2478,7 +2478,7 @@
     "flagEmoji": "🇲🇵",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Northern Mariana Islands. The blend of tradition and modern life keeps it captivating.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -2491,7 +2491,7 @@
     "flagEmoji": "🇳🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Norway. Visitors return for the culture, art, and timeless feel.",
+    "description": "Set between North Sea and Arctic, it delivers big scenery and a strong sense of place. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture"
@@ -2507,7 +2507,7 @@
     "flagEmoji": "🇴🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in Oman. Travelers love the hospitality, cuisine, and sense of place.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -2523,7 +2523,7 @@
     "flagEmoji": "🇵🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and daily life create a vivid, immersive visit in Pakistan. Visitors come for the culture, food, and unforgettable energy.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -2539,7 +2539,7 @@
     "flagEmoji": "🇵🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Palau. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "relaxation",
       "action"
@@ -2555,7 +2555,7 @@
     "flagEmoji": "🇵🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich cultural legacy defines the experience in Palestine. The mix of tradition and daily life keeps it captivating.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": []
   },
   {
@@ -2568,7 +2568,7 @@
     "flagEmoji": "🇵🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Panama. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Set between Caribbean Sea and Pacific Ocean, it delivers big scenery and a strong sense of place. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action",
@@ -2585,7 +2585,7 @@
     "flagEmoji": "🇵🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Papua New Guinea. The blend of tradition and modern life keeps it captivating.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture"
@@ -2601,7 +2601,7 @@
     "flagEmoji": "🇵🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Paraguay. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -2616,7 +2616,7 @@
     "flagEmoji": "🇵🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Peru. The energy, culture, and local pride make it unforgettable.",
+    "description": "Pacific Ocean edges and Andes influences make it feel distinctive. Go for rainforests, local food, and a trip that feels genuinely different.",
     "interests": [
       "culture",
       "action"
@@ -2632,7 +2632,7 @@
     "flagEmoji": "🇵🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Philippines. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation",
@@ -2649,7 +2649,7 @@
     "flagEmoji": "🇵🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Pitcairn Islands. It is loved for its culture, hospitality, and variety.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": []
   },
   {
@@ -2662,7 +2662,7 @@
     "flagEmoji": "🇵🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Poland. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -2677,7 +2677,7 @@
     "flagEmoji": "🇵🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Portugal. Visitors return for the culture, art, and timeless feel.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather",
@@ -2694,7 +2694,7 @@
     "flagEmoji": "🇵🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Puerto Rico. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Island life and salt air set the tone. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "weather",
       "relaxation",
@@ -2711,7 +2711,7 @@
     "flagEmoji": "🇶🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in Qatar. Visitors come for the heritage, food, and memorable atmosphere.",
+    "description": "Arid scenery and dramatic distance define the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "culture"
     ]
@@ -2726,7 +2726,7 @@
     "flagEmoji": "🇨🇻",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Republic of Cabo Verde. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Island life and salt air set the tone. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": [
       "weather",
       "relaxation"
@@ -2742,7 +2742,7 @@
     "flagEmoji": "🇰🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Republic of Korea. It is loved for its culture, hospitality, and variety.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "culture"
     ]
@@ -2757,7 +2757,7 @@
     "flagEmoji": "🇨🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Republic of the Congo. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action"
     ]
@@ -2772,7 +2772,7 @@
     "flagEmoji": "🇷🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Romania. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -2788,7 +2788,7 @@
     "flagEmoji": "🇷🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Russian Federation. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "culture",
       "action"
@@ -2804,7 +2804,7 @@
     "flagEmoji": "🇷🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Rwanda. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": [
       "action",
       "culture"
@@ -2820,7 +2820,7 @@
     "flagEmoji": "🇷🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, community, and scenery create a memorable trip in Réunion. It is loved for its hospitality, culture, and character.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -2833,7 +2833,7 @@
     "flagEmoji": "🇸🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Saint Helena. The mix of culture and landscapes makes it unforgettable.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": []
   },
   {
@@ -2846,7 +2846,7 @@
     "flagEmoji": "🇰🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Saint Kitts and Nevis. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Island life and salt air set the tone. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "weather",
       "relaxation"
@@ -2862,7 +2862,7 @@
     "flagEmoji": "🇱🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Saint Lucia. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "weather",
       "relaxation"
@@ -2878,7 +2878,7 @@
     "flagEmoji": "🇵🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Wide-ranging landscapes and cultural life set the tone in Saint Pierre and Miquelon. Travelers love the variety, comfort, and sense of possibility.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -2891,7 +2891,7 @@
     "flagEmoji": "🇻🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Saint Vincent and the Grenadines. The energy, culture, and local pride make it unforgettable.",
+    "description": "Caribbean Sea and Atlantic Ocean give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -2907,7 +2907,7 @@
     "flagEmoji": "🇧🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Saint-Barthélemy. Visitors come for the food, music, and human connection.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -2920,7 +2920,7 @@
     "flagEmoji": "🇲🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Vibrant culture and everyday energy define the experience in Saint-Martin. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": []
   },
   {
@@ -2933,7 +2933,7 @@
     "flagEmoji": "🇼🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Samoa. The blend of tradition and modern life keeps it captivating.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation",
@@ -2950,7 +2950,7 @@
     "flagEmoji": "🇸🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in San Marino. Visitors return for the culture, art, and timeless feel.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the scenery and culture, and let the slower moments be the highlight.",
     "interests": [
       "culture"
     ]
@@ -2965,7 +2965,7 @@
     "flagEmoji": "🇸🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Deep history and strong traditions shape the journey in Saudi Arabia. Visitors come for the heritage, food, and memorable atmosphere.",
+    "description": "Big skies and stark landscapes give it a powerful sense of space. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -2980,7 +2980,7 @@
     "flagEmoji": "🇸🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Senegal. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -2995,7 +2995,7 @@
     "flagEmoji": "🇷🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Serbia. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "A strong sense of place makes it hard to forget. Go for Balkan culture, memorable scenery, and an easy sense of discovery day to day.",
     "interests": [
       "culture"
     ]
@@ -3010,7 +3010,7 @@
     "flagEmoji": "🇸🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Traditions and everyday life shape the experience in Seychelles. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -3026,7 +3026,7 @@
     "flagEmoji": "🇸🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Sierra Leone. It is loved for its hospitality, culture, and character.",
+    "description": "A strong sense of place makes it hard to forget. Go for rainforests, local food, and a trip that feels genuinely different.",
     "interests": [
       "culture",
       "relaxation"
@@ -3042,7 +3042,7 @@
     "flagEmoji": "🇸🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Singapore. The blend of tradition and modern life keeps it captivating.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -3058,7 +3058,7 @@
     "flagEmoji": "🇸🇽",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in Sint Maarten. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Island life and salt air set the tone. Go for coastal views, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -3071,7 +3071,7 @@
     "flagEmoji": "🇸🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Slovakia. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Rugged terrain and sweeping views make it feel wild and rewarding. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "culture",
       "action"
@@ -3087,7 +3087,7 @@
     "flagEmoji": "🇸🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Slovenia. Visitors return for the culture, art, and timeless feel.",
+    "description": "Adriatic Sea and Alps give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action"
@@ -3103,7 +3103,7 @@
     "flagEmoji": "🇸🇧",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Solomon Islands. The blend of tradition and modern life keeps it captivating.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "relaxation",
       "action"
@@ -3119,7 +3119,7 @@
     "flagEmoji": "🇸🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Somalia. It is loved for its hospitality, culture, and character.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -3134,7 +3134,7 @@
     "flagEmoji": "🇿🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in South Africa. It is loved for its hospitality, culture, and character.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture",
@@ -3151,7 +3151,7 @@
     "flagEmoji": "🇬🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in South Georgia and the Islands. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -3164,7 +3164,7 @@
     "flagEmoji": "🇸🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in South Sudan. It is loved for its hospitality, culture, and character.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "action",
       "culture"
@@ -3180,7 +3180,7 @@
     "flagEmoji": "🇪🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Spain. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Mediterranean Sea edges and Atlantic Ocean influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather",
@@ -3197,7 +3197,7 @@
     "flagEmoji": "🇱🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Strong traditions and local life shape the experience in Sri Lanka. The depth of tradition makes it a powerful trip.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather",
@@ -3214,7 +3214,7 @@
     "flagEmoji": "🇸🇩",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Sudan. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -3229,7 +3229,7 @@
     "flagEmoji": "🇸🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Suriname. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Lush landscapes and wild nature make it feel alive. Go for rainforests, local food, and a trip that feels genuinely different.",
     "interests": [
       "action"
     ]
@@ -3244,7 +3244,7 @@
     "flagEmoji": "🇸🇯",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Svalbard and Jan Mayen. The mix of history and modern life makes it a classic trip.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": []
   },
   {
@@ -3257,7 +3257,7 @@
     "flagEmoji": "🇸🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Sweden. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "culture",
       "action"
@@ -3273,7 +3273,7 @@
     "flagEmoji": "🇨🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Switzerland. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "High-country scenery and a strong sense of place set the pace. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "action",
       "culture"
@@ -3289,7 +3289,7 @@
     "flagEmoji": "🇸🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich cultural legacy defines the experience in Syria. Visitors come for the heritage, food, and memorable atmosphere.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -3304,7 +3304,7 @@
     "flagEmoji": "🇸🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in São Tomé and Principe. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "relaxation",
       "action"
@@ -3320,7 +3320,7 @@
     "flagEmoji": "🇹🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Taiwan. The blend of tradition and modern life keeps it captivating.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -3336,7 +3336,7 @@
     "flagEmoji": "🇹🇯",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place and tradition defines the visit in Tajikistan. The mix of history and modern life makes it a classic trip.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "action",
       "culture"
@@ -3352,7 +3352,7 @@
     "flagEmoji": "🇹🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Tanzania. It is loved for its hospitality, culture, and character.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture"
@@ -3368,7 +3368,7 @@
     "flagEmoji": "🇹🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Thailand. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "A strong sense of place makes it hard to forget. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "culture",
       "weather",
@@ -3385,7 +3385,7 @@
     "flagEmoji": "🇬🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in The Gambia. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -3401,7 +3401,7 @@
     "flagEmoji": "🇹🇱",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Timor-Leste. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for nature that feels close at hand, great food, and a memorable sense of place.",
     "interests": [
       "action",
       "culture"
@@ -3417,7 +3417,7 @@
     "flagEmoji": "🇹🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Togo. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "culture"
     ]
@@ -3432,7 +3432,7 @@
     "flagEmoji": "🇹🇰",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Tokelau. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Island life and salt air set the tone. Go for coral reefs, local food, and a trip that feels genuinely different.",
     "interests": []
   },
   {
@@ -3445,7 +3445,7 @@
     "flagEmoji": "🇹🇴",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich mix of heritage and contemporary life defines the visit in Tonga. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -3461,7 +3461,7 @@
     "flagEmoji": "🇹🇹",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Color, culture, and daily life give it its spark in Trinidad and Tobago. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Island life and salt air set the tone. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "culture",
       "weather",
@@ -3478,7 +3478,7 @@
     "flagEmoji": "🇹🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and modern life meet in compelling ways in Tunisia. The mix of tradition and daily life keeps it captivating.",
+    "description": "Mediterranean Sea and Sahara give it a signature feel. Go for ruins and archaeology, local food, and a trip that feels genuinely different.",
     "interests": [
       "culture",
       "weather"
@@ -3494,7 +3494,7 @@
     "flagEmoji": "🇹🇷",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Turkey. Visitors return for the culture, art, and timeless feel.",
+    "description": "Set between Aegean Sea and Black Sea, it delivers big scenery and a strong sense of place. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -3510,7 +3510,7 @@
     "flagEmoji": "🇹🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Layered history and local traditions set the tone in Turkmenistan. The mix of history and modern life makes it a classic trip.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for coastal views, great food, and a memorable sense of place.",
     "interests": [
       "culture",
       "action"
@@ -3526,7 +3526,7 @@
     "flagEmoji": "🇹🇨",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and a strong sense of rhythm shape the visit in Turks and Caicos Islands. Visitors come for the food, music, and human connection.",
+    "description": "Sea views and island pace make it instantly relaxing. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -3542,7 +3542,7 @@
     "flagEmoji": "🇹🇻",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Everyday life, traditions, and scenery give it its character in Tuvalu. The blend of tradition and modern life keeps it captivating.",
+    "description": "Coast-first days and a slower rhythm define the escape. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "weather",
       "relaxation"
@@ -3558,7 +3558,7 @@
     "flagEmoji": "🇺🇬",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A strong sense of place gives the visit its character in Uganda. The mix of culture and landscapes makes it unforgettable.",
+    "description": "A strong sense of place makes it hard to forget. Go for lake country, great food, and a memorable sense of place.",
     "interests": [
       "action",
       "culture"
@@ -3574,7 +3574,7 @@
     "flagEmoji": "🇺🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, heritage, and everyday life make it distinctive in Ukraine. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -3589,7 +3589,7 @@
     "flagEmoji": "🇦🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Heritage and everyday life create a distinct atmosphere in United Arab Emirates. Visitors come for the heritage, food, and memorable atmosphere.",
+    "description": "Distinct character and local rhythm make it worth the journey. It is perfect for wandering, unwinding, and soaking up everyday life.",
     "interests": [
       "culture",
       "weather"
@@ -3605,7 +3605,7 @@
     "flagEmoji": "🇬🇧",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in United Kingdom. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "North Sea edges and Atlantic Ocean influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -3620,7 +3620,7 @@
     "flagEmoji": "🇺🇸",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Diverse regions and everyday culture give it its character in United States. The mix of nature and culture makes it an easy favorite.",
+    "description": "Island life and salt air set the tone. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "action",
@@ -3637,7 +3637,7 @@
     "flagEmoji": "🇺🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in United States Minor Outlying Islands. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Caribbean Sea and Pacific Ocean give it a signature feel. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": []
   },
   {
@@ -3650,7 +3650,7 @@
     "flagEmoji": "🇻🇮",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A lively spirit and distinctive heritage define the trip in United States Virgin Islands. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "Island life and salt air set the tone. Go for coastal views, great food, and a memorable sense of place.",
     "interests": []
   },
   {
@@ -3663,7 +3663,7 @@
     "flagEmoji": "🇺🇾",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Color, culture, and daily life give it its spark in Uruguay. Travelers love the warmth, flavors, and welcoming feel.",
+    "description": "A strong sense of place makes it hard to forget. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "relaxation"
@@ -3679,7 +3679,7 @@
     "flagEmoji": "🇺🇿",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Uzbekistan. Travelers love the walkable feel, the food, and the cultural depth.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "culture"
     ]
@@ -3694,7 +3694,7 @@
     "flagEmoji": "🇻🇺",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Vanuatu. Travelers love the food, the rhythm of daily life, and the sense of discovery.",
+    "description": "Island life and salt air set the tone. Go for volcanic landscapes, local food, and a trip that feels genuinely different.",
     "interests": [
       "relaxation",
       "action"
@@ -3710,7 +3710,7 @@
     "flagEmoji": "🇻🇦",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Its character comes from history, culture, and lived-in charm in Vatican. It is loved for its atmosphere, cuisine, and local character.",
+    "description": "Culture, everyday life, and atmosphere give it real pull. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": [
       "culture"
     ]
@@ -3725,7 +3725,7 @@
     "flagEmoji": "🇻🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Color, culture, and daily life give it its spark in Venezuela. It is loved for its culture, hospitality, and sense of joy.",
+    "description": "Caribbean Sea edges and Atlantic Ocean influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "action",
       "culture"
@@ -3741,7 +3741,7 @@
     "flagEmoji": "🇻🇳",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Distinctive culture and varied landscapes shape the experience in Vietnam. It is loved for its culture, hospitality, and variety.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture",
       "weather"
@@ -3757,7 +3757,7 @@
     "flagEmoji": "🇼🇫",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local traditions and modern energy create a memorable trip in Wallis and Futuna Islands. Visitors come for the atmosphere, flavors, and memorable moments.",
+    "description": "Sea views and island pace make it instantly relaxing. Come for the atmosphere and landscapes, then stay for the food and local warmth.",
     "interests": []
   },
   {
@@ -3770,7 +3770,7 @@
     "flagEmoji": "🇪🇭",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Tradition and modern life meet in compelling ways in Western Sahara. Travelers love the hospitality, cuisine, and sense of place.",
+    "description": "Desert light and wide-open horizons make it feel cinematic. Go for desert-scale landscapes, warm hospitality, and nights that feel far from everything.",
     "interests": []
   },
   {
@@ -3783,7 +3783,7 @@
     "flagEmoji": "🇾🇪",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "A rich cultural legacy defines the experience in Yemen. The mix of tradition and daily life keeps it captivating.",
+    "description": "Red Sea edges and Arabian Sea influences make it feel distinctive. Go for sea air, coastal days, and a culture you can taste in the food and daily life.",
     "interests": [
       "culture"
     ]
@@ -3798,7 +3798,7 @@
     "flagEmoji": "🇿🇲",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Culture, community, and scenery create a memorable trip in Zambia. Visitors come for the culture, food, and meaningful encounters.",
+    "description": "Distinct character and local rhythm make it worth the journey. Go for local food, a change of pace, and days that feel like a genuine escape.",
     "interests": [
       "action"
     ]
@@ -3813,7 +3813,7 @@
     "flagEmoji": "🇿🇼",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Local culture and distinctive landscapes define the journey in Zimbabwe. Travelers love the warmth, authenticity, and sense of discovery.",
+    "description": "A strong sense of place makes it hard to forget. Go for riverside scenes, great food, and a memorable sense of place.",
     "interests": [
       "action",
       "culture"
@@ -3829,7 +3829,7 @@
     "flagEmoji": "🇦🇽",
     "baselineCost": 0,
     "nightlyCost": 0,
-    "description": "Åland is an archipelago of about 6,700 islands, according to the official Visit Åland tourism site. Travelers are drawn to its maritime setting, outdoor life, and island culture.",
+    "description": "A strong sense of place makes it hard to forget. Show up curious and leave with stories, flavors, and a real sense of place.",
     "interests": []
   }
 ]

@@ -245,6 +245,11 @@ return () => unsubscribe();
 4. Review AI cost audit notes:
    - `docs/TRAVEL_COSTS_AI_AUDIT.md`
 
+### Regenerate Country Descriptions
+- Script: `node scripts/generate_country_descriptions.mjs`
+- Writes: `public/data/countries.json`
+- Sources: `docs/COUNTRY_DESCRIPTION_SOURCES.md`
+
 ---
 
 ## Testing Workflow (Post-MVP)

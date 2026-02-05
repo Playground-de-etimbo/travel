@@ -87,6 +87,11 @@ const TITLE_ALIASES = {
   FK: 'Falkland Islands',
 };
 
+const SPECIAL_DESCRIPTIONS = {
+  // Keep Antarctica grounded and non-trivial.
+  AQ: 'Icebound wilderness around the South Pole makes it feel truly otherworldly. Go for stark beauty and iconic polar wildlife in one of the planet’s most remote places.',
+};
+
 function hashCode(value) {
   let hash = 0;
   for (let i = 0; i < value.length; i++) hash = (hash * 31 + value.charCodeAt(i)) | 0;
@@ -115,29 +120,115 @@ function extractFlags(extract) {
   };
 }
 
-function buildDescription({ extract, seed }) {
+function findKeywordHighlights(extract) {
+  const text = (extract ?? '').toLowerCase();
+  const has = (re) => re.test(text);
+
+  const keywords = [];
+  const push = (label, re) => {
+    if (keywords.length >= 3) return;
+    if (has(re)) keywords.push(label);
+  };
+
+  push('glaciers', /\bglacier(s)?\b/);
+  push('waterfalls', /\bwaterfall(s)?\b/);
+  push('volcanic landscapes', /\bvolcano(es)?\b|\bvolcanic\b/);
+  push('rainforests', /\brainforest(s)?\b|\bjungle\b/);
+  push('coral reefs', /\bcoral\b|\breef(s)?\b/);
+  push('wildlife', /\bwildlife\b|\banimal(s)?\b|\bfauna\b/);
+  push('penguins', /\bpenguin(s)?\b/);
+  push('ruins and archaeology', /\barchaeolog(y|ical)\b|\bruins\b/);
+  push('temples and heritage sites', /\btemple(s)?\b|\bheritage\b|\bworld heritage\b|\bunesco\b/);
+  push('music and arts', /\bmusic\b|\barts?\b/);
+  push('beaches', /\bbeach(es)?\b/);
+
+  return keywords;
+}
+
+function findNamedHighlights(extract) {
+  // Only use phrases we can literally find in the Wikipedia extract, to avoid inventing specifics.
+  const source = extract ?? '';
+
+  const candidates = [
+    // Seas / oceans / regions (most helpful for travel copy).
+    'Ionian Sea',
+    'Adriatic Sea',
+    'Aegean Sea',
+    'Red Sea',
+    'Black Sea',
+    'Baltic Sea',
+    'North Sea',
+    'Arabian Sea',
+    'South China Sea',
+    'Caribbean Sea',
+    'Mediterranean Sea',
+    'Pacific Ocean',
+    'Atlantic Ocean',
+    'Indian Ocean',
+    'Arctic Ocean',
+
+    // Big landscapes / regions that are commonly referenced in intros.
+    'Sahara',
+    'Balkans',
+    'Alps',
+    'Andes',
+    'Himalayas',
+    'Amazon',
+    'Sahel',
+    'South Pole',
+    'Arctic',
+    'Antarctica',
+  ];
+
+  const found = [];
+  for (const phrase of candidates) {
+    // Use word boundaries to avoid substring mistakes (e.g., "Arctic" inside "Antarctic").
+    const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(`\\b${escaped}\\b`, 'i');
+    if (re.test(source)) found.push(phrase);
+    if (found.length >= 2) break;
+  }
+
+  return found;
+}
+
+function buildDescription({ code, extract, seed }) {
+  if (SPECIAL_DESCRIPTIONS[code]) return SPECIAL_DESCRIPTIONS[code];
+
   const flags = extractFlags(extract);
+  let highlights = findNamedHighlights(extract);
+  const keywordHighlights = findKeywordHighlights(extract);
+
+  // Avoid contentious Antarctica references for non-Antarctica entries.
+  if (code !== 'AQ') {
+    highlights = highlights.filter((h) => h !== 'Antarctica' && h !== 'South Pole');
+  }
 
   const openers = {
+    named: [
+      `${highlights[0]} and ${highlights[1]} give it a signature feel.`,
+      `Set between ${highlights[0]} and ${highlights[1]}, it delivers big scenery and a strong sense of place.`,
+      `${highlights[0]} edges and ${highlights[1]} influences make it feel distinctive.`,
+    ],
     island: [
-      'Island life and open horizons set the tone.',
-      'Sun, sea air, and island pace make it instantly relaxing.',
-      'Coast-first days and a slower rhythm define the getaway.',
+      'Island life and salt air set the tone.',
+      'Sea views and island pace make it instantly relaxing.',
+      'Coast-first days and a slower rhythm define the escape.',
     ],
     desert: [
-      'Desert light and wide-open landscapes make it feel cinematic.',
+      'Desert light and wide-open horizons make it feel cinematic.',
       'Big skies and stark landscapes give it a powerful sense of space.',
-      'Arid scenery and dramatic horizons define the journey.',
+      'Arid scenery and dramatic distance define the journey.',
     ],
     mountains: [
-      'Mountain scenery and a strong sense of place shape the trip.',
-      'High-country landscapes and fresh air set the pace.',
+      'Mountain backdrops and fresh air shape the trip.',
+      'High-country scenery and a strong sense of place set the pace.',
       'Rugged terrain and sweeping views make it feel wild and rewarding.',
     ],
     rainforest: [
       'Lush landscapes and wild nature make it feel alive.',
       'Tropical green and big nature shape the adventure.',
-      'Wild ecosystems and vivid scenery define the escape.',
+      'Rainforest energy and vivid scenery define the escape.',
     ],
     polar: [
       'Extreme landscapes and profound quiet make it unforgettable.',
@@ -145,24 +236,27 @@ function buildDescription({ extract, seed }) {
       'Vast wilderness and stark beauty set the mood.',
     ],
     default: [
-      'A strong sense of place makes it an easy yes.',
+      'A strong sense of place makes it hard to forget.',
       'Culture, everyday life, and atmosphere give it real pull.',
       'Distinct character and local rhythm make it worth the journey.',
     ],
   };
 
   let openerKey = 'default';
-  if (flags.polar) openerKey = 'polar';
+  if (highlights.length >= 2) openerKey = 'named';
+  else if (flags.polar) openerKey = 'polar';
   else if (flags.island) openerKey = 'island';
   else if (flags.desert) openerKey = 'desert';
   else if (flags.rainforest) openerKey = 'rainforest';
   else if (flags.mountains) openerKey = 'mountains';
 
   const second = [
-    'Go for local food, easy days, and the feeling of discovering somewhere new.',
-    'Travelers love the mix of culture and scenery, plus the everyday moments that become stories.',
+    'Go for local food, a change of pace, and days that feel like a genuine escape.',
+    'Travelers love the culture, the scenery, and the small moments that turn into stories.',
     'Come for the atmosphere and landscapes, then stay for the food and local warmth.',
-    'It is perfect for slowing down, exploring, and soaking up the local vibe.',
+    'It is perfect for wandering, unwinding, and soaking up everyday life.',
+    'Show up curious and leave with stories, flavors, and a real sense of place.',
+    'Come for the scenery and culture, and let the slower moments be the highlight.',
   ];
 
   // Add a light nudge toward nature if the extract suggests it, without inventing specifics.
@@ -173,16 +267,28 @@ function buildDescription({ extract, seed }) {
   if (flags.rivers) natureNudge.push('riverside scenes');
   if (flags.volcano) natureNudge.push('volcanic landscapes');
 
-  const nudge = natureNudge.length
-    ? `Go for ${pick(
-        [
-          `${natureNudge.slice(0, 2).join(' and ')},`,
-          `${natureNudge[0]},`,
-          `nature that feels close at hand,`,
-        ],
-        seed + 13
-      )} great food, and a memorable sense of place.`
-    : pick(second, seed + 7);
+  let nudge = '';
+  if (keywordHighlights.length) {
+    const list = keywordHighlights.slice(0, 2).join(' and ');
+    nudge = `Go for ${list}, local food, and a trip that feels genuinely different.`;
+  } else if (highlights.length >= 1) {
+    const h = highlights[0];
+    if (/Sea|Ocean/i.test(h)) nudge = 'Go for sea air, coastal days, and a culture you can taste in the food and daily life.';
+    else if (/Sahara|desert/i.test(h)) nudge = 'Go for desert-scale landscapes, warm hospitality, and nights that feel far from everything.';
+    else if (/Balkans/i.test(h)) nudge = 'Go for Balkan culture, memorable scenery, and an easy sense of discovery day to day.';
+    else nudge = pick(second, seed + 19);
+  } else if (natureNudge.length) {
+    nudge = `Go for ${pick(
+      [
+        `${natureNudge.slice(0, 2).join(' and ')},`,
+        `${natureNudge[0]},`,
+        `nature that feels close at hand,`,
+      ],
+      seed + 13
+    )} great food, and a memorable sense of place.`;
+  } else {
+    nudge = pick(second, seed + 7);
+  }
 
   return `${pick(openers[openerKey], seed)} ${nudge}`;
 }
@@ -255,7 +361,7 @@ async function main() {
       }
     }
 
-    const description = buildDescription({ extract: wiki.extract, seed });
+    const description = buildDescription({ code, extract: wiki.extract, seed });
     countries[i] = { ...country, description };
     sourcesRows.push({
       code,
@@ -282,4 +388,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-

@@ -135,6 +135,11 @@ The project uses `react-simple-maps` for the interactive world map:
 
 - GeoJSON data: `public/data/countries.geo.json` (Natural Earth 10m resolution)
 - Country metadata: `public/data/countries.json`
+
+### Country Descriptions
+- Descriptions are generated from Wikipedia page summaries (two sentences, travel-pitch tone).
+- Generation script: `scripts/generate_country_descriptions.mjs`
+- Source log: `docs/COUNTRY_DESCRIPTION_SOURCES.md`
 - Map colors: Defined in `src/lib/map/colors.ts` using "Midnight Map" theme
 
 ### Click-to-Toggle Implementation
