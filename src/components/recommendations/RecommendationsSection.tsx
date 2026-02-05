@@ -70,6 +70,7 @@ export function RecommendationsSection({
           detectedCountry={detectedCountry}
           onDetectionDismiss={dismissDetection}
           showDetectionBadge={!isDismissed && detectedCountry !== null}
+          savedPreferences={preferences}
         />
 
         {error && (

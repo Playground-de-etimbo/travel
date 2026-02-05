@@ -18,6 +18,7 @@ interface PreferencesFormProps {
   detectedCountry?: string | null;
   onDetectionDismiss?: () => void;
   showDetectionBadge?: boolean;
+  savedPreferences?: RecommendationPreferences | null;
 }
 
 export function PreferencesForm({
@@ -28,10 +29,15 @@ export function PreferencesForm({
   detectedCountry,
   onDetectionDismiss,
   showDetectionBadge = false,
+  savedPreferences,
 }: PreferencesFormProps) {
-  const [home, setHome] = useState<string | null>(null);
-  const [interests, setInterests] = useState<TravelInterest[]>(['culture']);
-  const [duration, setDuration] = useState<FlightDuration | null>('12-plus');
+  const [home, setHome] = useState<string | null>(savedPreferences?.homeLocation ?? null);
+  const [interests, setInterests] = useState<TravelInterest[]>(
+    savedPreferences?.interests ?? ['culture']
+  );
+  const [duration, setDuration] = useState<FlightDuration | null>(
+    savedPreferences?.maxFlightDuration ?? '12-plus'
+  );
 
   // Track last generated values to prevent infinite loop
   const lastGeneratedRef = useRef<string>('');
@@ -48,6 +54,22 @@ export function PreferencesForm({
     setHome(countryCode);
     onHomeSelected(countryCode);
   };
+
+  // Update form state when saved preferences load from storage
+  useEffect(() => {
+    if (savedPreferences) {
+      if (savedPreferences.homeLocation) {
+        setHome(savedPreferences.homeLocation);
+        onHomeSelected(savedPreferences.homeLocation);
+      }
+      if (savedPreferences.interests) {
+        setInterests(savedPreferences.interests);
+      }
+      if (savedPreferences.maxFlightDuration) {
+        setDuration(savedPreferences.maxFlightDuration);
+      }
+    }
+  }, [savedPreferences, onHomeSelected]);
 
   // Update home when detectedCountry changes (on mount)
   // Don't re-populate if user has dismissed the detection (showDetectionBadge=false)

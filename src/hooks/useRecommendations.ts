@@ -23,20 +23,33 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
   const [error, setError] = useState<Error | null>(null);
   const [hasGeneratedThisSession, setHasGeneratedThisSession] = useState(false);
 
-  // Load budget tier from storage on mount
+  // Load saved data from storage on mount
   useEffect(() => {
-    const loadBudgetTier = async () => {
+    const loadSavedData = async () => {
       try {
         const userData = await storage.load();
+
+        // Load budget tier
         const storedTier = userData?.preferences?.recommendations?.budgetTier;
         if (storedTier) {
           setActiveTier(storedTier);
         }
+
+        // Load saved recommendations and form preferences
+        const savedRecommendations = userData?.recommendations;
+        if (savedRecommendations) {
+          setResult(savedRecommendations);
+
+          // Restore form inputs from saved preferences
+          if (savedRecommendations.preferences) {
+            setPreferences(savedRecommendations.preferences);
+          }
+        }
       } catch (error) {
-        console.warn('Failed to load budget tier:', error);
+        console.warn('Failed to load saved data:', error);
       }
     };
-    loadBudgetTier();
+    loadSavedData();
   }, []);
 
   const generate = useCallback(
