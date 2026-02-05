@@ -214,6 +214,18 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
     }
   }, [panToCountryCode, panToCountry, resolveCountryFromGeo]);
 
+  // Hide tooltip when scrolling to prevent it from staying stuck
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tooltip.visible) {
+        hide();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [tooltip.visible, hide]);
+
   const handleClick = (geo: any, event?: React.MouseEvent) => {
     // Stop propagation to prevent ZoomableGroup from zooming
     if (event) {
@@ -282,6 +294,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
         backgroundSize: '300px 300px',
         backgroundRepeat: 'repeat',
       }}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Lightening overlay */}
       <div className="absolute inset-0 bg-white opacity-70 pointer-events-none" />
