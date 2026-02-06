@@ -24,12 +24,12 @@ export function SampleResults() {
       </div>
 
       {/* Sample cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {sampleCountries.map((country) => (
           <Card key={country.name} className="overflow-hidden opacity-60">
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col md:flex-row md:h-full">
               {/* Image placeholder with flag - more compact */}
-              <div className="md:w-2/5 h-32 md:h-auto relative bg-gradient-to-br from-accent/20 to-primary/20">
+              <div className="md:w-2/5 h-48 md:h-full md:min-h-[320px] flex-shrink-0 relative bg-gradient-to-br from-accent/20 to-primary/20">
                 <div className="absolute inset-0 flex items-center justify-center text-5xl">
                   {country.flag}
                 </div>
