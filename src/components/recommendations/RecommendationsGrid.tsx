@@ -19,7 +19,7 @@ export function RecommendationsGrid({
 }: RecommendationsGridProps) {
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-wrap justify-between items-center gap-3 mb-6">
         <h3 className="text-lg font-semibold">
           {recommendations.length} Recommendations
         </h3>

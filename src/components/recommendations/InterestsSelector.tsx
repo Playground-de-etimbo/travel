@@ -79,7 +79,7 @@ export function InterestsSelector({
               'flex flex-col items-center gap-3',
               isSelected
                 ? `bg-gradient-to-br ${interest.gradient} border-2 border-accent shadow-md scale-[1.02]`
-                : 'bg-white border-2 border-muted hover:shadow-md hover:scale-[1.02]',
+                : 'bg-white border-2 border-muted hover:shadow-md active:scale-[0.98]',
               disabled && 'cursor-not-allowed opacity-40'
             )}
           >
