@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Sun, Palmtree, Landmark, Footprints, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { TravelInterest } from '@/types/recommendation';
@@ -52,20 +53,32 @@ export function InterestsSelector({
   onChange,
   disabled = false,
 }: InterestsSelectorProps) {
+  // Local state for optimistic UI updates
+  const [optimisticSelected, setOptimisticSelected] = useState<TravelInterest[]>(selected);
+
+  // Sync with prop changes
+  useEffect(() => {
+    setOptimisticSelected(selected);
+  }, [selected]);
+
   const handleToggle = (interestId: TravelInterest) => {
     if (disabled) return;
 
-    if (selected.includes(interestId)) {
-      onChange(selected.filter((id) => id !== interestId));
-    } else {
-      onChange([...selected, interestId]);
-    }
+    // Optimistically update UI immediately
+    const newSelection = optimisticSelected.includes(interestId)
+      ? optimisticSelected.filter((id) => id !== interestId)
+      : [...optimisticSelected, interestId];
+
+    setOptimisticSelected(newSelection);
+
+    // Notify parent (may trigger slow operations)
+    onChange(newSelection);
   };
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {INTERESTS.map((interest) => {
-        const isSelected = selected.includes(interest.id);
+        const isSelected = optimisticSelected.includes(interest.id);
         const Icon = interest.icon;
 
         return (
@@ -79,7 +92,7 @@ export function InterestsSelector({
               'flex flex-col items-center gap-3',
               isSelected
                 ? `bg-gradient-to-br ${interest.gradient} border-2 border-accent shadow-md scale-[1.02]`
-                : 'bg-white border-2 border-muted hover:shadow-md active:scale-[0.98]',
+                : 'bg-card text-card-foreground border-2 border-border hover:shadow-md active:scale-[0.98]',
               disabled && 'cursor-not-allowed opacity-40'
             )}
           >
