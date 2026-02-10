@@ -46,7 +46,7 @@ export function TechStackSection() {
             href={tech.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative p-4 rounded-lg border-2 border-border bg-white hover:border-accent/50 hover:shadow-md transition-all duration-200"
+            className="group relative p-4 rounded-lg border-2 border-border bg-card text-card-foreground hover:border-accent/50 hover:shadow-md transition-all duration-200"
           >
             {/* Content */}
             <div className="flex items-start gap-3">

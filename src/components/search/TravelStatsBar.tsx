@@ -13,7 +13,7 @@ export const TravelStatsBar = ({ beenTo, totalCountries, isMobile = false }: Tra
 
   return (
     <div className="flex justify-center">
-      <p className="text-sm font-medium text-gray-800 whitespace-nowrap">
+      <p className="text-sm font-medium text-foreground/70 whitespace-nowrap">
         {formattedString}
       </p>
     </div>

@@ -61,7 +61,7 @@ export function BudgetSlider({ tier, onTierChange }: BudgetSliderProps) {
                 'flex flex-col items-center gap-3 text-center',
                 isSelected
                   ? 'bg-accent/10 border-accent shadow-md scale-[1.02]'
-                  : 'bg-white border-muted hover:shadow-md active:scale-[0.98]'
+                  : 'bg-card text-card-foreground border-border hover:shadow-md active:scale-[0.98]'
               )}
             >
               {/* Unique icon */}

@@ -136,7 +136,7 @@ export const MobileSearchBox = ({
           {toastLabel}
         </div>
       )}
-      <div className="relative flex items-center bg-white rounded-full border-2 border-accent/20 shadow-md px-4 py-3 transition-all focus-within:border-accent/40 focus-within:shadow-lg active:shadow-xl">
+      <div className="relative flex items-center bg-card text-card-foreground rounded-full border-2 border-accent/20 shadow-md px-4 py-3 transition-all focus-within:border-accent/40 focus-within:shadow-lg active:shadow-xl">
         {/* Back button when focused, Search icon when blurred */}
         {isFocused ? (
           <button

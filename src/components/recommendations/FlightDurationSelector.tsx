@@ -62,7 +62,7 @@ export function FlightDurationSelector({
               'flex flex-col items-center justify-center gap-2',
               isSelected
                 ? 'bg-accent/10 border-accent shadow-md scale-[1.02]'
-                : 'bg-white border-muted hover:shadow-md active:scale-[0.98]',
+                : 'bg-card text-card-foreground border-border hover:shadow-md active:scale-[0.98]',
               disabled && 'cursor-not-allowed opacity-40'
             )}
           >

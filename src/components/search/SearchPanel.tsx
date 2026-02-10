@@ -55,7 +55,7 @@ export const SearchPanel = ({
 
       {/* Stats and countries container */}
       <div className="max-w-4xl mx-auto">
-        <Card className="backdrop-blur-md bg-white/80 border border-white/20 shadow-lg">
+        <Card className="backdrop-blur-md bg-card/80 border border-border/20 shadow-lg">
           {/* Stats bar */}
           <div className="px-6 pt-6 pb-4">
             <TravelStatsBar beenTo={beenTo} totalCountries={countries.length} />

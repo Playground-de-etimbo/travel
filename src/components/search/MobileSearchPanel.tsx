@@ -62,7 +62,7 @@ export const MobileSearchPanel = ({
     <div className="md:hidden relative z-30 -mt-48 pb-8 px-2">
       {/* Sticky panel that expands with scroll only when there are many countries */}
       <div
-        className="sticky bottom-0 bg-white rounded-3xl shadow-2xl border-t border-border transition-all duration-200"
+        className="sticky bottom-0 bg-card text-card-foreground rounded-3xl shadow-2xl border-t border-border transition-all duration-200"
         style={{
           minHeight: shouldExpand ? `${focusedHeight}vh` : isSearchFocused ? '96vh' : 'auto',
           maxHeight: shouldExpand ? undefined : isSearchFocused ? '96vh' : '60vh',

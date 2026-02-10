@@ -146,7 +146,7 @@ export function HomeLocationInput({
       {isOpen && filteredCountries.length > 0 && (
         <div
           ref={dropdownRef}
-          className="absolute z-10 w-full mt-2 bg-white border-2 border-muted rounded-lg shadow-lg max-h-60 overflow-y-auto"
+          className="absolute z-10 w-full mt-2 bg-card text-card-foreground border-2 border-border rounded-lg shadow-lg max-h-60 overflow-y-auto"
         >
           {filteredCountries.map((country, index) => (
             <button

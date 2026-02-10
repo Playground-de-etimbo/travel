@@ -131,7 +131,7 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
           {toastLabel}
         </div>
       )}
-      <div className="relative flex items-center bg-white rounded-full border-2 border-accent/20 shadow-lg px-6 py-3.5 transition-all focus-within:border-accent/40 focus-within:shadow-xl hover:shadow-xl">
+      <div className="relative flex items-center bg-card text-card-foreground rounded-full border-2 border-accent/20 shadow-lg px-6 py-3.5 transition-all focus-within:border-accent/40 focus-within:shadow-xl hover:shadow-xl">
         <Search className="h-5 w-5 text-muted-foreground mr-3 flex-shrink-0" />
         <input
           ref={inputRef}
