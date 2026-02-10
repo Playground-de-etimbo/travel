@@ -270,3 +270,96 @@ svg g > g > rect[fill="transparent"] {
 .animate-accordion-up {
   animation: accordion-up 200ms ease-out;
 }
+
+/* Postcard paper - base styles + texture */
+.postcard-paper {
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+/* Subtle paper texture overlay */
+.postcard-paper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Postcard section entrance */
+@keyframes postcardSectionEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.postcard-section-enter {
+  animation: postcardSectionEnter 0.6s ease-out;
+}
+
+/* Postcard card entrance (staggered) */
+@keyframes postcardCardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.postcard-card-enter {
+  animation: postcardCardEnter 0.7s ease-out both;
+}
+
+.postcard-card-enter:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.postcard-card-enter:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+/* Floating pill nav animations */
+@keyframes pillSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pillSlideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.pill-slide-up {
+  animation: pillSlideUp 0.3s ease-out both;
+}
+
+.pill-slide-down {
+  animation: pillSlideDown 0.2s ease-in both;
+}

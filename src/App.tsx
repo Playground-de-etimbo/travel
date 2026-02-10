@@ -7,6 +7,8 @@ import { WorldMap } from '@/components/map/WorldMap';
 import { SearchPanel } from '@/components/search/SearchPanel';
 import { MobileSearchPanel } from '@/components/search/MobileSearchPanel';
 import { RecommendationsSection } from '@/components/recommendations/RecommendationsSection';
+import { PostcardSection } from '@/components/postcard/PostcardSection';
+import { FloatingPillNav } from '@/components/layout/FloatingPillNav';
 import { TechStackSection } from '@/components/footer/TechStackSection';
 import { CountriesNote } from '@/components/footer/CountriesNote';
 import { PortfolioFooter } from '@/components/footer/PortfolioFooter';
@@ -78,6 +80,9 @@ function App() {
                 beenTo={beenTo}
                 addCountry={addCountry}
               />
+
+              {/* Travel Passport / Postcard Section */}
+              <PostcardSection countries={countries} beenTo={beenTo} />
 
               {/* Bottom Sections: Tech Stack + Countries Note */}
               <section id="about" className="py-16 border-t border-border">
@@ -167,6 +172,9 @@ function App() {
                   </Card>
                 </div>
               </section>
+
+              {/* Floating Pill Navigation */}
+              <FloatingPillNav />
             </main>
           } />
         </Routes>
