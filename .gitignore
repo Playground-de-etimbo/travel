@@ -90,5 +90,8 @@ temp/
 .playwright-mcp/
 @/
 
+# Temporary design screenshots in root
+/*.png
+
 # Local HTTPS certificates (mkcert)
 .cert/
