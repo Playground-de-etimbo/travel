@@ -18,7 +18,7 @@ git checkout -b feature/country-card-component
 ```
 
 ### 3. Build the Feature
-- Start dev server: `pnpm dev`
+- Start dev server: `pnpm dev` (trusted HTTPS at `https://localhost:5173`)
 - Write code
 - Test in browser
 - Iterate

@@ -142,11 +142,21 @@ npm install -g pnpm
 # 3. Install dependencies (project already initialized!)
 pnpm install
 
-# 4. Start development
+# 4. Install mkcert (required once per machine for trusted local HTTPS)
+# macOS:
+brew install mkcert
+# Ubuntu:
+# sudo apt install mkcert
+# Windows:
+# choco install mkcert
+
+# 5. Start development
 pnpm dev
 
-# Access at http://localhost:5173
+# Access at https://localhost:5173
 ```
+
+`pnpm dev` runs a preflight script that installs your local trust root (via `mkcert -install`) and generates `.cert/localhost.pem` + `.cert/localhost-key.pem` if missing.
 
 **Note:** The project is now fully initialized! All dependencies, configuration, and foundation code are in place.
 
@@ -166,7 +176,7 @@ docker-compose down   # Stop dev server
 
 **Local:**
 ```bash
-pnpm dev       # Start dev server (http://localhost:5173)
+pnpm dev       # Start trusted HTTPS dev server (https://localhost:5173)
 pnpm build     # Build for production
 pnpm preview   # Preview production build
 ```

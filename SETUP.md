@@ -71,11 +71,28 @@ VITE_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
 ```
 
 ### 4. Start Development Server
+Install `mkcert` once per machine before starting dev:
+
+```bash
+# macOS
+brew install mkcert
+
+# Ubuntu
+# sudo apt install mkcert
+
+# Windows
+# choco install mkcert
+```
+
+Then run:
+
 ```bash
 pnpm run dev
 ```
 
-The app will be available at `http://localhost:5173`
+You may be prompted once for your machine password so `mkcert` can trust the local CA.
+
+The app will be available at `https://localhost:5173`
 
 ---
 
@@ -248,7 +265,7 @@ travel/
 pnpm run dev
 ```
 - Should start without errors
-- Open `http://localhost:5173`
+- Open `https://localhost:5173`
 - Should see Vite + React default page (or our app once built)
 
 ### Check 2: TypeScript
@@ -318,7 +335,7 @@ After setup is complete:
 
 ```bash
 # Development
-pnpm run dev              # Start dev server
+pnpm run dev              # Start trusted HTTPS dev server
 pnpm run build           # Build for production
 pnpm run preview         # Preview production build
 
