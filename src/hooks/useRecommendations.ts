@@ -99,10 +99,14 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
           const recsWithImages = await Promise.all(
             recs.map(async (rec) => {
               const country = countries.find((c) => c.countryCode === rec.countryCode);
-              const imageUrl = country
+              const imageData = country
                 ? await fetchCountryImage(country.countryName).catch(() => null)
                 : null;
-              return { ...rec, imageUrl };
+              return {
+                ...rec,
+                imageUrl: imageData?.imageUrl ?? null,
+                imagePhotographerName: imageData?.photographerName ?? null,
+              };
             })
           );
 

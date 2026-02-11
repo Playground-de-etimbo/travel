@@ -1,5 +1,10 @@
 const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 
+interface UnsplashCountryImage {
+  imageUrl: string;
+  photographerName: string | null;
+}
+
 // Rate limiting: Track requests and implement exponential backoff
 const rateLimiter = {
   requestCount: 0,
@@ -22,7 +27,7 @@ const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
  */
 export async function fetchCountryImage(
   countryName: string
-): Promise<string | null> {
+): Promise<UnsplashCountryImage | null> {
   if (!UNSPLASH_ACCESS_KEY) {
     console.warn('Unsplash API key not configured');
     return null;
@@ -105,14 +110,23 @@ export async function fetchCountryImage(
     }
 
     const data = await response.json();
-    const imageUrl = data.results[0]?.urls?.regular || null;
+    const result = data.results[0];
+    const imageUrl = result?.urls?.regular || null;
+    const photographerName = result?.user?.name || null;
 
     // Success! Reset consecutive failures counter
     if (imageUrl) {
       rateLimiter.consecutiveFailures = 0;
     }
 
-    return imageUrl;
+    if (!imageUrl) {
+      return null;
+    }
+
+    return {
+      imageUrl,
+      photographerName,
+    };
   } catch (error) {
     rateLimiter.consecutiveFailures++;
     // Only log network errors if we haven't given up yet

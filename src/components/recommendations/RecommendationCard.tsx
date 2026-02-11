@@ -40,9 +40,12 @@ export function RecommendationCard({
   country,
   tier: _tier, // Prefixed with _ to indicate intentionally unused (for price table later)
 }: RecommendationCardProps) {
-  const { imageUrl, matchScore, enrichedData } = recommendation;
+  const { imageUrl, imagePhotographerName, matchScore, enrichedData } = recommendation;
   const { countryName, flagEmoji, description } = country;
   const [imageLoaded, setImageLoaded] = useState(false);
+  const imageCreditTooltip = imagePhotographerName
+    ? `Photo by ${imagePhotographerName} on Unsplash`
+    : 'Photo from Unsplash';
 
   // Temporarily unused while price table is hidden
   // const cost = costs[tier];
@@ -63,6 +66,7 @@ export function RecommendationCard({
             <img
               src={imageUrl}
               alt={countryName}
+              title={imageCreditTooltip}
               onLoad={() => setImageLoaded(true)}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'

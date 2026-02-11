@@ -29,6 +29,7 @@ export interface CountryRecommendation {
   countryCode: string;
   reason: string;                       // Personalized reason
   imageUrl: string | null;              // Unsplash URL
+  imagePhotographerName?: string | null; // Unsplash photographer for tooltip attribution
   matchScore: number;                   // 0-100 relevance
   costs: {
     budget: CostBreakdown;

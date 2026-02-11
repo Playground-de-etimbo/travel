@@ -144,6 +144,7 @@ export async function generateRecommendations(
         countryCode: item.country.countryCode,
         reason,
         imageUrl: null, // Will be populated by API call
+        imagePhotographerName: null, // Will be populated by API call
         matchScore: Math.round(item.score),
         costs,
         actionVerb: '', // Will be assigned below

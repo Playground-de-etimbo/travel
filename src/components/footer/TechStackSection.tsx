@@ -68,6 +68,21 @@ export function TechStackSection() {
           </a>
         ))}
       </div>
+
+      {/* Unsplash attribution */}
+      <p className="mt-4 text-xs text-muted-foreground/80 leading-relaxed">
+        Country images are provided via the Unsplash API under the{' '}
+        <a
+          href="https://unsplash.com/license"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-foreground transition-colors"
+        >
+          Unsplash License
+        </a>
+        . Copyright remains with each photographer, and image usage credits Unsplash and the
+        original photographer.
+      </p>
     </div>
   );
 }
