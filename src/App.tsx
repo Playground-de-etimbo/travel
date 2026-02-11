@@ -164,28 +164,6 @@ function App() {
                 </div>
               </section>
 
-              {/* Been To Section */}
-              <section id="been-to" className="py-16 border-t border-border">
-                <div className="container mx-auto px-4">
-                  <div className="mb-8">
-                    <span className="eyebrow-beento text-sm font-semibold uppercase tracking-wider block">
-                      Your Travel Story
-                    </span>
-                    <h2 className="text-5xl font-extrabold mt-4 mb-2 tracking-tight leading-tight text-foreground">
-                      Places You've Been
-                    </h2>
-                    <p className="text-base text-muted-foreground max-w-xl">
-                      Every stamp in your passport tells a story. This is your collection.
-                    </p>
-                  </div>
-                  <Card>
-                    <CardContent className="p-8 text-center text-muted-foreground">
-                      Your travel history will appear here
-                    </CardContent>
-                  </Card>
-                </div>
-              </section>
-
               {/* Want To Go Section */}
               <section id="want-to-go" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
