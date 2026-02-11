@@ -89,3 +89,6 @@ temp/
 # Temporary debugging artifacts
 .playwright-mcp/
 @/
+
+# Local HTTPS certificates (mkcert)
+.cert/
