@@ -146,10 +146,10 @@ function App() {
               <section id="directory" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <span className="eyebrow-directory text-sm font-semibold uppercase tracking-wider">
+                    <span className="eyebrow-directory text-sm font-semibold uppercase tracking-wider block">
                       Explore The World
                     </span>
-                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                    <h2 className="text-5xl font-extrabold mt-4 mb-2 tracking-tight leading-tight text-foreground">
                       Country Directory
                     </h2>
                     <p className="text-base text-muted-foreground max-w-xl">
@@ -168,10 +168,10 @@ function App() {
               <section id="been-to" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <span className="eyebrow-beento text-sm font-semibold uppercase tracking-wider">
+                    <span className="eyebrow-beento text-sm font-semibold uppercase tracking-wider block">
                       Your Travel Story
                     </span>
-                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                    <h2 className="text-5xl font-extrabold mt-4 mb-2 tracking-tight leading-tight text-foreground">
                       Places You've Been
                     </h2>
                     <p className="text-base text-muted-foreground max-w-xl">
@@ -190,10 +190,10 @@ function App() {
               <section id="want-to-go" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <span className="eyebrow-wanttogo text-sm font-semibold uppercase tracking-wider">
+                    <span className="eyebrow-wanttogo text-sm font-semibold uppercase tracking-wider block">
                       Dream Destinations
                     </span>
-                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                    <h2 className="text-5xl font-extrabold mt-4 mb-2 tracking-tight leading-tight text-foreground">
                       Want To Go
                     </h2>
                     <p className="text-base text-muted-foreground max-w-xl">
@@ -212,10 +212,10 @@ function App() {
               <section id="stats" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <span className="eyebrow-stats text-sm font-semibold uppercase tracking-wider">
+                    <span className="eyebrow-stats text-sm font-semibold uppercase tracking-wider block">
                       Travel Intelligence
                     </span>
-                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                    <h2 className="text-5xl font-extrabold mt-4 mb-4 tracking-tight leading-tight text-foreground">
                       Your Travel Stats
                     </h2>
                     <p className="text-base text-muted-foreground max-w-xl">

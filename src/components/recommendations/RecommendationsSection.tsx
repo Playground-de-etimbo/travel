@@ -50,10 +50,10 @@ export function RecommendationsSection({
     >
       <div className="container mx-auto px-4 relative z-10">
         <div className="mb-6">
-          <span className="eyebrow-recommendations text-sm font-semibold uppercase tracking-wider">
+          <span className="eyebrow-recommendations text-sm font-semibold uppercase tracking-wider block">
             AI-Powered Discovery
           </span>
-          <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+          <h2 className="text-5xl font-extrabold mt-4 mb-2 tracking-tight leading-tight text-foreground">
             Personalized Recommendations
           </h2>
           <p className="text-base text-muted-foreground max-w-4xl">
