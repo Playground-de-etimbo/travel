@@ -1,4 +1,13 @@
+import { useId } from 'react';
+
 export const EarthIcon = ({ size = 32, className = '' }: { size?: number; className?: string }) => {
+  // Generate unique IDs for this instance to avoid Chrome SVG rendering bugs
+  const uniqueId = useId();
+  const circleClipId = `circleClip-${uniqueId}`;
+  const spaceGradId = `spaceGrad-${uniqueId}`;
+  const earthGradId = `earthGrad-${uniqueId}`;
+  const sunGradId = `sunGrad-${uniqueId}`;
+
   return (
     <svg
       width={size}
@@ -14,33 +23,33 @@ export const EarthIcon = ({ size = 32, className = '' }: { size?: number; classN
 
       <defs>
         {/* Circular clip path to keep everything inside */}
-        <clipPath id="circleClip">
+        <clipPath id={circleClipId}>
           <circle cx="50" cy="50" r="48" />
         </clipPath>
 
         {/* Space background gradient */}
-        <radialGradient id="spaceGrad" cx="50%" cy="50%">
+        <radialGradient id={spaceGradId} cx="50%" cy="50%">
           <stop offset="0%" stopColor="#1e1b4b" />
           <stop offset="100%" stopColor="#0f172a" />
         </radialGradient>
 
         {/* Earth gradient */}
-        <radialGradient id="earthGrad">
+        <radialGradient id={earthGradId}>
           <stop offset="0%" stopColor="#0ea5e9" />
           <stop offset="100%" stopColor="#0284c7" />
         </radialGradient>
 
         {/* Sun gradient */}
-        <radialGradient id="sunGrad">
+        <radialGradient id={sunGradId}>
           <stop offset="0%" stopColor="#fef08a" />
           <stop offset="100%" stopColor="#fbbf24" />
         </radialGradient>
       </defs>
 
       {/* Everything clipped inside the circle */}
-      <g clipPath="url(#circleClip)">
+      <g clipPath={`url(#${circleClipId})`}>
         {/* Space background */}
-        <circle cx="50" cy="50" r="48" fill="url(#spaceGrad)" />
+        <circle cx="50" cy="50" r="48" fill={`url(#${spaceGradId})`} />
 
         {/* Stars in space */}
         <g fill="#ffffff" opacity="0.8">
@@ -53,8 +62,8 @@ export const EarthIcon = ({ size = 32, className = '' }: { size?: number; classN
         </g>
 
         {/* Earth - huge, cropped bottom-left, rotates on axis */}
-        <g className="earth-rotate" style={{ transformOrigin: '28% 66%', transformBox: 'fill-box' }}>
-          <circle cx="28" cy="66" r="42" fill="url(#earthGrad)" />
+        <g className="earth-rotate" style={{ transformOrigin: '28px 66px' }}>
+          <circle cx="28" cy="66" r="42" fill={`url(#${earthGradId})`} />
 
           {/* Australia landmass - simplified from Natural Earth data */}
           <g fill="#10b981" opacity="0.75">
@@ -79,7 +88,7 @@ export const EarthIcon = ({ size = 32, className = '' }: { size?: number; classN
         <g className="sun-orbit" transform="translate(28, 66)">
           {/* Sun positioned 49 units from origin at -120° angle (NW) */}
           <g transform="translate(-24.5, -42.4)">
-            <circle cx="0" cy="0" r="7" fill="url(#sunGrad)" />
+            <circle cx="0" cy="0" r="7" fill={`url(#${sunGradId})`} />
             <g stroke="#fbbf24" strokeWidth="1.4" strokeLinecap="round" opacity="0.8">
               <line x1="0" y1="-9.5" x2="0" y2="-7" />
               <line x1="9.5" y1="0" x2="7" y2="0" />

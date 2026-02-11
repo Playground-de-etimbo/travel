@@ -264,11 +264,17 @@ svg g > g > rect[fill="transparent"] {
 /* Earth slow spin on load */
 .earth-rotate {
   animation: earth-slow-spin 2.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Sun orbits 90° from NW to SE along earth's horizon */
 .sun-orbit {
   animation: sun-arc 1.8s cubic-bezier(0.42, 0, 0.58, 1) 0.3s forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Ensure rotation happens around the earth center */
