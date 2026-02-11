@@ -1,5 +1,6 @@
 import { Volume2, VolumeX, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { EarthIcon } from './EarthIcon';
 
 type HeaderProps = {
   soundMuted: boolean;
@@ -12,24 +13,22 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
     <header className="absolute top-6 left-0 right-0 z-10 px-4 md:px-8 pointer-events-none">
       {/* Mobile layout: text left, buttons right */}
       <div className="md:hidden flex justify-between items-center w-full">
-        <div className="flex flex-col items-start text-left">
+        <div className="flex items-center gap-2.5">
+          <EarthIcon size={32} className="text-foreground flex-shrink-0" />
           <svg
-            className="w-full max-w-[300px] h-9 text-foreground"
-            viewBox="0 0 300 36"
+            className="h-8 text-foreground"
+            viewBox="0 0 180 32"
             role="img"
             aria-label="Destino"
+            style={{ filter: 'var(--header-text-shadow)' }}
           >
             <title>Destino</title>
             <text
               x="0"
-              y="55%"
+              y="50%"
               textAnchor="start"
               dominantBaseline="middle"
               fill="currentColor"
-              stroke="#ffffff"
-              strokeWidth="6"
-              paintOrder="stroke fill"
-              strokeLinejoin="round"
               style={{ fontFamily: 'Nunito, sans-serif', fontSize: 28, fontWeight: 800, letterSpacing: 1 }}
             >
               DESTINO
@@ -63,7 +62,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
             asChild
             variant="default"
             size="sm"
-            className="h-9 rounded-full pl-2 pr-2 pointer-events-auto"
+            className="h-9 rounded-full px-3 pointer-events-auto"
           >
             <a href="https://buymeacoffee.com/etimbo" target="_blank" rel="noreferrer">
               <span>☕</span>
@@ -100,48 +99,42 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
           </Button>
         </div>
 
-        <div className="flex flex-col items-center text-center">
-          <svg
-            className="w-full max-w-[420px] h-12 text-foreground -mb-3"
-            viewBox="0 0 420 60"
-            role="img"
-            aria-label="Destino"
-          >
-            <title>Destino</title>
-            <text
-              x="50%"
-              y="40%"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="currentColor"
-              stroke="#ffffff"
-              strokeWidth="8"
-              paintOrder="stroke fill"
-              strokeLinejoin="round"
-              style={{ fontFamily: 'Nunito, sans-serif', fontSize: 42, fontWeight: 800, letterSpacing: 2 }}
+        <div className="flex items-center gap-3">
+          <EarthIcon size={56} className="text-foreground flex-shrink-0" />
+          <div className="flex flex-col items-start">
+            <svg
+              className="h-12 text-foreground"
+              viewBox="0 0 280 60"
+              role="img"
+              aria-label="Destino"
+              style={{ filter: 'var(--header-text-shadow)' }}
             >
-              DESTINO
-            </text>
-          </svg>
-          <p
-            className="text-sm font-medium tracking-[0.12em] text-foreground -mt-1 tagline-entrance"
-            style={{
-              fontFamily: 'Fredoka, sans-serif',
-              textShadow: '0 1px 3px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(0, 0, 0, 0.3)',
-            }}
-          >
-            Where on earth have you been?
-          </p>
+              <title>Destino</title>
+              <text
+                x="0"
+                y="50%"
+                textAnchor="start"
+                dominantBaseline="middle"
+                fill="currentColor"
+                style={{ fontFamily: 'Nunito, sans-serif', fontSize: 42, fontWeight: 800, letterSpacing: 2 }}
+              >
+                DESTINO
+              </text>
+            </svg>
+            <p className="hidden md:block text-sm font-medium text-foreground -mt-2">
+              Where on earth have you been?
+            </p>
+          </div>
         </div>
 
         <Button
           asChild
           variant="default"
           size="sm"
-          className="h-9 rounded-full px-4 pointer-events-auto justify-self-end"
+          className="h-9 rounded-full px-3 pointer-events-auto justify-self-end"
         >
           <a href="https://buymeacoffee.com/etimbo" target="_blank" rel="noreferrer">
-            <span className="mr-1.5">☕</span>
+            <span>☕</span>
             <span>Buy me a coffee</span>
           </a>
         </Button>
