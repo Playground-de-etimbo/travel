@@ -1,8 +1,9 @@
 import { geoCentroid, geoBounds } from 'd3-geo';
 import type { FeatureCollection, Geometry } from 'geojson';
+import { MAP_CONFIG } from './config';
 
 export async function loadCountryBoundaries(): Promise<FeatureCollection> {
-  const response = await fetch('/data/countries.geo.json');
+  const response = await fetch(MAP_CONFIG.geoJsonUrl);
   if (!response.ok) {
     throw new Error('Failed to load country boundaries');
   }

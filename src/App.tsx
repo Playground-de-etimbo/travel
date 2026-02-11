@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { Toaster } from '@/components/ui/sonner';
@@ -37,17 +36,15 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className="min-h-screen">
-        <Header
-          soundMuted={soundMuted}
-          onToggleSound={handleToggleSound}
-          onClearSession={clearAll}
-        />
-        <Toaster />
-        <Routes>
-          <Route path="/" element={
-            <main>
+    <div className="min-h-screen">
+      <Header
+        soundMuted={soundMuted}
+        onToggleSound={handleToggleSound}
+        onClearSession={clearAll}
+      />
+      <Toaster />
+      {/* Router wrapper is intentionally disabled while app is single-route. */}
+      <main>
               {/* Map Hero Section - Full viewport interactive map */}
               <section id="map-hero" className="relative">
                 <WorldMap
@@ -173,13 +170,10 @@ function App() {
                 </div>
               </section>
 
-              {/* Floating Pill Navigation */}
-              <FloatingPillNav />
-            </main>
-          } />
-        </Routes>
-      </div>
-    </BrowserRouter>
+        {/* Floating Pill Navigation */}
+        <FloatingPillNav />
+      </main>
+    </div>
   )
 }
 
