@@ -39,7 +39,6 @@ export function RecommendationsSection({
   // Use geolocation hook (runs independently of country loading)
   const {
     detectedCountry,
-    isDetecting,
     isDismissed,
     dismissDetection,
   } = useGeolocation();
@@ -58,7 +57,6 @@ export function RecommendationsSection({
           countries={countries}
           onSubmit={generate}
           onHomeSelected={(code) => addCountry(code)}
-          loading={loading || isDetecting}
           detectedCountry={detectedCountry}
           onDetectionDismiss={dismissDetection}
           showDetectionBadge={!isDismissed && detectedCountry !== null}
@@ -86,15 +84,17 @@ export function RecommendationsSection({
         {loading && (
           <div className="text-center py-4">
             <p className="text-sm text-muted-foreground animate-pulse">
-              Generating your personalized recommendations...
+              {result
+                ? 'Updating recommendations...'
+                : 'Generating your personalized recommendations...'}
             </p>
           </div>
         )}
 
-        {/* Show loading state or results */}
-        {loading && <LoadingState />}
+        {/* Show loading state only before first result to avoid full-grid flicker */}
+        {loading && !result && <LoadingState />}
 
-        {result && !loading && (
+        {result && (
           <RecommendationsGrid
             recommendations={result.recommendations}
             countries={countries}

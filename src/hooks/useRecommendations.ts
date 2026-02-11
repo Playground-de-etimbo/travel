@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import type { Country } from '@/types/country';
 import type {
   BudgetTier,
@@ -22,6 +22,7 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const [hasGeneratedThisSession, setHasGeneratedThisSession] = useState(false);
+  const latestRequestIdRef = useRef(0);
 
   // Load saved data from storage on mount
   useEffect(() => {
@@ -54,8 +55,16 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
 
   const generate = useCallback(
     async (prefs: RecommendationPreferences) => {
+      const requestId = ++latestRequestIdRef.current;
       setLoading(true);
       setError(null);
+
+      // Yield once so urgent UI updates (selection highlight) paint first.
+      await new Promise<void>((resolve) => {
+        window.setTimeout(resolve, 0);
+      });
+
+      if (requestId !== latestRequestIdRef.current) return;
 
       // Reset failure counter for this new generation batch
       resetUnsplashFailures();
@@ -64,33 +73,54 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
         // 1. Run algorithm
         const recs = await generateRecommendations(prefs, countries, beenTo);
 
-        // 2. Fetch images in parallel (with rate limiting handled by API)
-        const recsWithImages = await Promise.all(
-          recs.map(async (rec) => {
-            const country = countries.find(
-              (c) => c.countryCode === rec.countryCode
-            );
-            const imageUrl = country
-              ? await fetchCountryImage(country.countryName).catch(() => null)
-              : null;
-            return { ...rec, imageUrl };
-          })
-        );
+        // If a newer request started, ignore this stale response.
+        if (requestId !== latestRequestIdRef.current) return;
 
-        // 3. Save to storage
-        const newResult: RecommendationResult = {
-          recommendations: recsWithImages,
+        // 2. Show recommendations immediately, then enrich images in background.
+        const baseResult: RecommendationResult = {
+          recommendations: recs,
           preferences: { ...prefs, lastGenerated: new Date() },
           generatedAt: new Date(),
           version: '1.0',
         };
 
-        await storage.update({ recommendations: newResult });
-
-        setResult(newResult);
+        setResult(baseResult);
         setPreferences({ ...prefs, lastGenerated: new Date() });
         setHasGeneratedThisSession(true);
+        setLoading(false);
+
+        // Persist immediately visible result without blocking UI.
+        void storage.update({ recommendations: baseResult }).catch((storageError) => {
+          console.warn('Failed to save recommendations:', storageError);
+        });
+
+        // Enrich image URLs in background and only apply if this is still the latest request.
+        void (async () => {
+          const recsWithImages = await Promise.all(
+            recs.map(async (rec) => {
+              const country = countries.find((c) => c.countryCode === rec.countryCode);
+              const imageUrl = country
+                ? await fetchCountryImage(country.countryName).catch(() => null)
+                : null;
+              return { ...rec, imageUrl };
+            })
+          );
+
+          if (requestId !== latestRequestIdRef.current) return;
+
+          const enrichedResult: RecommendationResult = {
+            ...baseResult,
+            recommendations: recsWithImages,
+          };
+
+          setResult(enrichedResult);
+          void storage.update({ recommendations: enrichedResult }).catch((storageError) => {
+            console.warn('Failed to save enriched recommendations:', storageError);
+          });
+        })();
       } catch (err) {
+        if (requestId !== latestRequestIdRef.current) return;
+
         let errorMessage: Error;
 
         if (err instanceof Error) {
@@ -110,7 +140,6 @@ export function useRecommendations(countries: Country[], beenTo: string[]) {
 
         setError(errorMessage);
         console.error('Recommendation generation failed:', err);
-      } finally {
         setLoading(false);
       }
     },

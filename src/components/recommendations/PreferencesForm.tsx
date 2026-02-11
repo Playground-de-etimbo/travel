@@ -14,7 +14,6 @@ interface PreferencesFormProps {
   countries: Country[];
   onSubmit: (preferences: RecommendationPreferences) => void;
   onHomeSelected: (countryCode: string) => void;
-  loading: boolean;
   detectedCountry?: string | null;
   onDetectionDismiss?: () => void;
   showDetectionBadge?: boolean;
@@ -25,19 +24,27 @@ export function PreferencesForm({
   countries,
   onSubmit,
   onHomeSelected,
-  loading,
   detectedCountry,
   onDetectionDismiss,
   showDetectionBadge = false,
   savedPreferences,
 }: PreferencesFormProps) {
+  const getInitialInterests = (prefs?: RecommendationPreferences | null): TravelInterest[] =>
+    prefs?.interests && prefs.interests.length > 0 ? prefs.interests : ['culture'];
+
+  const getInitialDuration = (prefs?: RecommendationPreferences | null): FlightDuration =>
+    prefs?.maxFlightDuration ?? '12-plus';
+
   const [home, setHome] = useState<string | null>(savedPreferences?.homeLocation ?? null);
-  const [interests, setInterests] = useState<TravelInterest[]>(
-    savedPreferences?.interests ?? ['culture']
-  );
-  const [duration, setDuration] = useState<FlightDuration | null>(
-    savedPreferences?.maxFlightDuration ?? '12-plus'
-  );
+  const [interests, setInterests] = useState<TravelInterest[]>(getInitialInterests(savedPreferences));
+  const [duration, setDuration] = useState<FlightDuration | null>(getInitialDuration(savedPreferences));
+  const hasUserInteractedRef = useRef(false);
+  const lastAppliedSavedSignatureRef = useRef<string | null>(null);
+  const lastAppliedDetectedCountryRef = useRef<string | null>(null);
+  const onHomeSelectedRef = useRef(onHomeSelected);
+  const homeRef = useRef(home);
+  const interestsRef = useRef(interests);
+  const durationRef = useRef(duration);
 
   // Track last generated values to prevent infinite loop
   const lastGeneratedRef = useRef<string>('');
@@ -50,66 +57,117 @@ export function PreferencesForm({
 
   const isValid = home && interests.length > 0 && duration;
 
+  useEffect(() => {
+    onHomeSelectedRef.current = onHomeSelected;
+  }, [onHomeSelected]);
+
+  useEffect(() => {
+    homeRef.current = home;
+  }, [home]);
+
+  useEffect(() => {
+    interestsRef.current = interests;
+  }, [interests]);
+
+  useEffect(() => {
+    durationRef.current = duration;
+  }, [duration]);
+
   const handleHomeChange = (countryCode: string) => {
+    hasUserInteractedRef.current = true;
     setHome(countryCode);
-    onHomeSelected(countryCode);
+    if (countryCode) {
+      onHomeSelectedRef.current(countryCode);
+    }
+  };
+
+  const handleInterestsChange = (newInterests: TravelInterest[]) => {
+    hasUserInteractedRef.current = true;
+    setInterests(newInterests);
+  };
+
+  const handleDurationChange = (newDuration: FlightDuration) => {
+    hasUserInteractedRef.current = true;
+    setDuration(newDuration);
   };
 
   // Update form state when saved preferences load from storage
   useEffect(() => {
-    if (savedPreferences) {
-      if (savedPreferences.homeLocation) {
-        setHome(savedPreferences.homeLocation);
-        onHomeSelected(savedPreferences.homeLocation);
-      }
-      if (savedPreferences.interests) {
-        setInterests(savedPreferences.interests);
-      }
-      if (savedPreferences.maxFlightDuration) {
-        setDuration(savedPreferences.maxFlightDuration);
-      }
+    if (!savedPreferences || hasUserInteractedRef.current) return;
+
+    const savedSignature = JSON.stringify({
+      homeLocation: savedPreferences.homeLocation ?? null,
+      interests: savedPreferences.interests ?? [],
+      maxFlightDuration: savedPreferences.maxFlightDuration ?? null,
+    });
+
+    if (savedSignature === lastAppliedSavedSignatureRef.current) return;
+    lastAppliedSavedSignatureRef.current = savedSignature;
+
+    const nextHome = savedPreferences.homeLocation ?? null;
+    const nextInterests = getInitialInterests(savedPreferences);
+    const nextDuration = getInitialDuration(savedPreferences);
+
+    if (nextHome && nextHome !== homeRef.current) {
+      setHome(nextHome);
+      onHomeSelectedRef.current(nextHome);
     }
-  }, [savedPreferences, onHomeSelected]);
+
+    const interestsChanged =
+      nextInterests.length !== interestsRef.current.length ||
+      nextInterests.some((interest, index) => interest !== interestsRef.current[index]);
+    if (interestsChanged) {
+      setInterests(nextInterests);
+    }
+
+    if (nextDuration !== durationRef.current) {
+      setDuration(nextDuration);
+    }
+  }, [savedPreferences]);
 
   // Update home when detectedCountry changes (on mount)
   // Don't re-populate if user has dismissed the detection (showDetectionBadge=false)
   // Validate that detected country is in our available list before using it
   useEffect(() => {
-    if (detectedCountry && !home && showDetectionBadge) {
-      // Check if detected country is available (has coordinate data)
-      const isAvailable = availableCountries.some(
-        (c) => c.countryCode === detectedCountry
-      );
+    if (!detectedCountry || !showDetectionBadge) return;
+    if (homeRef.current) return;
+    if (lastAppliedDetectedCountryRef.current === detectedCountry) return;
 
-      if (isAvailable) {
-        setHome(detectedCountry);
-        onHomeSelected(detectedCountry);
-      }
-    }
-  }, [detectedCountry, home, showDetectionBadge, onHomeSelected, availableCountries]);
+    // Check if detected country is available (has coordinate data)
+    const isAvailable = availableCountries.some(
+      (c) => c.countryCode === detectedCountry
+    );
 
-  // Auto-generate when all fields are filled or any field changes (if all are filled)
+    if (!isAvailable) return;
+
+    lastAppliedDetectedCountryRef.current = detectedCountry;
+    setHome(detectedCountry);
+    onHomeSelectedRef.current(detectedCountry);
+  }, [detectedCountry, showDetectionBadge, availableCountries]);
+
+  // Auto-generate when all fields are filled or any field changes.
+  // Defer submit to next task so selection visuals paint immediately first.
   useEffect(() => {
-    if (isValid && !loading) {
-      // Create a key from current values to detect actual changes
-      const currentKey = `${home}|${interests.sort().join(',')}|${duration}`;
+    if (!isValid) return;
 
-      // Only generate if values actually changed
-      if (currentKey !== lastGeneratedRef.current) {
-        lastGeneratedRef.current = currentKey;
+    const currentKey = `${home}|${[...interests].sort().join(',')}|${duration}`;
+    if (currentKey === lastGeneratedRef.current) return;
 
-        const preferences: RecommendationPreferences = {
-          homeLocation: home,
-          interests,
-          maxFlightDuration: duration,
-          lastGenerated: new Date(),
-        };
+    lastGeneratedRef.current = currentKey;
 
-        onSubmit(preferences);
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [home, interests, duration]);
+    const preferences: RecommendationPreferences = {
+      homeLocation: home,
+      interests,
+      maxFlightDuration: duration,
+      lastGenerated: new Date(),
+    };
+
+    const timeoutId = window.setTimeout(() => {
+      onSubmit(preferences);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [home, interests, duration, isValid, onSubmit]);
 
   return (
     <div className="space-y-5 mb-6">
@@ -136,7 +194,7 @@ export function PreferencesForm({
         <p className="text-xs text-muted-foreground/80">Select all that apply</p>
         <InterestsSelector
           selected={interests}
-          onChange={setInterests}
+          onChange={handleInterestsChange}
           disabled={false}
         />
       </div>
@@ -148,7 +206,7 @@ export function PreferencesForm({
         </label>
         <FlightDurationSelector
           value={duration}
-          onChange={setDuration}
+          onChange={handleDurationChange}
           disabled={false}
         />
       </div>
