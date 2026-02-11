@@ -1,0 +1,108 @@
+export const EarthIcon = ({ size = 32, className = '' }: { size?: number; className?: string }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role="img"
+      aria-label="Destino logo"
+    >
+      <title>Destino</title>
+
+      <defs>
+        {/* Circular clip path to keep everything inside */}
+        <clipPath id="circleClip">
+          <circle cx="50" cy="50" r="48" />
+        </clipPath>
+
+        {/* Space background gradient */}
+        <radialGradient id="spaceGrad" cx="50%" cy="50%">
+          <stop offset="0%" stopColor="#1e1b4b" />
+          <stop offset="100%" stopColor="#0f172a" />
+        </radialGradient>
+
+        {/* Earth gradient */}
+        <radialGradient id="earthGrad">
+          <stop offset="0%" stopColor="#0ea5e9" />
+          <stop offset="100%" stopColor="#0284c7" />
+        </radialGradient>
+
+        {/* Sun gradient */}
+        <radialGradient id="sunGrad">
+          <stop offset="0%" stopColor="#fef08a" />
+          <stop offset="100%" stopColor="#fbbf24" />
+        </radialGradient>
+      </defs>
+
+      {/* Everything clipped inside the circle */}
+      <g clipPath="url(#circleClip)">
+        {/* Space background */}
+        <circle cx="50" cy="50" r="48" fill="url(#spaceGrad)" />
+
+        {/* Stars in space */}
+        <g fill="#ffffff" opacity="0.8">
+          <circle cx="75" cy="20" r="1" />
+          <circle cx="85" cy="35" r="0.8" />
+          <circle cx="90" cy="50" r="1.2" />
+          <circle cx="80" cy="70" r="0.9" />
+          <circle cx="70" cy="85" r="1" />
+          <circle cx="85" cy="60" r="0.7" />
+        </g>
+
+        {/* Earth - huge, cropped bottom-left, rotates on axis */}
+        <g className="earth-rotate" style={{ transformOrigin: '28% 66%', transformBox: 'fill-box' }}>
+          <circle cx="28" cy="66" r="42" fill="url(#earthGrad)" />
+
+          {/* Australia landmass - simplified from Natural Earth data */}
+          <g fill="#10b981" opacity="0.75">
+            <path d="M 26.1 61.7 L 21.3 62.4 L 18.5 63.5 L 17.8 64.1 L 16.7 64.1 L 15.7 64.0 L 14.2 64.2 L 13.7 64.6 L 12.7 65.1 L 12.4 65.2 L 11.3 65.1 L 10.5 64.9 L 9.6 63.7 L 10.2 62.8 L 10.1 61.5 L 9.5 59.6 L 8.1 56.8 L 8.0 56.3 L 8.2 56.7 L 8.0 55.9 L 8.4 56.2 L 8.7 56.1 L 8.2 55.1 L 8.2 53.7 L 8.3 52.5 L 8.7 52.7 L 9.2 52.1 L 10.8 51.0 L 11.6 50.8 L 12.5 50.7 L 13.5 50.2 L 14.6 50.1 L 16.4 48.6 L 16.7 47.7 L 17.1 46.9 L 17.5 46.6 L 17.9 47.3 L 18.2 47.3 L 18.4 47.1 L 18.0 46.7 L 18.2 46.5 L 18.3 46.4 L 18.6 46.4 L 18.9 46.5 L 19.2 46.0 L 18.9 45.7 L 19.2 45.5 L 19.6 45.6 L 19.5 45.4 L 19.5 45.3 L 19.7 45.2 L 19.9 45.2 L 19.8 45.0 L 19.9 44.7 L 20.1 44.7 L 20.2 44.7 L 20.5 44.8 L 20.6 44.4 L 20.6 44.1 L 20.8 44.4 L 21.0 44.1 L 21.3 44.2 L 21.4 44.0 L 21.7 44.1 L 22.3 44.5 L 22.8 44.9 L 22.6 45.4 L 23.0 45.2 L 23.6 45.1 L 24.1 45.3 L 24.5 44.9 L 24.0 44.6 L 24.2 44.0 L 24.8 43.5 L 25.0 42.8 L 25.1 42.8 L 25.5 42.7 L 25.6 42.3 L 26.4 42.4 L 27.1 42.3 L 26.8 41.6 L 26.4 41.5 L 26.6 41.4 L 26.7 41.3 L 27.1 41.5 L 27.6 41.7 L 28.1 42.0 L 28.6 42.0 L 29.2 42.1 L 29.8 42.4 L 30.1 42.2 L 30.4 42.1 L 30.5 42.4 L 30.8 42.6 L 31.0 42.1 L 31.4 42.6 L 31.1 43.0 L 31.1 43.2 L 30.8 43.3 L 30.4 43.5 L 30.6 43.8 L 29.9 44.9 L 31.0 45.9 L 31.9 46.3 L 33.3 47.0 L 35.1 47.7 L 35.8 46.6 L 36.1 45.0 L 36.1 43.3 L 36.4 42.8 L 36.2 42.4 L 36.6 41.5 L 37.1 41.0 L 37.4 41.6 L 37.6 42.5 L 38.0 43.2 L 38.5 44.7 L 39.1 44.5 L 39.8 45.2 L 39.9 46.0 L 40.2 46.9 L 40.4 47.1 L 40.5 48.3 L 41.1 49.3 L 41.9 49.5 L 42.8 50.1 L 43.1 50.3 L 43.4 50.7 L 43.2 50.9 L 43.6 51.1 L 43.9 51.6 L 44.1 52.4 L 44.5 52.3 L 45.1 52.5 L 45.3 52.7 L 45.4 53.6 L 45.9 54.1 L 46.2 54.2 L 47.1 55.3 L 47.4 55.8 L 47.6 56.5 L 47.7 57.5 L 48.0 58.3 L 47.8 59.7 L 47.5 61.0 L 47.0 62.2 L 46.6 62.8 L 46.1 63.4 L 45.7 63.6 L 45.7 64.1 L 45.3 64.6 L 45.2 65.1 L 44.9 65.6 L 44.6 66.4 L 44.4 67.2 L 44.0 67.8 L 40.9 68.8 L 41.0 69.0 L 40.4 68.9 L 40.0 68.3 L 39.3 68.5 L 39.0 68.2 L 38.6 68.5 L 37.7 68.8 L 36.1 68.4 L 35.1 68.1 L 34.3 67.2 L 33.7 65.8 L 33.8 65.6 L 33.3 65.6 L 32.9 65.5 L 32.8 64.6 L 32.3 65.2 L 31.5 65.2 L 32.0 64.5 L 32.4 63.7 L 32.4 62.9 L 32.3 63.0 L 31.5 63.8 L 30.8 64.3 L 30.4 64.9 L 30.2 65.1 L 29.8 64.7 L 29.8 64.2 L 29.1 63.3 L 28.7 63.1 L 28.6 62.6 L 28.3 62.3 L 27.9 62.3 L 26.9 62.1 Z" />
+          </g>
+
+          {/* Equator line */}
+          <ellipse
+            cx="28"
+            cy="66"
+            rx="42"
+            ry="13"
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="0.7"
+            opacity="0.25"
+          />
+        </g>
+
+        {/* Sun - orbits from NW to SE along earth's visible horizon */}
+        {/* Using transform to position at earth center (28, 66), then rotate */}
+        <g className="sun-orbit" transform="translate(28, 66)">
+          {/* Sun positioned 49 units from origin at -120° angle (NW) */}
+          <g transform="translate(-24.5, -42.4)">
+            <circle cx="0" cy="0" r="7" fill="url(#sunGrad)" />
+            <g stroke="#fbbf24" strokeWidth="1.4" strokeLinecap="round" opacity="0.8">
+              <line x1="0" y1="-9.5" x2="0" y2="-7" />
+              <line x1="9.5" y1="0" x2="7" y2="0" />
+              <line x1="0" y1="9.5" x2="0" y2="7" />
+              <line x1="-9.5" y1="0" x2="-7" y2="0" />
+              <line x1="6.7" y1="-6.7" x2="4.9" y2="-4.9" />
+              <line x1="6.7" y1="6.7" x2="4.9" y2="4.9" />
+              <line x1="-6.7" y1="6.7" x2="-4.9" y2="4.9" />
+              <line x1="-6.7" y1="-6.7" x2="-4.9" y2="-4.9" />
+            </g>
+          </g>
+        </g>
+      </g>
+
+      {/* Border circle - outside the clip */}
+      <circle
+        cx="50"
+        cy="50"
+        r="48"
+        fill="none"
+        stroke="#14b8a6"
+        strokeWidth="4"
+      />
+    </svg>
+  );
+};
