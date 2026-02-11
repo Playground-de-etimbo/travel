@@ -30,11 +30,14 @@ export function TechStackSection() {
     <div>
       {/* Header */}
       <div className="mb-6">
-        <h3 className="text-xl font-bold mb-1.5 tracking-tight">
+        <span className="eyebrow-builtwith text-sm font-semibold uppercase tracking-wider block mb-3">
+          Open Source & Proud
+        </span>
+        <h3 className="text-4xl font-extrabold mb-3 tracking-tight leading-tight text-foreground">
           Built With ❤️
         </h3>
-        <p className="text-sm text-muted-foreground/80">
-          The open-source tools and services powering your travel journey
+        <p className="text-base text-muted-foreground max-w-xl">
+          Crafted with the finest open-source tools and a passion for travel technology
         </p>
       </div>
 

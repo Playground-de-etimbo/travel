@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Recommendations - Destino</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .section-comparison {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .mockup {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .mockup-label {
+      background: #1a1a1a;
+      color: white;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .mockup-label.before {
+      background: #dc2626;
+    }
+
+    .mockup-label.after {
+      background: #059669;
+    }
+
+    /* BEFORE: Current Recommendations */
+    .recommendations-before {
+      background: white;
+      padding: 60px 40px;
+    }
+
+    .recommendations-before h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .recommendations-before p {
+      color: #6b7280;
+      font-size: 16px;
+    }
+
+    /* AFTER: Proposed Recommendations */
+    .recommendations-after {
+      background: linear-gradient(135deg, #0f766e 0%, #059669 100%);
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .recommendations-after::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .recommendations-after .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .recommendations-after .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6ee7b7;
+      margin-bottom: 12px;
+    }
+
+    .recommendations-after h2 {
+      font-size: 42px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .recommendations-after p {
+      color: rgba(255,255,255,0.85);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* BEFORE: Current Built With */
+    .builtwith-before {
+      background: #ede9fe;
+      padding: 60px 40px;
+    }
+
+    .builtwith-before h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .builtwith-before p {
+      color: #6b7280;
+      font-size: 15px;
+    }
+
+    /* AFTER: Proposed Built With */
+    .builtwith-after {
+      background: linear-gradient(to bottom, #fef3c7 0%, #fde68a 100%);
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .builtwith-after::before {
+      content: '⚡';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.08;
+      top: -20px;
+      right: 40px;
+      pointer-events: none;
+    }
+
+    .builtwith-after .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .builtwith-after .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b45309;
+      margin-bottom: 12px;
+    }
+
+    .builtwith-after h3 {
+      font-size: 38px;
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 12px;
+    }
+
+    .builtwith-after p {
+      color: #92400e;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    /* BEFORE: Placeholder Sections */
+    .placeholder-before {
+      background: white;
+      padding: 60px 40px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .placeholder-before h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .placeholder-before p {
+      color: #6b7280;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .placeholder-before .placeholder-box {
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 60px 20px;
+      text-align: center;
+      color: #9ca3af;
+    }
+
+    /* AFTER: Proposed Directory Section */
+    .directory-after {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .directory-after::before {
+      content: '🗺️';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.08;
+      bottom: -40px;
+      right: 40px;
+      pointer-events: none;
+    }
+
+    .directory-after .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .directory-after .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c4b5fd;
+      margin-bottom: 12px;
+    }
+
+    .directory-after h2 {
+      font-size: 42px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .directory-after p {
+      color: rgba(255,255,255,0.85);
+      font-size: 18px;
+    }
+
+    /* AFTER: Proposed Been To Section */
+    .beento-after {
+      background: linear-gradient(135deg, #db2777 0%, #ec4899 100%);
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beento-after::before {
+      content: '✈️';
+      position: absolute;
+      font-size: 180px;
+      opacity: 0.08;
+      top: -20px;
+      right: 60px;
+      pointer-events: none;
+    }
+
+    .beento-after .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .beento-after .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fbcfe8;
+      margin-bottom: 12px;
+    }
+
+    .beento-after h2 {
+      font-size: 42px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .beento-after p {
+      color: rgba(255,255,255,0.85);
+      font-size: 18px;
+    }
+
+    /* Notes */
+    .notes {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 20px 24px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .notes h4 {
+      color: #92400e;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .notes ul {
+      list-style: none;
+      color: #78350f;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .notes ul li::before {
+      content: '→';
+      margin-right: 8px;
+      color: #f59e0b;
+    }
+
+    @media (max-width: 1024px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Design Recommendations for Destino</h1>
+
+    <!-- Recommendations Section -->
+    <div class="section-comparison">
+      <div class="section-title">1. Personalized Recommendations Section (Most Critical)</div>
+      <div class="comparison-grid">
+        <div class="mockup">
+          <div class="mockup-label before">❌ Before (Current)</div>
+          <div class="recommendations-before">
+            <h2>Personalized Recommendations</h2>
+            <p>AI-powered suggestions based on your preferences</p>
+          </div>
+        </div>
+
+        <div class="mockup">
+          <div class="mockup-label after">✅ After (Proposed)</div>
+          <div class="recommendations-after">
+            <div class="content">
+              <div class="eyebrow">AI-Powered Discovery</div>
+              <h2>Your Next Adventure Awaits</h2>
+              <p>Tell us what moves you, and we'll find destinations that match your travel dreams</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <h4>Design Rationale:</h4>
+        <ul>
+          <li><strong>Rich gradient background</strong> (teal/emerald) creates visual interest and energy</li>
+          <li><strong>Atmospheric lighting effects</strong> using radial gradients for depth</li>
+          <li><strong>Eyebrow text</strong> "AI-Powered Discovery" adds hierarchy and context</li>
+          <li><strong>Benefit-focused headline</strong> "Your Next Adventure Awaits" is inspiring vs. descriptive</li>
+          <li><strong>Warm, inviting copy</strong> that speaks to emotion, not features</li>
+          <li><strong>Typography scale</strong> increased for impact (42px headline vs 32px)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Built With Section -->
+    <div class="section-comparison">
+      <div class="section-title">2. Built With Section</div>
+      <div class="comparison-grid">
+        <div class="mockup">
+          <div class="mockup-label before">Current</div>
+          <div class="builtwith-before">
+            <h3>Built With ❤️</h3>
+            <p>The open-source tools and services powering your travel journey</p>
+          </div>
+        </div>
+
+        <div class="mockup">
+          <div class="mockup-label after">✅ Proposed</div>
+          <div class="builtwith-after">
+            <div class="content">
+              <div class="eyebrow">Proudly Using Open Tech</div>
+              <h3>Built With ❤️</h3>
+              <p>Crafted with the finest open-source tools and a passion for travel technology</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <h4>Design Rationale:</h4>
+        <ul>
+          <li><strong>Warm amber/yellow gradient</strong> evokes sunshine and optimism</li>
+          <li><strong>Decorative emoji watermark</strong> adds playfulness without cluttering</li>
+          <li><strong>Better color harmony</strong> with postcard section's warm tones</li>
+          <li><strong>More energetic feel</strong> befitting a celebration of technology</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Placeholder Sections -->
+    <div class="section-comparison">
+      <div class="section-title">3. Placeholder Sections (Country Directory, Been To, Want To Go, Stats)</div>
+      <div class="comparison-grid">
+        <div class="mockup">
+          <div class="mockup-label before">❌ Before (Current)</div>
+          <div class="placeholder-before">
+            <h2>Country Directory</h2>
+            <p>Browse and search all countries</p>
+            <div class="placeholder-box">
+              Country cards and search coming soon
+            </div>
+          </div>
+        </div>
+
+        <div class="mockup">
+          <div class="mockup-label after">✅ After - Directory Example</div>
+          <div class="directory-after">
+            <div class="content">
+              <div class="eyebrow">Explore The World</div>
+              <h2>Country Directory</h2>
+              <p>Browse 195 countries, territories, and destinations waiting to be discovered</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-grid" style="margin-top: 30px;">
+        <div class="mockup">
+          <div class="mockup-label after">✅ After - Been To Example</div>
+          <div class="beento-after">
+            <div class="content">
+              <div class="eyebrow">Your Travel Story</div>
+              <h2>Places You've Been</h2>
+              <p>Every stamp in your passport tells a story. This is your collection.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mockup">
+          <div class="mockup-label">Concept Notes</div>
+          <div style="padding: 40px; background: #f9fafb;">
+            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Section Color Palette Strategy:</h4>
+            <ul style="list-style: none; line-height: 2; color: #374151;">
+              <li><strong style="color: #059669;">🟢 Recommendations:</strong> Teal/Emerald (adventure, discovery)</li>
+              <li><strong style="color: #4f46e5;">🟣 Directory:</strong> Indigo/Purple (exploration, depth)</li>
+              <li><strong style="color: #db2777;">🔴 Been To:</strong> Pink/Rose (memories, emotion)</li>
+              <li><strong style="color: #0891b2;">🔵 Want To Go:</strong> Cyan/Sky (dreams, aspiration)</li>
+              <li><strong style="color: #f59e0b;">🟡 Built With:</strong> Amber/Yellow (warmth, energy)</li>
+              <li><strong style="color: #92400e;">🟤 Postcard:</strong> Cream/Tan (vintage, nostalgia)</li>
+            </ul>
+            <p style="margin-top: 20px; color: #6b7280; font-size: 14px; line-height: 1.6;">
+              Each section gets a distinctive color identity that creates visual rhythm as users scroll.
+              The variety prevents monotony while maintaining cohesion through consistent typography, spacing, and decorative patterns.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <h4>Design Rationale:</h4>
+        <ul>
+          <li><strong>Each section gets unique color identity</strong> for visual rhythm and wayfinding</li>
+          <li><strong>Bold gradient backgrounds</strong> replace plain white, creating atmosphere</li>
+          <li><strong>Decorative emoji watermarks</strong> add personality without cluttering the interface</li>
+          <li><strong>Eyebrow text pattern</strong> consistent across all sections for cohesion</li>
+          <li><strong>Emotionally resonant copy</strong> that tells a story ("Every stamp tells a story")</li>
+          <li><strong>Typography hierarchy</strong> with larger, bolder headings for impact</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="section-comparison" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white;">
+      <div class="section-title" style="color: white;">📋 Summary of Recommendations</div>
+      <div style="padding: 20px 0;">
+        <h4 style="font-size: 20px; margin-bottom: 16px; color: #fbbf24;">Core Design Principles:</h4>
+        <ol style="line-height: 2; padding-left: 24px; color: rgba(255,255,255,0.9);">
+          <li><strong>Create visual rhythm:</strong> Alternate between bold colored sections and neutral sections</li>
+          <li><strong>Use atmospheric backgrounds:</strong> Gradients + subtle effects instead of flat colors</li>
+          <li><strong>Establish hierarchy:</strong> Eyebrow text → Large headline → Supporting copy</li>
+          <li><strong>Write emotionally:</strong> Speak to feelings and benefits, not just features</li>
+          <li><strong>Add subtle decoration:</strong> Emoji watermarks, gradient overlays, lighting effects</li>
+          <li><strong>Be bold with color:</strong> The postcard section proves warm, distinctive palettes work</li>
+        </ol>
+
+        <h4 style="font-size: 20px; margin: 32px 0 16px; color: #fbbf24;">Implementation Priority:</h4>
+        <ol style="line-height: 2; padding-left: 24px; color: rgba(255,255,255,0.9);">
+          <li><strong>🔴 Critical:</strong> Recommendations section (biggest visual disconnect)</li>
+          <li><strong>🟡 High:</strong> Placeholder sections (they need identity before content ships)</li>
+          <li><strong>🟢 Medium:</strong> Built With section (already decent, but could be warmer)</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

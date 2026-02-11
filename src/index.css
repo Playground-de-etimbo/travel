@@ -22,6 +22,31 @@
   --radius-md: calc(0.5rem - 2px);
   --radius-sm: calc(0.5rem - 4px);
 
+  /* Section Header Gradients - Light Mode */
+  --gradient-recommendations-start: hsl(18 94% 48%); /* #ea580c */
+  --gradient-recommendations-end: hsl(22 94% 52%); /* #f97316 */
+  --gradient-postcard-start: hsl(160 84% 39%); /* #10b981 */
+  --gradient-postcard-end: hsl(160 84% 44%); /* #059669 */
+  --gradient-builtwith-start: hsl(38 92% 50%); /* #f59e0b */
+  --gradient-builtwith-end: hsl(32 95% 44%); /* #d97706 */
+  --gradient-directory-start: hsl(239 84% 60%); /* #4f46e5 */
+  --gradient-directory-end: hsl(271 76% 53%); /* #7c3aed */
+  --gradient-beento-start: hsl(333 75% 48%); /* #db2777 */
+  --gradient-beento-end: hsl(333 81% 60%); /* #ec4899 */
+  --gradient-wanttogo-start: hsl(188 85% 32%); /* #0891b2 */
+  --gradient-wanttogo-end: hsl(187 85% 43%); /* #06b6d4 */
+  --gradient-stats-start: hsl(215 20% 37%); /* #475569 */
+  --gradient-stats-end: hsl(215 19% 47%); /* #64748b */
+
+  /* Section Eyebrow Colors */
+  --eyebrow-recommendations: hsl(22 94% 52%);
+  --eyebrow-postcard: hsl(160 84% 39%);
+  --eyebrow-builtwith: hsl(38 92% 50%);
+  --eyebrow-directory: hsl(271 76% 53%);
+  --eyebrow-beento: hsl(333 81% 60%);
+  --eyebrow-wanttogo: hsl(187 85% 43%);
+  --eyebrow-stats: hsl(215 19% 47%);
+
   /* Search Panel specific */
   --color-panel-border: hsl(160 62% 50%);
   --color-panel-shadow: hsl(160 62% 50%);
@@ -68,6 +93,31 @@
     --color-border: hsl(230 20% 20%);
     --color-input: hsl(230 20% 20%);
     --color-ring: hsl(230 68% 56%);
+
+    /* Section Header Gradients - Dark Mode (slightly brighter for contrast) */
+    --gradient-recommendations-start: hsl(18 94% 55%);
+    --gradient-recommendations-end: hsl(22 94% 60%);
+    --gradient-postcard-start: hsl(160 84% 45%);
+    --gradient-postcard-end: hsl(160 84% 50%);
+    --gradient-builtwith-start: hsl(38 92% 55%);
+    --gradient-builtwith-end: hsl(32 95% 50%);
+    --gradient-directory-start: hsl(239 84% 65%);
+    --gradient-directory-end: hsl(271 76% 60%);
+    --gradient-beento-start: hsl(333 75% 55%);
+    --gradient-beento-end: hsl(333 81% 65%);
+    --gradient-wanttogo-start: hsl(188 85% 40%);
+    --gradient-wanttogo-end: hsl(187 85% 50%);
+    --gradient-stats-start: hsl(215 20% 55%);
+    --gradient-stats-end: hsl(215 19% 65%);
+
+    /* Section Eyebrow Colors - Dark Mode */
+    --eyebrow-recommendations: hsl(22 94% 60%);
+    --eyebrow-postcard: hsl(160 84% 45%);
+    --eyebrow-builtwith: hsl(38 92% 55%);
+    --eyebrow-directory: hsl(271 76% 60%);
+    --eyebrow-beento: hsl(333 81% 65%);
+    --eyebrow-wanttogo: hsl(187 85% 50%);
+    --eyebrow-stats: hsl(215 19% 65%);
 
     /* Search Panel specific */
     --color-panel-border: hsl(160 62% 55%);
@@ -409,4 +459,250 @@ svg g > g > rect[fill="transparent"] {
 
 .pill-slide-down {
   animation: pillSlideDown 0.2s ease-in both;
+}
+
+/* Section Header Gradient Text Utilities */
+.gradient-text-recommendations {
+  background: linear-gradient(135deg, var(--gradient-recommendations-start) 0%, var(--gradient-recommendations-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-postcard {
+  background: linear-gradient(135deg, var(--gradient-postcard-start) 0%, var(--gradient-postcard-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-builtwith {
+  background: linear-gradient(135deg, var(--gradient-builtwith-start) 0%, var(--gradient-builtwith-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-directory {
+  background: linear-gradient(135deg, var(--gradient-directory-start) 0%, var(--gradient-directory-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-beento {
+  background: linear-gradient(135deg, var(--gradient-beento-start) 0%, var(--gradient-beento-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-wanttogo {
+  background: linear-gradient(135deg, var(--gradient-wanttogo-start) 0%, var(--gradient-wanttogo-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-stats {
+  background: linear-gradient(135deg, var(--gradient-stats-start) 0%, var(--gradient-stats-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Eyebrow text colors - use theme variables */
+.eyebrow-recommendations { color: var(--eyebrow-recommendations); }
+.eyebrow-postcard { color: var(--eyebrow-postcard); }
+.eyebrow-builtwith { color: var(--eyebrow-builtwith); }
+.eyebrow-directory { color: var(--eyebrow-directory); }
+.eyebrow-beento { color: var(--eyebrow-beento); }
+.eyebrow-wanttogo { color: var(--eyebrow-wanttogo); }
+.eyebrow-stats { color: var(--eyebrow-stats); }
+
+/* Sky Wrapper - Contains sunset/dusk gradient */
+.sky-wrapper {
+  min-height: 100vh;
+  overflow: visible;
+}
+
+/* Recommendations Sky Background - Light Mode (Sunset) */
+.sky-gradient {
+  background:
+    radial-gradient(circle at 85% 15%,
+      rgba(255, 200, 100, 0.4) 0%,
+      rgba(255, 140, 60, 0.3) 8%,
+      rgba(255, 100, 80, 0.15) 15%,
+      transparent 25%
+    ),
+    linear-gradient(180deg,
+      hsl(20 100% 85%) 0%,
+      hsl(25 100% 88%) 15%,
+      hsl(30 100% 92%) 30%,
+      hsl(35 100% 95%) 50%,
+      hsl(40 100% 97%) 70%,
+      hsl(0 0% 100%) 100%
+    );
+}
+
+/* Dark Mode Sky - Deep Dusk/Twilight */
+@media (prefers-color-scheme: dark) {
+  .sky-gradient {
+    background:
+      radial-gradient(circle at 85% 15%,
+        rgba(100, 120, 200, 0.3) 0%,
+        rgba(80, 90, 180, 0.2) 8%,
+        rgba(60, 70, 140, 0.1) 15%,
+        transparent 25%
+      ),
+      linear-gradient(180deg,
+        hsl(240 45% 15%) 0%,
+        hsl(245 40% 18%) 20%,
+        hsl(250 35% 22%) 40%,
+        hsl(255 30% 25%) 60%,
+        hsl(230 28% 7%) 100%
+      );
+  }
+}
+
+/* Celestial Body Container */
+.celestial-body {
+  top: 8%;
+  right: 15%;
+  width: 120px;
+  height: 120px;
+}
+
+/* Sun Element - Light Mode */
+.sun-element {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle,
+    rgba(255, 230, 150, 0.9) 0%,
+    rgba(255, 220, 140, 0.85) 15%,
+    rgba(255, 210, 130, 0.75) 25%,
+    rgba(255, 200, 120, 0.65) 35%,
+    rgba(255, 180, 100, 0.45) 50%,
+    rgba(255, 160, 80, 0.25) 65%,
+    rgba(255, 140, 60, 0.12) 80%,
+    transparent 100%);
+  border-radius: 50%;
+  filter: blur(3px);
+  opacity: 0.85;
+  display: block;
+}
+
+.sun-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle,
+    rgba(255, 252, 235, 1) 0%,
+    rgba(255, 248, 220, 0.98) 20%,
+    rgba(255, 240, 200, 0.96) 35%,
+    rgba(255, 230, 170, 0.92) 50%,
+    rgba(255, 210, 140, 0.85) 65%,
+    rgba(255, 190, 110, 0.75) 80%,
+    rgba(255, 170, 90, 0.6) 100%);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  box-shadow:
+    0 0 20px rgba(255, 220, 120, 0.7),
+    0 0 40px rgba(255, 200, 100, 0.5),
+    0 0 60px rgba(255, 180, 80, 0.3);
+}
+
+/* Hide sun in dark mode, show moon */
+@media (prefers-color-scheme: dark) {
+  .sun-element {
+    display: none;
+  }
+}
+
+/* Moon Element - Dark Mode Only */
+.moon-element {
+  position: absolute;
+  inset: 0;
+  display: none;
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .moon-element {
+    display: block;
+  }
+}
+
+.moon-surface {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 35% 35%,
+    hsl(50 20% 88%) 0%,
+    hsl(48 18% 84%) 15%,
+    hsl(45 16% 80%) 25%,
+    hsl(43 14% 75%) 35%,
+    hsl(40 12% 70%) 45%,
+    hsl(38 10% 65%) 60%,
+    hsl(36 9% 60%) 75%,
+    hsl(35 8% 55%) 100%
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 0 30px rgba(210, 220, 235, 0.45),
+    0 0 60px rgba(190, 210, 230, 0.3),
+    0 0 90px rgba(170, 200, 225, 0.15),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 8px rgba(255, 255, 255, 0.1);
+  filter: blur(0.5px);
+}
+
+/* Moon craters */
+.crater {
+  position: absolute;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.crater-1 {
+  width: 12px;
+  height: 12px;
+  top: 25%;
+  left: 30%;
+}
+
+.crater-2 {
+  width: 8px;
+  height: 8px;
+  top: 55%;
+  left: 60%;
+}
+
+.crater-3 {
+  width: 10px;
+  height: 10px;
+  top: 65%;
+  left: 25%;
+}
+
+/* Starfield - Dark Mode Only */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
 }

@@ -44,12 +44,20 @@ export function RecommendationsSection({
   } = useGeolocation();
 
   return (
-    <section id="recommendations" className="py-16 border-t border-border">
-      <div className="container mx-auto px-4">
-        <div className="mb-6 pb-4 border-b border-border/30">
-          <h2 className="text-2xl font-bold mb-1.5 tracking-tight">Personalized Recommendations</h2>
-          <p className="text-sm text-muted-foreground/80">
-            AI-powered suggestions based on your preferences
+    <section
+      id="recommendations"
+      className="pt-16 pb-16 relative"
+    >
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="mb-6">
+          <span className="eyebrow-recommendations text-sm font-semibold uppercase tracking-wider">
+            AI-Powered Discovery
+          </span>
+          <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+            Personalized Recommendations
+          </h2>
+          <p className="text-base text-muted-foreground max-w-4xl">
+            Tell us what moves you, and we'll find destinations that match your travel dreams
           </p>
         </div>
 

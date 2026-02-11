@@ -55,28 +55,68 @@ function App() {
                 />
               </section>
 
-              {/* Search Panel - Desktop sticky panel overlapping map */}
-              <SearchPanel
-                beenTo={beenTo}
-                countries={countries}
-                onAddCountry={handleAddCountryFromSearch}
-                onRemoveCountry={removeCountry}
-              />
+              {/* Sky Wrapper - Contains search and recommendations with sunset background */}
+              <div className="relative sky-wrapper">
+                {/* Gradient starts from specific point, not top of wrapper */}
+                <div className="absolute inset-0 sky-gradient" style={{ top: '12rem' }} />
 
-              {/* Mobile Search Panel - Fixed bottom panel with scroll expansion */}
-              <MobileSearchPanel
-                beenTo={beenTo}
-                countries={countries}
-                onAddCountry={handleAddCountryFromSearch}
-                onRemoveCountry={removeCountry}
-              />
+                {/* Celestial Body - Sun in light mode, Moon in dark mode */}
+                <div className="celestial-body absolute pointer-events-none" style={{ top: 'calc(12rem + 8%)' }}>
+                  {/* Light mode: Sun with glow */}
+                  <div className="sun-element">
+                    <div className="sun-core" />
+                  </div>
 
-              {/* Recommendations Section */}
-              <RecommendationsSection
-                countries={countries}
-                beenTo={beenTo}
-                addCountry={addCountry}
-              />
+                  {/* Dark mode: Moon with craters */}
+                  <div className="moon-element">
+                    <div className="moon-surface">
+                      {/* Moon craters for realism */}
+                      <div className="crater crater-1" />
+                      <div className="crater crater-2" />
+                      <div className="crater crater-3" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Starfield for dark mode */}
+                <div className="starfield absolute pointer-events-none opacity-0 dark:opacity-100" style={{ top: '12rem' }}>
+                  {[...Array(30)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="star"
+                      style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 60}%`,
+                        animationDelay: `${Math.random() * 3}s`,
+                        opacity: Math.random() * 0.7 + 0.3
+                      }}
+                    />
+                  ))}
+                </div>
+
+                {/* Search Panel - Desktop sticky panel overlapping map */}
+                <SearchPanel
+                  beenTo={beenTo}
+                  countries={countries}
+                  onAddCountry={handleAddCountryFromSearch}
+                  onRemoveCountry={removeCountry}
+                />
+
+                {/* Mobile Search Panel - Fixed bottom panel with scroll expansion */}
+                <MobileSearchPanel
+                  beenTo={beenTo}
+                  countries={countries}
+                  onAddCountry={handleAddCountryFromSearch}
+                  onRemoveCountry={removeCountry}
+                />
+
+                {/* Recommendations Section */}
+                <RecommendationsSection
+                  countries={countries}
+                  beenTo={beenTo}
+                  addCountry={addCountry}
+                />
+              </div>
 
               {/* Travel Passport / Postcard Section */}
               <PostcardSection countries={countries} beenTo={beenTo} />
@@ -106,9 +146,14 @@ function App() {
               <section id="directory" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold mb-2">Country Directory</h2>
-                    <p className="text-muted-foreground">
-                      Browse and search all countries
+                    <span className="eyebrow-directory text-sm font-semibold uppercase tracking-wider">
+                      Explore The World
+                    </span>
+                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                      Country Directory
+                    </h2>
+                    <p className="text-base text-muted-foreground max-w-xl">
+                      Browse 195 countries, territories, and destinations waiting to be discovered
                     </p>
                   </div>
                   <Card>
@@ -123,9 +168,14 @@ function App() {
               <section id="been-to" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold mb-2">Been To</h2>
-                    <p className="text-muted-foreground">
-                      Countries you've visited
+                    <span className="eyebrow-beento text-sm font-semibold uppercase tracking-wider">
+                      Your Travel Story
+                    </span>
+                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                      Places You've Been
+                    </h2>
+                    <p className="text-base text-muted-foreground max-w-xl">
+                      Every stamp in your passport tells a story. This is your collection.
                     </p>
                   </div>
                   <Card>
@@ -140,9 +190,14 @@ function App() {
               <section id="want-to-go" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold mb-2">Want To Go</h2>
-                    <p className="text-muted-foreground">
-                      Your travel wishlist
+                    <span className="eyebrow-wanttogo text-sm font-semibold uppercase tracking-wider">
+                      Dream Destinations
+                    </span>
+                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                      Want To Go
+                    </h2>
+                    <p className="text-base text-muted-foreground max-w-xl">
+                      Build your travel bucket list. The world is waiting for you.
                     </p>
                   </div>
                   <Card>
@@ -157,9 +212,14 @@ function App() {
               <section id="stats" className="py-16 border-t border-border">
                 <div className="container mx-auto px-4">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold mb-2">Your Travel Stats</h2>
-                    <p className="text-muted-foreground">
-                      Compare your travel to global averages
+                    <span className="eyebrow-stats text-sm font-semibold uppercase tracking-wider">
+                      Travel Intelligence
+                    </span>
+                    <h2 className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground">
+                      Your Travel Stats
+                    </h2>
+                    <p className="text-base text-muted-foreground max-w-xl">
+                      Compare your journey to global averages and see how you stack up
                     </p>
                   </div>
                   <Card>

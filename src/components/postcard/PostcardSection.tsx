@@ -643,18 +643,18 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
         {/* CTA Header */}
         <div className="text-center mb-12 postcard-section-enter">
           <span
-            className="text-sm font-semibold uppercase tracking-wider text-accent"
+            className="eyebrow-postcard text-sm font-semibold uppercase tracking-wider"
             style={{ fontFamily: 'Nunito, sans-serif' }}
           >
             Your Journey in Print
           </span>
           <h2
-            className="text-3xl sm:text-4xl font-bold mt-2 mb-3"
+            className="text-5xl font-extrabold mt-3 mb-3 tracking-tight leading-tight text-foreground"
             style={{ fontFamily: 'Fredoka, sans-serif' }}
           >
             Destino Postcard
           </h2>
-          <p className="text-muted-foreground max-w-md mx-auto mb-4">
+          <p className="text-base text-muted-foreground max-w-xl mx-auto mb-4">
             A keepsake of everywhere you&apos;ve been. Download and share your
             postcard.
           </p>
