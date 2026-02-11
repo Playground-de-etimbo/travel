@@ -110,11 +110,11 @@ function generateStampPositions(
 }
 
 function getLetterBody(visitedCount: number): string {
-  if (visitedCount === 0) {
+  if (visitedCount === 1) {
     return "The journey hasn't started yet, but the bags are packed and the heart is ready. Every great adventure begins with a single step — and mine is coming soon.";
   }
-  if (visitedCount === 1) {
-    return "I've taken my first step beyond the familiar. One country down, a whole world still waiting. This is just the beginning of something beautiful.";
+  if (visitedCount === 2) {
+    return "I've taken my first step beyond the familiar. Two countries down, a whole world still waiting. This is just the beginning of something beautiful.";
   }
   return `I've wandered through ${visitedCount} countries, collected sunsets in foreign skies, and left pieces of my heart on distant shores. The map keeps growing, and so do I.`;
 }
