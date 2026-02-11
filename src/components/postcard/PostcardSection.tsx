@@ -1,5 +1,4 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { toBlob } from 'html-to-image';
 import { Download, Share2, ChevronDown } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -90,8 +89,12 @@ const canShareFiles = () => {
 };
 
 export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => {
+  type HtmlToImageToBlob = (typeof import('html-to-image'))['toBlob'];
+
   const frontRef = useRef<HTMLDivElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
+  const toBlobRef = useRef<HtmlToImageToBlob | null>(null);
+  const toBlobPromiseRef = useRef<Promise<HtmlToImageToBlob> | null>(null);
   const [showNameModal, setShowNameModal] = useState(false);
   const [nameInput, setNameInput] = useState('');
   const [userName, setUserName] = useState('Wanderer');
@@ -110,6 +113,26 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
   }>({ front: null, back: null, isReady: false });
 
   const stats = usePostcardStats(countries, beenTo);
+  const loadToBlob = useCallback(async (): Promise<HtmlToImageToBlob> => {
+    if (toBlobRef.current) {
+      return toBlobRef.current;
+    }
+
+    if (!toBlobPromiseRef.current) {
+      toBlobPromiseRef.current = import('html-to-image')
+        .then((mod) => {
+          toBlobRef.current = mod.toBlob;
+          return mod.toBlob;
+        })
+        .catch((error) => {
+          toBlobPromiseRef.current = null;
+          throw error;
+        });
+    }
+
+    return toBlobPromiseRef.current;
+  }, []);
+
   const waitForNextPaint = useCallback(
     () =>
       new Promise<void>((resolve) => {
@@ -124,6 +147,16 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
       if (manualDownloads.back) URL.revokeObjectURL(manualDownloads.back);
     };
   }, [manualDownloads]);
+
+  useEffect(() => {
+    const onFirstScroll = () => {
+      void loadToBlob();
+      window.removeEventListener('scroll', onFirstScroll);
+    };
+
+    window.addEventListener('scroll', onFirstScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onFirstScroll);
+  }, [loadToBlob]);
 
   // Pre-generate images for mobile devices (iOS requires synchronous share call)
   useEffect(() => {
@@ -255,6 +288,7 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
     async (element: HTMLElement, backgroundColor: string) => {
       const removeSanitizeStyle = injectSanitizeStyle();
       try {
+        const toBlob = await loadToBlob();
         const options = { pixelRatio: 3, backgroundColor, cacheBust: true };
 
         // First render warms font/image caches (documented html-to-image behavior)
@@ -268,7 +302,7 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
         removeSanitizeStyle();
       }
     },
-    [],
+    [loadToBlob],
   );
 
   const shareImages = useCallback(

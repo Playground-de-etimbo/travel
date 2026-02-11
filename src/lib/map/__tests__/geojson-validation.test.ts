@@ -16,8 +16,8 @@ interface CountryFeature {
 }
 
 describe('GeoJSON Validation', () => {
-  // Test the Natural Earth 50m file (smoother borders)
-  const geoJsonPath = 'public/data/countries-natural-earth-50m.geo.json'
+  // Test the production map dataset.
+  const geoJsonPath = 'public/data/countries-natural-earth-110m.geo.json'
   let data: FeatureCollection
 
   beforeAll(async () => {
