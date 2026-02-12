@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { Toaster } from '@/components/ui/sonner';
@@ -21,19 +21,20 @@ function App() {
   const [soundMuted, setSoundMutedState] = useState(false);
   const [panTarget, setPanTarget] = useState<string | null>(null);
 
-  const handleToggleSound = () => {
+  // Stable callback - prevents Header re-renders when App re-renders
+  const handleToggleSound = useCallback(() => {
     setSoundMutedState((prev) => {
       const next = !prev;
       setSoundMuted(next);
       return next;
     });
-  };
+  }, []);
 
-  const handleAddCountryFromSearch = (code: string) => {
+  const handleAddCountryFromSearch = useCallback((code: string) => {
     addCountry(code);
     setPanTarget(code); // Trigger pan animation
     setTimeout(() => setPanTarget(null), 100); // Clear after WorldMap processes
-  };
+  }, [addCountry]);
 
   return (
     <div className="min-h-screen">

@@ -1,12 +1,48 @@
-import { useId } from 'react';
+import { useState, useEffect, memo } from 'react';
 
-export const EarthIcon = ({ size = 32, className = '' }: { size?: number; className?: string }) => {
-  // Generate unique IDs for this instance to avoid Chrome SVG rendering bugs
-  const uniqueId = useId();
-  const circleClipId = `circleClip-${uniqueId}`;
-  const spaceGradId = `spaceGrad-${uniqueId}`;
-  const earthGradId = `earthGrad-${uniqueId}`;
-  const sunGradId = `sunGrad-${uniqueId}`;
+// Static counter for generating stable, unique gradient IDs
+// iOS Safari handles static IDs much better than dynamic React IDs
+let instanceCounter = 0;
+
+const EarthIconComponent = ({ size = 32, className = '' }: { size?: number; className?: string }) => {
+  // Generate static, predictable IDs once per component instance
+  // Using lazy initializer ensures ID is stable across re-renders (fixes iOS Safari gradient bug)
+  const [instanceId] = useState(() => ++instanceCounter);
+  const circleClipId = `earthClip-${instanceId}`;
+  const spaceGradId = `spaceGrad-${instanceId}`;
+  const earthGradId = `earthGrad-${instanceId}`;
+  const sunGradId = `sunGrad-${instanceId}`;
+
+  // Detect mobile devices - skip animations on mobile (iOS Safari has unreliable SVG animations)
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  // Track individual animation completion using native animationend events (desktop only)
+  const [earthComplete, setEarthComplete] = useState(false);
+  const [sunComplete, setSunComplete] = useState(false);
+  const animationComplete = earthComplete && sunComplete;
+
+  // Mobile always shows final state, desktop animates then locks
+  const showFinalState = isMobile || animationComplete;
+
+  const handleEarthAnimationEnd = () => {
+    setEarthComplete(true);
+  };
+
+  const handleSunAnimationEnd = () => {
+    setSunComplete(true);
+  };
+
+  // Fallback timeout for desktop browsers where animationend might not fire
+  useEffect(() => {
+    if (isMobile) return; // Skip timeout on mobile (already showing final state)
+
+    const fallbackTimer = setTimeout(() => {
+      setEarthComplete(true);
+      setSunComplete(true);
+    }, 3200);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [isMobile]);
 
   return (
     <svg
@@ -62,7 +98,14 @@ export const EarthIcon = ({ size = 32, className = '' }: { size?: number; classN
         </g>
 
         {/* Earth - huge, cropped bottom-left, rotates on axis */}
-        <g className="earth-rotate" style={{ transformOrigin: '28px 66px' }}>
+        <g
+          className={showFinalState ? '' : 'earth-rotate'}
+          onAnimationEnd={isMobile ? undefined : handleEarthAnimationEnd}
+          style={{
+            transformOrigin: '28px 66px',
+            transform: showFinalState ? 'rotate(45deg)' : undefined
+          }}
+        >
           <circle cx="28" cy="66" r="42" fill={`url(#${earthGradId})`} />
 
           {/* Real country landmasses - dispersed and safely positioned */}
@@ -103,7 +146,11 @@ export const EarthIcon = ({ size = 32, className = '' }: { size?: number; classN
 
         {/* Sun - orbits from NW to SE along earth's visible horizon */}
         {/* Using transform to position at earth center (28, 66), then rotate */}
-        <g className="sun-orbit" transform="translate(28, 66)">
+        <g
+          className={showFinalState ? '' : 'sun-orbit'}
+          onAnimationEnd={isMobile ? undefined : handleSunAnimationEnd}
+          transform={showFinalState ? 'translate(28, 66) rotate(90)' : 'translate(28, 66)'}
+        >
           {/* Sun positioned 49 units from origin at -120° angle (NW) */}
           <g transform="translate(-24.5, -42.4)">
             <circle cx="0" cy="0" r="7" fill={`url(#${sunGradId})`} />
@@ -133,3 +180,9 @@ export const EarthIcon = ({ size = 32, className = '' }: { size?: number; classN
     </svg>
   );
 };
+
+// Prevent re-renders unless props actually change
+// This stops parent component updates from breaking the animation on iOS
+export const EarthIcon = memo(EarthIconComponent, (prevProps, nextProps) => {
+  return prevProps.size === nextProps.size && prevProps.className === nextProps.className;
+});

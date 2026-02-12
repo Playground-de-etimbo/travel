@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Volume2, VolumeX, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EarthIcon } from './EarthIcon';
@@ -8,32 +9,36 @@ type HeaderProps = {
   onClearSession: () => void;
 };
 
-export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProps) => {
+const HeaderComponent = ({ soundMuted, onToggleSound, onClearSession }: HeaderProps) => {
   return (
     <header className="absolute top-6 left-0 right-0 z-10 px-4 md:px-8 pointer-events-none">
       {/* Mobile layout: text left, buttons right */}
       <div className="md:hidden flex justify-between items-center w-full">
         <div className="flex items-center gap-2.5">
           <EarthIcon size={32} className="text-foreground flex-shrink-0" />
-          <svg
-            className="h-8 text-foreground"
-            viewBox="0 0 180 32"
-            role="img"
-            aria-label="Destino"
-            style={{ filter: 'var(--header-text-shadow)' }}
+
+          {/* Light mode text */}
+          <span
+            className="text-[28px] font-extrabold tracking-[1px] leading-none block dark:hidden"
+            style={{
+              fontFamily: 'Nunito, sans-serif',
+              color: 'hsl(230 15% 15%)',
+              textShadow: '0 2px 4px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.6)',
+            }}
           >
-            <title>Destino</title>
-            <text
-              x="0"
-              y="50%"
-              textAnchor="start"
-              dominantBaseline="middle"
-              fill="currentColor"
-              style={{ fontFamily: 'Nunito, sans-serif', fontSize: 28, fontWeight: 800, letterSpacing: 1 }}
-            >
-              DESTINO
-            </text>
-          </svg>
+            DESTINO
+          </span>
+          {/* Dark mode text */}
+          <span
+            className="text-[28px] font-extrabold tracking-[1px] leading-none hidden dark:block"
+            style={{
+              fontFamily: 'Nunito, sans-serif',
+              color: 'hsl(225 20% 90%)',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 0, 0, 0.4)',
+            }}
+          >
+            DESTINO
+          </span>
         </div>
 
         <div className="flex items-center gap-2 pointer-events-auto">
@@ -102,25 +107,28 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
         <div className="flex items-center gap-3">
           <EarthIcon size={56} className="text-foreground flex-shrink-0" />
           <div className="flex flex-col items-start">
-            <svg
-              className="h-12 text-foreground"
-              viewBox="0 0 280 60"
-              role="img"
-              aria-label="Destino"
-              style={{ filter: 'var(--header-text-shadow)' }}
+            {/* Light mode text */}
+            <span
+              className="text-[42px] font-extrabold tracking-[2px] leading-none block dark:hidden"
+              style={{
+                fontFamily: 'Nunito, sans-serif',
+                color: 'hsl(230 15% 15%)',
+                textShadow: '0 2px 4px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.6)',
+              }}
             >
-              <title>Destino</title>
-              <text
-                x="0"
-                y="50%"
-                textAnchor="start"
-                dominantBaseline="middle"
-                fill="currentColor"
-                style={{ fontFamily: 'Nunito, sans-serif', fontSize: 42, fontWeight: 800, letterSpacing: 2 }}
-              >
-                DESTINO
-              </text>
-            </svg>
+              DESTINO
+            </span>
+            {/* Dark mode text */}
+            <span
+              className="text-[42px] font-extrabold tracking-[2px] leading-none hidden dark:block"
+              style={{
+                fontFamily: 'Nunito, sans-serif',
+                color: 'hsl(225 20% 90%)',
+                textShadow: '0 2px 4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 0, 0, 0.4)',
+              }}
+            >
+              DESTINO
+            </span>
             <p className="hidden md:block text-sm font-medium text-foreground -mt-2">
               Where on earth have you been?
             </p>
@@ -142,3 +150,7 @@ export const Header = ({ soundMuted, onToggleSound, onClearSession }: HeaderProp
     </header>
   );
 };
+
+// Prevent Header re-renders during logo animation
+// Re-renders cause layout shifts that interrupt animations on iOS Safari
+export const Header = memo(HeaderComponent);

@@ -56,9 +56,6 @@
   /* Stats bar */
   --color-stats-text: hsl(230 10% 40%);
 
-  /* Header text shadow for readability over map */
-  --header-text-shadow: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
-
   /* Map colors - Light Mode */
   --map-ocean: oklch(81% 0.05 230); /* Light sky blue */
   --map-unvisited: oklch(98% 0.01 230); /* Very light gray */
@@ -124,9 +121,6 @@
     --color-panel-shadow: hsl(160 62% 55%);
     --color-stats-text: hsl(230 10% 60%);
 
-    /* Header text shadow for dark mode - darker shadow for light text */
-    --header-text-shadow: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 0, 0, 0.4));
-
     /* Map colors - Dark Mode */
     --map-ocean: oklch(25% 0.04 230); /* Dark blue-gray ocean */
     --map-unvisited: oklch(30% 0.03 230); /* Dark gray */
@@ -160,8 +154,8 @@ select,
   cursor: pointer;
 }
 
-/* Map transitions */
-* {
+/* Map country color transitions (scoped to react-simple-maps Geography elements) */
+.rsm-geography {
   transition-property: fill, stroke;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
@@ -261,7 +255,7 @@ svg g > g > rect[fill="transparent"] {
   }
 }
 
-/* Earth slow spin on load */
+/* Earth slow spin on load (desktop only - mobile shows final state) */
 .earth-rotate {
   animation: earth-slow-spin 2.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
   will-change: transform;
@@ -269,7 +263,7 @@ svg g > g > rect[fill="transparent"] {
   -webkit-backface-visibility: hidden;
 }
 
-/* Sun orbits 90° from NW to SE along earth's horizon */
+/* Sun orbits 90° from NW to SE along earth's horizon (desktop only - mobile shows final state) */
 .sun-orbit {
   animation: sun-arc 1.8s cubic-bezier(0.42, 0, 0.58, 1) 0.3s forwards;
   will-change: transform;
