@@ -451,6 +451,9 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           if (nextManualDownloads.front) {
             triggerDownload(nextManualDownloads.front, 'destino-postcard-front.png');
           }
+          if (nextManualDownloads.front && nextManualDownloads.back) {
+            await new Promise((r) => setTimeout(r, 800));
+          }
           if (nextManualDownloads.back) {
             triggerDownload(nextManualDownloads.back, 'destino-postcard-back.png');
           }
@@ -516,13 +519,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           downloadedCount += 1;
         }
 
-        // Update manual download links
-        setManualDownloads((previous) => {
-          if (previous.front) URL.revokeObjectURL(previous.front);
-          if (previous.back) URL.revokeObjectURL(previous.back);
-          return nextManualDownloads;
-        });
-
         // Mobile: Try native share first
         if (shouldShare) {
           const shared = await shareImages({
@@ -538,9 +534,21 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           // If share failed/cancelled, fall through to download
         }
 
+        // Update manual download links
+        setManualDownloads((previous) => {
+          if (previous.front) URL.revokeObjectURL(previous.front);
+          if (previous.back) URL.revokeObjectURL(previous.back);
+          return nextManualDownloads;
+        });
+
         // Desktop or share fallback: Trigger downloads
         if (nextManualDownloads.front) {
           triggerDownload(nextManualDownloads.front, 'destino-postcard-front.png');
+        }
+        if (nextManualDownloads.front && nextManualDownloads.back) {
+          // Browsers suppress rapid consecutive programmatic downloads;
+          // stagger to ensure both files save.
+          await new Promise((r) => setTimeout(r, 800));
         }
         if (nextManualDownloads.back) {
           triggerDownload(nextManualDownloads.back, 'destino-postcard-back.png');

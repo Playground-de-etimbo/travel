@@ -132,7 +132,7 @@ describe('PostcardSection downloads', () => {
     render(<PostcardSection countries={[sampleCountry]} beenTo={['US']} />);
 
     await userEvent.click(
-      screen.getByRole('button', { name: /download both sides/i }),
+      screen.getByRole('button', { name: /save postcards/i }),
     );
     await userEvent.click(
       screen.getByRole('button', { name: /save & download/i }),
@@ -142,7 +142,9 @@ describe('PostcardSection downloads', () => {
       // 2 cards x 2 renders (font warming + actual) = 4 calls
       expect(toBlobMock).toHaveBeenCalledTimes(4);
     });
-    expect(anchorClickMock).toHaveBeenCalledTimes(2);
+    await waitFor(() => {
+      expect(anchorClickMock).toHaveBeenCalledTimes(2);
+    });
     expect(toastSuccessMock).toHaveBeenCalled();
     expect(toastErrorMock).not.toHaveBeenCalled();
     expect(screen.getByRole('link', { name: /download front/i })).toBeInTheDocument();
@@ -155,7 +157,7 @@ describe('PostcardSection downloads', () => {
     render(<PostcardSection countries={[sampleCountry]} beenTo={['US']} />);
 
     await userEvent.click(
-      screen.getByRole('button', { name: /download both sides/i }),
+      screen.getByRole('button', { name: /save postcards/i }),
     );
     await userEvent.click(
       screen.getByRole('button', { name: /save & download/i }),
