@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Search, ArrowLeft } from 'lucide-react';
 import { AutocompleteDropdown } from './AutocompleteDropdown';
 import { useSearchFilter } from '@/hooks/useSearchFilter';
+import { useCountryAliases } from '@/hooks/useCountryAliases';
 import { useAutocomplete } from '@/hooks/useAutocomplete';
 import { playCountrySound } from '@/lib/sound/countrySounds';
 import type { Country } from '@/types';
@@ -33,9 +34,11 @@ export const MobileSearchBox = ({
   const toastTimeoutRef = useRef<number | null>(null);
   const preventScrollOnFocusRef = useRef(false);
 
+  const aliases = useCountryAliases();
   const { flatResults } = useSearchFilter({
     countries,
     searchTerm,
+    aliases,
   });
 
   const hasResults = flatResults.length > 0;

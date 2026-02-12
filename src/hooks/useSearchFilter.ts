@@ -2,9 +2,16 @@ import { useMemo } from 'react';
 import Fuse, { type FuseResultMatch } from 'fuse.js';
 import type { Country } from '@/types';
 
+type CountryAliases = Record<string, string[]>;
+
+interface SearchableCountry extends Country {
+  _searchAliases?: string;
+}
+
 interface UseSearchFilterOptions {
   countries: Country[];
   searchTerm: string;
+  aliases?: CountryAliases;
 }
 
 interface SearchResult {
@@ -16,24 +23,38 @@ interface SearchResult {
 export const useSearchFilter = ({
   countries,
   searchTerm,
+  aliases,
 }: UseSearchFilterOptions): SearchResult => {
   const minMatchCharLength = 3;
   const scoreCutoff = 0.32;
-  const fuse = useMemo(
-    () =>
-      new Fuse(countries, {
-        keys: [
-          { name: 'countryName', weight: 0.8 },
-          { name: 'countryCode', weight: 0.15 },
-          { name: 'region', weight: 0.05 },
-        ],
-        threshold: 0.3,
-        minMatchCharLength,
-        includeMatches: true,
-        includeScore: true,
-      }),
-    [countries, minMatchCharLength]
-  );
+  const hasAliases = aliases && Object.keys(aliases).length > 0;
+
+  const searchableCountries = useMemo<SearchableCountry[]>(() => {
+    if (!hasAliases) return countries;
+    return countries.map((country) => {
+      const countryAliases = aliases[country.countryCode];
+      if (!countryAliases?.length) return country;
+      return { ...country, _searchAliases: countryAliases.join(' ') };
+    });
+  }, [countries, aliases, hasAliases]);
+
+  const fuse = useMemo(() => {
+    const keys = [
+      { name: 'countryName', weight: 0.8 },
+      { name: 'countryCode', weight: 0.15 },
+      { name: 'region', weight: 0.05 },
+    ];
+    if (hasAliases) {
+      keys.push({ name: '_searchAliases', weight: 0.7 });
+    }
+    return new Fuse(searchableCountries, {
+      keys,
+      threshold: 0.3,
+      minMatchCharLength,
+      includeMatches: true,
+      includeScore: true,
+    });
+  }, [searchableCountries, minMatchCharLength, hasAliases]);
 
   return useMemo(() => {
     if (!searchTerm.trim()) {
@@ -62,7 +83,13 @@ export const useSearchFilter = ({
         const code = result.item.countryCode.toLowerCase();
         const nameParts = name.split(/[\s-]+/);
         const matchesNamePart = nameParts.some(part => part.startsWith(shortPrefix));
-        return matchesNamePart || code.startsWith(normalizedTerm);
+        if (matchesNamePart || code.startsWith(normalizedTerm)) return true;
+        const aliasStr = (result.item as SearchableCountry)._searchAliases;
+        if (aliasStr) {
+          const aliasParts = aliasStr.toLowerCase().split(/[\s-]+/);
+          return aliasParts.some(part => part.startsWith(shortPrefix));
+        }
+        return false;
       });
     const sortedResults = [...results].sort((a, b) => {
       if (a.adjustedScore !== b.adjustedScore) {

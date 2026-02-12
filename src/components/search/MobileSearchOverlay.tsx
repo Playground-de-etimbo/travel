@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { useSearchFilter } from '@/hooks/useSearchFilter';
+import { useCountryAliases } from '@/hooks/useCountryAliases';
 import { playCountrySound } from '@/lib/sound/countrySounds';
 import type { Country } from '@/types';
 
@@ -39,9 +40,11 @@ export const MobileSearchOverlay = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const toastTimeoutRef = useRef<number | null>(null);
 
+  const aliases = useCountryAliases();
   const { filteredResults, flatResults } = useSearchFilter({
     countries,
     searchTerm,
+    aliases,
   });
 
   // Auto-focus input when overlay opens

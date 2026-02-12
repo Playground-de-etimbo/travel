@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import { AutocompleteDropdown } from './AutocompleteDropdown';
 import { useSearchFilter } from '@/hooks/useSearchFilter';
+import { useCountryAliases } from '@/hooks/useCountryAliases';
 import { useAutocomplete } from '@/hooks/useAutocomplete';
 import { playCountrySound } from '@/lib/sound/countrySounds';
 import type { Country } from '@/types';
@@ -23,9 +24,11 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
   const clearTimeoutRef = useRef<NodeJS.Timeout>();
   const toastTimeoutRef = useRef<number | null>(null);
 
+  const aliases = useCountryAliases();
   const { flatResults } = useSearchFilter({
     countries,
     searchTerm,
+    aliases,
   });
 
   const hasResults = flatResults.length > 0;
