@@ -94,6 +94,7 @@ export const MobileSearchBox = ({
   const { handleKeyDown, selectedIndex, setSelectedIndex, scrollToItem } =
     useAutocomplete({
       results: flatResults,
+      beenTo,
       onSelect: handleSelect,
       onClose: handleClose,
     });
@@ -102,11 +103,14 @@ export const MobileSearchBox = ({
   useEffect(() => {
     if (searchTerm.trim()) {
       setIsDropdownOpen(true);
-      setSelectedIndex(0);
+      const firstAvailable = flatResults.findIndex(
+        (c) => !beenTo.includes(c.countryCode)
+      );
+      setSelectedIndex(firstAvailable >= 0 ? firstAvailable : 0);
     } else {
       setIsDropdownOpen(false);
     }
-  }, [searchTerm, setSelectedIndex]);
+  }, [searchTerm, flatResults, beenTo, setSelectedIndex]);
 
   // Scroll to selected item
   useEffect(() => {

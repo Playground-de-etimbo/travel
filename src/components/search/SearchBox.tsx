@@ -17,7 +17,7 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [toastLabel, setToastLabel] = useState<string | null>(null);
-  const [showPostAddMessage, setShowPostAddMessage] = useState(false);
+
   const internalInputRef = useRef<HTMLInputElement>(null);
   const inputRef = searchInputRef || internalInputRef;
   const clearTimeoutRef = useRef<NodeJS.Timeout>();
@@ -35,7 +35,6 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
     if (selectedCountry) {
       setToastLabel(`Added ${selectedCountry.countryName}`);
     }
-    setShowPostAddMessage(true);
     if (toastTimeoutRef.current) {
       window.clearTimeout(toastTimeoutRef.current);
     }
@@ -62,6 +61,7 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
   const { handleKeyDown, selectedIndex, setSelectedIndex, scrollToItem } =
     useAutocomplete({
       results: flatResults,
+      beenTo,
       onSelect: handleSelect,
       onClose: handleClose,
     });
@@ -70,12 +70,14 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
   useEffect(() => {
     if (searchTerm.trim()) {
       setIsDropdownOpen(true);
-      setSelectedIndex(0);
-      setShowPostAddMessage(false);
+      const firstAvailable = flatResults.findIndex(
+        (c) => !beenTo.includes(c.countryCode)
+      );
+      setSelectedIndex(firstAvailable >= 0 ? firstAvailable : 0);
     } else {
       setIsDropdownOpen(false);
     }
-  }, [searchTerm, setSelectedIndex]);
+  }, [searchTerm, flatResults, beenTo, setSelectedIndex]);
 
   // Scroll to selected item
   useEffect(() => {
@@ -96,11 +98,13 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
     };
   }, []);
 
+  const firstAvailableCountry = useMemo(() => {
+    return flatResults.find((c) => !beenTo.includes(c.countryCode)) ?? null;
+  }, [flatResults, beenTo]);
+
   const handleAddTopResult = () => {
-    const topCountry = flatResults[0];
-    if (!topCountry || beenTo.includes(topCountry.countryCode)) return;
-    setToastLabel(`Added ${topCountry.countryName}`);
-    setShowPostAddMessage(true);
+    if (!firstAvailableCountry) return;
+    setToastLabel(`Added ${firstAvailableCountry.countryName}`);
     if (toastTimeoutRef.current) {
       window.clearTimeout(toastTimeoutRef.current);
     }
@@ -108,20 +112,13 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
       setToastLabel(null);
     }, 1600);
     void playCountrySound('add');
-    onAddCountry(topCountry.countryCode);
+    onAddCountry(firstAvailableCountry.countryCode);
     setSearchTerm('');
     inputRef.current?.focus();
     setTimeout(() => setIsDropdownOpen(false), 300);
     setTimeout(() => inputRef.current?.focus(), 320);
   };
 
-  const isTopResultAdded = useMemo(() => {
-    const topCountry = flatResults[0];
-    if (!topCountry) return true;
-    return beenTo.includes(topCountry.countryCode);
-  }, [flatResults, beenTo]);
-
-  const countryCountLabel = beenTo.length === 1 ? 'country' : 'countries';
   const placeholderText = beenTo.length === 0 ? 'Where have you been? Type here' : 'Where else have you been? Type here';
 
   return (
@@ -145,7 +142,7 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
         <button
           type="button"
           onClick={handleAddTopResult}
-          disabled={!searchTerm.trim() || flatResults.length === 0 || isTopResultAdded}
+          disabled={!searchTerm.trim() || !firstAvailableCountry}
           className="ml-3 rounded-full px-6 py-2 font-medium transition-all flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 active:scale-95"
           style={{
             backgroundColor: 'var(--color-accent)',
@@ -155,21 +152,6 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
           Add
         </button>
       </div>
-      {showPostAddMessage && !searchTerm.trim() && (
-        <div className="mt-3 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-          <span className="font-semibold text-foreground">
-            {beenTo.length} {countryCountLabel} added
-          </span>
-          <span>— keep adding or</span>
-          <a
-            href="#map-hero"
-            className="font-semibold text-accent underline decoration-2 underline-offset-4 hover:opacity-80"
-          >
-            go back
-          </a>
-        </div>
-      )}
-
       <AutocompleteDropdown
         isOpen={isDropdownOpen && hasResults}
         searchTerm={searchTerm}

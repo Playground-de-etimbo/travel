@@ -35,7 +35,7 @@ export const MobileSearchOverlay = ({
 }: MobileSearchOverlayProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [toastLabel, setToastLabel] = useState<string | null>(null);
-  const [showPostAddMessage, setShowPostAddMessage] = useState(false);
+
   const inputRef = useRef<HTMLInputElement>(null);
   const toastTimeoutRef = useRef<number | null>(null);
 
@@ -50,7 +50,6 @@ export const MobileSearchOverlay = ({
       setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       setSearchTerm('');
-      setShowPostAddMessage(false);
     }
     return () => {
       if (toastTimeoutRef.current) {
@@ -64,7 +63,6 @@ export const MobileSearchOverlay = ({
     if (selectedCountry) {
       setToastLabel(`Added ${selectedCountry.countryName}`);
     }
-    setShowPostAddMessage(true);
     if (toastTimeoutRef.current) {
       window.clearTimeout(toastTimeoutRef.current);
     }
@@ -90,13 +88,6 @@ export const MobileSearchOverlay = ({
     }
   };
 
-  useEffect(() => {
-    if (searchTerm.trim()) {
-      setShowPostAddMessage(false);
-    }
-  }, [searchTerm]);
-
-  const countryCountLabel = beenTo.length === 1 ? 'country' : 'countries';
 
   if (!isOpen) return null;
 
@@ -137,27 +128,9 @@ export const MobileSearchOverlay = ({
       {/* Results */}
       <div className="overflow-y-auto" style={{ height: 'calc(100vh - 65px)' }}>
         {!searchTerm.trim() ? (
-          showPostAddMessage ? (
-            <div className="px-5 py-6 text-center text-sm text-muted-foreground">
-              <div className="font-semibold text-foreground">
-                {beenTo.length} {countryCountLabel} added
-              </div>
-              <div className="mt-2 flex items-center justify-center gap-2">
-                <span>keep adding or</span>
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="font-semibold text-accent underline decoration-2 underline-offset-4 hover:opacity-80"
-                >
-                  go back
-                </button>
-              </div>
-            </div>
-          ) : (
             <div className="flex items-center justify-center h-full text-muted-foreground">
               <p>Start typing to search countries...</p>
             </div>
-          )
         ) : Object.keys(filteredResults).length === 0 ? (
           <div className="flex items-center justify-center h-full text-muted-foreground">
             <p>No countries found</p>
