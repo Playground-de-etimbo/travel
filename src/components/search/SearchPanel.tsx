@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, memo } from 'react';
 import { SearchBox } from './SearchBox';
 import { TravelStatsBar } from './TravelStatsBar';
 import { VisitedCountriesList } from './VisitedCountriesList';
@@ -12,7 +12,7 @@ interface SearchPanelProps {
   onRemoveCountry: (countryCode: string) => void;
 }
 
-export const SearchPanel = ({
+export const SearchPanel = memo(({
   beenTo,
   countries,
   onAddCountry,
@@ -21,7 +21,7 @@ export const SearchPanel = ({
   const [recentlyAdded, setRecentlyAdded] = useState<string | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const handleAdd = async (code: string) => {
+  const handleAdd = useCallback(async (code: string) => {
     await onAddCountry(code);
     setRecentlyAdded(code);
 
@@ -32,16 +32,16 @@ export const SearchPanel = ({
 
     // Clear recently added after animation
     setTimeout(() => setRecentlyAdded(null), 600);
-  };
+  }, [onAddCountry]);
 
-  const handleRemove = async (code: string) => {
+  const handleRemove = useCallback(async (code: string) => {
     await onRemoveCountry(code);
 
     // Haptic feedback
     if (navigator.vibrate) {
       navigator.vibrate(25);
     }
-  };
+  }, [onRemoveCountry]);
 
   return (
     <div className="hidden md:block relative z-30 -mt-48 py-8 space-y-6">
@@ -75,4 +75,4 @@ export const SearchPanel = ({
       </div>
     </div>
   );
-};
+});

@@ -18,6 +18,33 @@ import { toast } from 'sonner';
 // Override with: VITE_MAP_GEOJSON_URL=/data/countries-simple.geo.json pnpm dev
 const geoUrl = MAP_CONFIG.geoJsonUrl;
 
+// Stable style constants — defined once, never recreated
+const NON_INTERACTIVE_STYLE = {
+  default: { outline: 'none', pointerEvents: 'none' as const },
+  hover: { outline: 'none', pointerEvents: 'none' as const },
+  pressed: { outline: 'none', pointerEvents: 'none' as const },
+};
+
+const INTERACTIVE_STYLE = {
+  default: {
+    outline: 'none',
+    cursor: 'pointer',
+    transition: 'stroke 0.2s ease, stroke-width 0.2s ease',
+  },
+  hover: { outline: 'none', cursor: 'pointer' },
+  pressed: { outline: 'none' },
+};
+
+// Resolved data for a single geography, computed once per render
+interface GeoEntry {
+  geo: any;
+  countryCode: string | null;
+  isVisited: boolean;
+  isHovered: boolean;
+  isAddFlash: boolean;
+  isSpotlight: boolean;
+}
+
 interface WorldMapProps {
   beenTo: string[];
   onAddCountry: (code: string) => void;
@@ -329,7 +356,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
             maxZoom={MAP_STYLE.ZOOM.MAX}
             translateExtent={[MAP_STYLE.PROJECTION.TRANSLATE_EXTENT.MIN, MAP_STYLE.PROJECTION.TRANSLATE_EXTENT.MAX]}
           >
-            {/* First pass: white coastline borders */}
+            {/* Single iteration, three <g> groups for correct SVG z-layering */}
             <Geographies geography={geoUrl}>
               {({ geographies }) => {
                 // Store geographies for pan functionality
@@ -337,126 +364,98 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
                   geoDataRef.current = geographies;
                 }
 
-                return geographies.map((geo: any) => {
-                  const { code } = resolveCountryFromGeo(geo.properties);
-                  const safeCountryCode = code ?? '';
-                  const fill = getCountryFill(safeCountryCode, beenTo);
-
-                  return (
-                    <Geography
-                      key={`${geo.rsmKey}-white`}
-                      geography={geo}
-                      fill={fill}
-                      stroke={MAP_COLORS.COASTLINE}
-                      strokeWidth={MAP_STYLE.BORDER.COASTLINE}
-                      style={{
-                        default: { outline: 'none', pointerEvents: 'none' },
-                        hover: { outline: 'none', pointerEvents: 'none' },
-                        pressed: { outline: 'none', pointerEvents: 'none' },
-                      }}
-                    />
-                  );
-                });
-              }}
-            </Geographies>
-
-            {/* Second pass: grey country borders and interaction */}
-            <Geographies geography={geoUrl}>
-              {({ geographies }) => {
-                // Sort geographies so hovered one renders last (on top)
-                const sortedGeos = [...geographies].sort((a, b) => {
-                  if (a.rsmKey === hoveredGeo) return 1;
-                  if (b.rsmKey === hoveredGeo) return -1;
-                  return 0;
-                });
-
-                return sortedGeos.map((geo: any) => {
+                // Resolve all geo data in one pass
+                const entries: GeoEntry[] = geographies.map((geo: any) => {
                   const { code: countryCode } = resolveCountryFromGeo(geo.properties);
-                  const safeCountryCode = countryCode ?? '';
-                  const fill = getCountryFill(safeCountryCode, beenTo);
-                  const stroke = getCountryStroke(safeCountryCode, beenTo);
-                  const isHovered = geo.rsmKey === hoveredGeo;
-                  const isVisited = countryCode ? beenTo.includes(countryCode) : false;
-                  const isAddFlash = countryCode ? addFlashCode === countryCode : false;
-                  const isSpotlight = countryCode ? spotlightCode === countryCode : false;
-
-                  // Use red hover color for visited countries (indicates removal)
-                  const hoverFill = isVisited ? MAP_COLORS.HOVER_REMOVE : MAP_COLORS.HOVER;
-                  const hoverStroke = isVisited ? MAP_COLORS.HOVER_REMOVE_BORDER : MAP_COLORS.HOVER_BORDER;
-                  const displayFill = isAddFlash ? MAP_COLORS.ADD_FLASH : isHovered ? hoverFill : fill;
-                  const displayStroke = isSpotlight
-                    ? MAP_COLORS.SPOTLIGHT
-                    : isAddFlash
-                      ? MAP_COLORS.ADD_FLASH_BORDER
-                      : isHovered
-                        ? hoverStroke
-                        : stroke;
-                  const displayStrokeWidth = isSpotlight
-                    ? 2
-                    : isAddFlash
-                      ? MAP_STYLE.BORDER.HOVER
-                      : isHovered
-                        ? MAP_STYLE.BORDER.HOVER
-                        : MAP_STYLE.BORDER.DEFAULT;
-
-                  return (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill={displayFill}
-                      stroke={displayStroke}
-                      strokeWidth={displayStrokeWidth}
-                      className={isAddFlash ? 'map-add-pulse' : undefined}
-                      onMouseEnter={(event) => handleMouseEnter(geo, event)}
-                      onMouseLeave={handleMouseLeave}
-                      onClick={(event) => handleClick(geo, event)}
-                      data-country-code={countryCode ?? undefined}
-                      style={{
-                        default: {
-                          outline: 'none',
-                          cursor: 'pointer',
-                          transition: 'stroke 0.2s ease, stroke-width 0.2s ease',
-                        },
-                        hover: {
-                          outline: 'none',
-                          cursor: 'pointer',
-                        },
-                        pressed: {
-                          outline: 'none',
-                        },
-                      }}
-                    />
-                  );
+                  return {
+                    geo,
+                    countryCode,
+                    isVisited: countryCode ? beenTo.includes(countryCode) : false,
+                    isHovered: geo.rsmKey === hoveredGeo,
+                    isAddFlash: countryCode ? addFlashCode === countryCode : false,
+                    isSpotlight: countryCode ? spotlightCode === countryCode : false,
+                  };
                 });
-              }}
-            </Geographies>
 
-            {/* Third pass: visited country borders on top */}
-            <Geographies geography={geoUrl}>
-              {({ geographies }) => {
-                return geographies.map((geo: any) => {
-                  const { code: countryCode } = resolveCountryFromGeo(geo.properties);
-                  const isVisited = countryCode ? beenTo.includes(countryCode) : false;
-                  const isHovered = geo.rsmKey === hoveredGeo;
+                return (
+                  <>
+                    {/* Layer 1: Coastline borders (white, non-interactive) */}
+                    <g>
+                      {entries.map(({ geo, countryCode }) => {
+                        const safeCode = countryCode ?? '';
+                        return (
+                          <Geography
+                            key={`${geo.rsmKey}-coast`}
+                            geography={geo}
+                            fill={getCountryFill(safeCode, beenTo)}
+                            stroke={MAP_COLORS.COASTLINE}
+                            strokeWidth={MAP_STYLE.BORDER.COASTLINE}
+                            style={NON_INTERACTIVE_STYLE}
+                          />
+                        );
+                      })}
+                    </g>
 
-                  // Only render visited countries (unless hovered)
-                  if (!isVisited || isHovered) return null;
+                    {/* Layer 2: Interactive country fills (one Geography per country) */}
+                    <g>
+                      {entries.map(({ geo, countryCode, isVisited, isHovered, isAddFlash, isSpotlight }) => {
+                        const safeCode = countryCode ?? '';
+                        const fill = getCountryFill(safeCode, beenTo);
+                        const stroke = getCountryStroke(safeCode, beenTo);
+                        const hoverFill = isVisited ? MAP_COLORS.HOVER_REMOVE : MAP_COLORS.HOVER;
+                        const hoverStroke = isVisited ? MAP_COLORS.HOVER_REMOVE_BORDER : MAP_COLORS.HOVER_BORDER;
+                        const displayFill = isAddFlash ? MAP_COLORS.ADD_FLASH : isHovered ? hoverFill : fill;
+                        const displayStroke = isSpotlight
+                          ? MAP_COLORS.SPOTLIGHT
+                          : isAddFlash
+                            ? MAP_COLORS.ADD_FLASH_BORDER
+                            : isHovered
+                              ? hoverStroke
+                              : stroke;
+                        const displayStrokeWidth = isSpotlight
+                          ? 2
+                          : isAddFlash
+                            ? MAP_STYLE.BORDER.HOVER
+                            : isHovered
+                              ? MAP_STYLE.BORDER.HOVER
+                              : MAP_STYLE.BORDER.DEFAULT;
 
-                  return (
-                    <Geography
-                      key={`${geo.rsmKey}-visited-border`}
-                      geography={geo}
-                      fill="none"
-                      stroke={MAP_COLORS.BEEN_TO_BORDER}
-                      strokeWidth={MAP_STYLE.BORDER.DEFAULT}
-                      style={{
-                        default: { outline: 'none', pointerEvents: 'none' },
-                        hover: { outline: 'none', pointerEvents: 'none' },
-                        pressed: { outline: 'none', pointerEvents: 'none' },
-                      }}
-                    />
-                  );
-                });
+                        return (
+                          <Geography
+                            key={geo.rsmKey}
+                            geography={geo}
+                            fill={displayFill}
+                            stroke={displayStroke}
+                            strokeWidth={displayStrokeWidth}
+                            className={isAddFlash ? 'map-add-pulse' : undefined}
+                            onMouseEnter={(event) => handleMouseEnter(geo, event)}
+                            onMouseLeave={handleMouseLeave}
+                            onClick={(event) => handleClick(geo, event)}
+                            data-country-code={countryCode ?? undefined}
+                            style={INTERACTIVE_STYLE}
+                          />
+                        );
+                      })}
+                    </g>
+
+                    {/* Layer 3: Visited country border overlays (non-interactive) */}
+                    <g>
+                      {entries.map(({ geo, isVisited, isHovered }) => {
+                        if (!isVisited || isHovered) return null;
+                        return (
+                          <Geography
+                            key={`${geo.rsmKey}-visited`}
+                            geography={geo}
+                            fill="none"
+                            stroke={MAP_COLORS.BEEN_TO_BORDER}
+                            strokeWidth={MAP_STYLE.BORDER.DEFAULT}
+                            style={NON_INTERACTIVE_STYLE}
+                          />
+                        );
+                      })}
+                    </g>
+                  </>
+                );
               }}
             </Geographies>
           </ZoomableGroup>

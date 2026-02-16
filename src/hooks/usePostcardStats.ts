@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import type { Country } from '@/types/country';
 import { fetchCountryEnrichedData } from '@/lib/api/restCountries';
 
@@ -27,6 +27,11 @@ interface PostcardStats {
   currencyCount: number;
 }
 
+interface EnrichedEntry {
+  language: string | null;
+  currency: string | null;
+}
+
 export const usePostcardStats = (
   countries: Country[],
   beenTo: string[],
@@ -34,42 +39,67 @@ export const usePostcardStats = (
   const [languages, setLanguages] = useState<string[]>([]);
   const [currencies, setCurrencies] = useState<string[]>([]);
 
-  // Fetch enriched data (languages) for visited countries
+  // Track previously fetched codes to only fetch the delta
+  const fetchedRef = useRef<Map<string, EnrichedEntry>>(new Map());
+
+  // Fetch enriched data only for newly added countries
   useEffect(() => {
     if (beenTo.length === 0) {
       setLanguages([]);
       setCurrencies([]);
+      fetchedRef.current.clear();
+      return;
+    }
+
+    // Remove codes no longer in beenTo
+    const beenToSet = new Set(beenTo);
+    for (const code of fetchedRef.current.keys()) {
+      if (!beenToSet.has(code)) fetchedRef.current.delete(code);
+    }
+
+    // Find codes not yet fetched
+    const newCodes = beenTo.filter(code => !fetchedRef.current.has(code));
+
+    if (newCodes.length === 0) {
+      // Rebuild from cache (handles removals)
+      rebuildFromCache();
       return;
     }
 
     let cancelled = false;
 
-    const fetchLanguages = async () => {
-      const langSet = new Set<string>();
-      const currSet = new Set<string>();
-
+    const fetchNewCodes = async () => {
       await Promise.all(
-        beenTo.map(async (code) => {
+        newCodes.map(async (code) => {
           const data = await fetchCountryEnrichedData(code);
-          if (data && !cancelled) {
-            if (data.language && data.language !== 'who knows what') {
-              langSet.add(data.language);
-            }
-            if (data.currency) {
-              currSet.add(data.currency);
-            }
+          if (!cancelled && data) {
+            fetchedRef.current.set(code, {
+              language: data.language && data.language !== 'who knows what' ? data.language : null,
+              currency: data.currency ?? null,
+            });
           }
         }),
       );
 
       if (!cancelled) {
-        setLanguages([...langSet].sort());
-        setCurrencies([...currSet].sort());
+        rebuildFromCache();
       }
     };
 
-    fetchLanguages();
+    fetchNewCodes();
     return () => { cancelled = true; };
+
+    function rebuildFromCache() {
+      const langSet = new Set<string>();
+      const currSet = new Set<string>();
+      for (const code of beenTo) {
+        const entry = fetchedRef.current.get(code);
+        if (entry?.language) langSet.add(entry.language);
+        if (entry?.currency) currSet.add(entry.currency);
+      }
+      setLanguages([...langSet].sort());
+      setCurrencies([...currSet].sort());
+    }
   }, [beenTo]);
 
   return useMemo(() => {

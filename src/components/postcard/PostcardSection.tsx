@@ -159,43 +159,69 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
   }, [loadToBlob]);
 
   // Pre-generate images for mobile devices (iOS requires synchronous share call)
+  // Deferred until section is near viewport via IntersectionObserver
+  const sectionRef = useRef<HTMLElement>(null);
+  const isNearViewportRef = useRef(false);
+  const pregenDebounceRef = useRef<NodeJS.Timeout>();
+
+  // Track when section enters viewport proximity
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback for environments without IntersectionObserver (e.g. test/SSR)
+      isNearViewportRef.current = true;
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isNearViewportRef.current = entry.isIntersecting;
+      },
+      { rootMargin: '500px' },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const shouldPreGenerate = isMobileDevice() && canShareFiles();
-
     if (!shouldPreGenerate) return;
 
-    // Clear cache and regenerate when data changes
+    // Clear cache when data changes
     setCachedImages({ front: null, back: null, isReady: false });
 
-    const generateImages = async () => {
-      try {
-        // Wait for initial render to complete
-        await new Promise((r) => setTimeout(r, 1000));
+    // Debounce to avoid re-generation on rapid adds
+    if (pregenDebounceRef.current) clearTimeout(pregenDebounceRef.current);
+    pregenDebounceRef.current = setTimeout(() => {
+      // Only pre-generate if section is near viewport
+      if (!isNearViewportRef.current) return;
 
-        if (!frontRef.current || !backRef.current) return;
+      const generateImages = async () => {
+        try {
+          await new Promise((r) => setTimeout(r, 1000));
+          if (!frontRef.current || !backRef.current) return;
 
-        console.log('[Postcard] Pre-generating images for iOS...');
+          const frontBlob = await captureCard(frontRef.current, '#f5f0e8');
+          await new Promise((r) => setTimeout(r, 300));
+          const backBlob = await captureCard(backRef.current, '#ffffff');
 
-        const frontBlob = await captureCard(frontRef.current, '#f5f0e8');
-        await new Promise((r) => setTimeout(r, 300));
-        const backBlob = await captureCard(backRef.current, '#ffffff');
+          setCachedImages({ front: frontBlob, back: backBlob, isReady: true });
+        } catch (error) {
+          console.error('[Postcard] Pre-generation failed:', error);
+        }
+      };
 
-        setCachedImages({
-          front: frontBlob,
-          back: backBlob,
-          isReady: true,
-        });
+      generateImages();
+    }, 800);
 
-        console.log('[Postcard] Images pre-generated successfully');
-      } catch (error) {
-        console.error('[Postcard] Pre-generation failed:', error);
-        // Not a critical error - we'll fall back to on-demand generation
-      }
+    return () => {
+      if (pregenDebounceRef.current) clearTimeout(pregenDebounceRef.current);
     };
-
-    generateImages();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [beenTo, userName]); // Regenerate when data changes, captureCard is stable
+  }, [beenTo, userName]);
 
   const triggerDownload = useCallback((href: string, filename: string) => {
     const link = document.createElement('a');
@@ -646,7 +672,7 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
   const canShareLink = typeof navigator !== 'undefined' && !!navigator.share;
 
   return (
-    <section id="passport" className="py-16 border-t border-border">
+    <section ref={sectionRef} id="passport" className="py-16 border-t border-border">
       <div className="container mx-auto px-4">
         {/* CTA Header */}
         <div className="text-center mb-12 postcard-section-enter">

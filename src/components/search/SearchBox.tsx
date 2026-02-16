@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { Search } from 'lucide-react';
 import { AutocompleteDropdown } from './AutocompleteDropdown';
 import { useSearchFilter } from '@/hooks/useSearchFilter';
@@ -15,6 +15,7 @@ interface SearchBoxProps {
 }
 
 export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: SearchBoxProps) => {
+  const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [toastLabel, setToastLabel] = useState<string | null>(null);
@@ -23,6 +24,13 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
   const inputRef = searchInputRef || internalInputRef;
   const clearTimeoutRef = useRef<NodeJS.Timeout>();
   const toastTimeoutRef = useRef<number | null>(null);
+  const debounceRef = useRef<NodeJS.Timeout>();
+
+  const handleInputChange = useCallback((value: string) => {
+    setInputValue(value);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => setSearchTerm(value), 150);
+  }, []);
 
   const aliases = useCountryAliases();
   const { flatResults } = useSearchFilter({
@@ -47,11 +55,13 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
     void playCountrySound('add');
     onAddCountry(countryCode);
     setIsDropdownOpen(false);
+    setInputValue('');
     setSearchTerm('');
     inputRef.current?.focus();
 
     // Clear input after 300ms delay
     clearTimeoutRef.current = setTimeout(() => {
+      setInputValue('');
       setSearchTerm('');
       inputRef.current?.focus();
     }, 300);
@@ -98,6 +108,9 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
       if (toastTimeoutRef.current) {
         window.clearTimeout(toastTimeoutRef.current);
       }
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current);
+      }
     };
   }, []);
 
@@ -116,6 +129,7 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
     }, 1600);
     void playCountrySound('add');
     onAddCountry(firstAvailableCountry.countryCode);
+    setInputValue('');
     setSearchTerm('');
     inputRef.current?.focus();
     setTimeout(() => setIsDropdownOpen(false), 300);
@@ -137,15 +151,15 @@ export const SearchBox = ({ countries, beenTo, onAddCountry, searchInputRef }: S
           ref={inputRef}
           type="text"
           placeholder={placeholderText}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          value={inputValue}
+          onChange={(e) => handleInputChange(e.target.value)}
           onKeyDown={handleKeyDown}
           className="flex-1 bg-transparent border-0 outline-none text-base placeholder:text-muted-foreground"
         />
         <button
           type="button"
           onClick={handleAddTopResult}
-          disabled={!searchTerm.trim() || !firstAvailableCountry}
+          disabled={!inputValue.trim() || !firstAvailableCountry}
           className="ml-3 rounded-full px-6 py-2 font-medium transition-all flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 active:scale-95"
           style={{
             backgroundColor: 'var(--color-accent)',

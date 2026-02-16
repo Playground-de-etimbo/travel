@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Search, ArrowLeft } from 'lucide-react';
 import { AutocompleteDropdown } from './AutocompleteDropdown';
 import { useSearchFilter } from '@/hooks/useSearchFilter';
@@ -24,6 +24,7 @@ export const MobileSearchBox = ({
   searchInputRef,
   onFocusChange,
 }: MobileSearchBoxProps) => {
+  const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -33,6 +34,13 @@ export const MobileSearchBox = ({
   const clearTimeoutRef = useRef<NodeJS.Timeout>();
   const toastTimeoutRef = useRef<number | null>(null);
   const preventScrollOnFocusRef = useRef(false);
+  const debounceRef = useRef<NodeJS.Timeout>();
+
+  const handleInputChange = useCallback((value: string) => {
+    setInputValue(value);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => setSearchTerm(value), 150);
+  }, []);
 
   const aliases = useCountryAliases();
   const { flatResults } = useSearchFilter({
@@ -58,6 +66,7 @@ export const MobileSearchBox = ({
     void playCountrySound('add');
     onAddCountry(countryCode);
     setIsDropdownOpen(false);
+    setInputValue('');
     setSearchTerm('');
 
     // Prevent scroll on refocus after selection
@@ -66,6 +75,7 @@ export const MobileSearchBox = ({
 
     // Clear input after 300ms delay
     clearTimeoutRef.current = setTimeout(() => {
+      setInputValue('');
       setSearchTerm('');
       preventScrollOnFocusRef.current = true;
       inputRef.current?.focus();
@@ -131,6 +141,9 @@ export const MobileSearchBox = ({
       if (toastTimeoutRef.current) {
         window.clearTimeout(toastTimeoutRef.current);
       }
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current);
+      }
     };
   }, []);
 
@@ -162,8 +175,8 @@ export const MobileSearchBox = ({
           ref={inputRef}
           type="text"
           placeholder={placeholderText}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          value={inputValue}
+          onChange={(e) => handleInputChange(e.target.value)}
           onKeyDown={handleKeyDown}
           onFocus={() => {
             setIsFocused(true);

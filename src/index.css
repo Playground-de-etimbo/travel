@@ -164,15 +164,12 @@ select,
 @keyframes map-add-pulse {
   0% {
     transform: scale(1);
-    filter: drop-shadow(0 0 0 color-mix(in oklch, oklch(47.73% 0.129 191.636), transparent 100%));
   }
   40% {
     transform: scale(1.04);
-    filter: drop-shadow(0 0 8px color-mix(in oklch, oklch(47.73% 0.129 191.636), transparent 55%));
   }
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 0 color-mix(in oklch, oklch(47.73% 0.129 191.636), transparent 100%));
   }
 }
 

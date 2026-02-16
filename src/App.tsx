@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { Toaster } from '@/components/ui/sonner';
@@ -36,8 +36,18 @@ function App() {
     setTimeout(() => setPanTarget(null), 100); // Clear after WorldMap processes
   }, [addCountry]);
 
+  // Stable starfield positions — computed once, never recomputed on re-render
+  const starPositions = useMemo(() =>
+    Array.from({ length: 30 }, () => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 60}%`,
+      animationDelay: `${Math.random() * 3}s`,
+      opacity: Math.random() * 0.7 + 0.3,
+    })),
+  []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header
         soundMuted={soundMuted}
         onToggleSound={handleToggleSound}
@@ -81,16 +91,11 @@ function App() {
 
                 {/* Starfield for dark mode */}
                 <div className="starfield absolute pointer-events-none opacity-0 dark:opacity-100" style={{ top: '12rem' }}>
-                  {[...Array(30)].map((_, i) => (
+                  {starPositions.map((star, i) => (
                     <div
                       key={i}
                       className="star"
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 60}%`,
-                        animationDelay: `${Math.random() * 3}s`,
-                        opacity: Math.random() * 0.7 + 0.3
-                      }}
+                      style={star}
                     />
                   ))}
                 </div>

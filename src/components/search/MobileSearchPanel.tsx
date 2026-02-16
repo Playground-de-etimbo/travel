@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, memo } from 'react';
 import { MobileSearchBox } from './MobileSearchBox';
 import { TravelStatsBar } from './TravelStatsBar';
 import { VisitedCountriesList } from './VisitedCountriesList';
@@ -12,7 +12,7 @@ interface MobileSearchPanelProps {
   onRemoveCountry: (countryCode: string) => void;
 }
 
-export const MobileSearchPanel = ({
+export const MobileSearchPanel = memo(({
   beenTo,
   countries,
   onAddCountry,
@@ -29,7 +29,7 @@ export const MobileSearchPanel = ({
     expansionScrollRange: window.innerHeight * 0.4,
   });
 
-  const handleAdd = async (code: string) => {
+  const handleAdd = useCallback(async (code: string) => {
     await onAddCountry(code);
     setRecentlyAdded(code);
 
@@ -40,16 +40,16 @@ export const MobileSearchPanel = ({
 
     // Clear recently added after animation
     setTimeout(() => setRecentlyAdded(null), 600);
-  };
+  }, [onAddCountry]);
 
-  const handleRemove = async (code: string) => {
+  const handleRemove = useCallback(async (code: string) => {
     await onRemoveCountry(code);
 
     // Haptic feedback
     if (navigator.vibrate) {
       navigator.vibrate(25);
     }
-  };
+  }, [onRemoveCountry]);
 
   // Only use dynamic expansion when there are many countries (>3)
   // For 1-3 countries, use natural content height with a reasonable max
@@ -94,4 +94,4 @@ export const MobileSearchPanel = ({
       </div>
     </div>
   );
-};
+});

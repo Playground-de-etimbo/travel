@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { LocalStorageAdapter } from '@/lib/storage';
 import type { UserData } from '@/types';
 
@@ -9,6 +9,12 @@ export function useUserData() {
   const [beenTo, setBeenTo] = useState<string[]>([]);
   const [wantToGo, setWantToGo] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Refs mirror state so callbacks stay stable (no beenTo/wantToGo in deps)
+  const beenToRef = useRef(beenTo);
+  beenToRef.current = beenTo;
+  const wantToGoRef = useRef(wantToGo);
+  wantToGoRef.current = wantToGo;
 
   // Load data from storage on mount
   useEffect(() => {
@@ -45,20 +51,19 @@ export function useUserData() {
   }, []);
 
   const addCountry = useCallback(async (countryCode: string) => {
-    // Prevent duplicates
-    if (beenTo.includes(countryCode)) {
+    if (beenToRef.current.includes(countryCode)) {
       return;
     }
-    const newBeenTo = [...beenTo, countryCode];
+    const newBeenTo = [...beenToRef.current, countryCode];
     setBeenTo(newBeenTo);
-    await saveData(newBeenTo, wantToGo);
-  }, [beenTo, wantToGo, saveData]);
+    await saveData(newBeenTo, wantToGoRef.current);
+  }, [saveData]);
 
   const removeCountry = useCallback(async (countryCode: string) => {
-    const newBeenTo = beenTo.filter(code => code !== countryCode);
+    const newBeenTo = beenToRef.current.filter(code => code !== countryCode);
     setBeenTo(newBeenTo);
-    await saveData(newBeenTo, wantToGo);
-  }, [beenTo, wantToGo, saveData]);
+    await saveData(newBeenTo, wantToGoRef.current);
+  }, [saveData]);
 
   const clearAll = useCallback(async () => {
     setBeenTo([]);
