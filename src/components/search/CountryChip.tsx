@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { MinusCircle } from 'lucide-react';
 import type { Country } from '@/types';
 
@@ -8,7 +9,7 @@ interface CountryChipProps {
   isRecentlyAdded?: boolean;
 }
 
-export const CountryChip = ({
+export const CountryChip = memo(({
   country,
   onRemove,
   animationDelay = 0,
@@ -39,4 +40,4 @@ export const CountryChip = ({
       </button>
     </div>
   );
-};
+});

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { RecommendationCard } from './RecommendationCard';
@@ -11,7 +12,7 @@ interface RecommendationsGridProps {
   onRegenerate: () => void;
 }
 
-export function RecommendationsGrid({
+export const RecommendationsGrid = memo(function RecommendationsGrid({
   recommendations,
   countries,
   tier,
@@ -46,4 +47,4 @@ export function RecommendationsGrid({
       </div>
     </div>
   );
-}
+});

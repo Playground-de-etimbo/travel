@@ -1,12 +1,14 @@
+import { memo } from 'react';
 import { Sparkles } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
-export function SampleResults() {
-  const sampleCountries = [
-    { flag: '🇯🇵', name: 'Japan', reason: 'Perfect blend of ancient temples and modern innovation' },
-    { flag: '🇮🇹', name: 'Italy', reason: 'Renaissance art, incredible cuisine, and stunning coastlines' },
-    { flag: '🇹🇭', name: 'Thailand', reason: 'Tropical paradise with vibrant culture and friendly locals' },
-  ];
+const sampleCountries = [
+  { flag: '🇯🇵', name: 'Japan', reason: 'Perfect blend of ancient temples and modern innovation' },
+  { flag: '🇮🇹', name: 'Italy', reason: 'Renaissance art, incredible cuisine, and stunning coastlines' },
+  { flag: '🇹🇭', name: 'Thailand', reason: 'Tropical paradise with vibrant culture and friendly locals' },
+];
+
+export const SampleResults = memo(function SampleResults() {
 
   return (
     <div className="space-y-4">
@@ -70,4 +72,4 @@ export function SampleResults() {
       </div>
     </div>
   );
-}
+});

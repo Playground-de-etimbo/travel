@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { CountryChip } from './CountryChip';
 import type { Country } from '@/types';
 
@@ -10,7 +11,7 @@ interface RegionCountryGroupProps {
   recentlyAdded: string | null;
 }
 
-export const RegionCountryGroup = ({
+export const RegionCountryGroup = memo(({
   region,
   countries,
   totalInRegion,
@@ -41,4 +42,4 @@ export const RegionCountryGroup = ({
       </div>
     </div>
   );
-};
+});

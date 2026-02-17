@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Map, Compass, Stamp, Info } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -12,6 +12,7 @@ export const FloatingPillNav = () => {
   const [visible, setVisible] = useState(false);
   const [exiting, setExiting] = useState(false);
   const [activeSection, setActiveSection] = useState('map-hero');
+  const activeSectionRef = useRef('map-hero');
 
   const handleScroll = useCallback(() => {
     // Show as soon as the user starts scrolling down.
@@ -39,7 +40,11 @@ export const FloatingPillNav = () => {
         }
       }
     }
-    setActiveSection(current);
+
+    if (current !== activeSectionRef.current) {
+      activeSectionRef.current = current;
+      setActiveSection(current);
+    }
   }, [visible]);
 
   useEffect(() => {

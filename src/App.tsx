@@ -90,6 +90,12 @@ function App() {
     document.getElementById('passport')?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
+  // Memoize the effective beenTo list — avoids inline ternary in 4 places
+  const effectiveBeenTo = useMemo(
+    () => sharedPostcard ? sharedPostcard.beenTo : beenTo,
+    [sharedPostcard, beenTo]
+  );
+
   // Stable starfield positions — computed once, never recomputed on re-render
   const starPositions = useMemo(() =>
     Array.from({ length: 30 }, () => ({
@@ -121,7 +127,7 @@ function App() {
               {/* Map Hero Section - Full viewport interactive map */}
               <section id="map-hero" className="relative">
                 <WorldMap
-                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
+                  beenTo={effectiveBeenTo}
                   onAddCountry={handleAddCountry}
                   onRemoveCountry={handleRemoveCountry}
                   panToCountryCode={panTarget}
@@ -164,7 +170,7 @@ function App() {
 
                 {/* Search Panel - Desktop sticky panel overlapping map */}
                 <SearchPanel
-                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
+                  beenTo={effectiveBeenTo}
                   countries={countries}
                   onAddCountry={handleAddCountryFromSearch}
                   onRemoveCountry={handleRemoveCountry}
@@ -172,7 +178,7 @@ function App() {
 
                 {/* Mobile Search Panel - Fixed bottom panel with scroll expansion */}
                 <MobileSearchPanel
-                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
+                  beenTo={effectiveBeenTo}
                   countries={countries}
                   onAddCountry={handleAddCountryFromSearch}
                   onRemoveCountry={handleRemoveCountry}
@@ -181,7 +187,7 @@ function App() {
                 {/* Recommendations Section */}
                 <RecommendationsSection
                   countries={countries}
-                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
+                  beenTo={effectiveBeenTo}
                   addCountry={addCountry}
                 />
               </div>

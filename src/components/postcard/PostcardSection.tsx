@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect } from 'react';
+import { useRef, useState, useCallback, useEffect, memo } from 'react';
 import { Download, Share2, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -91,7 +91,7 @@ const canShareFiles = () => {
   }
 };
 
-export const PostcardSection = ({ countries, beenTo, sharedName, sharedBeenTo }: PostcardSectionProps) => {
+export const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: PostcardSectionProps) => {
   type HtmlToImageToBlob = (typeof import('html-to-image'))['toBlob'];
 
   // Use shared data when viewing someone else's postcard
@@ -814,4 +814,4 @@ export const PostcardSection = ({ countries, beenTo, sharedName, sharedBeenTo }:
       </div>
     </section>
   );
-};
+});

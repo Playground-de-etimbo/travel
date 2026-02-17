@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTravelStats } from '@/hooks/useTravelStats';
 
 interface TravelStatsBarProps {
@@ -6,7 +7,7 @@ interface TravelStatsBarProps {
   isMobile?: boolean;
 }
 
-export const TravelStatsBar = ({ beenTo, totalCountries, isMobile = false }: TravelStatsBarProps) => {
+export const TravelStatsBar = memo(({ beenTo, totalCountries, isMobile = false }: TravelStatsBarProps) => {
   const { formattedString } = useTravelStats(beenTo, totalCountries, {
     showAndCounting: !isMobile
   });
@@ -18,4 +19,4 @@ export const TravelStatsBar = ({ beenTo, totalCountries, isMobile = false }: Tra
       </p>
     </div>
   );
-};
+});
