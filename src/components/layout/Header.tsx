@@ -21,7 +21,7 @@ const HeaderComponent = ({ soundMuted, onToggleSound, onClearSession }: HeaderPr
           <span
             className="text-[28px] font-extrabold tracking-[1px] leading-none block dark:hidden"
             style={{
-              fontFamily: 'Nunito, sans-serif',
+              fontFamily: "'Nunito', 'Nunito Fallback', sans-serif",
               color: 'hsl(230 15% 15%)',
               textShadow: '0 2px 4px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.6)',
             }}
@@ -32,7 +32,7 @@ const HeaderComponent = ({ soundMuted, onToggleSound, onClearSession }: HeaderPr
           <span
             className="text-[28px] font-extrabold tracking-[1px] leading-none hidden dark:block"
             style={{
-              fontFamily: 'Nunito, sans-serif',
+              fontFamily: "'Nunito', 'Nunito Fallback', sans-serif",
               color: 'hsl(225 20% 90%)',
               textShadow: '0 2px 4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 0, 0, 0.4)',
             }}
@@ -111,7 +111,7 @@ const HeaderComponent = ({ soundMuted, onToggleSound, onClearSession }: HeaderPr
             <span
               className="text-[42px] font-extrabold tracking-[2px] leading-none block dark:hidden"
               style={{
-                fontFamily: 'Nunito, sans-serif',
+                fontFamily: "'Nunito', 'Nunito Fallback', sans-serif",
                 color: 'hsl(230 15% 15%)',
                 textShadow: '0 2px 4px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.6)',
               }}
@@ -122,7 +122,7 @@ const HeaderComponent = ({ soundMuted, onToggleSound, onClearSession }: HeaderPr
             <span
               className="text-[42px] font-extrabold tracking-[2px] leading-none hidden dark:block"
               style={{
-                fontFamily: 'Nunito, sans-serif',
+                fontFamily: "'Nunito', 'Nunito Fallback', sans-serif",
                 color: 'hsl(225 20% 90%)',
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 0, 0, 0.4)',
               }}

@@ -293,7 +293,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
 
   if (countriesLoading) {
     return (
-      <div className="h-screen flex items-center justify-center bg-gradient-to-b from-card to-background">
+      <div className="h-[85vh] max-h-screen flex items-center justify-center bg-gradient-to-b from-card to-background">
         <div className="text-center">
           <div className="text-lg text-muted-foreground">Loading map...</div>
         </div>
@@ -303,7 +303,7 @@ export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCo
 
   if (countries.length === 0) {
     return (
-      <div className="h-screen flex items-center justify-center bg-gradient-to-b from-card to-background">
+      <div className="h-[85vh] max-h-screen flex items-center justify-center bg-gradient-to-b from-card to-background">
         <div className="text-center">
           <div className="text-lg text-muted-foreground">Unable to load map data</div>
           <div className="text-sm text-muted-foreground mt-2">Please refresh the page</div>

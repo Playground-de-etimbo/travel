@@ -134,12 +134,21 @@
   }
 }
 
+/* Font fallback sizing to reduce CLS during font swap */
+@font-face {
+  font-family: 'Nunito Fallback';
+  src: local('Arial');
+  size-adjust: 101%;
+  ascent-override: 100%;
+  descent-override: 22%;
+  line-height-override: normal;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  /* iOS safe area insets for fluid edge-to-edge design */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
+  /* Safe area insets: only left/right for landscape mode.
+     Top/bottom removed to prevent CLS when iOS Safari address bar toggles. */
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }

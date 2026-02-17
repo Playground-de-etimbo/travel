@@ -85,31 +85,34 @@ export function RecommendationsSection({
         {/* Show BudgetSlider always */}
         <BudgetSlider tier={activeTier} onTierChange={setActiveTier} />
 
-        {/* Show sample results if no real results yet */}
-        {!result && !loading && <SampleResults />}
+        {/* Stable height container to prevent CLS when swapping content states */}
+        <div style={{ minHeight: '500px' }}>
+          {/* Show sample results if no real results yet */}
+          {!result && !loading && <SampleResults />}
 
-        {/* Show loading message */}
-        {loading && (
-          <div className="text-center py-4">
-            <p className="text-sm text-muted-foreground animate-pulse">
-              {result
-                ? 'Updating recommendations...'
-                : 'Generating your personalized recommendations...'}
-            </p>
-          </div>
-        )}
+          {/* Show loading message */}
+          {loading && (
+            <div className="text-center py-4">
+              <p className="text-sm text-muted-foreground animate-pulse">
+                {result
+                  ? 'Updating recommendations...'
+                  : 'Generating your personalized recommendations...'}
+              </p>
+            </div>
+          )}
 
-        {/* Show loading state only before first result to avoid full-grid flicker */}
-        {loading && !result && <LoadingState />}
+          {/* Show loading state only before first result to avoid full-grid flicker */}
+          {loading && !result && <LoadingState />}
 
-        {result && (
-          <RecommendationsGrid
-            recommendations={result.recommendations}
-            countries={countries}
-            tier={activeTier}
-            onRegenerate={() => generate(preferences)}
-          />
-        )}
+          {result && (
+            <RecommendationsGrid
+              recommendations={result.recommendations}
+              countries={countries}
+              tier={activeTier}
+              onRegenerate={() => generate(preferences)}
+            />
+          )}
+        </div>
       </div>
     </section>
   );
