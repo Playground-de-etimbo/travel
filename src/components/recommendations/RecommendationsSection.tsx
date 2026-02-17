@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { PreferencesForm } from './PreferencesForm';
 import { BudgetSlider } from './BudgetSlider';
 import { RecommendationsGrid } from './RecommendationsGrid';
@@ -43,13 +44,49 @@ export function RecommendationsSection({
     dismissDetection,
   } = useGeolocation();
 
+  const handleRegenerate = useCallback(() => generate(preferences), [generate, preferences]);
+
+  // Auto-refresh recommendations once when the section first scrolls into view
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const hasAutoRefreshed = useRef(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (
+          entry.isIntersecting &&
+          !hasAutoRefreshed.current &&
+          result &&
+          preferences.homeLocation
+        ) {
+          hasAutoRefreshed.current = true;
+          generate(preferences);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [result, preferences, generate]);
+
+  // Filter out countries the user has since marked as "been to"
+  const filteredRecommendations = useMemo(
+    () => result?.recommendations.filter(rec => !beenTo.includes(rec.countryCode)) ?? [],
+    [result, beenTo]
+  );
+
   return (
     <section
       id="recommendations"
       className="pt-16 pb-16 relative"
     >
       <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-6">
+        <div ref={sectionRef} className="mb-6">
           <span className="eyebrow-recommendations text-sm font-semibold uppercase tracking-wider block">
             AI-Powered Discovery
           </span>
@@ -106,10 +143,10 @@ export function RecommendationsSection({
 
           {result && (
             <RecommendationsGrid
-              recommendations={result.recommendations}
+              recommendations={filteredRecommendations}
               countries={countries}
               tier={activeTier}
-              onRegenerate={() => generate(preferences)}
+              onRegenerate={handleRegenerate}
             />
           )}
         </div>
