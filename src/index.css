@@ -705,3 +705,23 @@ svg g > g > rect[fill="transparent"] {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.2); }
 }
+
+/* Postcard loading modal animations */
+@keyframes emoji-pop {
+  0%   { transform: scale(0) translateY(8px); opacity: 0; }
+  50%  { transform: scale(1.25) translateY(-4px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes phrase-fade {
+  0%, 100% { opacity: 0; transform: translateY(4px); }
+  15%, 85% { opacity: 1; transform: translateY(0); }
+}
+
+.postcard-emoji-pop {
+  animation: emoji-pop 0.4s ease-out both;
+}
+
+.postcard-phrase-fade {
+  animation: phrase-fade 1.2s ease-in-out both;
+}

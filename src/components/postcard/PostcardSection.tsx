@@ -1,6 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import { Download, Share2, ChevronDown } from 'lucide-react';
-import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -19,12 +18,16 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { PostcardFront } from './PostcardFront';
 import { PostcardBack } from './PostcardBack';
+import { PostcardLoadingOverlay } from './PostcardLoadingOverlay';
 import { usePostcardStats } from '@/hooks/usePostcardStats';
+import { encodePostcardUrl } from '@/lib/postcard/shareUrl';
 import type { Country } from '@/types/country';
 
 interface PostcardSectionProps {
   countries: Country[];
   beenTo: string[];
+  sharedName?: string;
+  sharedBeenTo?: string[];
 }
 
 const EXPORT_SANITIZE_STYLE = `
@@ -88,31 +91,36 @@ const canShareFiles = () => {
   }
 };
 
-export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => {
+export const PostcardSection = ({ countries, beenTo, sharedName, sharedBeenTo }: PostcardSectionProps) => {
   type HtmlToImageToBlob = (typeof import('html-to-image'))['toBlob'];
+
+  // Use shared data when viewing someone else's postcard
+  const effectiveBeenTo = sharedBeenTo ?? beenTo;
 
   const frontRef = useRef<HTMLDivElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const toBlobRef = useRef<HtmlToImageToBlob | null>(null);
   const toBlobPromiseRef = useRef<Promise<HtmlToImageToBlob> | null>(null);
   const [showNameModal, setShowNameModal] = useState(false);
   const [nameInput, setNameInput] = useState('');
-  const [userName, setUserName] = useState('Wanderer');
+  const [userName, setUserName] = useState(sharedName ?? 'Wanderer');
+
+  // Sync userName when shared postcard changes
+  useEffect(() => {
+    if (sharedName) setUserName(sharedName);
+  }, [sharedName]);
+
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadError, setDownloadError] = useState<string | null>(null);
   const [manualDownloads, setManualDownloads] = useState<{
     front: string | null;
     back: string | null;
   }>({ front: null, back: null });
+  const [showPostcardModal, setShowPostcardModal] = useState(false);
+  const [modalPhase, setModalPhase] = useState<'loading' | 'success' | 'error'>('loading');
 
-  // Pre-cached images for iOS share (iOS requires share to be called synchronously with user gesture)
-  const [cachedImages, setCachedImages] = useState<{
-    front: Blob | null;
-    back: Blob | null;
-    isReady: boolean;
-  }>({ front: null, back: null, isReady: false });
-
-  const stats = usePostcardStats(countries, beenTo);
+  const stats = usePostcardStats(countries, effectiveBeenTo);
   const loadToBlob = useCallback(async (): Promise<HtmlToImageToBlob> => {
     if (toBlobRef.current) {
       return toBlobRef.current;
@@ -148,6 +156,7 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
     };
   }, [manualDownloads]);
 
+  // Warm the dynamic import on first scroll
   useEffect(() => {
     const onFirstScroll = () => {
       void loadToBlob();
@@ -157,71 +166,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
     window.addEventListener('scroll', onFirstScroll, { passive: true });
     return () => window.removeEventListener('scroll', onFirstScroll);
   }, [loadToBlob]);
-
-  // Pre-generate images for mobile devices (iOS requires synchronous share call)
-  // Deferred until section is near viewport via IntersectionObserver
-  const sectionRef = useRef<HTMLElement>(null);
-  const isNearViewportRef = useRef(false);
-  const pregenDebounceRef = useRef<NodeJS.Timeout>();
-
-  // Track when section enters viewport proximity
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    if (typeof IntersectionObserver === 'undefined') {
-      // Fallback for environments without IntersectionObserver (e.g. test/SSR)
-      isNearViewportRef.current = true;
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isNearViewportRef.current = entry.isIntersecting;
-      },
-      { rootMargin: '500px' },
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const shouldPreGenerate = isMobileDevice() && canShareFiles();
-    if (!shouldPreGenerate) return;
-
-    // Clear cache when data changes
-    setCachedImages({ front: null, back: null, isReady: false });
-
-    // Debounce to avoid re-generation on rapid adds
-    if (pregenDebounceRef.current) clearTimeout(pregenDebounceRef.current);
-    pregenDebounceRef.current = setTimeout(() => {
-      // Only pre-generate if section is near viewport
-      if (!isNearViewportRef.current) return;
-
-      const generateImages = async () => {
-        try {
-          await new Promise((r) => setTimeout(r, 1000));
-          if (!frontRef.current || !backRef.current) return;
-
-          const frontBlob = await captureCard(frontRef.current, '#f5f0e8');
-          await new Promise((r) => setTimeout(r, 300));
-          const backBlob = await captureCard(backRef.current, '#ffffff');
-
-          setCachedImages({ front: frontBlob, back: backBlob, isReady: true });
-        } catch (error) {
-          console.error('[Postcard] Pre-generation failed:', error);
-        }
-      };
-
-      generateImages();
-    }, 800);
-
-    return () => {
-      if (pregenDebounceRef.current) clearTimeout(pregenDebounceRef.current);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [beenTo, userName]);
 
   const triggerDownload = useCallback((href: string, filename: string) => {
     const link = document.createElement('a');
@@ -360,18 +304,7 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           files,
           title: 'My Destino Postcard',
           text: `I've explored ${stats.visitedCount} countries across ${stats.regionCount} regions!`,
-        });
-
-        // Success toast
-        const cardLabel =
-          files.length === 2
-            ? 'both postcards'
-            : files.length === 1 && blobs.front
-              ? 'postcard front'
-              : 'postcard back';
-
-        toast.success('Postcard shared!', {
-          description: `Saved ${cardLabel} to your photo library.`,
+          url: encodePostcardUrl(userName, effectiveBeenTo),
         });
 
         return true;
@@ -384,37 +317,43 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
         return false;
       }
     },
-    [stats.visitedCount, stats.regionCount],
+    [stats.visitedCount, stats.regionCount, userName, effectiveBeenTo],
   );
 
-  // Special handler for iOS that uses pre-cached images for immediate share
+  // Handler for iOS that captures fresh images and shares immediately
   const handleDownloadWithImmediateShare = useCallback(async () => {
     setIsDownloading(true);
     setShowNameModal(false);
     setDownloadError(null);
+    setShowPostcardModal(true);
+    setModalPhase('loading');
 
     try {
-      let frontBlob = cachedImages.front;
-      let backBlob = cachedImages.back;
+      // Wait for name to render
+      await waitForNextPaint();
 
-      // If images aren't cached yet, capture them now
-      if (!cachedImages.isReady) {
-        toast.info('Preparing postcard...', { duration: 2000 });
+      // Capture images fresh
+      const frontBlob = frontRef.current
+        ? await captureCard(frontRef.current, '#f5f0e8')
+        : null;
 
-        // Wait for name to render
-        await waitForNextPaint();
+      await new Promise((r) => setTimeout(r, 300));
 
-        // Capture images
-        frontBlob = frontRef.current
-          ? await captureCard(frontRef.current, '#f5f0e8')
-          : null;
+      const backBlob = backRef.current
+        ? await captureCard(backRef.current, '#ffffff')
+        : null;
 
-        await new Promise((r) => setTimeout(r, 300));
+      // Build manual download URLs for the modal
+      const nextManualDownloads = {
+        front: frontBlob ? URL.createObjectURL(frontBlob) : null,
+        back: backBlob ? URL.createObjectURL(backBlob) : null,
+      };
 
-        backBlob = backRef.current
-          ? await captureCard(backRef.current, '#ffffff')
-          : null;
-      }
+      setManualDownloads((previous) => {
+        if (previous.front) URL.revokeObjectURL(previous.front);
+        if (previous.back) URL.revokeObjectURL(previous.back);
+        return nextManualDownloads;
+      });
 
       // Try to share the images
       try {
@@ -439,17 +378,14 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
         if (files.length > 0 && navigator.share) {
           console.log('[Postcard] 📤 Calling navigator.share with', files.length, 'files');
 
-          // This is the critical call - it should happen as quickly as possible after the user click
           await navigator.share({
             files,
             title: 'My Destino Postcard',
             text: `I've explored ${stats.visitedCount} countries across ${stats.regionCount} regions!`,
+            url: encodePostcardUrl(userName, effectiveBeenTo),
           });
 
           console.log('[Postcard] ✅ navigator.share succeeded');
-          toast.success('Postcard shared!', {
-            description: 'Select "Save Image" or "Add to Photos" from the share menu.',
-          });
         } else {
           console.log('[Postcard] ⚠️ Skipping share:', {
             filesCount: files.length,
@@ -459,21 +395,9 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
       } catch (error) {
         if (error instanceof Error && error.name === 'AbortError') {
           // User cancelled - that's fine
-          toast.info('Share cancelled');
         } else {
           console.error('Share failed:', error);
           // Fall back to download
-          const nextManualDownloads = {
-            front: frontBlob ? URL.createObjectURL(frontBlob) : null,
-            back: backBlob ? URL.createObjectURL(backBlob) : null,
-          };
-
-          setManualDownloads((previous) => {
-            if (previous.front) URL.revokeObjectURL(previous.front);
-            if (previous.back) URL.revokeObjectURL(previous.back);
-            return nextManualDownloads;
-          });
-
           if (nextManualDownloads.front) {
             triggerDownload(nextManualDownloads.front, 'destino-postcard-front.png');
           }
@@ -483,12 +407,10 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           if (nextManualDownloads.back) {
             triggerDownload(nextManualDownloads.back, 'destino-postcard-back.png');
           }
-
-          toast.success('Downloading postcards', {
-            description: 'Share failed, downloading images instead.',
-          });
         }
       }
+
+      setModalPhase('success');
     } catch (error) {
       console.error('Postcard preparation failed:', error);
       setDownloadError(
@@ -496,25 +418,24 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           ? error.message
           : 'Unknown error while creating postcard image.',
       );
-      toast.error('Postcard preparation failed', {
-        description: 'Please try again. If this keeps happening, reload the page.',
-      });
+      setModalPhase('error');
     } finally {
       setIsDownloading(false);
     }
-  }, [cachedImages, captureCard, triggerDownload, stats, waitForNextPaint]);
+  }, [captureCard, triggerDownload, stats, waitForNextPaint]);
 
   const handleDownload = useCallback(
     async (side?: 'front' | 'back') => {
       setIsDownloading(true);
       setShowNameModal(false);
       setDownloadError(null);
+      setShowPostcardModal(true);
+      setModalPhase('loading');
 
       const isMobile = isMobileDevice();
       const canShare = canShareFiles();
       const shouldShare = isMobile && canShare;
 
-      let downloadedCount = 0;
       const nextManualDownloads = {
         front: null as string | null,
         back: null as string | null,
@@ -531,7 +452,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
         if (captureFront && frontRef.current) {
           frontBlob = await captureCard(frontRef.current, '#f5f0e8');
           nextManualDownloads.front = URL.createObjectURL(frontBlob);
-          downloadedCount += 1;
         }
 
         // Small delay between captures
@@ -542,7 +462,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
         if (captureBack && backRef.current) {
           backBlob = await captureCard(backRef.current, '#ffffff');
           nextManualDownloads.back = URL.createObjectURL(backBlob);
-          downloadedCount += 1;
         }
 
         // Mobile: Try native share first
@@ -552,8 +471,14 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
             back: backBlob || undefined,
           });
 
-          // If share was successful, we're done
+          // If share was successful, show success
           if (shared) {
+            setManualDownloads((previous) => {
+              if (previous.front) URL.revokeObjectURL(previous.front);
+              if (previous.back) URL.revokeObjectURL(previous.back);
+              return nextManualDownloads;
+            });
+            setModalPhase('success');
             setIsDownloading(false);
             return;
           }
@@ -580,17 +505,7 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           triggerDownload(nextManualDownloads.back, 'destino-postcard-back.png');
         }
 
-        // Success toast for download
-        if (!shouldShare) {
-          toast.success('Postcard download started', {
-            description:
-              downloadedCount === 2
-                ? 'Downloading both postcard sides.'
-                : downloadedCount === 1
-                  ? `Downloading postcard ${side || 'image'}.`
-                  : 'Downloading postcard.',
-          });
-        }
+        setModalPhase('success');
       } catch (error) {
         console.error('Postcard download failed:', error);
         setDownloadError(
@@ -598,9 +513,7 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
             ? error.message
             : 'Unknown error while creating postcard image.',
         );
-        toast.error('Postcard download failed', {
-          description: 'Please try again. If this keeps happening, reload the page.',
-        });
+        setModalPhase('error');
       } finally {
         setIsDownloading(false);
       }
@@ -624,7 +537,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
     if (isMobile && canShare) {
       console.log('[Postcard] ✅ Taking mobile share path');
       setUserName('Wanderer');
-      // Don't await here - start download in background and share immediately
       handleDownloadWithImmediateShare();
       return;
     }
@@ -659,10 +571,11 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
   const handleShare = async () => {
     if (!navigator.share) return;
     try {
+      const shareUrl = encodePostcardUrl(userName, effectiveBeenTo);
       await navigator.share({
         title: 'My Destino Postcard',
         text: `I've explored ${stats.visitedCount} countries across ${stats.regionCount} regions!`,
-        url: window.location.href,
+        url: shareUrl,
       });
     } catch {
       // User cancelled share
@@ -695,30 +608,40 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           <ChevronDown className="w-5 h-5 mx-auto text-muted-foreground animate-bounce" />
         </div>
 
+        {/* Postcard download modal */}
+        <PostcardLoadingOverlay
+          open={showPostcardModal}
+          phase={modalPhase}
+          errorMessage={downloadError}
+          downloadUrls={manualDownloads}
+          onClose={() => setShowPostcardModal(false)}
+          onRetry={() => handleDownload()}
+        />
+
         {/* Cards */}
         <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
-          <div className="postcard-card-enter">
-            <PostcardFront
-              cardRef={frontRef}
-              visitedCount={stats.visitedCount}
-              percentExplored={stats.percentExplored}
-              regionCount={stats.regionCount}
-              totalRegions={stats.totalRegions}
-              flagEmojis={stats.flagEmojis}
-              beenTo={beenTo}
-              languageCount={stats.languageCount}
-              currencyCount={stats.currencyCount}
-            />
+            <div className="postcard-card-enter">
+              <PostcardFront
+                cardRef={frontRef}
+                visitedCount={stats.visitedCount}
+                percentExplored={stats.percentExplored}
+                regionCount={stats.regionCount}
+                totalRegions={stats.totalRegions}
+                flagEmojis={stats.flagEmojis}
+                beenTo={effectiveBeenTo}
+                languageCount={stats.languageCount}
+                currencyCount={stats.currencyCount}
+              />
+            </div>
+            <div className="postcard-card-enter">
+              <PostcardBack
+                cardRef={backRef}
+                visitedCount={stats.visitedCount}
+                visitedCountries={stats.visitedCountries}
+                userName={userName}
+              />
+            </div>
           </div>
-          <div className="postcard-card-enter">
-            <PostcardBack
-              cardRef={backRef}
-              visitedCount={stats.visitedCount}
-              visitedCountries={stats.visitedCountries}
-              userName={userName}
-            />
-          </div>
-        </div>
 
         {/* Download controls */}
         <div className="mt-8">
@@ -730,7 +653,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
 
               // Mobile with multi-file share support: Save Postcards button
               if (shouldUseShareAPI) {
-              const imagesReady = cachedImages.isReady;
               return (
                 <>
                   <Button
@@ -741,11 +663,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
                     <Download className="w-4 h-4" />
                     {isDownloading ? 'Preparing...' : 'Save Postcards'}
                   </Button>
-                  {!imagesReady && !isDownloading && (
-                    <span className="text-xs text-muted-foreground block mt-2">
-                      Preparing images...
-                    </span>
-                  )}
                   {canShareLink && (
                     <Button
                       variant="outline"
@@ -868,36 +785,6 @@ export const PostcardSection = ({ countries, beenTo }: PostcardSectionProps) => 
           })()}
         </div>
 
-        {(manualDownloads.front || manualDownloads.back) && (
-          <div className="flex flex-wrap justify-center gap-2 mt-3 text-sm">
-            <span className="text-muted-foreground">
-              If download did not start:
-            </span>
-            {manualDownloads.front && (
-              <a
-                href={manualDownloads.front}
-                download="destino-postcard-front.png"
-                className="underline text-accent"
-              >
-                Download front
-              </a>
-            )}
-            {manualDownloads.back && (
-              <a
-                href={manualDownloads.back}
-                download="destino-postcard-back.png"
-                className="underline text-accent"
-              >
-                Download back
-              </a>
-            )}
-          </div>
-        )}
-        {downloadError && (
-          <p className="mt-2 text-sm text-destructive text-center">
-            Download error: {downloadError}
-          </p>
-        )}
 
         {/* Name modal */}
         <Dialog open={showNameModal} onOpenChange={setShowNameModal}>

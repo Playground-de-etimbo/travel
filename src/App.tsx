@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useRef } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { Toaster } from '@/components/ui/sonner';
@@ -11,15 +11,23 @@ import { FloatingPillNav } from '@/components/layout/FloatingPillNav';
 import { TechStackSection } from '@/components/footer/TechStackSection';
 import { CountriesNote } from '@/components/footer/CountriesNote';
 import { PortfolioFooter } from '@/components/footer/PortfolioFooter';
+import { SharedPostcardBanner } from '@/components/postcard/SharedPostcardBanner';
+import { StartOwnJourneyModal } from '@/components/postcard/StartOwnJourneyModal';
 import { useCountries } from '@/hooks/useCountries';
 import { useUserData } from '@/hooks/useUserData';
+import { useSharedPostcard } from '@/hooks/useSharedPostcard';
 import { setSoundMuted } from '@/lib/sound/countrySounds';
 
 function App() {
   const { countries } = useCountries();
   const { beenTo, addCountry, removeCountry, clearAll } = useUserData();
+  const { sharedPostcard, clearSharedPostcard } = useSharedPostcard();
   const [soundMuted, setSoundMutedState] = useState(false);
   const [panTarget, setPanTarget] = useState<string | null>(null);
+  const [showStartOwnModal, setShowStartOwnModal] = useState(false);
+  const pendingCountryRef = useRef<string | null>(null);
+  const sharedPostcardRef = useRef(sharedPostcard);
+  sharedPostcardRef.current = sharedPostcard;
 
   // Stable callback - prevents Header re-renders when App re-renders
   const handleToggleSound = useCallback(() => {
@@ -30,11 +38,57 @@ function App() {
     });
   }, []);
 
-  const handleAddCountryFromSearch = useCallback((code: string) => {
+  // Intercept add when viewing shared postcard — show modal instead
+  const handleAddCountry = useCallback((code: string) => {
+    if (sharedPostcardRef.current) {
+      pendingCountryRef.current = code;
+      setShowStartOwnModal(true);
+      return;
+    }
     addCountry(code);
-    setPanTarget(code); // Trigger pan animation
-    setTimeout(() => setPanTarget(null), 100); // Clear after WorldMap processes
   }, [addCountry]);
+
+  // Intercept remove when viewing shared postcard — show modal instead
+  const handleRemoveCountry = useCallback((code: string) => {
+    if (sharedPostcardRef.current) {
+      pendingCountryRef.current = null;
+      setShowStartOwnModal(true);
+      return;
+    }
+    removeCountry(code);
+  }, [removeCountry]);
+
+  const handleAddCountryFromSearch = useCallback((code: string) => {
+    if (sharedPostcardRef.current) {
+      pendingCountryRef.current = code;
+      setShowStartOwnModal(true);
+      return;
+    }
+    addCountry(code);
+    setPanTarget(code);
+    setTimeout(() => setPanTarget(null), 100);
+  }, [addCountry]);
+
+  const handleConfirmStartOwn = useCallback(() => {
+    const pending = pendingCountryRef.current;
+    clearSharedPostcard();
+    setShowStartOwnModal(false);
+    if (pending) {
+      addCountry(pending);
+      setPanTarget(pending);
+      setTimeout(() => setPanTarget(null), 100);
+    }
+    pendingCountryRef.current = null;
+  }, [clearSharedPostcard, addCountry]);
+
+  const handleCancelStartOwn = useCallback(() => {
+    setShowStartOwnModal(false);
+    pendingCountryRef.current = null;
+  }, []);
+
+  const handleViewSharedPostcard = useCallback(() => {
+    document.getElementById('passport')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
 
   // Stable starfield positions — computed once, never recomputed on re-render
   const starPositions = useMemo(() =>
@@ -54,14 +108,22 @@ function App() {
         onClearSession={clearAll}
       />
       <Toaster />
+      {sharedPostcard && (
+        <SharedPostcardBanner
+          name={sharedPostcard.name}
+          countryCount={sharedPostcard.beenTo.length}
+          onViewPostcard={handleViewSharedPostcard}
+          onDismiss={clearSharedPostcard}
+        />
+      )}
       {/* Router wrapper is intentionally disabled while app is single-route. */}
       <main>
               {/* Map Hero Section - Full viewport interactive map */}
               <section id="map-hero" className="relative">
                 <WorldMap
-                  beenTo={beenTo}
-                  onAddCountry={addCountry}
-                  onRemoveCountry={removeCountry}
+                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
+                  onAddCountry={handleAddCountry}
+                  onRemoveCountry={handleRemoveCountry}
                   panToCountryCode={panTarget}
                 />
               </section>
@@ -102,30 +164,35 @@ function App() {
 
                 {/* Search Panel - Desktop sticky panel overlapping map */}
                 <SearchPanel
-                  beenTo={beenTo}
+                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
                   countries={countries}
                   onAddCountry={handleAddCountryFromSearch}
-                  onRemoveCountry={removeCountry}
+                  onRemoveCountry={handleRemoveCountry}
                 />
 
                 {/* Mobile Search Panel - Fixed bottom panel with scroll expansion */}
                 <MobileSearchPanel
-                  beenTo={beenTo}
+                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
                   countries={countries}
                   onAddCountry={handleAddCountryFromSearch}
-                  onRemoveCountry={removeCountry}
+                  onRemoveCountry={handleRemoveCountry}
                 />
 
                 {/* Recommendations Section */}
                 <RecommendationsSection
                   countries={countries}
-                  beenTo={beenTo}
+                  beenTo={sharedPostcard ? sharedPostcard.beenTo : beenTo}
                   addCountry={addCountry}
                 />
               </div>
 
               {/* Travel Passport / Postcard Section */}
-              <PostcardSection countries={countries} beenTo={beenTo} />
+              <PostcardSection
+                countries={countries}
+                beenTo={beenTo}
+                sharedName={sharedPostcard?.name}
+                sharedBeenTo={sharedPostcard?.beenTo}
+              />
 
               {/* Bottom Sections: Tech Stack + Countries Note */}
               <section id="about" className="py-16 border-t border-border">
@@ -217,6 +284,14 @@ function App() {
         {/* Floating Pill Navigation */}
         <FloatingPillNav />
       </main>
+
+      {/* Modal: user tries to interact while viewing shared postcard */}
+      <StartOwnJourneyModal
+        open={showStartOwnModal}
+        sharerName={sharedPostcard?.name ?? ''}
+        onConfirm={handleConfirmStartOwn}
+        onCancel={handleCancelStartOwn}
+      />
     </div>
   )
 }

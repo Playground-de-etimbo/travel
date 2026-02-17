@@ -65,6 +65,12 @@ export function useUserData() {
     await saveData(newBeenTo, wantToGoRef.current);
   }, [saveData]);
 
+  const importCountries = useCallback(async (codes: string[]) => {
+    const merged = Array.from(new Set([...beenToRef.current, ...codes]));
+    setBeenTo(merged);
+    await saveData(merged, wantToGoRef.current);
+  }, [saveData]);
+
   const clearAll = useCallback(async () => {
     setBeenTo([]);
     setWantToGo([]);
@@ -77,6 +83,7 @@ export function useUserData() {
     loading,
     addCountry,
     removeCountry,
+    importCountries,
     clearAll,
   };
 }
