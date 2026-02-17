@@ -52,7 +52,7 @@ interface WorldMapProps {
   panToCountryCode?: string | null; // Trigger pan when this changes (from search)
 }
 
-export function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCode }: WorldMapProps) {
+export default function WorldMap({ beenTo, onAddCountry, onRemoveCountry, panToCountryCode }: WorldMapProps) {
   const { countries, loading: countriesLoading } = useCountries();
   const { tooltip, show, hide, update } = useCountryTooltip();
   const { position, handleMoveStart, handleMoveEnd, isDragging } = useMapZoom();

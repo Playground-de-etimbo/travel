@@ -15,7 +15,7 @@ interface RecommendationsSectionProps {
   addCountry: (countryCode: string) => void;
 }
 
-export function RecommendationsSection({
+export default function RecommendationsSection({
   countries,
   beenTo,
   addCountry,

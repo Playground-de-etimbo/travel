@@ -91,7 +91,7 @@ const canShareFiles = () => {
   }
 };
 
-export const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: PostcardSectionProps) => {
+const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: PostcardSectionProps) => {
   type HtmlToImageToBlob = (typeof import('html-to-image'))['toBlob'];
 
   // Use shared data when viewing someone else's postcard
@@ -597,7 +597,7 @@ export const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeen
           </span>
           <h2
             className="text-5xl font-extrabold mt-4 mb-2 tracking-tight leading-tight text-foreground"
-            style={{ fontFamily: 'Fredoka, sans-serif' }}
+            style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif" }}
           >
             Destino Postcard
           </h2>
@@ -815,3 +815,5 @@ export const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeen
     </section>
   );
 });
+
+export default PostcardSection;

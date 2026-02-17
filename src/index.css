@@ -144,6 +144,15 @@
   line-height-override: normal;
 }
 
+@font-face {
+  font-family: 'Fredoka Fallback';
+  src: local('Arial Rounded MT Bold'), local('Arial');
+  size-adjust: 108%;
+  ascent-override: 100%;
+  descent-override: 22%;
+  line-height-override: normal;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);

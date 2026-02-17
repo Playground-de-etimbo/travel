@@ -78,7 +78,7 @@ export const PostcardLoadingOverlay = ({
             <DialogHeader className="items-center">
               <DialogTitle
                 className="text-xl font-bold tracking-tight"
-                style={{ fontFamily: 'Fredoka, sans-serif' }}
+                style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif" }}
               >
                 Creating your postcard
               </DialogTitle>
@@ -127,7 +127,7 @@ export const PostcardLoadingOverlay = ({
             <DialogHeader className="items-center">
               <DialogTitle
                 className="text-xl font-bold tracking-tight"
-                style={{ fontFamily: 'Fredoka, sans-serif' }}
+                style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif" }}
               >
                 Delivered!
               </DialogTitle>
@@ -198,7 +198,7 @@ export const PostcardLoadingOverlay = ({
             <DialogHeader className="items-center">
               <DialogTitle
                 className="text-xl font-bold tracking-tight"
-                style={{ fontFamily: 'Fredoka, sans-serif' }}
+                style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif" }}
               >
                 Lost in transit!
               </DialogTitle>

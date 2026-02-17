@@ -60,7 +60,7 @@ export const PostcardFront = ({
         <div className="text-center flex-shrink-0">
           <div
             className="text-[64px] leading-none text-[#1a2744]"
-            style={{ fontFamily: 'Fredoka, sans-serif', fontWeight: 600 }}
+            style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif", fontWeight: 600 }}
           >
             {visitedCount}
           </div>
@@ -94,7 +94,7 @@ export const PostcardFront = ({
             </span>
             <span
               className="text-[12px] text-[#1a2744]"
-              style={{ fontFamily: 'Fredoka, sans-serif', fontWeight: 500 }}
+              style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif", fontWeight: 500 }}
             >
               {regionCount}/{totalRegions}
             </span>
@@ -110,7 +110,7 @@ export const PostcardFront = ({
             </span>
             <span
               className="text-[12px] text-[#1a2744]"
-              style={{ fontFamily: 'Fredoka, sans-serif', fontWeight: 500 }}
+              style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif", fontWeight: 500 }}
             >
               {percentExplored.toFixed(1)}%
             </span>
@@ -126,7 +126,7 @@ export const PostcardFront = ({
             </span>
             <span
               className="text-[12px] text-[#1a2744]"
-              style={{ fontFamily: 'Fredoka, sans-serif', fontWeight: 500 }}
+              style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif", fontWeight: 500 }}
             >
               {languageCount}
             </span>
@@ -142,7 +142,7 @@ export const PostcardFront = ({
             </span>
             <span
               className="text-[12px] text-[#1a2744]"
-              style={{ fontFamily: 'Fredoka, sans-serif', fontWeight: 500 }}
+              style={{ fontFamily: "Fredoka, 'Fredoka Fallback', sans-serif", fontWeight: 500 }}
             >
               {currencyCount}
             </span>

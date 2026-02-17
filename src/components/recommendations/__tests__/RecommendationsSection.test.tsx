@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { RecommendationsSection } from '../RecommendationsSection';
+import RecommendationsSection from '../RecommendationsSection';
 import type { Country } from '@/types/country';
 
 const mockUseRecommendations = vi.fn();

@@ -1,13 +1,15 @@
-import { useState, useCallback, useMemo, useRef } from 'react';
+import { useState, useCallback, useMemo, useRef, lazy, Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { Toaster } from '@/components/ui/sonner';
-import { WorldMap } from '@/components/map/WorldMap';
 import { SearchPanel } from '@/components/search/SearchPanel';
 import { MobileSearchPanel } from '@/components/search/MobileSearchPanel';
-import { RecommendationsSection } from '@/components/recommendations/RecommendationsSection';
-import { PostcardSection } from '@/components/postcard/PostcardSection';
 import { FloatingPillNav } from '@/components/layout/FloatingPillNav';
+
+// Lazy-load heavy below-fold components to reduce initial bundle size
+const WorldMap = lazy(() => import('@/components/map/WorldMap'));
+const RecommendationsSection = lazy(() => import('@/components/recommendations/RecommendationsSection'));
+const PostcardSection = lazy(() => import('@/components/postcard/PostcardSection'));
 import { TechStackSection } from '@/components/footer/TechStackSection';
 import { CountriesNote } from '@/components/footer/CountriesNote';
 import { PortfolioFooter } from '@/components/footer/PortfolioFooter';
@@ -126,12 +128,14 @@ function App() {
       <main>
               {/* Map Hero Section - Full viewport interactive map */}
               <section id="map-hero" className="relative">
-                <WorldMap
-                  beenTo={effectiveBeenTo}
-                  onAddCountry={handleAddCountry}
-                  onRemoveCountry={handleRemoveCountry}
-                  panToCountryCode={panTarget}
-                />
+                <Suspense fallback={<div className="h-[85vh] max-h-screen bg-gradient-to-b from-card to-background" />}>
+                  <WorldMap
+                    beenTo={effectiveBeenTo}
+                    onAddCountry={handleAddCountry}
+                    onRemoveCountry={handleRemoveCountry}
+                    panToCountryCode={panTarget}
+                  />
+                </Suspense>
               </section>
 
               {/* Sky Wrapper - Contains search and recommendations with sunset background */}
@@ -185,20 +189,24 @@ function App() {
                 />
 
                 {/* Recommendations Section */}
-                <RecommendationsSection
-                  countries={countries}
-                  beenTo={effectiveBeenTo}
-                  addCountry={addCountry}
-                />
+                <Suspense fallback={<div style={{ minHeight: '600px' }} />}>
+                  <RecommendationsSection
+                    countries={countries}
+                    beenTo={effectiveBeenTo}
+                    addCountry={addCountry}
+                  />
+                </Suspense>
               </div>
 
               {/* Travel Passport / Postcard Section */}
-              <PostcardSection
-                countries={countries}
-                beenTo={beenTo}
-                sharedName={sharedPostcard?.name}
-                sharedBeenTo={sharedPostcard?.beenTo}
-              />
+              <Suspense fallback={<div className="py-16 border-t border-border" style={{ minHeight: '800px' }} />}>
+                <PostcardSection
+                  countries={countries}
+                  beenTo={beenTo}
+                  sharedName={sharedPostcard?.name}
+                  sharedBeenTo={sharedPostcard?.beenTo}
+                />
+              </Suspense>
 
               {/* Bottom Sections: Tech Stack + Countries Note */}
               <section id="about" className="py-16 border-t border-border">

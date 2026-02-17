@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { Ref } from 'react';
-import { PostcardSection } from '../PostcardSection';
+import PostcardSection from '../PostcardSection';
 import type { Country } from '@/types/country';
 
 const {
