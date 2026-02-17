@@ -10,12 +10,6 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { PostcardFront } from './PostcardFront';
 import { PostcardBack } from './PostcardBack';
 import { PostcardLoadingOverlay } from './PostcardLoadingOverlay';
@@ -119,6 +113,10 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
   }>({ front: null, back: null });
   const [showPostcardModal, setShowPostcardModal] = useState(false);
   const [modalPhase, setModalPhase] = useState<'loading' | 'success' | 'error'>('loading');
+  const [capturedBlobs, setCapturedBlobs] = useState<{
+    front: Blob | null;
+    back: Blob | null;
+  }>({ front: null, back: null });
 
   const stats = usePostcardStats(countries, effectiveBeenTo);
   const loadToBlob = useCallback(async (): Promise<HtmlToImageToBlob> => {
@@ -275,155 +273,6 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
     [loadToBlob],
   );
 
-  const shareImages = useCallback(
-    async (blobs: { front?: Blob; back?: Blob }) => {
-      if (!navigator.share) return false;
-
-      try {
-        const files: File[] = [];
-
-        if (blobs.front) {
-          files.push(
-            new File([blobs.front], 'destino-postcard-front.png', {
-              type: 'image/png',
-            }),
-          );
-        }
-
-        if (blobs.back) {
-          files.push(
-            new File([blobs.back], 'destino-postcard-back.png', {
-              type: 'image/png',
-            }),
-          );
-        }
-
-        if (files.length === 0) return false;
-
-        await navigator.share({
-          files,
-          title: 'My Destino Postcard',
-          text: `I've explored ${stats.visitedCount} countries across ${stats.regionCount} regions!`,
-          url: encodePostcardUrl(userName, effectiveBeenTo),
-        });
-
-        return true;
-      } catch (error) {
-        // AbortError means user cancelled, not a real error
-        if (error instanceof Error && error.name === 'AbortError') {
-          return false;
-        }
-        console.error('Share failed:', error);
-        return false;
-      }
-    },
-    [stats.visitedCount, stats.regionCount, userName, effectiveBeenTo],
-  );
-
-  // Handler for iOS that captures fresh images and shares immediately
-  const handleDownloadWithImmediateShare = useCallback(async () => {
-    setIsDownloading(true);
-    setShowNameModal(false);
-    setDownloadError(null);
-    setShowPostcardModal(true);
-    setModalPhase('loading');
-
-    try {
-      // Wait for name to render
-      await waitForNextPaint();
-
-      // Capture images fresh
-      const frontBlob = frontRef.current
-        ? await captureCard(frontRef.current, '#f5f0e8')
-        : null;
-
-      await new Promise((r) => setTimeout(r, 300));
-
-      const backBlob = backRef.current
-        ? await captureCard(backRef.current, '#ffffff')
-        : null;
-
-      // Build manual download URLs for the modal
-      const nextManualDownloads = {
-        front: frontBlob ? URL.createObjectURL(frontBlob) : null,
-        back: backBlob ? URL.createObjectURL(backBlob) : null,
-      };
-
-      setManualDownloads((previous) => {
-        if (previous.front) URL.revokeObjectURL(previous.front);
-        if (previous.back) URL.revokeObjectURL(previous.back);
-        return nextManualDownloads;
-      });
-
-      // Try to share the images
-      try {
-        const files: File[] = [];
-
-        if (frontBlob) {
-          files.push(
-            new File([frontBlob], 'destino-postcard-front.png', {
-              type: 'image/png',
-            }),
-          );
-        }
-
-        if (backBlob) {
-          files.push(
-            new File([backBlob], 'destino-postcard-back.png', {
-              type: 'image/png',
-            }),
-          );
-        }
-
-        if (files.length > 0 && navigator.share) {
-          console.log('[Postcard] 📤 Calling navigator.share with', files.length, 'files');
-
-          await navigator.share({
-            files,
-            title: 'My Destino Postcard',
-            text: `I've explored ${stats.visitedCount} countries across ${stats.regionCount} regions!`,
-            url: encodePostcardUrl(userName, effectiveBeenTo),
-          });
-
-          console.log('[Postcard] ✅ navigator.share succeeded');
-        } else {
-          console.log('[Postcard] ⚠️ Skipping share:', {
-            filesCount: files.length,
-            hasNavigatorShare: !!navigator.share,
-          });
-        }
-      } catch (error) {
-        if (error instanceof Error && error.name === 'AbortError') {
-          // User cancelled - that's fine
-        } else {
-          console.error('Share failed:', error);
-          // Fall back to download
-          if (nextManualDownloads.front) {
-            triggerDownload(nextManualDownloads.front, 'destino-postcard-front.png');
-          }
-          if (nextManualDownloads.front && nextManualDownloads.back) {
-            await new Promise((r) => setTimeout(r, 800));
-          }
-          if (nextManualDownloads.back) {
-            triggerDownload(nextManualDownloads.back, 'destino-postcard-back.png');
-          }
-        }
-      }
-
-      setModalPhase('success');
-    } catch (error) {
-      console.error('Postcard preparation failed:', error);
-      setDownloadError(
-        error instanceof Error
-          ? error.message
-          : 'Unknown error while creating postcard image.',
-      );
-      setModalPhase('error');
-    } finally {
-      setIsDownloading(false);
-    }
-  }, [captureCard, triggerDownload, stats, waitForNextPaint]);
-
   const handleDownload = useCallback(
     async (side?: 'front' | 'back') => {
       setIsDownloading(true);
@@ -464,26 +313,8 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
           nextManualDownloads.back = URL.createObjectURL(backBlob);
         }
 
-        // Mobile: Try native share first
-        if (shouldShare) {
-          const shared = await shareImages({
-            front: frontBlob || undefined,
-            back: backBlob || undefined,
-          });
-
-          // If share was successful, show success
-          if (shared) {
-            setManualDownloads((previous) => {
-              if (previous.front) URL.revokeObjectURL(previous.front);
-              if (previous.back) URL.revokeObjectURL(previous.back);
-              return nextManualDownloads;
-            });
-            setModalPhase('success');
-            setIsDownloading(false);
-            return;
-          }
-          // If share failed/cancelled, fall through to download
-        }
+        // Store blobs so the modal can offer "Add to Photos" via share sheet
+        setCapturedBlobs({ front: frontBlob, back: backBlob });
 
         // Update manual download links
         setManualDownloads((previous) => {
@@ -492,17 +323,18 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
           return nextManualDownloads;
         });
 
-        // Desktop or share fallback: Trigger downloads
-        if (nextManualDownloads.front) {
-          triggerDownload(nextManualDownloads.front, 'destino-postcard-front.png');
-        }
-        if (nextManualDownloads.front && nextManualDownloads.back) {
-          // Browsers suppress rapid consecutive programmatic downloads;
-          // stagger to ensure both files save.
-          await new Promise((r) => setTimeout(r, 800));
-        }
-        if (nextManualDownloads.back) {
-          triggerDownload(nextManualDownloads.back, 'destino-postcard-back.png');
+        // Mobile with share support: don't auto-download, let user "Add to Photos" from modal
+        // Desktop: trigger file downloads automatically
+        if (!shouldShare) {
+          if (nextManualDownloads.front) {
+            triggerDownload(nextManualDownloads.front, 'destino-postcard-front.png');
+          }
+          if (nextManualDownloads.front && nextManualDownloads.back) {
+            await new Promise((r) => setTimeout(r, 800));
+          }
+          if (nextManualDownloads.back) {
+            triggerDownload(nextManualDownloads.back, 'destino-postcard-back.png');
+          }
         }
 
         setModalPhase('success');
@@ -518,32 +350,13 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
         setIsDownloading(false);
       }
     },
-    [captureCard, triggerDownload, shareImages, stats],
+    [captureCard, triggerDownload, stats],
   );
 
   const handleDownloadClick = async () => {
     const isMobile = isMobileDevice();
-    const canShare = canShareFiles();
 
-    console.log('[Postcard] handleDownloadClick called:', {
-      isMobile,
-      canShare,
-      hasNavigatorShare: !!navigator.share,
-      isSecureContext: window.isSecureContext,
-      userAgent: navigator.userAgent,
-    });
-
-    // Mobile with share support: Set name and trigger download WITH share immediately
-    if (isMobile && canShare) {
-      console.log('[Postcard] ✅ Taking mobile share path');
-      setUserName('Wanderer');
-      handleDownloadWithImmediateShare();
-      return;
-    }
-
-    // Mobile without share or desktop: Use existing flow
     if (isMobile) {
-      console.log('[Postcard] ⚠️ Mobile detected but canShare=false, using fallback');
       setUserName('Wanderer');
       await waitForNextPaint();
       await handleDownload();
@@ -551,7 +364,6 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
     }
 
     // Desktop: Show name modal
-    console.log('[Postcard] 💻 Using desktop path');
     setShowNameModal(true);
   };
 
@@ -614,6 +426,9 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
           phase={modalPhase}
           errorMessage={downloadError}
           downloadUrls={manualDownloads}
+          capturedBlobs={capturedBlobs}
+          shareText={`I've explored ${stats.visitedCount} countries across ${stats.regionCount} regions!`}
+          shareUrl={encodePostcardUrl(userName, effectiveBeenTo)}
           onClose={() => setShowPostcardModal(false)}
           onRetry={() => handleDownload()}
         />
@@ -645,144 +460,27 @@ const PostcardSection = memo(({ countries, beenTo, sharedName, sharedBeenTo }: P
 
         {/* Download controls */}
         <div className="mt-8">
-          <div className="flex justify-center gap-3">
-            {(() => {
-              const isMobile = isMobileDevice();
-              const canShare = canShareFiles();
-              const shouldUseShareAPI = isMobile && canShare;
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button
+              onClick={handleDownloadClick}
+              disabled={isDownloading}
+              className="gap-2"
+            >
+              <Download className="w-4 h-4" />
+              {isDownloading ? 'Preparing...' : 'Save Postcards'}
+            </Button>
 
-              // Mobile with multi-file share support: Save Postcards button
-              if (shouldUseShareAPI) {
-              return (
-                <>
-                  <Button
-                    onClick={handleDownloadClick}
-                    disabled={isDownloading}
-                    className="gap-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    {isDownloading ? 'Preparing...' : 'Save Postcards'}
-                  </Button>
-                  {canShareLink && (
-                    <Button
-                      variant="outline"
-                      onClick={handleShare}
-                      className="gap-2"
-                    >
-                      <Share2 className="w-4 h-4" />
-                      Share this site
-                    </Button>
-                  )}
-                </>
-              );
-              }
-
-              // Mobile without multi-file share: Dropdown to choose side
-              if (isMobile && typeof navigator.share !== 'undefined') {
-              return (
-                <>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button disabled={isDownloading} className="gap-2">
-                        <Download className="w-4 h-4" />
-                        {isDownloading ? 'Preparing...' : 'Save Postcards'}
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuItem
-                        onClick={() => {
-                          setUserName('Wanderer');
-                          waitForNextPaint().then(() => handleDownload('front'));
-                        }}
-                      >
-                        Save Front Side
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => {
-                          setUserName('Wanderer');
-                          waitForNextPaint().then(() => handleDownload('back'));
-                        }}
-                      >
-                        Save Back Side
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                  {canShareLink && (
-                    <Button
-                      variant="outline"
-                      onClick={handleShare}
-                      className="gap-2"
-                    >
-                      <Share2 className="w-4 h-4" />
-                      Share this site
-                    </Button>
-                  )}
-                </>
-              );
-              }
-
-              // Mobile fallback (no Web Share API): Show download with manual links
-              if (isMobile) {
-              return (
-                <>
-                  <Button
-                    onClick={handleDownloadClick}
-                    disabled={isDownloading}
-                    className="gap-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    {isDownloading ? 'Preparing...' : 'Download Images'}
-                  </Button>
-                  {!window.isSecureContext && (
-                    <span className="text-xs text-muted-foreground mt-2 block">
-                      Note: Web Share requires HTTPS
-                    </span>
-                  )}
-                </>
-              );
-              }
-
-              // Desktop: Download button (existing behavior)
-              return (
-              <>
-                <Button
-                  onClick={handleDownloadClick}
-                  disabled={isDownloading}
-                  className="gap-2"
-                >
-                  <Download className="w-4 h-4" />
-                  {isDownloading ? 'Preparing...' : 'Save Postcards'}
-                </Button>
-                {canShareLink && (
-                  <Button
-                    variant="outline"
-                    onClick={handleShare}
-                    className="gap-2"
-                  >
-                    <Share2 className="w-4 h-4" />
-                    Share this site
-                  </Button>
-                )}
-              </>
-            );
-            })()}
+            {canShareLink && (
+              <Button
+                variant="outline"
+                onClick={handleShare}
+                className="gap-2"
+              >
+                <Share2 className="w-4 h-4" />
+                Share this site
+              </Button>
+            )}
           </div>
-
-          {/* Help text for iOS users */}
-          {(() => {
-            const isMobile = isMobileDevice();
-            const canShare = canShareFiles();
-            const shouldUseShareAPI = isMobile && canShare;
-
-            if (shouldUseShareAPI && !isDownloading) {
-              return (
-                <p className="text-xs text-muted-foreground text-center mt-3 max-w-sm mx-auto">
-                  Tip: After tapping "Save Postcards", select "Save Image" from the share menu to add to your Photos.
-                </p>
-              );
-            }
-            return null;
-          })()}
         </div>
 
 

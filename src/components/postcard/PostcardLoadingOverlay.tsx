@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Download } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Download, ImageDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -9,6 +9,28 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog';
+
+// Detect specific mobile platform for contextual help text
+const getMobilePlatform = (): 'ios' | 'android' | 'other' => {
+  if (typeof navigator === 'undefined') return 'other';
+  const ua = navigator.userAgent;
+  if (/iPhone|iPad|iPod/i.test(ua)) return 'ios';
+  if (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1) return 'ios'; // iPadOS
+  if (/Android/i.test(ua)) return 'android';
+  return 'other';
+};
+
+const canShareFiles = () => {
+  if (typeof navigator === 'undefined' || !navigator.share) return false;
+  if (!navigator.canShare) return true;
+  try {
+    return navigator.canShare({
+      files: [new File([''], 'test.png', { type: 'image/png' })],
+    });
+  } catch {
+    return false;
+  }
+};
 
 const STEPS = [
   { emoji: '💌', phrase: 'Licking the stamp...' },
@@ -27,6 +49,9 @@ interface PostcardLoadingOverlayProps {
   phase: ModalPhase;
   errorMessage?: string | null;
   downloadUrls?: { front: string | null; back: string | null };
+  capturedBlobs?: { front: Blob | null; back: Blob | null };
+  shareText?: string;
+  shareUrl?: string;
   onClose: () => void;
   onRetry: () => void;
 }
@@ -36,10 +61,52 @@ export const PostcardLoadingOverlay = ({
   phase,
   errorMessage,
   downloadUrls,
+  capturedBlobs,
+  shareText,
+  shareUrl,
   onClose,
   onRetry,
 }: PostcardLoadingOverlayProps) => {
   const [stepIndex, setStepIndex] = useState(0);
+  const [hasAddedToPhotos, setHasAddedToPhotos] = useState(false);
+  const showAddToPhotos = canShareFiles() && capturedBlobs && (capturedBlobs.front || capturedBlobs.back);
+
+  // Reset state when modal opens
+  useEffect(() => {
+    if (open) setHasAddedToPhotos(false);
+  }, [open]);
+
+  const handleAddToPhotos = useCallback(async () => {
+    if (!capturedBlobs) return;
+
+    try {
+      const files: File[] = [];
+      if (capturedBlobs.front) {
+        files.push(new File([capturedBlobs.front], 'destino-postcard-front.png', { type: 'image/png' }));
+      }
+      if (capturedBlobs.back) {
+        files.push(new File([capturedBlobs.back], 'destino-postcard-back.png', { type: 'image/png' }));
+      }
+      if (files.length === 0) return;
+
+      await navigator.share({
+        files,
+        title: 'My Destino Postcard',
+        ...(shareText ? { text: shareText } : {}),
+        ...(shareUrl ? { url: shareUrl } : {}),
+      });
+
+      setHasAddedToPhotos(true);
+    } catch (error) {
+      if (error instanceof Error && error.name === 'AbortError') {
+        // User cancelled - still show Done so they can retry or dismiss
+        setHasAddedToPhotos(true);
+      } else {
+        console.error('[Postcard] Share failed:', error);
+        setHasAddedToPhotos(true);
+      }
+    }
+  }, [capturedBlobs, shareText, shareUrl]);
 
   // Reset when opened
   useEffect(() => {
@@ -155,11 +222,38 @@ export const PostcardLoadingOverlay = ({
               Your postcard made it through customs!
             </p>
 
-            <DialogFooter className="sm:justify-center">
-              <Button onClick={onClose} className="w-full sm:w-auto">
-                Got it
-              </Button>
+            <DialogFooter className="sm:justify-center flex-col gap-2">
+              {showAddToPhotos && (
+                <Button onClick={handleAddToPhotos} className="w-full sm:w-auto gap-2">
+                  <ImageDown className="w-4 h-4" />
+                  Add to Photos
+                </Button>
+              )}
+              {(!showAddToPhotos || hasAddedToPhotos) && (
+                <Button variant={showAddToPhotos ? 'outline' : 'default'} onClick={onClose} className="w-full sm:w-auto">
+                  {showAddToPhotos ? 'Done' : 'Got it'}
+                </Button>
+              )}
             </DialogFooter>
+
+            {/* Device-specific tip for Add to Photos */}
+            {showAddToPhotos && (
+              <p
+                className="text-xs text-muted-foreground text-center max-w-xs mx-auto"
+                style={{ fontFamily: 'Nunito, sans-serif' }}
+              >
+                {(() => {
+                  const platform = getMobilePlatform();
+                  if (platform === 'ios') {
+                    return 'Tip: Choose "Save Image" to add your postcards to your Camera Roll.';
+                  }
+                  if (platform === 'android') {
+                    return 'Tip: Select your gallery app to save your postcards.';
+                  }
+                  return 'Tip: Save your postcards to your photo library via the share menu.';
+                })()}
+              </p>
+            )}
 
             {/* Re-download fallback */}
             {(downloadUrls?.front || downloadUrls?.back) && (
