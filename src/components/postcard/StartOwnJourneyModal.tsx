@@ -1,4 +1,4 @@
-import { MapPin, Compass } from 'lucide-react';
+import { MapPin, Compass, Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -13,6 +13,7 @@ interface StartOwnJourneyModalProps {
   open: boolean;
   sharerName: string;
   onConfirm: () => void;
+  onClaimMap: () => void;
   onCancel: () => void;
 }
 
@@ -20,6 +21,7 @@ export const StartOwnJourneyModal = ({
   open,
   sharerName,
   onConfirm,
+  onClaimMap,
   onCancel,
 }: StartOwnJourneyModalProps) => {
   return (
@@ -33,13 +35,17 @@ export const StartOwnJourneyModal = ({
             You&apos;re viewing {sharerName}&apos;s map
           </DialogTitle>
           <DialogDescription className="text-center">
-            Ready to start plotting your own adventures? This will switch to your personal map and add the country you selected.
+            Ready to make your move? Start with a blank map, or take {sharerName}&apos;s map with you.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="flex-col gap-2 sm:flex-col">
           <Button onClick={onConfirm} className="w-full gap-2">
             <Compass className="h-4 w-4" />
             Start My Own Journey
+          </Button>
+          <Button variant="secondary" onClick={onClaimMap} className="w-full gap-2">
+            <Copy className="h-4 w-4" />
+            Claim This Map as My Own
           </Button>
           <Button variant="outline" onClick={onCancel} className="w-full">
             Keep Exploring {sharerName}&apos;s Map

@@ -83,6 +83,24 @@ function App() {
     pendingCountryRef.current = null;
   }, [clearSharedPostcard, addCountry]);
 
+  const handleClaimMap = useCallback(() => {
+    const shared = sharedPostcardRef.current;
+    const pending = pendingCountryRef.current;
+    clearSharedPostcard();
+    setShowStartOwnModal(false);
+    // Copy all shared countries to the user's map
+    if (shared) {
+      for (const code of shared.beenTo) {
+        addCountry(code);
+      }
+    }
+    // Also add the country they were trying to select
+    if (pending && !shared?.beenTo.includes(pending)) {
+      addCountry(pending);
+    }
+    pendingCountryRef.current = null;
+  }, [clearSharedPostcard, addCountry]);
+
   const handleCancelStartOwn = useCallback(() => {
     setShowStartOwnModal(false);
     pendingCountryRef.current = null;
@@ -304,6 +322,7 @@ function App() {
         open={showStartOwnModal}
         sharerName={sharedPostcard?.name ?? ''}
         onConfirm={handleConfirmStartOwn}
+        onClaimMap={handleClaimMap}
         onCancel={handleCancelStartOwn}
       />
     </div>
