@@ -190,21 +190,6 @@ Then redeploy:
 vercel --prod
 ```
 
-### v1.1+: Firebase Variables
-
-When you implement authentication in v1.1+, add these environment variables:
-
-```
-VITE_FIREBASE_API_KEY
-VITE_FIREBASE_AUTH_DOMAIN
-VITE_FIREBASE_PROJECT_ID
-VITE_FIREBASE_STORAGE_BUCKET
-VITE_FIREBASE_MESSAGING_SENDER_ID
-VITE_FIREBASE_APP_ID
-```
-
-Follow the same process as the Unsplash key above.
-
 ---
 
 ## Custom Domain Setup
@@ -603,8 +588,6 @@ vercel alias [deployment-url] yourdomain.com
 4. **Set Up Git Integration:** Automatic deployments on push
 5. **Share Preview URLs:** Get feedback before merging PRs
 
-For v1.1+ Firebase integration, you'll add environment variables in the dashboard and redeploy. The storage abstraction layer in the codebase (`src/lib/storage/`) makes this seamless - no code changes needed.
-
 ---
 
-Last updated: 2026-02-03
+Last updated: 2026-02-18

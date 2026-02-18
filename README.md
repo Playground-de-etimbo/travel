@@ -1,295 +1,195 @@
-# Travel Motivation Planner
+# Destino - Travel Motivation Planner
 
-> A web app that motivates travel by helping you track where you've been and where you want to go.
+> Track where you've been, discover where to go next, and share your journey with the world.
 
-**Status:** 🏗️ MVP in development | ✅ Phase 1 Foundation Complete
-
----
-
-## What is This?
-
-A simple, beautiful **single-page** web app that lets you:
-- Mark countries you've been to
-- Create a wishlist of places you want to go
-- See placeholder travel costs to make trips feel tangible
-- **Compare your travel to global averages** (e.g., "You've traveled more than 95% of people!")
-- Track your travel progress and stay motivated
-
-**Core idea:** People forget why they work. Visualizing your travel goals and seeing how you compare to others makes progress feel real and keeps motivation high.
-
-**Design:** Everything on one scrollable page with smooth anchor link navigation.
+**Live:** Deployed on Vercel | **Status:** v1.0 complete
 
 ---
 
-## Quick Links
+## What is Destino?
 
-### 📚 Documentation
+A single-page web app that helps you visualize your travel journey:
 
-| Document | Purpose |
-|----------|---------|
-| [PROJECT_BRIEF.md](PROJECT_BRIEF.md) | Product vision, requirements, and user stories |
-| [TECH_STACK.md](TECH_STACK.md) | Technology decisions and rationale |
-| [FEATURES.md](FEATURES.md) | Feature list with status tracking ⭐ Track progress here |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Codebase structure and patterns |
-| [ROADMAP.md](ROADMAP.md) | MVP vs future features |
-| [GETTING_STARTED.md](GETTING_STARTED.md) | Step-by-step guide to start coding ⭐ Start here |
-| [DOCKER.md](DOCKER.md) | Docker setup and development guide 🐳 |
-| [SETUP.md](SETUP.md) | Detailed local setup instructions |
-| [DEVELOPMENT.md](DEVELOPMENT.md) | Development workflow and conventions |
-| [TESTING.md](TESTING.md) | Testing strategy and Vitest guide 🧪 |
-| [STORAGE_STRATEGY.md](STORAGE_STRATEGY.md) | localStorage → Firebase migration plan 💾 |
-| [CHANGELOG.md](CHANGELOG.md) | Project changes and updates 📝 |
+- **Interactive world map** - Click countries to mark them as visited, with animated highlights
+- **Smart search** - Desktop and mobile search panels with autocomplete and country aliases
+- **Travel recommendations** - Personalized destination suggestions based on your interests, budget, and location
+- **Shareable postcards** - Generate and share a visual postcard of your travel stats
+- **Sound effects** - Satisfying audio feedback when adding countries
+- **Dark mode** - Full light/dark theme support with sun/moon celestial animations
+
+**Core idea:** People forget why they work. Visualizing your travel goals makes progress feel real and keeps motivation high.
 
 ---
 
 ## Tech Stack
 
-- **Frontend:** React 18.3.1 + Vite 6.4.1 + TypeScript 5.6.3 ✅
-- **Styling:** Tailwind CSS v4 + shadcn/ui ✅
-- **Maps:** MapLibre GL JS 5.16.0 ✅
-- **Storage:** localStorage → Firestore abstraction ✅
-- **Auth:** Firebase Authentication (v1.1+)
-- **Database:** Firestore (v1.1+)
-- **Hosting:** Firebase Hosting
-- **Data:** Country JSON + GeoJSON boundaries (Natural Earth 10m) ✅
-
-**Why this stack?** Optimized for rapid prototyping, minimal cost, ease of learning, and automatic scaling.
-
-See [TECH_STACK.md](TECH_STACK.md) for full rationale.
+| Category | Technology |
+|----------|-----------|
+| Framework | React 18 + TypeScript + Vite 6 |
+| Styling | Tailwind CSS v4 + shadcn/ui |
+| Map | react-simple-maps + d3-geo |
+| Storage | localStorage (via StorageAdapter abstraction) |
+| Photos | Unsplash API (optional, graceful fallback) |
+| Search | Fuse.js fuzzy matching |
+| Hosting | Vercel (Analytics + Speed Insights) |
+| Testing | Vitest + React Testing Library + Playwright |
 
 ---
 
-## Features
-
-### MVP (v1.0) - In Progress
-- [x] **Single-page layout** - All content on one scrollable page ✅
-- [x] **Anchor link navigation** - Smooth scroll between sections ✅ (to implement)
-- [ ] **World map hero** - Interactive map with visited country highlighting
-- [ ] **Multi-select flow** - Bulk country selection modal
-- [ ] **Regional stats** - Completion tracking by continent
-- [ ] **Comparative travel stats** - "You've traveled more than 95% of people!"
-- [ ] **Click-to-toggle map** - Mark countries directly on map
-- [ ] Country directory with search
-- [ ] "Been to" and "Want to go" sections (on same page)
-- [ ] Placeholder travel costs per country
-- [x] **localStorage persistence** - Firebase-ready abstraction ✅
-- [x] **"Midnight Map" color theme** - Tailwind v4 implementation ✅
-- [x] **Mobile-first responsive design** - Foundation ready ✅
-- [x] **Country data structure** - TypeScript interfaces + sample data ✅
-- [x] **GeoJSON boundaries** - Natural Earth 10m resolution ✅
-
-See [FEATURES.md](FEATURES.md) for complete list and status.
-
-### Post-MVP
-- **Firebase Authentication** - Google/Apple OAuth (v1.1)
-- **Firestore sync** - Cross-device data sync (v1.1)
-- **Social sharing** - Map card image generation (v1.1)
-- Visit dates and notes (v1.2)
-- Budget calculator (v2.0)
-- AI destination suggestions (v2.0+)
-
-See [ROADMAP.md](ROADMAP.md) for full roadmap.
-
----
-
-## Getting Started
+## Quick Start
 
 ### Prerequisites
 
-**Option A: Docker (Recommended)**
-- Docker Desktop
-- Firebase account (free tier)
-- See [DOCKER.md](DOCKER.md)
-
-**Option B: Local Development**
 - Node.js 18+
 - pnpm (`npm install -g pnpm`)
-- Firebase account (free tier)
+- mkcert (for local HTTPS - required by geolocation API)
 
-### Environment Setup (Optional)
+### Setup
 
-The app works without configuration, but you can add Unsplash photos to travel recommendations:
-
-See [UNSPLASH_SETUP_QUICK.md](UNSPLASH_SETUP_QUICK.md) for 2-minute setup instructions.
-
-### Quick Start
-
-#### Option A: Docker (Recommended)
 ```bash
-# 1. Clone the repo
+# Clone and install
 git clone https://github.com/Playground-de-etimbo/travel.git
 cd travel
-
-# 2. Set up Firebase config (see DOCKER.md)
-# Create .env.local with Firebase credentials
-
-# 3. Start with Docker
-docker-compose up
-
-# Access at http://localhost:5173
-```
-See [DOCKER.md](DOCKER.md) for details.
-
-#### Option B: Local Development
-```bash
-# 1. Clone the repo
-git clone https://github.com/Playground-de-etimbo/travel.git
-cd travel
-
-# 2. Install pnpm (if not installed)
-npm install -g pnpm
-
-# 3. Install dependencies (project already initialized!)
 pnpm install
 
-# 4. Install mkcert (required once per machine for trusted local HTTPS)
-# macOS:
-brew install mkcert
-# Ubuntu:
-# sudo apt install mkcert
-# Windows:
-# choco install mkcert
+# Install mkcert (one-time, for trusted local HTTPS)
+brew install mkcert    # macOS
+# sudo apt install mkcert  # Ubuntu
 
-# 5. Start development
+# Start dev server (auto-generates HTTPS certs on first run)
 pnpm dev
 
-# Access at https://localhost:5173
+# Open https://localhost:5173
 ```
 
-`pnpm dev` runs a preflight script that installs your local trust root (via `mkcert -install`) and generates `.cert/localhost.pem` + `.cert/localhost-key.pem` if missing.
+### Optional: Unsplash Photos
 
-**Note:** The project is now fully initialized! All dependencies, configuration, and foundation code are in place.
+The recommendations feature shows flag emojis by default. For real country photos:
 
-See [SETUP.md](SETUP.md) for detailed setup instructions.
+1. Register at https://unsplash.com/developers
+2. Create an app and copy the Access Key
+3. Add to `.env.local`: `VITE_UNSPLASH_ACCESS_KEY=your_key_here`
+4. Restart dev server
+
+See [UNSPLASH_SETUP.md](UNSPLASH_SETUP.md) for details.
+
+### Docker Alternative
+
+```bash
+docker-compose up
+# Open http://localhost:5173
+```
+
+See [DOCKER.md](DOCKER.md) for full Docker guide.
 
 ---
 
-## Development
+## Commands
 
-### Start Coding
-
-**Docker:**
 ```bash
-docker-compose up     # Start dev server
-docker-compose down   # Stop dev server
+pnpm dev              # Start HTTPS dev server
+pnpm build            # Production build (tsc + vite)
+pnpm preview          # Preview production build
+pnpm lint             # Run ESLint
+pnpm test             # Run unit tests (watch mode)
+pnpm test:run         # Run unit tests (single pass)
+pnpm test:ui          # Run tests with Vitest UI
+pnpm test:e2e         # Run Playwright E2E tests
 ```
 
-**Local:**
-```bash
-pnpm dev       # Start trusted HTTPS dev server (https://localhost:5173)
-pnpm build     # Build for production
-pnpm preview   # Preview production build
-```
+---
 
-### Current Focus
-**Phase 1 Complete:** ✅ Foundation (Vite, React, TypeScript, Tailwind v4, Storage Layer, Data Structure)
+## Features (v1.0)
 
-**Next up:** Phase 2 - Single-page layout conversion and country card component
+### Implemented
+- [x] Interactive world map with click-to-toggle country selection
+- [x] Desktop sticky search panel with autocomplete dropdown
+- [x] Mobile search panel with scroll expansion
+- [x] Country aliases ("UK" finds "United Kingdom", "Holland" finds "Netherlands")
+- [x] Travel recommendations engine (interests, budget tiers, flight duration)
+- [x] Unsplash photo integration with photographer attribution
+- [x] IP-based home country auto-detection
+- [x] Shareable postcard generation (front + back with stamps)
+- [x] Shared postcard viewing via URL parameters
+- [x] Sound effects for country add/remove
+- [x] Light/dark mode with celestial animations (sun/moon, starfield)
+- [x] Floating pill navigation
+- [x] localStorage persistence via StorageAdapter abstraction
+- [x] Code-split bundle with lazy loading
+- [x] Vercel Analytics + Speed Insights
+- [x] Unit tests (Vitest) + E2E tests (Playwright)
 
-**Major Change:** Converting from multi-page routes to single-page with anchor link navigation. All sections (Map, Directory, Been To, Want To Go, Stats) will be on one scrollable page.
-
-See [FEATURES.md](FEATURES.md) for detailed status.
-
-### Workflow
-1. Pick a feature from [FEATURES.md](FEATURES.md)
-2. Follow conventions in [DEVELOPMENT.md](DEVELOPMENT.md)
-3. Check [ARCHITECTURE.md](ARCHITECTURE.md) for file structure
-4. Update feature status when complete
+### Placeholder Sections (v2)
+- [ ] Country Directory (section exists, content pending)
+- [ ] Want To Go list
+- [ ] Travel Stats comparisons
 
 ---
 
 ## Project Structure
 
 ```
-travel/
-├── docs/                    # Documentation files
-│   ├── PROJECT_BRIEF.md
-│   ├── TECH_STACK.md
-│   ├── FEATURES.md
-│   ├── ARCHITECTURE.md
-│   ├── ROADMAP.md
-│   ├── SETUP.md
-│   ├── DEVELOPMENT.md
-│   └── GETTING_STARTED.md
-│
-├── src/                     # Source code (to be created)
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
-│   ├── context/
-│   ├── lib/
-│   └── types/
-│
-├── public/                  # Static assets
-│   └── data/
-│       ├── countries.json   # Country data
-│       └── country-travel-costs.json # Local-currency travel cost tiers
-│
-└── ... (config files)
+src/
+├── components/
+│   ├── country/        # SearchableCountryList
+│   ├── footer/         # PortfolioFooter, TechStackSection, CountriesNote
+│   ├── layout/         # Header, FloatingPillNav, EarthIcon
+│   ├── map/            # WorldMap, CountryTooltip
+│   ├── postcard/       # PostcardSection, PostcardFront/Back, SharedPostcardBanner
+│   ├── recommendations/# RecommendationsSection, PreferencesForm, cards
+│   ├── search/         # SearchBox/Panel, MobileSearchPanel, autocomplete
+│   └── ui/             # shadcn/ui components (auto-generated)
+├── hooks/              # useUserData, useCountries, useRecommendations, etc.
+├── lib/
+│   ├── api/            # Unsplash, geolocation, REST Countries
+│   ├── map/            # Colors, GeoJSON, country code mapping
+│   ├── postcard/       # Share URL encoding
+│   ├── recommendations/# Algorithm, cost calculator, distance
+│   ├── sound/          # Country sound effects
+│   └── storage/        # StorageAdapter interface + localStorage impl
+├── types/              # Country, UserData, Recommendation interfaces
+└── data/               # Country coordinates
 ```
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed structure.
-See `docs/TRAVEL_COSTS_AI_AUDIT.md` and `docs/TRAVEL_COSTS_GENERATION.md` for AI cost generation notes.
+---
+
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [CLAUDE.md](CLAUDE.md) | AI coding instructions and codebase guide |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Detailed architecture, patterns, and data flow |
+| [WORKFLOWS.md](WORKFLOWS.md) | Dev workflows: TDD, components, data pipeline, deployment |
+| [ROADMAP.md](ROADMAP.md) | Version roadmap and future features |
+| [KNOWN_ISSUES.md](KNOWN_ISSUES.md) | Open bugs and technical debt |
+| [DOCKER.md](DOCKER.md) | Docker development guide |
+| [UNSPLASH_SETUP.md](UNSPLASH_SETUP.md) | Unsplash API setup |
+| [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) | Vercel deployment guide |
+| [CHANGELOG.md](CHANGELOG.md) | Project history |
+| [docs/](docs/) | Data generation docs, color palettes, editorial guides |
+
+---
+
+## Data Sources
+
+- **Country metadata:** `public/data/countries.json` (195+ entries)
+- **Map boundaries:** GeoJSON via react-simple-maps (Natural Earth)
+- **Country aliases:** `public/data/country-aliases.json` (generated from REST Countries API)
+- **Travel costs:** `public/data/country-travel-costs.json` (AI-generated synthetic tiers - not for real budgeting)
+- **Country coordinates:** `src/data/countryCoordinates.ts` (for distance calculations)
 
 ---
 
 ## Contributing
 
-This is currently a solo learning project. Not accepting contributions at this time.
-
----
-
-## Cost
-
-**MVP:** $0/month (Firebase free tier)
-- 50K Firestore reads/day
-- 20K writes/day
-- Unlimited authentication
-- 10GB/month hosting bandwidth
-
-**If successful (~1000 users):** ~$10-25/month
-
-See [TECH_STACK.md](TECH_STACK.md) for cost breakdown.
-
----
-
-## Success Metrics (MVP)
-
-- 100+ sign-ups in first month
-- 50+ users mark 5+ "Been to" countries
-- 50+ users add 3+ "Want to go" countries
-- 20% 4-week retention rate
-
-See [ROADMAP.md](ROADMAP.md) for detailed metrics.
+This is currently a solo project. Not accepting contributions at this time.
 
 ---
 
 ## License
 
-This project is for personal learning and use.
+This project is for personal use.
 
 ---
 
-## Acknowledgments
-
-Built with:
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Firebase](https://firebase.google.com/)
-
----
-
-## Questions?
-
-- 📖 Check the [GETTING_STARTED.md](GETTING_STARTED.md) guide
-- 🏗️ Review [ARCHITECTURE.md](ARCHITECTURE.md) for code structure
-- 📋 See [FEATURES.md](FEATURES.md) for what's being built
-- 🗺️ Check [ROADMAP.md](ROADMAP.md) for future plans
-
----
-
-**Let's build something that inspires wanderlust!** ✈️🌍
-
-Last updated: 2026-01-27
+Last updated: 2026-02-18

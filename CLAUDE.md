@@ -4,340 +4,264 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Travel Motivation Planner - A web app for tracking countries you've visited and want to visit, with comparative travel statistics.
+**Destino** - A travel motivation web app for tracking countries you've visited, getting personalized destination recommendations, and sharing your journey via postcards.
 
-**Current Status:** MVP in development - Phase 1 foundation complete, transitioning to single-page layout.
-
-**Key Design Decision:** Converting from multi-page routes to a single scrollable page with anchor link navigation. All sections (Map, Directory, Been To, Want To Go, Stats) live on one page.
+**Status:** v1.0 complete. Deployed on Vercel. Single-page layout with interactive map, search, recommendations, and postcard sharing all working.
 
 ## Essential Commands
 
 ```bash
-# Development
-pnpm dev              # Start dev server at http://localhost:5173
-pnpm build            # Build for production (runs tsc + vite build)
+pnpm dev              # Start HTTPS dev server (https://localhost:5173)
+pnpm build            # Production build (tsc + vite)
 pnpm lint             # Run ESLint
-pnpm preview          # Preview production build locally
+pnpm preview          # Preview production build
 
-# Docker alternative (see DOCKER.md)
-docker-compose up     # Start dev server in container
+pnpm test             # Unit tests in watch mode (Vitest)
+pnpm test:run         # Unit tests single pass
+pnpm test:ui          # Vitest UI
+pnpm test:e2e         # Playwright E2E tests
 ```
+
+**Note:** `pnpm dev` requires mkcert for local HTTPS. The `predev` script auto-generates certs on first run.
 
 ## Architecture Overview
 
 ### Single-Page Layout
 
-The app uses a single-page design with React Router only for the root route. All content sections are rendered on the home page:
+The app is a single scrollable page — no React Router, no route changes. `App.tsx` renders all sections directly:
 
-- `#map-hero` - Full-viewport interactive world map
-- `#directory` - Country browsing and search
-- `#been-to` - Countries you've visited
-- `#want-to-go` - Travel wishlist
-- `#stats` - Comparative travel statistics
+- `#map-hero` - Full-viewport interactive world map (lazy-loaded)
+- Search panels (desktop: sticky sidebar, mobile: bottom sheet with scroll expansion)
+- Recommendations section (lazy-loaded) - personalized travel suggestions
+- `#passport` - Postcard section (lazy-loaded) - shareable travel postcard
+- `#about` - Tech stack + countries note
+- Portfolio footer
+- `#directory`, `#want-to-go`, `#stats` - Placeholder sections (v2)
 
-Navigation uses smooth scrolling to anchor links, not route changes.
+Navigation uses `FloatingPillNav` with smooth scrolling to anchor IDs.
+
+### Key Data Flow
+
+```
+App.tsx
+├── useCountries()     → fetches /data/countries.json on mount
+├── useUserData()      → loads/saves beenTo[] via StorageAdapter
+├── useSharedPostcard() → reads shared postcard from URL params
+│
+├── WorldMap           → click-to-toggle countries on map
+├── SearchPanel        → autocomplete search to add/remove countries
+├── MobileSearchPanel  → mobile-optimized search
+├── RecommendationsSection → useRecommendations() → algorithm + Unsplash
+└── PostcardSection    → generates shareable postcard images
+```
 
 ### Storage Abstraction Layer
 
-**Critical Pattern:** The app uses a storage adapter pattern (`src/lib/storage/`) to abstract localStorage and Firestore:
-
-- `interface.ts` - `StorageAdapter` interface defining the contract
-- `localStorage.ts` - Current MVP implementation
-- `index.ts` - Exports the active adapter
-- Future: `firestore.ts` for post-MVP Firebase sync
-
-**Why this matters:** Always interact with storage through the exported `storage` adapter, never directly with localStorage or Firestore. This enables seamless migration from localStorage (MVP) to Firestore (v1.1+) without changing component code.
+The app uses a `StorageAdapter` interface (`src/lib/storage/interface.ts`) with a `LocalStorageAdapter` implementation. Always use the exported singleton:
 
 ```typescript
-// ✅ Correct
+// ✅ Correct - use the singleton
 import { storage } from '@/lib/storage';
 await storage.save(userData);
+await storage.update({ recommendations: result });
 
-// ❌ Avoid
+// ❌ Never use raw localStorage
 localStorage.setItem('userData', JSON.stringify(userData));
 ```
 
+**Note:** `useUserData` currently creates its own `LocalStorageAdapter` instance rather than using the singleton. This is a known inconsistency — new code should use the `storage` export.
+
 ### State Management
 
-**User Data Flow:**
-1. `useUserData` hook manages `beenTo` and `wantToGo` arrays
-2. Data loads from storage on mount
-3. State updates trigger automatic saves via the storage adapter
-4. Components consume state from the hook (no Context API yet)
-
-**Pattern:** The hook provides `addCountry`, `removeCountry`, and `clearAll` methods that handle both state updates and persistence atomically.
+- **No Context API, no Redux** — state lives in hooks called from `App.tsx` and passed as props
+- `useUserData` manages `beenTo[]` and `wantToGo[]` with ref-based stable callbacks
+- `useRecommendations` manages preferences, generation, and Unsplash image enrichment
+- `useSharedPostcard` reads encoded postcard data from URL search params
+- All callbacks in App.tsx are wrapped in `useCallback` to prevent unnecessary re-renders
 
 ### Path Alias
 
-The codebase uses `@/` as an alias for `src/` (configured in `vite.config.ts`):
+`@/` maps to `src/` (configured in `vite.config.ts` and `tsconfig.app.json`):
 
 ```typescript
-import { Country } from '@/types';
+import type { Country } from '@/types';
 import { storage } from '@/lib/storage';
-import { Button } from '@/components/ui/button';
 ```
 
-Always use `@/` for imports within the src directory.
+## Type System
+
+### Country (`src/types/country.ts`)
+```typescript
+interface Country {
+  countryCode: string;        // ISO 3166-1 alpha-2
+  countryName: string;
+  continent: string;
+  region: string;             // World Bank region
+  currencyCode: string;       // ISO 4217
+  currencyName: string;
+  flagEmoji: string;
+  description: string;        // Two-sentence travel summary
+  baselineCost: number;       // Synthetic USD estimate
+  nightlyCost: number;
+  interests: TravelInterest[]; // 'weather' | 'relaxation' | 'culture' | 'action'
+}
+```
+
+### UserData (`src/types/user.ts`)
+```typescript
+interface UserData {
+  beenTo: string[];
+  wantToGo: string[];
+  lastUpdated: Date;
+  version: string;
+  recommendations?: RecommendationResult;
+  preferences?: UserPreferences;  // theme, displayCurrency, detected country, budget tier
+}
+```
+
+### Recommendation types (`src/types/recommendation.ts`)
+- `RecommendationPreferences` - home location, interests, flight duration
+- `CountryRecommendation` - country code, reason, image, costs by tier, match score
+- `RecommendationResult` - array of recommendations + metadata
 
 ## Component Architecture
 
-### Directory Structure
-
 ```
-src/
-├── components/
-│   ├── ui/           # shadcn/ui components (auto-generated, don't edit)
-│   ├── layout/       # Header, navigation (persistent elements)
-│   ├── map/          # WorldMap, map-related components
-│   ├── country/      # Country cards, search, modals
-│   └── stats/        # Statistics displays
-├── hooks/            # Custom React hooks (useCountries, useUserData, etc.)
-├── lib/
-│   ├── storage/      # Storage abstraction (localStorage → Firestore)
-│   └── map/          # Map utilities (GeoJSON, styling, colors)
-└── types/            # TypeScript interfaces (Country, UserData, etc.)
+src/components/
+├── country/          # SearchableCountryList
+├── footer/           # PortfolioFooter, TechStackSection, CountriesNote
+├── layout/           # Header (with sound toggle), FloatingPillNav, EarthIcon logo
+├── map/              # WorldMap (lazy), CountryTooltip
+├── postcard/         # PostcardSection (lazy), Front/Back, stamps, SharedPostcardBanner
+├── recommendations/  # RecommendationsSection (lazy), PreferencesForm, cards, grid
+├── search/           # SearchBox, SearchPanel, MobileSearchPanel, autocomplete
+└── ui/               # shadcn/ui (auto-generated — DO NOT edit directly)
 ```
 
-### Type System
+### Lazy Loading
 
-**Country Interface** (`src/types/country.ts`):
-- `countryCode` - ISO 3166-1 alpha-2 (e.g., "US")
-- `countryName` - Full name
-- `region` - Continent/region
-- `currencyCode` - ISO 4217
-- `flagEmoji` - Unicode flag emoji
-- `description` - Two-sentence travel summary
-- `baselineCost` / `nightlyCost` - Placeholder travel costs (USD)
+Three heavy components are lazy-loaded via `React.lazy()` in `App.tsx`:
+- `WorldMap` — react-simple-maps + d3-geo
+- `RecommendationsSection` — form + algorithm + Unsplash
+- `PostcardSection` — html-to-image generation
 
-**Travel cost tiers** live in `public/data/country-travel-costs.json` and are keyed by countryCode.
-
-**UserData Interface** (`src/types/user.ts`):
-- `beenTo: string[]` - Array of country codes
-- `wantToGo: string[]` - Array of country codes
-- `lastUpdated: Date`
-- `version: string`
-
-### shadcn/ui Components
-
-The project uses shadcn/ui for UI components. These live in `src/components/ui/` and are auto-generated:
-
-```bash
-# Add a new component
-npx shadcn-ui@latest add button
-npx shadcn-ui@latest add card
-```
-
-**Important:** Don't manually edit files in `src/components/ui/`. If customization is needed, create a wrapper component.
+Manual chunks in `vite.config.ts` split: `react-vendor`, `map`, `ui`.
 
 ## Map Implementation
 
-The project uses `react-simple-maps` for the interactive world map:
+Uses `react-simple-maps` with `ZoomableGroup` and `d3-geo` projections.
 
-- GeoJSON data: `public/data/countries.geo.json` (Natural Earth 10m resolution)
-- Country metadata: `public/data/countries.json`
+### Click-to-Toggle Pattern
 
-### Country Descriptions
-- Descriptions are generated from Wikipedia page summaries (two sentences, travel-pitch tone).
-- Generation script: `scripts/generate_country_descriptions.mjs`
-- Source log: `docs/COUNTRY_DESCRIPTION_SOURCES.md`
-- Map colors: Defined in `src/lib/map/colors.ts` using "Midnight Map" theme
+**Problem:** `ZoomableGroup` captures clicks via a transparent rect overlay before they reach `<Geography>` elements.
 
-### Click-to-Toggle Implementation
-
-**Challenge:** `react-simple-maps`' `ZoomableGroup` component uses a transparent rect overlay for pan/zoom gestures, which captures clicks before they reach Geography elements. Additionally, `ZoomableGroup` implements click-to-zoom functionality that conflicts with country selection.
-
-**Solution:** Global click listener with capture phase
-
+**Solution:** Global capture-phase click listener in `WorldMap.tsx`:
 ```typescript
-// src/components/map/WorldMap.tsx
-useEffect(() => {
-  const handleGlobalClick = (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
-    if (target.tagName.toLowerCase() === 'path') {
-      const countryCode = target.getAttribute('data-country-code');
-      // Handle country click logic
-    }
-  };
-
-  // Capture phase intercepts clicks before ZoomableGroup
-  document.addEventListener('click', handleGlobalClick, true);
-  return () => document.removeEventListener('click', handleGlobalClick, true);
-}, [dependencies]);
+document.addEventListener('click', handleGlobalClick, true);  // capture phase
 ```
+Each `<Geography>` gets a `data-country-code` attribute. The handler checks `event.target.tagName === 'path'` and reads the attribute.
 
-**Key techniques:**
-1. **Capture phase listener:** `addEventListener(..., true)` fires before ZoomableGroup's handlers
-2. **Data attributes:** Each Geography has `data-country-code` attribute for identification
-3. **Smart drag detection:** `useMapZoom` hook only sets `isDragging=true` if map position actually changed (prevents clicks from being flagged as drags)
-4. **Animation:** CSS keyframes in `src/index.css` provide scale/glow effect on add
+**Drag detection:** `useMapZoom` only flags `isDragging=true` if the map position actually changed, preventing clicks from being misidentified as drags.
 
-**User flows:**
-- Click unvisited country → Instant add with animation (600ms pulse)
-- Click visited country → removes immediately (no confirmation dialog)
-- "+ Add Country" button → Modal for search/browse (alternative to map clicking)
+### Map Colors
 
-## Key Patterns and Conventions
+Theme-aware via CSS variables in `src/lib/map/colors.ts`. Colors adapt to light/dark mode automatically. Key states: unvisited, been-to (teal), hover, hover-remove, add-flash, spotlight.
 
-### File Naming
+## Recommendations Engine
 
-- **Components:** PascalCase - `CountryCard.tsx`
-- **Hooks:** camelCase with `use` prefix - `useCountries.ts`
-- **Utils:** camelCase - `formatCurrency.ts`
-- **Types:** PascalCase - `country.ts` (exports `Country` interface)
+Located in `src/lib/recommendations/`:
+- `algorithm.ts` - Scores countries by interest match, distance, and cost
+- `costCalculator.ts` - Computes budget/modest/bougie breakdowns for 7-day trips
+- `distanceCalculator.ts` - Great-circle distance from home country
+- `reasonGenerator.ts` - Creates personalized recommendation text
+- `verbGenerator.ts` - Playful action verbs ("Explore", "Wander", "Frolic")
 
-### Component Structure
+Images are enriched asynchronously from Unsplash after initial results render. Falls back to flag emojis on gradient backgrounds if no API key.
 
-```typescript
-// 1. Imports
-import { useState } from 'react';
-import type { Country } from '@/types';
-
-// 2. Props interface
-interface CountryCardProps {
-  country: Country;
-  onToggle: (code: string) => void;
-}
-
-// 3. Component with named export
-export const CountryCard = ({ country, onToggle }: CountryCardProps) => {
-  // Hooks first
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Event handlers
-  const handleClick = () => onToggle(country.countryCode);
-
-  // Render
-  return <div>{/* JSX */}</div>;
-};
-```
-
-### Styling
-
-Mobile-first Tailwind CSS:
-
-```typescript
-// Responsive breakpoints: sm:640px, md:768px, lg:1024px, xl:1280px
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-```
-
-Group classes logically (layout, spacing, colors, effects):
-
-```typescript
-<div className="
-  flex items-center gap-2
-  px-4 py-2
-  bg-white hover:bg-gray-50
-  border border-gray-200 rounded-lg
-  transition-colors
-">
-```
-
-### TypeScript Guidelines
-
-- Use explicit types for props and return values
-- Prefer `type` imports: `import type { Country } from '@/types'`
-- Avoid `any` - use `unknown` if type is truly unknown
-- Interfaces for objects, types for unions/primitives
-
-## Firebase Migration Plan (Post-MVP)
-
-The codebase is architected for a seamless localStorage → Firestore migration:
-
-1. **MVP (current):** `LocalStorageAdapter` handles all persistence
-2. **v1.1+:** Add `FirestoreAdapter` implementing the same `StorageAdapter` interface
-3. **Migration:** Update `src/lib/storage/index.ts` to export Firestore adapter based on auth state
-4. **No component changes required** - the abstraction layer handles everything
-
-See `STORAGE_STRATEGY.md` for the full migration plan.
-
-## Important Context
-
-### Project Documentation
-
-Extensive documentation exists in the repo:
-- `PROJECT_BRIEF.md` - Product vision and requirements
-- `ARCHITECTURE.md` - Detailed codebase structure (more comprehensive than this file)
-- `DEVELOPMENT.md` - Development workflow and conventions
-- `FEATURES.md` - Feature checklist with implementation status
-- `ROADMAP.md` - MVP scope vs. future features
-- `STORAGE_STRATEGY.md` - localStorage → Firestore migration strategy
-
-**When in doubt, consult these files** - they contain the full context and decisions.
-
-### Current Development Phase
-
-**✅ Phase 1 Complete:** Foundation (Vite, React, TypeScript, Tailwind v4, Storage Layer)
-
-**🔵 In Progress:** Single-page layout conversion
-- Map hero section with WorldMap component
-- Country selection via AddCountryModal
-- Placeholder sections for Directory, Been To, Want To Go, Stats
-
-**⚪ Next:** Country card components and directory implementation
+## Styling
 
 ### Tailwind v4
+- CSS-based configuration in `src/index.css` (no `tailwind.config.js`)
+- `@tailwindcss/postcss` handles processing
+- Theme colors defined as CSS custom properties
 
-The project uses **Tailwind CSS v4** (latest) with PostCSS integration:
-- Config: Uses CSS-based configuration in `src/index.css`
-- No `tailwind.config.js` for theme (uses defaults + CSS variables)
-- `@tailwindcss/postcss` package handles processing
+### Conventions
+- Mobile-first: base styles for mobile, `sm:` / `md:` / `lg:` for larger
+- Group classes logically: layout, spacing, colors, effects
+- Use CSS variables via `var(--color-*)` for theme colors
+- For highly custom buttons, prefer native `<button>` over shadcn `<Button>` to avoid cva conflicts
+- Never edit `src/components/ui/` directly — create wrapper components instead
 
 ### Midnight Map Theme
+Map colors in `src/lib/map/colors.ts` use CSS variables that adapt to light/dark mode:
+- Ocean: dark blue-gray
+- Visited: teal
+- Unvisited: subtle gray
+- Celestial animations: sun/moon with CSS in `src/index.css`
 
-The map uses a custom dark theme called "Midnight Map" defined in `src/lib/map/colors.ts`:
-- Ocean: Dark blue-gray background
-- Visited countries: Teal highlights
-- Unvisited: Subtle gray
-- Borders: Muted for clean appearance
+## Testing
 
-## Testing and Quality (Post-MVP)
+### Unit Tests (Vitest + React Testing Library)
+- Config: `test` block in `vite.config.ts`
+- Setup: `src/test/setup.ts`
+- Convention: `__tests__/` directories co-located with source
+- Run: `pnpm test` (watch) or `pnpm test:run` (CI)
 
-No testing framework is currently configured. When implementing tests:
-- Use Vitest (see `TESTING.md` for planned strategy)
-- Unit tests for hooks and utilities
-- Integration tests for user flows
-- E2E tests for critical paths (optional, Playwright)
+### E2E Tests (Playwright)
+- Config: `playwright.config.ts`
+- Run: `pnpm test:e2e`
+
+See [WORKFLOWS.md](WORKFLOWS.md) for the TDD workflow.
 
 ## Common Pitfalls
 
-1. **Don't directly mutate state arrays:**
+1. **Don't mutate state arrays:**
    ```typescript
    // ❌ Wrong
-   beenTo.push('US');
-   setBeenTo(beenTo);
-
+   beenTo.push('US'); setBeenTo(beenTo);
    // ✅ Correct
    setBeenTo([...beenTo, 'US']);
    ```
 
 2. **Don't bypass the storage adapter:**
-   Always use `storage` from `@/lib/storage`, never raw localStorage/Firestore calls.
+   Use `storage` from `@/lib/storage`, never raw localStorage calls.
 
 3. **Don't edit shadcn/ui components directly:**
    They're auto-generated. Create wrapper components for customization.
 
-4. **Don't add new routes in `App.tsx`:**
-   The app is single-page - use anchor links and sections instead.
+4. **Don't add routes to App.tsx:**
+   The app is single-page — use anchor links and sections.
 
 5. **Environment variables must start with `VITE_`:**
    ```bash
-   # .env.local
-   VITE_FIREBASE_API_KEY=your-key-here
+   VITE_UNSPLASH_ACCESS_KEY=your-key-here
    ```
-   Access in code: `import.meta.env.VITE_FIREBASE_API_KEY`
+   Access: `import.meta.env.VITE_UNSPLASH_ACCESS_KEY`
+
+6. **HTTPS required for dev:**
+   Geolocation API requires HTTPS. `pnpm dev` handles this via mkcert certs in `.cert/`.
 
 ## Git Workflow
 
-Commit message format:
 ```
 <type>: <description>
 
-Types: feat, fix, docs, style, refactor, test, chore
-
-Examples:
-feat: add country search filter
-fix: correct map centering on mobile
-docs: update architecture documentation
+Types: feat, fix, docs, style, refactor, perf, test, chore
 ```
 
-Last updated: 2026-01-28
+## Key Files Reference
+
+| File | Purpose |
+|------|---------|
+| `src/App.tsx` | Root component — all sections rendered here |
+| `src/hooks/useUserData.ts` | beenTo/wantToGo state + localStorage persistence |
+| `src/hooks/useRecommendations.ts` | Recommendation generation + Unsplash enrichment |
+| `src/components/map/WorldMap.tsx` | Interactive map with click-to-toggle |
+| `src/lib/storage/interface.ts` | StorageAdapter contract |
+| `src/lib/recommendations/algorithm.ts` | Scoring algorithm |
+| `src/lib/map/colors.ts` | Theme-aware map color palette |
+| `src/index.css` | Global styles, Tailwind v4 config, CSS variables, animations |
+| `public/data/countries.json` | All country metadata (195+ entries) |
+| `public/data/country-travel-costs.json` | Budget/modest/bougie cost tiers |
+
+Last updated: 2026-02-18

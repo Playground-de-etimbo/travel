@@ -54,7 +54,7 @@ Thumbs.db
 .settings/
 *.sublime-workspace
 
-# Firebase
+# Firebase (removed from project, keeping ignore rules)
 .firebase/
 .firebaserc
 firebase-debug.log
@@ -90,8 +90,13 @@ temp/
 .playwright-mcp/
 @/
 
-# Temporary design screenshots in root
+# Temporary design screenshots and mockups in root
 /*.png
+/*.html
+!index.html
+
+# Script caches
+scripts/.cache/
 
 # Local HTTPS certificates (mkcert)
 .cert/

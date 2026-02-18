@@ -164,19 +164,7 @@ If you want to use the travel recommendations feature, add to `.env.local`:
 VITE_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
 ```
 
-### v1.1+ Setup (With Firebase Auth/Sync)
-
-When implementing authentication and cross-device sync in v1.1+, uncomment these in `.env.local`:
-
-```bash
-# v1.1+ only - not needed for MVP
-# VITE_FIREBASE_API_KEY=your_api_key
-# VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-# VITE_FIREBASE_PROJECT_ID=your_project_id
-# VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-# VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-# VITE_FIREBASE_APP_ID=your_app_id
-```
+**Note:** Docker runs HTTP, not HTTPS. The geolocation auto-detect feature requires HTTPS and won't work in Docker. Use local development (`pnpm dev`) for full feature testing.
 
 Docker Compose automatically loads `.env.local` when present.
 
@@ -323,7 +311,7 @@ docker-compose exec app pnpm build
 ```
 
 The `dist/` folder contains the production build, which you can:
-- Deploy to Firebase Hosting: `firebase deploy`
+- Deploy to Vercel: `vercel --prod`
 - Copy from container: `docker cp travel-planner-dev:/app/dist ./dist`
 
 ---
@@ -366,7 +354,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-Not needed for MVP (Firebase Hosting handles this), but useful for self-hosting.
+Not needed currently (Vercel handles hosting), but useful for self-hosting.
 
 ---
 
@@ -399,12 +387,11 @@ docker-compose up --build
 ## Next Steps
 
 1. Install Docker Desktop
-2. Create `.env.local` with Firebase config
-3. Run `docker-compose up`
-4. Start coding! 🚀
+2. Run `docker-compose up`
+3. Start coding!
 
-For non-Docker setup, see [SETUP.md](SETUP.md)
+For non-Docker setup, see the Quick Start section in [README.md](README.md)
 
 ---
 
-Last updated: 2026-01-27
+Last updated: 2026-02-18
